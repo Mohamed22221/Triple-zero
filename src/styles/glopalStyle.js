@@ -6,9 +6,10 @@ const GlopalStyle = createGlobalStyle`
   --background-color:  #e5e5e5;
   --background-opacity:#7070706b;
   --succes-color:#198754;
-  --danger-color:#F32013
-  --font: #505050;
+  --danger-color:#F32013;
+  --font: #686868;
   --orange-color: #FF6947;
+  --white-color:#fff;
 } 
 *{
   box-sizing: border-box;

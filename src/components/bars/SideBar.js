@@ -1,27 +1,14 @@
 import React ,{useState} from 'react'
 import styled from "styled-components"
 import logo from "../../photo/glopal/logo.svg"
-import home from "../../photo/icons/home.svg"
-import customers from "../../photo/icons/customers.svg"
-import arithmetic from "../../photo/icons/arithmetic.svg"
-import settings from "../../photo/icons/settings.svg"
 import logout from "../../photo/icons/logout.svg"
 import { AiOutlineAppstore  } from 'react-icons/ai';
 import {  BsPerson } from 'react-icons/bs';
 import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
 
-
-
-
-
-
-
 const SideBar = ({toogleBar,HandelClose}) => {
-    const  [activeLink ,setActive] = useState("item-widget") 
-    const activeFunction = () =>{
-       setActive("active")
-    }
+
   return (
      
     <StyleSideBar toogleBar={toogleBar}   >
@@ -35,7 +22,7 @@ const SideBar = ({toogleBar,HandelClose}) => {
             <a  onClick={HandelClose}   >
                 <div className= "item-widget"    >
                     <AiOutlineAppstore className='icon-name'/>
-                    <li >الرئيسيه</li>
+                    <li >الرئيسية</li>
                 </div>
             </a>
             <a  onClick={HandelClose}   >
@@ -50,7 +37,7 @@ const SideBar = ({toogleBar,HandelClose}) => {
                 </div>
                 <div className='item-widget'>
                     <MdOutlineSettings className='icon-name' />
-                    <li>الاعدادات</li>
+                    <li>الأعدادات</li>
                 </div>              
             </ul>
         </div>
