@@ -7,6 +7,7 @@ padding: 20px;
 width: 100%;
 @media (max-width: 720px) {
     margin-right: 0px;
+    padding: 10px;
 }
 `
  

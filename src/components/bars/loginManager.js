@@ -23,10 +23,15 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 width: 280px;
+@media (max-width:460px) {
+    margin: 10px 0;
+}
+
 `
 const StyleRightloginManager= styled.div`
 display: flex;
 align-items: center;
+
 img{
     width: 35px;
     height: 35px;
@@ -37,7 +42,6 @@ img{
 
 `
 const StyleLeftloginManager= styled.div`
-
 
 
 `

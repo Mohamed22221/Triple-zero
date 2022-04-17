@@ -57,6 +57,7 @@ const Notifications = () => {
 }
 const StyleNotifications= styled.div`
 position: relative;
+
 img {
     cursor: pointer;
     margin-top: 5px;
@@ -64,6 +65,9 @@ img {
 
 }
 .content-notification{
+   
+    height: 270px;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -71,9 +75,20 @@ img {
     width: 270px;
     top: 55px;
     left: -5px;
-    transition: 0.4s linear;
+    transition: 0.3s linear;
     opacity: ${props => props.notifications ? "1" : "0"};
     z-index: 2;
+    &::-webkit-scrollbar{
+        width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--secound-color);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+	/* تلوين منطقة التي يتحرك فيها Scroll */
+	background: var(--primary-color);
+    }
     .title{
         width: 100%;
         text-align: center;
