@@ -74,9 +74,9 @@ img {
     background-color: white;
     width: 270px;
     top: 55px;
-    left: -5px;
+    left: -10px;
     transition: 0.3s linear;
-    opacity: ${props => props.notifications ? "1" : "0"};
+    display:  ${props => props.notifications ? "block" : "none"};
     z-index: 2;
     &::-webkit-scrollbar{
         width: 4px;

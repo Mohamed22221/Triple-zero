@@ -2,10 +2,12 @@ import React ,{useState} from 'react'
 import TopBar from '../components/bars/TopBar'
 import {MarginPages} from '../styles/MarginPages'
 
-const Home = () => {
+const Home = ({HandelShow}) => {
+
+  
   return (
     <MarginPages>
-        <TopBar title={"الرئيسية"} />
+        <TopBar title={"الرئيسية"} HandelShow={HandelShow} />
     </MarginPages>
   )
 }

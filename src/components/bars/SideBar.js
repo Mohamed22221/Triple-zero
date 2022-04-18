@@ -7,11 +7,11 @@ import {  BsPerson } from 'react-icons/bs';
 import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
 
-const SideBar = ({toogleBar,HandelClose}) => {
-
+const SideBar = ({showBar,HandelClose }) => {
+    
   return (
      
-    <StyleSideBar toogleBar={toogleBar}   >
+    <StyleSideBar showBar={showBar}    >
         <StyleTop >
         <div className='img-logo'>
             <img src={logo} />
@@ -70,8 +70,8 @@ overflow: hidden;
 -webkit-box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
 -moz-box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
 box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
-@media (max-width:720px ) {
-transform: ${({toogleBar}) => toogleBar ? 'translateX(0)' : 'translateX(290px)'};
+@media (max-width:1180px ) {
+transform: ${({showBar}) => showBar ? 'translateX(0)' : 'translateX(290px)'};
 }
 
 

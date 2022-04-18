@@ -4,10 +4,10 @@ import LoginManager from "./loginManager"
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
+import { BsTextParagraph } from 'react-icons/bs';
 
 
-
-const TopBar = ({title}) => {
+const TopBar = ({title ,HandelShow}) => {
   return (
     <StyleTopBar>
         <StyleRightTopBar>
@@ -23,6 +23,7 @@ const TopBar = ({title}) => {
         </StyleRightTopBar>
         <StyleLeftTopBar>
             <LoginManager />
+            <BsTextParagraph className='icon-topbar' onClick={HandelShow} />
         </StyleLeftTopBar>
         
     </StyleTopBar>
@@ -64,6 +65,10 @@ margin-left: 20px;
         border-radius: 7px;
         &::placeholder{
             color: var(--font);
+            @media (max-width:460px) {  
+            width: 100px;
+            font-size: 13px;
+        }
         }
         @media (max-width:1610px) {
             width: 550px;
@@ -100,8 +105,8 @@ margin-left: 20px;
     .icon-topbar{
         font-size: 30px;
         margin: 0 5px;
-        @media (max-width:368px) {
-            font-size: 23px;
+        @media (max-width:375px) {
+            font-size: 24px;
             margin: 0 2px;
     }
     }
@@ -112,5 +117,17 @@ margin-left: 20px;
 const StyleLeftTopBar = styled.div`
 display: flex;
 justify-content: space-between;
+align-items: center;
+.icon-topbar{
+    z-index: 10;
+    font-size: 35px;
+    width: 40px;
+    margin: 10px;
+    cursor: pointer;
+    display: none;
+    @media (max-width: 1180px) {
+        display:block
+}
+}
 `
 export default TopBar

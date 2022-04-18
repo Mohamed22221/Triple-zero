@@ -25,6 +25,7 @@ align-items: center;
 width: 280px;
 @media (max-width:460px) {
     margin: 10px 0;
+    width: 260px;
 }
 
 `
