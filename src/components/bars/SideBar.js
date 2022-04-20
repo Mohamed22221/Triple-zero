@@ -6,7 +6,7 @@ import { AiOutlineAppstore  } from 'react-icons/ai';
 import {  BsPerson } from 'react-icons/bs';
 import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
-
+import { Link } from "react-router-dom";
 const SideBar = ({showBar,HandelClose }) => {
     
   return (
@@ -19,12 +19,12 @@ const SideBar = ({showBar,HandelClose }) => {
         </div>
         <div className='widget'>
             <ul >
-            <a  onClick={HandelClose}   >
+            <Link to="/Triple-zero"  onClick={HandelClose}   >
                 <div className= "item-widget"    >
                     <AiOutlineAppstore className='icon-name'/>
                     <li >الرئيسية</li>
                 </div>
-            </a>
+            </Link>
             <a  onClick={HandelClose}   >
                 <div className="item-widget"  >
                     <MdSupervisorAccount className='icon-name' />
@@ -102,6 +102,7 @@ span img{
     display: flex;
     justify-content: center;
     ul .item-widget{
+        
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -123,7 +124,7 @@ span img{
         }
     }
     ul a{
-        
+        color: white;
         background-color: black !important;
 
     }

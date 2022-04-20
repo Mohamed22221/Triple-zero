@@ -22,5 +22,8 @@ const Home = ({HandelShow}) => {
 const StyleFlex = styled.div`
 display: flex;
 justify-content: space-between;
+@media (max-width:910px) {
+  flex-direction: column;
+}
 `
 export default Home

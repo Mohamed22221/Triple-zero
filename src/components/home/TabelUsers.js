@@ -54,7 +54,7 @@ const TabelUsers = () => {
 const MainTabel = styled.div`
 overflow-x: auto;
 width: 65%;
-@media (max-width:770px ) {
+@media (max-width:910px ) {
      width:100% ;
 }
 `
