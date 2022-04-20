@@ -3,7 +3,7 @@ const GlopalStyle = createGlobalStyle`
 :root{
   --primary-color:#FBA30D;
   --secound-color:#2A2E33;
-  --background-color:  #ededed;
+  --background-color:  #f1f1f1;
   //#ebebeb
   --background-opacity:#7070706b;
   --succes-color:#17a563;
