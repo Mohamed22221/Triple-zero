@@ -72,6 +72,7 @@ width: 33%;
   flex-direction: column;
   justify-content: space-between;
   width:100% ;
+  margin-top: 15px;
 }
 `
 const StyleItemWedgetAlert = styled.div`
