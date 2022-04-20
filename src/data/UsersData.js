@@ -9,7 +9,7 @@ const UserData = [
       price: "$1300",
       duration: "3 أشهر",
       paymentDate: "5/6/2021",
-      state: "تم الدفع",
+      state: "تاخر الدفع",
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const UserData = [
       price: "$1300",
       duration: "3 أشهر",
       paymentDate: "5/6/2021",
-      state: "تم الدفع",
+      state: "تاخر الدفع",
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ const UserData = [
       price: "$1300",
       duration: "3 أشهر",
       paymentDate: "5/6/2021",
-      state: "تم الدفع",
+      state: "تاخر الدفع",
     },
     {
       id: 5,
@@ -65,6 +65,7 @@ const UserData = [
       duration: "3 أشهر",
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      
     }, 
     {
       id: 7,
@@ -163,7 +164,7 @@ const UserData = [
       price: "$1300",
       duration: "3 أشهر",
       paymentDate: "5/6/2021",
-      state: "تم الدفع",
+      state: "لم يتم الدفع",
     },      
 ]
 export default UserData

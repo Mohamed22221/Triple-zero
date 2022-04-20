@@ -3,9 +3,9 @@ const GlopalStyle = createGlobalStyle`
 :root{
   --primary-color:#FBA30D;
   --secound-color:#2A2E33;
-  --background-color:  #e5e5e5;
+  --background-color:  #ebebeb;
   --background-opacity:#7070706b;
-  --succes-color:#198754;
+  --succes-color:#17a563;
   --danger-color:#F32013;
   --font: #686868;
   --orange-color: #FF6947;
