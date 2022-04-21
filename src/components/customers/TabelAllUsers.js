@@ -2,10 +2,11 @@ import React from 'react'
 import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import { BsArrowLeftShort } from 'react-icons/bs';
+import SortTabel from './SortTabel';
 const TabelAllUsers = () => {
   return (
   <MainTabel>
+      <SortTabel />
     <Tabel>
         <Thead>
             <TrHead>
@@ -52,19 +53,15 @@ const MainTabel = styled.div`
     overflow-x: auto;
      width:100% ;
      height: 80vh;
-    padding: 0 40px;
-    margin-top: 20px;
+    padding:  50px;
+    
 
     @media (max-width:1180px) {
         padding: 0 0px;
     }
-    
      &::-webkit-scrollbar{
-        
-        width: 0;
-        
+        width: 0;   
     }
-
 
 
 `
@@ -72,9 +69,10 @@ const Tabel = styled.table`
     text-align: center;
     border: 0px;
     border-spacing: 0px 20px;
-    padding: 0 40px;
     align-items: center;
     width:100% ;
+    margin: 0;
+    padding: 0;
     @media (max-width:1180px) {
         padding: 0 10px;
     }

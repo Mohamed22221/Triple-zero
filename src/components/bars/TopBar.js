@@ -5,8 +5,6 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
 import { BsTextParagraph } from 'react-icons/bs';
-
-
 const TopBar = ({title ,HandelShow}) => {
   return (
     <StyleTopBar>

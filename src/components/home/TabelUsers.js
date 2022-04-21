@@ -77,9 +77,7 @@ const Thead = styled.thead`
 const TrHead = styled.tr`
     background-color: var(--secound-color);
     color: white;
-    @media (max-width:550px) {
-        background-color: var(--primary-color);  
-    }
+
 th{
     padding: 10px 30px;
     @media (max-width:720px) {
@@ -99,6 +97,12 @@ td {
     border:0;
     color: var(--font);
     font-size: 17px;
+    &:first-child{
+        border-radius: 10px;
+    }
+    &:last-child{
+        border-radius: 10px;
+    }
     img{
         width: 60px;
         height: 60px;

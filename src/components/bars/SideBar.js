@@ -8,7 +8,7 @@ import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
 import { Link } from "react-router-dom";
 const SideBar = ({showBar,HandelClose }) => {
-    
+
   return (
      
     <StyleSideBar showBar={showBar}    >
@@ -19,10 +19,10 @@ const SideBar = ({showBar,HandelClose }) => {
         </div>
         <div className='widget'>
             <ul >
-            <Link to="/Triple-zero"  onClick={HandelClose}   >
-                <div className= "item-widget"    >
+            <Link to="/Triple-zero" onClick={HandelClose}       >
+                <div className= "item-widget" >
                     <AiOutlineAppstore className='icon-name'/>
-                    <li >الرئيسية</li>
+                    <li  >الرئيسية</li>
                 </div>
             </Link>
             <Link to="/Customers"  onClick={HandelClose}   >
@@ -85,24 +85,19 @@ align-items: center;
 position: relative;
 flex-direction: column;
 img{
-
 transition: 0.7s; 
 }
 span img{
     width: 5px;
 }
-
 }
-
-
 //ul icon 
 .widget{
     margin-top: 80px;
     transition:0.7s;
     display: flex;
     justify-content: center;
-    ul .item-widget{
-        
+     .item-widget{
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -114,7 +109,7 @@ span img{
            transition: 0.6s;
         }
         &:hover{
-            background-color: var(--background-opacity);
+            background-color:  var(--background-opacity) ;
             li{
                 color: var(--primary-color);
             }
@@ -125,12 +120,10 @@ span img{
     }
     ul a{
         color: white;
-        background-color: black !important;
 
     }
     ul li{
         transition: 0.6s;
-        color:white;
         font-size: 17px;
         margin-right: 10px;  
     }
