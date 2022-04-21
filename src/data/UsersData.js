@@ -15,7 +15,7 @@ const UserData = [
       id: 2,
       logo: Logo ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "محمد العتيبي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: "3 أشهر",

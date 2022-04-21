@@ -1,11 +1,21 @@
 import React ,{useState} from 'react'
 import styled from "styled-components"
 import { AiOutlineSearch } from 'react-icons/ai';
-const SearchCustomer = () => {
+const SearchCustomer = ({setSortSearch ,searchSort}) => {
+    // value inbut finction
+    const HandelValue = (e) =>{
+        setSortSearch(e.target.value)
+    }
+
+
+
+
+    
   return (
     <StyleSearchCustomer>
-              <input type="search" placeholder='أبحث عن اسم العميل' />
-            <AiOutlineSearch className='icon-search' />
+              <input type="search" placeholder='أبحث عن اسم العميل' 
+              onChange={HandelValue}  />
+            <AiOutlineSearch className='icon-search'  />
     </StyleSearchCustomer>
   )
 }

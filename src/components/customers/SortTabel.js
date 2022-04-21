@@ -5,12 +5,12 @@ import BlackList from './BlackList'
 import IconsSort from './IconsSort'
 import SearchCustomer from './SearchCustomer'
 import SortBy from './SortBy'
-const SortTabel = () => {
+const SortTabel = ({setSortSearch ,searchSort}) => {
   return (
     <StyleMainSort>
         <BlackList />
         <IconsSort />
-        <SearchCustomer />
+        <SearchCustomer searchSort={searchSort} setSortSearch={setSortSearch} />
         <SortBy />
         <AddClint />
     </StyleMainSort>

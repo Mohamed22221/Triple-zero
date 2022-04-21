@@ -3,10 +3,11 @@ import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
-const TabelAllUsers = () => {
+const TabelAllUsers = ({searchSort , setSortSearch}) => {
+    
   return (
   <MainTabel>
-      <SortTabel />
+      <SortTabel setSortSearch={setSortSearch} searchSort={searchSort}  />
     <Tabel>
         <Thead>
             <TrHead>
@@ -22,7 +23,14 @@ const TabelAllUsers = () => {
             </TrHead>
         </Thead>
         <Tbody>
-        {UserData.map((user , index) =>{
+        {UserData.filter((item)=>{
+
+            if (searchSort === "") {
+                return item
+            } else if (item.name.includes(searchSort)) {
+                return item
+            }
+        }).map((user , index) =>{
             return (
                 <TrBody key={index}>
                     <td><img src={user.logo} alt="logo" /></td>
