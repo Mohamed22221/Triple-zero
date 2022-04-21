@@ -59,12 +59,12 @@ const Widgets = () => {
 
 //style Wedget
 const StyleWedget = styled.div`
-margin-top: 44px;
+margin-top: 33px;
 width: 33%;
 @media (max-width:910px) {
   display:grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-  gap: 10px;
+  gap:0 10px ;
   width:100% ;
 }
 @media (max-width:760px) {
@@ -82,6 +82,7 @@ padding: 30px;
 display: flex;
 align-items: center;
 border-radius: 10px;
+margin: 10px 0;
 h4{
     margin-right: 40px;
     font-size: 20px;

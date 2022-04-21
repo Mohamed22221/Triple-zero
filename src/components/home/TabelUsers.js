@@ -69,16 +69,6 @@ const Tabel = styled.table`
      margin-top: 10px;
      width:100% ;
     }
-    &::-webkit-scrollbar{
-        width: 4px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--secound-color);
-        border-radius: 10px;
-    }
-    &::-webkit-scrollbar-track {
-	background: var(--primary-color);
-    }
 
 `
 const Thead = styled.thead`
@@ -87,7 +77,9 @@ const Thead = styled.thead`
 const TrHead = styled.tr`
     background-color: var(--secound-color);
     color: white;
-
+    @media (max-width:550px) {
+        background-color: var(--primary-color);  
+    }
 th{
     padding: 10px 30px;
     @media (max-width:720px) {
