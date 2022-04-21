@@ -25,12 +25,12 @@ const SideBar = ({showBar,HandelClose }) => {
                     <li >الرئيسية</li>
                 </div>
             </Link>
-            <a  onClick={HandelClose}   >
+            <Link to="/Customers"  onClick={HandelClose}   >
                 <div className="item-widget"  >
                     <MdSupervisorAccount className='icon-name' />
                     <li>العملاء</li>
                 </div>
-            </a>
+            </Link>
                 <div className='item-widget'>
                 <BsPerson className='icon-name'/>
                     <li> حسابي</li>

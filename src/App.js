@@ -4,6 +4,7 @@ import styled from "styled-components"
 import React ,{useState} from 'react'
 import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
+import Customers from "./pages/Customers";
 function App() {
   const [showBar , setShowBar] = useState(false)
  
@@ -22,6 +23,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Home HandelShow={HandelShow}  />} />
       <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
+      <Route path="Customers" element={<Customers HandelShow={HandelShow} />} />
+
       </Routes>
       
       </BrowserRouter>

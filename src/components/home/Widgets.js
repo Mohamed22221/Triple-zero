@@ -78,7 +78,7 @@ width: 33%;
 const StyleItemWedgetAlert = styled.div`
 position: relative;
 background-color: white;
-padding: 30px;
+padding: 13px;
 display: flex;
 align-items: center;
 border-radius: 10px;

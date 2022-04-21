@@ -3,7 +3,7 @@ import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { BsArrowLeftShort } from 'react-icons/bs';
-const TabelUsers = () => {
+const TabelAllUsers = () => {
   return (
   <MainTabel>
     <Tabel>
@@ -21,7 +21,7 @@ const TabelUsers = () => {
             </TrHead>
         </Thead>
         <Tbody>
-        {UserData.slice(0 , 7 ).map((user , index) =>{
+        {UserData.map((user , index) =>{
             return (
                 <TrBody key={index}>
                     <td><img src={user.logo} alt="logo" /></td>
@@ -44,42 +44,54 @@ const TabelUsers = () => {
         })}
         </Tbody>
     </Tabel>
-    <MoreTabel >
-     <h4>250 عميل</h4>
-     <a>المزيد<BsArrowLeftShort className='BsArrowLeftShort'/></a>
-    </MoreTabel>
+
   </MainTabel> 
   )
 }
 const MainTabel = styled.div`
-overflow-x: auto;
-width: 65%;
-@media (max-width:910px ) {
+    overflow-x: auto;
      width:100% ;
-}
+     height: 80vh;
+    padding: 0 40px;
+    margin-top: 20px;
+
+    @media (max-width:1180px) {
+        padding: 0 0px;
+    }
+    
+     &::-webkit-scrollbar{
+        
+        width: 0;
+        
+    }
+
+
+
 `
 const Tabel = styled.table`
     text-align: center;
     border: 0px;
-    border-spacing: 0px 25px;
+    border-spacing: 0px 20px;
+    padding: 0 40px;
     align-items: center;
-    margin-top: 20px;
     width:100% ;
+    @media (max-width:1180px) {
+        padding: 0 10px;
+    }
     @media (max-width:770px ) {
      margin-top: 10px;
-     width:100% ;
+     padding: 0 0px;
     }
+  
 
 `
 const Thead = styled.thead`
+background-color:var(--secound-color);
+color: white;
 
 `
 const TrHead = styled.tr`
-    background-color: var(--secound-color);
-    color: white;
-    @media (max-width:550px) {
-        background-color: var(--primary-color);  
-    }
+
 th{
     padding: 10px 30px;
     @media (max-width:720px) {
@@ -166,28 +178,6 @@ td:last-child{
 }
 
 `
-const MoreTabel = styled.div`
-display: flex;
-justify-content: space-between;
-width: 100%;
-padding: 7px 20px ;
-background-color: white;
-h4{
-    font-weight: bold;
-    color: var(--font);
-}
-a{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-.BsArrowLeftShort{
-    font-size: 28px;
-    margin-top: 2px;
-}
-@media (max-width:770px ) {
-     width:100% ;
-    }
 
-`
-export default TabelUsers
+
+export default TabelAllUsers

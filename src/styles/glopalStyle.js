@@ -8,7 +8,7 @@ const GlopalStyle = createGlobalStyle`
   --background-opacity:#7070706b;
   --succes-color:#17a563;
   --danger-color:#b3170d;
-  --font: #686868;
+  --font: #8d8d8d;
   --orange-color: #FF6947;
   --white-color:#fff;
 } 
