@@ -117,6 +117,12 @@ td {
     border:0;
     color: var(--font);
     font-size: 17px;
+    &:first-child{
+        border-radius: 0px 10px 10px 0;
+    }
+    &:last-child{
+        border-radius: 10px 0px 0px 10px;
+    }
     img{
         width: 60px;
         height: 60px;
