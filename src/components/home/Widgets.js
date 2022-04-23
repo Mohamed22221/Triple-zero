@@ -60,7 +60,7 @@ const Widgets = () => {
 //style Wedget
 const StyleWedget = styled.div`
 margin-top: 33px;
-width: 33%;
+width: 25%;
 @media (max-width:910px) {
   display:grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );

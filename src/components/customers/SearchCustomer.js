@@ -6,11 +6,6 @@ const SearchCustomer = ({setSortSearch ,searchSort}) => {
     const HandelValue = (e) =>{
         setSortSearch(e.target.value)
     }
-
-
-
-
-    
   return (
     <StyleSearchCustomer>
               <input type="search" placeholder='أبحث عن اسم العميل' 
@@ -35,13 +30,10 @@ margin-left: 20px;
         &::placeholder{
             color: var(--font);
         }
-
-
         @media (max-width:460px) {  
             width: 180px;
            
         }
-
     }
     .icon-search{
         position: absolute;
@@ -50,7 +42,6 @@ margin-left: 20px;
         font-size: 26px;
         color: var(--font);
         cursor: pointer;
-
     }
 
 `

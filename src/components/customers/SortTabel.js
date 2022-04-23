@@ -25,7 +25,7 @@ box-shadow: 1px 8px 19px 4px rgba(141,141,141,0.48);
 -webkit-box-shadow: 1px 8px 19px 4px rgba(141,141,141,0.48);
 -moz-box-shadow: 1px 8px 19px 4px rgba(141,141,141,0.48);
 @media (max-width: 770px ) {
-  box-shadow:0px 0 0 0 ;
+box-shadow:0px 0 0 0 ;
 -webkit-box-shadow: 0 0 0 0;
 -moz-box-shadow: 0 0 0 0;
 }
