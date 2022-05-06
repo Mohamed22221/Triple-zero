@@ -4,15 +4,14 @@ import alert from "../../photo/icons/alert.svg"
 import Customer from "../../photo/icons/customerswedget.svg"
 import requests from "../../photo/icons/requestswedget.svg"
 import delevery from "../../photo/icons/deleverywedget.svg"
-
-
-
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiOutlineArrowUp } from 'react-icons/ai';
 
 
 
-const Widgets = () => {
+
+const Widgets = ({UserData}) => {
+    const counterCustomer = UserData.length
   return (
     <StyleWedget>
         <StyleItemWedgetAlert>
@@ -24,7 +23,7 @@ const Widgets = () => {
             <WedgetAboutRight>
             <img src={Customer}></img>
             <p>عدد العملاء</p>
-            <h2>250</h2>
+            <h2>{counterCustomer}</h2>
             </WedgetAboutRight>
             <WedgetAboutLeft>
             <BsThreeDotsVertical className='BsThreeDotsVertical' />

@@ -13,19 +13,18 @@ const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDa
       {id:4 , name:" المده" ,state:sortDuration},  
     ]
   })
-  //start Active Class
+  //start Active Class and state sort
   useEffect(() => {
     setDataSort(
       {...stateDataSort ,activeSort:stateDataSort.dataSort[0] }
     )
-    setSortedField(sortName)
- 
-  }, [setDataSort ,setSortedField])
+  }, [setDataSort ,])
    
   const HandelIndex = (index , item) =>{
     setDataSort(
       {...stateDataSort ,activeSort:stateDataSort.dataSort[index] }
     )
+    // //start Active Class and state sort
     setSortedField(item.state)
     
   }

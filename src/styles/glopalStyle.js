@@ -9,6 +9,7 @@ const GlopalStyle = createGlobalStyle`
   --succes-color:#17a563;
   --danger-color:#b3170d;
   --font: #8d8d8d;
+  --font-opacity:#b9b9b9;
   --orange-color: #FF6947;
   --white-color:#fff;
 } 

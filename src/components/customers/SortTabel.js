@@ -5,15 +5,26 @@ import BlackList from './BlackList'
 import IconsSort from './IconsSort'
 import SearchCustomer from './SearchCustomer'
 import SortBy from './SortBy'
-const SortTabel = ({setSortSearch ,searchSort ,setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate}) => {
+const SortTabel = (props) => {
+  const {HandelShowCustomer ,setSortSearch ,searchSort ,setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate } = props
   return (
     <StyleMainSort>
         <BlackList />
         <IconsSort />
-        <SearchCustomer searchSort={searchSort} setSortSearch={setSortSearch} />
-        <SortBy setSortedField={setSortedField} sortData={sortData} sortName={sortName} 
-        sortDuration={sortDuration} sortpaymentDate={sortpaymentDate}/>
-        <AddClint />
+        <SearchCustomer 
+        searchSort={searchSort}
+        setSortSearch={setSortSearch} 
+        />
+        <SortBy 
+        setSortedField={setSortedField} 
+        sortData={sortData}
+        sortName={sortName} 
+        sortDuration={sortDuration} 
+        sortpaymentDate={sortpaymentDate}
+        />
+        <AddClint 
+        HandelShowCustomer={HandelShowCustomer} 
+        />
     </StyleMainSort>
   )
 }

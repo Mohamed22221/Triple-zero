@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
 import logo from "../../photo/glopal/logo.svg"
 import logout from "../../photo/icons/logout.svg"
@@ -8,6 +8,63 @@ import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
 import { Link } from "react-router-dom";
 const SideBar = ({showBar,HandelClose }) => {
+    const [stateNav , setStateNav] = useState({
+        activeNav : null ,
+        NavBar : [
+            {
+                id:1 ,
+                name : "الرئيسية" ,
+                link: "/Triple-zero" ,
+                icon: AiOutlineAppstore,
+            
+            },
+            {
+                id:2 ,
+                name : "العملاء" ,
+                link: "/Customers" ,
+                icon: MdSupervisorAccount,
+            
+            },
+            {
+                id:3 ,
+                name : "حسابي" ,
+                link: "/Triple-zero" ,
+                icon: BsPerson,
+            
+            },
+            {
+                id:4 ,
+                name : "الأعدادات" ,
+                link: "/Triple-zero" ,
+                icon: MdOutlineSettings,
+            
+            },
+        ]
+
+    })
+      //start Active Class and state sort
+  useEffect(() => {
+    setStateNav(
+      {...stateNav ,activeSort:stateNav.NavBar[0] }
+    )
+  }, [setStateNav ])
+   
+  const HandelIndex = (index , item) =>{
+    setStateNav(
+      {...stateNav ,activeSort:stateNav.NavBar[index] }
+    )
+    // //start Active Class and state sort
+    
+    
+  }
+  const HandelClassName= (index) =>{
+    if(stateNav.NavBar[index] ==stateNav.activeSort ){
+      return "item-widget active"
+    }else{
+      return "item-widget unActive"
+    }
+  }
+//end Active Class
 
   return (
      
@@ -19,26 +76,16 @@ const SideBar = ({showBar,HandelClose }) => {
         </div>
         <div className='widget'>
             <ul >
-            <Link to="/Triple-zero" onClick={HandelClose}       >
-                <div className= "item-widget" >
-                    <AiOutlineAppstore className='icon-name'/>
-                    <li  >الرئيسية</li>
-                </div>
-            </Link>
-            <Link to="/Customers"  onClick={HandelClose}   >
-                <div className="item-widget"  >
-                    <MdSupervisorAccount className='icon-name' />
-                    <li>العملاء</li>
-                </div>
-            </Link>
-                <div className='item-widget'>
-                <BsPerson className='icon-name'/>
-                    <li> حسابي</li>
-                </div>
-                <div className='item-widget'>
-                    <MdOutlineSettings className='icon-name' />
-                    <li>الأعدادات</li>
-                </div>              
+            {stateNav.NavBar.map((item ,index) =>{
+                return (
+                    <Link key={item.id} to={item.link} onClick={HandelClose}>
+                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)}>
+                        <item.icon className='icon-name'/>
+                        <li>{item.name}</li>
+                    </div>
+                    </Link>
+                )
+            })}
             </ul>
         </div>
         </StyleTop>
@@ -118,6 +165,18 @@ span img{
             }
         }
     }
+    .active{
+        background-color:  var(--background-opacity) ; 
+        li{
+                color: var(--primary-color);
+            }
+            .icon-name {
+                color: var(--primary-color);
+            }
+        }
+        
+
+    
     ul a{
         color: white;
 
@@ -128,6 +187,7 @@ span img{
         margin-right: 10px;  
     }
 }
+
 `
 
 const Stylebutton = styled.div`

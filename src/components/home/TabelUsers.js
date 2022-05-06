@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
-import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { BsArrowLeftShort } from 'react-icons/bs';
-const TabelUsers = () => {
+import { Link } from "react-router-dom";
+const TabelUsers = ({UserData}) => {
   return (
   <MainTabel>
     <Tabel>
@@ -23,7 +23,7 @@ const TabelUsers = () => {
         <Tbody>
         {UserData.slice(0 , 7 ).map((user , index) =>{
             return (
-                <TrBody key={index}>
+                <TrBody key={user.id}>
                     <td><img src={user.logo} alt="logo" /></td>
                     <td>{user.idUser}</td>
                     <td>{user.name}</td>
@@ -46,7 +46,7 @@ const TabelUsers = () => {
     </Tabel>
     <MoreTabel >
      <h4>250 عميل</h4>
-     <a>المزيد<BsArrowLeftShort className='BsArrowLeftShort'/></a>
+     <Link to="/Customers">المزيد<BsArrowLeftShort className='BsArrowLeftShort'/></Link>
     </MoreTabel>
   </MainTabel> 
   )
@@ -161,6 +161,8 @@ td:last-child{
 .red{
     color: var(--danger-color);
     font-weight: bold;
+
+
     
         
     }

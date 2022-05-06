@@ -3,14 +3,12 @@ import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
-const TabelAllUsers = ({searchSort , setSortSearch}) => {
+const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
-    
-
     useEffect(() => {
-        setSortedField(UserData)
-    }, [])
+        setSortedField(sortName)
+    }, [setSortedField])
 
     const sortData = [...UserData].sort((a , b)=>{
         return a.state > b.state ? 1 : -1;
@@ -23,21 +21,22 @@ const TabelAllUsers = ({searchSort , setSortSearch}) => {
     })
     const sortpaymentDate = [...UserData].sort((a , b)=>{
         const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
-        return dateA - dateB
+        return dateB - dateA
     })
-    
-    
-    
-    
-
-
     
 
   return (
   <MainTabel>
-      <SortTabel setSortSearch={setSortSearch} searchSort={searchSort} 
-      UserData={UserData} setSortedField={setSortedField}
-       sortData={sortData} sortName={sortName} sortDuration={sortDuration} sortpaymentDate={sortpaymentDate}  />
+      <SortTabel 
+      setSortSearch={setSortSearch} 
+      searchSort={searchSort} 
+      HandelShowCustomer={HandelShowCustomer}
+       UserData={UserData} 
+       setSortedField={setSortedField}
+       sortData={sortData} 
+       sortName={sortName} 
+       sortDuration={sortDuration}
+       sortpaymentDate={sortpaymentDate}  />
     <Tabel>
         <Thead>
             <TrHead>
