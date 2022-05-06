@@ -1,18 +1,48 @@
-import React from 'react'
+import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
 const TabelAllUsers = ({searchSort , setSortSearch}) => {
+    //sort tabel 
+    const [sortedField, setSortedField] = useState([]);
     
+
+    useEffect(() => {
+        setSortedField(UserData)
+    }, [])
+
+    const sortData = [...UserData].sort((a , b)=>{
+        return a.state > b.state ? 1 : -1;
+    })
+    const sortName = [...UserData].sort((a , b)=>{
+        return a.name < b.name ? 1 : -1;
+    })
+    const sortDuration = [...UserData].sort((a , b)=>{
+        return a.duration > b.duration ? 1 : -1;
+    })
+    const sortpaymentDate = [...UserData].sort((a , b)=>{
+        const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
+        return dateA - dateB
+    })
+    
+    
+    
+    
+
+
+    
+
   return (
   <MainTabel>
-      <SortTabel setSortSearch={setSortSearch} searchSort={searchSort}  />
+      <SortTabel setSortSearch={setSortSearch} searchSort={searchSort} 
+      UserData={UserData} setSortedField={setSortedField}
+       sortData={sortData} sortName={sortName} sortDuration={sortDuration} sortpaymentDate={sortpaymentDate}  />
     <Tabel>
         <Thead>
             <TrHead>
-                <th>الشعار</th>
-                <th>ID</th>
+                <th >الشعار</th>
+                <th >ID</th>
                 <th>الأسم</th>
                 <th>تاريخ الاشتراك</th>
                 <th>السعر</th>
@@ -23,8 +53,7 @@ const TabelAllUsers = ({searchSort , setSortSearch}) => {
             </TrHead>
         </Thead>
         <Tbody>
-        {UserData.filter((item)=>{
-
+        {sortedField.filter((item)=>{
             if (searchSort === "") {
                 return item
             } else if (item.name.includes(searchSort)) {
@@ -38,7 +67,7 @@ const TabelAllUsers = ({searchSort , setSortSearch}) => {
                     <td>{user.name}</td>
                     <td>{user.dateSubscription}</td>
                     <td>{user.price}</td>
-                    <td>{user.duration}</td>
+                    <td>{user.duration} اشهر</td>
                     <td>{user.paymentDate}</td>
                     <td className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</td>
                     <td >

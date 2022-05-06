@@ -1,15 +1,16 @@
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
 
-const SortBy = () => {
+const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate}) => {
+  
 
   const [stateDataSort ,setDataSort ] = useState({
     activeSort:null ,
     dataSort : [   
-      {id:1 , name:" الاسم"},
-      {id:2 , name:" الحالة"},
-      {id:3 , name:"تاريخ الدفع"},
-      {id:4 , name:" المده"},  
+      {id:1 , name:" الاسم" , state:sortName  },
+      {id:2 , name:" الحالة" ,state:sortData  },
+      {id:3 , name:"تاريخ الدفع" , state:sortpaymentDate},
+      {id:4 , name:" المده" ,state:sortDuration},  
     ]
   })
   //start Active Class
@@ -17,12 +18,16 @@ const SortBy = () => {
     setDataSort(
       {...stateDataSort ,activeSort:stateDataSort.dataSort[0] }
     )
-  }, [setDataSort])
+    setSortedField(sortName)
+ 
+  }, [setDataSort ,setSortedField])
    
-  const HandelIndex = (index) =>{
+  const HandelIndex = (index , item) =>{
     setDataSort(
       {...stateDataSort ,activeSort:stateDataSort.dataSort[index] }
     )
+    setSortedField(item.state)
+    
   }
   const HandelClassName= (index) =>{
     if(stateDataSort.dataSort[index] ==stateDataSort.activeSort ){
@@ -39,7 +44,7 @@ const SortBy = () => {
       {stateDataSort.dataSort.map((item , index )=>{
         return (
           <div className='main-sort' key={index}>
-             <span className={HandelClassName(index)} onClick={()=>HandelIndex(index)}>{item.name}</span>
+             <span className={HandelClassName(index)} onClick={()=>HandelIndex(index , item)}>{item.name}</span>
           </div>
         )
       })}
