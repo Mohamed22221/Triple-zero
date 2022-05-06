@@ -67,7 +67,7 @@ const InputCustomer = () => {
 }
 const StyleMainInput = styled.div`
 overflow-y: auto;
-padding: 20px 0;
+padding: 25px 0;
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -94,12 +94,12 @@ align-items: center;
     input{
     width: 470px;
      @media (max-width:550px ) {
-    width:270px;
-    padding: 8 30px;
+    width:290px;
+    padding: 10px 30px;
     }
     @media (max-width:370px ) {
     width:220px;
-    padding: 8 30px;
+    padding: 10px 30px;
 }
 
     }
@@ -113,12 +113,12 @@ input{
     border-radius: 20px;
 
 @media (max-width:550px ) {
-    width:270px;
-    padding: 8 30px;
+    width:290px;
+    padding: 10px 30px;
 }
 @media (max-width:370px ) {
     width:220px;
-    padding: 8 30px;
+    padding: 10px 30px;
 }
 }
 .one-input{
