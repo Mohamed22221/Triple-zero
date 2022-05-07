@@ -1,8 +1,14 @@
-import Logo from "../photo/person/personlogin.jpg"
+
+import Logo2 from "../photo/slogan/slogan1.svg"
+import Logo3 from "../photo/slogan/slogan2.svg"
+import Logo4 from "../photo/slogan/slogan3.svg"
+
+
+
 const UserData = [
     {
       id: 1,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
       name : "سالم العتيبي",
       dateSubscription: "5/6/2021",
@@ -13,9 +19,9 @@ const UserData = [
     },
     {
       id: 2,
-      logo: Logo ,
+      logo: Logo2 ,
       idUser : "#532Bn2 ",
-      name : "جاسم العتيبي",
+      name : "جاسم احمد",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 1,
@@ -24,9 +30,9 @@ const UserData = [
     },
     {
       id: 3,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
-      name : "جاسم العتيبي",
+      name : "جاسم سامي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 2,
@@ -35,9 +41,9 @@ const UserData = [
     },
     {
       id: 4,
-      logo: Logo ,
+      logo: Logo4 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "فوزي سيد",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 11,
@@ -46,9 +52,9 @@ const UserData = [
     },
     {
       id: 5,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
-      name : "احمد العتيبي",
+      name : "احمد علي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 6,
@@ -57,9 +63,9 @@ const UserData = [
     },
     {
       id: 6,
-      logo: Logo ,
+      logo: Logo2 ,
       idUser : "#532Bn2 ",
-      name : "احمد العتيبي",
+      name : "كمال العتيبي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 3,
@@ -69,9 +75,9 @@ const UserData = [
     }, 
     {
       id: 7,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "محمد جاسم",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 2,
@@ -80,9 +86,9 @@ const UserData = [
     },
     {
       id: 8,
-      logo: Logo ,
+      logo: Logo4 ,
       idUser : "#532Bn2 ",
-      name : "احمد العتيبي",
+      name : "سامي جاسم",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 6,
@@ -91,9 +97,9 @@ const UserData = [
     },
      {
       id: 9,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "سالم جاسم",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 8 ,
@@ -102,9 +108,9 @@ const UserData = [
     },
      {
       id: 10,
-      logo: Logo ,
+      logo: Logo2 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "علي فوزي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 3 ,
@@ -113,9 +119,9 @@ const UserData = [
     },
     {
       id: 11,
-      logo: Logo ,
+      logo: Logo4 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "كمال مراد",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 5,
@@ -124,9 +130,9 @@ const UserData = [
     },
      {
       id: 11,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "سلمي سيد",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 1,
@@ -135,9 +141,9 @@ const UserData = [
     },   
      {
       id: 13,
-      logo: Logo ,
+      logo: Logo2 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "سالم شادي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 6,
@@ -146,9 +152,9 @@ const UserData = [
     },
     {
       id: 14,
-      logo: Logo ,
+      logo: Logo2 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "مراد العتيبي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 15,
@@ -157,9 +163,9 @@ const UserData = [
     },
      {
       id: 15,
-      logo: Logo ,
+      logo: Logo3 ,
       idUser : "#532Bn2 ",
-      name : "سالم العتيبي",
+      name : "سالم علي",
       dateSubscription: "5/6/2021",
       price: "$1300",
       duration: 18,

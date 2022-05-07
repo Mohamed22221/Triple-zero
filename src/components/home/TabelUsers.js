@@ -24,19 +24,21 @@ const TabelUsers = ({UserData}) => {
         {UserData.slice(0 , 7 ).map((user , index) =>{
             return (
                 <TrBody key={user.id}>
-                    <td><img src={user.logo} alt="logo" /></td>
+                    
+                    <td><Link to={`/clint/${user.name}`}><img src={user.logo} alt="logo" /> </Link></td>
+                   
                     <td>{user.idUser}</td>
                     <td>{user.name}</td>
                     <td>{user.dateSubscription}</td>
                     <td>{user.price}</td>
-                    <td>{user.duration}</td>
-                    <td>{user.paymentDate}</td>
+                    <td>{user.duration} اشهر</td>
+                    <td>{user.paymentDate} </td>
                     <td className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <a>التفاصيل</a>
-                     <a>بيانات العميل</a>
+                     <Link to={`/clint/${user.name}`}>التفاصيل</Link>
+                     <Link to={`/clint/${user.name}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>
@@ -107,8 +109,7 @@ td {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        padding: 10px 5px;
-
+        margin: 5px;
     }
     .BiDotsHorizontalRounded{
         margin-top: 10px;
@@ -147,6 +148,7 @@ td:last-child{
         a{
             font-size: 14px;
             font-weight: bold;
+            color: var(--font);
             cursor: pointer;
             padding: 5px 0;
             &:nth-child(1){

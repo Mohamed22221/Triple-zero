@@ -5,6 +5,7 @@ import React ,{useState} from 'react'
 import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
+import Clint from "./components/clint/Clint";
 function App() {
   //nav Bar Toggle and add customer
   const [showBar , setShowBar] = useState(false)
@@ -29,6 +30,9 @@ function App() {
       <Route path="/" element={<Home HandelShow={HandelShow}  />} />
       <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
       <Route path="Customers" element={<Customers HandelShow={HandelShow} showBar={showBar} HandelShowCustomer={HandelShowCustomer} showCustomer={showCustomer} HandelClose={HandelClose}  />} />
+      <Route path="/clint" element={<Clint HandelShow={HandelShow}  />} >
+        <Route path=":clintid" element={<Clint HandelShow={HandelShow}  />} />
+      </Route>
       </Routes>
       </BrowserRouter>
     </StyleApp>

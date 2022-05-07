@@ -3,7 +3,7 @@ const GlopalStyle = createGlobalStyle`
 :root{
   --primary-color:#FBA30D;
   --secound-color:#2A2E33;
-  --background-color: #f1f1f1ed ;
+  --background-color: #e7e7e7e6;
   //#e7e7e7e6 #f1f1f1ed
   --background-opacity:#7070706b;
   --succes-color:#17a563;
@@ -30,6 +30,18 @@ html {
 body{
   font-family: 'Almarai', sans-serif;
   background-color: var(--background-color);
+::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+  background-color: var(--background-opacity);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: var(--secound-color);
+  outline: 1px solid slategrey;
+}
 }
 
 

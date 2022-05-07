@@ -1,7 +1,7 @@
 import React ,{ useState } from 'react'
 import Nntifications from "../../photo/icons/notifications.svg"
 import styled from "styled-components"
-import personlogin1 from "../../photo/person/personlogin1.jpg"
+import personlogin1 from "../../photo/slogan/personlogin1.jpg"
 
 const Notifications = () => {
     const [notifications , setNotifications] = useState(false)

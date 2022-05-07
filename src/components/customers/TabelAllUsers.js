@@ -3,6 +3,8 @@ import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
+import { Link } from "react-router-dom";
+
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
@@ -61,7 +63,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><img src={user.logo} alt="logo" /></td>
+                    <td><Link to={`/clint/${user.name}`}><img src={user.logo} alt="logo" /></Link></td>
                     <td>{user.idUser}</td>
                     <td>{user.name}</td>
                     <td>{user.dateSubscription}</td>
@@ -72,8 +74,8 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <a>التفاصيل</a>
-                     <a>بيانات العميل</a>
+                     <Link to={`/clint/${user.name}`}> التفاصيل</Link>
+                     <Link to={`/clint/${user.name}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>
@@ -88,7 +90,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 const MainTabel = styled.div`
     overflow-x: auto;
      width:100% ;
-     height: 80vh;
+     height: 84vh;
     padding:  50px;
     
 
@@ -155,8 +157,7 @@ td {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        padding: 10px 5px;
-
+        margin: 5px;
     }
     .BiDotsHorizontalRounded{
         margin-top: 10px;
@@ -195,6 +196,7 @@ td:last-child{
         a{
             font-size: 14px;
             font-weight: bold;
+            color: var(--font);
             cursor: pointer;
             padding: 5px 0;
             &:nth-child(1){

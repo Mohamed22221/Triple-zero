@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import personlogin from "../../photo/person/personlogin.jpg"
+import personlogin from "../../photo/slogan/personlogin.jpg"
 import Notifications from './Notifications'
 const loginManager = () => {
   return (

@@ -33,7 +33,7 @@ height: 100%;
 background-color: white;
 z-index: 101;
 transition: 0.5s ease;
-@media (max-width:767px ) {
+@media (max-width:625px ) {
   width: 100%;
 }
 transform: ${({showCustomer}) => showCustomer ? 'translateX(0)' : 'translateX(590px)'};
