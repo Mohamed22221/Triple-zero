@@ -1,66 +1,66 @@
-import React from 'react'
+import React ,{useState} from 'react'
+
 import styled from "styled-components"
-const InputCustomer = () => {
+const InputCustomer = ({values , setValues}) => {
+
+
   return (
     <StyleMainInput>
         <StyleForm>
             <StyleSmaleDiv>
                 <div className='one-input  '>
                     <StyleLabel>رقم العميل</StyleLabel>
-                    <input type="text" placeholder='#An152sa'  />
+                    <input type="text" placeholder='#An152sa' value={values.idUser}  onChange={(e) => setValues({...values ,idUser:e.target.value}) }   />
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>تاريخ الاشتراك</StyleLabel>
-                    <input type="date"  />
+                    <input type="date"  value={values.dateSubscription} onChange={(e) => setValues({...values , dateSubscription:e.target.value }) }  />
                  </div> 
                 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel>اضف شعار للعميل</StyleLabel>
-                    <input type="file" />
+                    <input type="file" value={values.logo} onChange={(e) => setValues({...values , logo:e.target.value  }) } />
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>مده الاشتراك <span>*</span></StyleLabel>
-                    <input type="number"  />
+                    <input type="number" value={values.duration} onChange={(e) =>setValues({...values , duration:e.target.value}) } />
                  </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel>اسم العميل <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب اسم العميل' />
+                    <input type="text" placeholder='اكتب اسم العميل' value={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>اسم الشركه <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب اسم الشركه'/>
+                    <input type="text" placeholder='اكتب اسم الشركه' value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
                  </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel>نوع تجاره العميل <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب نوع التجاره' />
+                    <input type="text" placeholder='اكتب نوع التجاره' value={values.tradetype} onChange={(e) =>setValues({...values , tradetype:e.target.value}) }  />
                     <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
-                    <input type="email" placeholder='اكتب اميل العميل'/>
+                    <input type="email" placeholder='اكتب اميل العميل' value={values.clintemail} onChange={(e) =>setValues({...values , clintemail:e.target.value}) }/>
                     <StyleLabel> رابط الموقع <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب رابط الموقع' />
+                    <input type="text" placeholder='اكتب رابط الموقع' value={values.websitelink} onChange={(e) =>setValues({...values , websitelink:e.target.value}) } />
                </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel> العمله <span>*</span></StyleLabel>
-                    <select className="currency" id="cars" form="carform" >
-                    <option value="volvo">Egy</option>
-                    <option value="saab">Kut</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                    <select className="currency" id="cars" form="carform" value={values.currencypaid} onChange={(e) =>setValues({...values , currencypaid:e.target.value}) } >
+                    <option value="Egy">Egy</option>
+                    <option value="Kut">Kut</option>
                     </select>
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>سعر الاشتراك <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب سعر الاشتراك'/>
+                    <input type="text" placeholder='اكتب سعر الاشتراك' value={values.price} onChange={(e) =>setValues({...values , price:e.target.value}) } />
                  </div> 
             </StyleSmaleDiv>
-
         </StyleForm>
     </StyleMainInput>
   )

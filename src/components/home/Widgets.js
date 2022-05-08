@@ -6,11 +6,14 @@ import requests from "../../photo/icons/requestswedget.svg"
 import delevery from "../../photo/icons/deleverywedget.svg"
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiOutlineArrowUp } from 'react-icons/ai';
+import { useSelector, useDispatch } from 'react-redux'
 
 
 
 
-const Widgets = ({UserData}) => {
+const Widgets = () => {
+    const UserData = useSelector((state) => state.clint)
+
     const counterCustomer = UserData.length
   return (
     <StyleWedget>

@@ -1,19 +1,56 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import styled from "styled-components"
 import { AiOutlineClose } from 'react-icons/ai';
 import ButtonAdd from '../glopal/ButtonAdd';
 import InputCustomer from './InputCustomer';
+import { addClint } from '../../store/ClintSlice';
+import {  useDispatch } from 'react-redux'
 
 const ClintForm = ({showCustomer ,HandelClose}) => {
+  //redux toolkit
+  const dispatch = useDispatch()
+  //values input 
+    const [values , setValues] = useState({
+      logo: ``  ,
+      idUser : "",
+      name : "",
+      compony:"" ,
+      dateSubscription: "",
+      price: "",
+      duration: "" ,
+      paymentDate: "",
+      clintemail : "" ,
+      websitelink : "" ,
+      tradetype : "" ,
+      currencypaid : ""  
+  })
+  // click add customer
+  const AddUser = () =>{
+    dispatch(addClint({
+      logo: values.logo ,
+      idUser : values.idUser ,
+      name : values.name,
+      compony:values.compony ,
+      dateSubscription:values.dateSubscription,
+      price: values.price,
+      duration: values.duration ,
+      paymentDate: values.paymentDate,
+      clintemail : values.clintemail ,
+      websitelink : values.websitelink ,
+      tradetype : values.tradetype ,
+      currencypaid : values.currencypaid  
+    }))
+    
+  }
   return (
     <StyleForm showCustomer={showCustomer}>
       <StyleHeader>
           <h2>أضافه عميل جديد</h2>
           <AiOutlineClose className='icon-close' onClick={HandelClose} />
       </StyleHeader>
-      <InputCustomer />
+      <InputCustomer values={values} setValues={setValues}  />
       <StyleFotter>
-      <ButtonAdd />
+      <ButtonAdd AddUser={AddUser} />
       <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
       </StyleFotter>
       </StyleForm>

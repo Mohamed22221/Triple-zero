@@ -5,15 +5,51 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
 import { BsTextParagraph } from 'react-icons/bs';
+import { useSelector, useDispatch } from 'react-redux'
+
+import { Link } from "react-router-dom";
+
+
 const TopBar = ({title ,HandelShow}) => {
+    const UserData = useSelector((state) => state.clint)
+     //filter search 
+    const [filterSearch , setfilterSearch] = useState([])
+    const handelChange = (e) => {
+        const valueInput = e.target.value 
+        const NewData =UserData.filter((item) =>{
+            return (
+                item.name.includes(valueInput)
+            )
+        })
+        if (valueInput === "") {
+            setfilterSearch([])
+        } else {
+            setfilterSearch(NewData)
+        }
+    }
+    const handelLink = () =>{
+        setfilterSearch([])
+    }
+   
   return (
     <StyleTopBar>
         <StyleRightTopBar>
         <div className='title-page'><h2>{title}</h2></div>
         <form className='search'>
-            <input type="search" placeholder='أبحث عن اسم العميل' />
+            <input type="search" placeholder='أبحث عن اسم العميل' onChange={handelChange} />
             <AiOutlineSearch className='icon-search' />
+            <div className='filter-Search'>
+            {filterSearch.map((item , index) =>{
+                return (
+                    <div className='click-Search' key={index}>
+                        <Link to={`/clint/${item.name}`} onClick={handelLink}><p>{item.name}</p> </Link>
+                    </div>
+
+                )
+            })}
+            </div>
         </form>
+
         <div className='icons-topbar'>
         <BsArrowClockwise className='icon-topbar' />
         <MdAddBox className='icon-topbar' />
@@ -108,6 +144,31 @@ margin-left: 20px;
             margin: 0 2px;
     }
     }
+
+}
+.filter-Search{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 10;
+    border-radius:0 0px 10px 10px;
+    box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.46);
+    -webkit-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.40);
+    -moz-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.30);
+
+    .click-Search{
+        padding: 8px 20px;
+        transition: 0.2s;
+        :hover{
+                background-color: var(--font-opacity);
+                
+            }
+        a{
+            color: black;
+
+        }
+    }
+
 
 }
 `

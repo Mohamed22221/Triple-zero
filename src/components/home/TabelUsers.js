@@ -3,7 +3,9 @@ import styled from "styled-components"
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
-const TabelUsers = ({UserData}) => {
+import { useSelector, useDispatch } from 'react-redux'
+const TabelUsers = () => {
+    const UserData = useSelector((state) => state.clint)
   return (
   <MainTabel>
     <Tabel>

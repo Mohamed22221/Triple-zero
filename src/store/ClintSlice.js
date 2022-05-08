@@ -1,11 +1,11 @@
-
+import { createSlice } from '@reduxjs/toolkit'
 import Logo2 from "../photo/slogan/slogan1.svg"
 import Logo3 from "../photo/slogan/slogan2.svg"
 import Logo4 from "../photo/slogan/slogan3.svg"
 
 
 
-const UserData = [
+const initialState = [
     {
       id: 1,
       logo: Logo3 ,
@@ -233,4 +233,25 @@ const UserData = [
       currencypaid : "المصري"
     },      
 ]
-export default UserData
+
+
+export const ClintSlice = createSlice({
+  name: 'clint',
+  initialState,
+  reducers: {
+    addClint: (state ,action) => {
+        state.push(action.payload)
+    },
+    removeClint: (state ,action) => {
+      
+    },
+    editClint: (state, action) => {
+     
+    },
+  },
+})
+
+// Action creators are generated for each case reducer function
+export const { addClint, removeClint, editClint } = ClintSlice.actions
+
+export default ClintSlice.reducer

@@ -4,7 +4,7 @@ import TopBar from '../components/bars/TopBar'
 import TabelUsers from '../components/home/TabelUsers'
 import Widgets from '../components/home/Widgets'
 import {MarginPages} from '../styles/MarginPages'
-import UserData from '../data/UsersData'
+
 const Home = ({HandelShow}) => {
 
   
@@ -12,8 +12,8 @@ const Home = ({HandelShow}) => {
     <MarginPages>
         <TopBar title={"الرئيسية"} HandelShow={HandelShow} />
         <StyleFlex>
-        <TabelUsers UserData={UserData} />
-        <Widgets UserData={UserData}/>
+        <TabelUsers  />
+        <Widgets />
         </StyleFlex>
     </MarginPages>
   )

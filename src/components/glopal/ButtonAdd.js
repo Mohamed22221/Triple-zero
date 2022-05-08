@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
-const ButtonAdd = () => {
+const ButtonAdd = ({AddUser}) => {
+  
   return (
     <StyleButtonAdd >
     <MdPersonAddAlt className='MdPersonAddAlt' />
-    <p >أضافه عميل</p>
+    <p onClick={AddUser}>أضافه عميل</p>
     </StyleButtonAdd>
   )
 }

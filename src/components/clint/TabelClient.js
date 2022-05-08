@@ -2,8 +2,9 @@ import React from 'react'
 import styled from "styled-components"
 import OtherClint from './OtherClint'
 const TabelClient = (props) => {
-    const {  name , idUser , dateSubscription , duration , paymentDate ,
+    const {  name , idUser , price , duration , paymentDate ,
           state , clintemail , websitelink ,tradetype ,currencypaid  } = props
+    
   return (
       
 <StyleTabel>
@@ -24,7 +25,7 @@ const TabelClient = (props) => {
                 <td>{idUser}</td>
                 <td>{name}</td>
                 <td>{idUser}</td>
-                <td>{dateSubscription}</td>
+                <td>{price}</td>
                 <td>{duration} اشهر</td>
                 <td>{paymentDate}</td>
                 <td className={state === "تم الدفع" ? "green" : "red"}>{state}</td>

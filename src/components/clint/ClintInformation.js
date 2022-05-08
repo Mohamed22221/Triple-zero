@@ -1,11 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import styled from "styled-components"
-import UserData from '../../data/UsersData'
+
 import AboutClint from './AboutClint'
 import HeaderButton from './HeaderButton'
 import TabelClient from './TabelClient'
+import { useSelector, useDispatch } from 'react-redux'
+
 const ClintInformation = () => {
+    const UserData = useSelector((state) => state.clint)
     const Params = useParams()
     const ParamsId = `${Params.clintid}`
    

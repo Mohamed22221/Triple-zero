@@ -1,11 +1,13 @@
 import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
-import UserData from '../../data/UsersData'
+import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
 import { Link } from "react-router-dom";
 
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
+    const UserData = useSelector((state) => state.clint)
+
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
