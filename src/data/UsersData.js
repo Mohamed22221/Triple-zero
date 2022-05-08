@@ -16,6 +16,10 @@ const UserData = [
       duration: 7,
       paymentDate: "4/6/2022",
       state: "تاخر الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 2,
@@ -27,6 +31,10 @@ const UserData = [
       duration: 1,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 3,
@@ -38,6 +46,10 @@ const UserData = [
       duration: 2,
       paymentDate: "3/6/2021",
       state: "تاخر الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 4,
@@ -49,6 +61,10 @@ const UserData = [
       duration: 11,
       paymentDate: "7/6/2021",
       state: "تاخر الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 5,
@@ -60,6 +76,10 @@ const UserData = [
       duration: 6,
       paymentDate: "11/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 6,
@@ -71,6 +91,10 @@ const UserData = [
       duration: 3,
       paymentDate: "1/7/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
       
     }, 
     {
@@ -83,6 +107,10 @@ const UserData = [
       duration: 2,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 8,
@@ -94,6 +122,10 @@ const UserData = [
       duration: 6,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
      {
       id: 9,
@@ -105,6 +137,10 @@ const UserData = [
       duration: 8 ,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
      {
       id: 10,
@@ -116,6 +152,10 @@ const UserData = [
       duration: 3 ,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 11,
@@ -127,6 +167,10 @@ const UserData = [
       duration: 5,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
      {
       id: 11,
@@ -138,6 +182,10 @@ const UserData = [
       duration: 1,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },   
      {
       id: 13,
@@ -149,6 +197,10 @@ const UserData = [
       duration: 6,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
     {
       id: 14,
@@ -160,6 +212,10 @@ const UserData = [
       duration: 15,
       paymentDate: "5/6/2021",
       state: "تم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },
      {
       id: 15,
@@ -171,6 +227,10 @@ const UserData = [
       duration: 18,
       paymentDate: "5/6/2021",
       state: "لم يتم الدفع",
+      clintemail : "info@easymedia" ,
+      websitelink : "www.easymedia.agency" ,
+      tradetype : "مقاولات" ,
+      currencypaid : "المصري"
     },      
 ]
 export default UserData

@@ -157,7 +157,7 @@ td {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        margin: 5px;
+        margin: 10px;
     }
     .BiDotsHorizontalRounded{
         margin-top: 10px;

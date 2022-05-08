@@ -4,6 +4,7 @@ import styled from "styled-components"
 import UserData from '../../data/UsersData'
 import AboutClint from './AboutClint'
 import HeaderButton from './HeaderButton'
+import TabelClient from './TabelClient'
 const ClintInformation = () => {
     const Params = useParams()
     const ParamsId = `${Params.clintid}`
@@ -17,11 +18,21 @@ const ClintInformation = () => {
                 <AboutClint 
                 logo={user.logo} 
                 name={user.name} 
+                dateSubscription={user.dateSubscription} 
+                />
+                <TabelClient
+                logo={user.logo} 
+                name={user.name} 
                 idUser={user.idUser}
                 dateSubscription={user.dateSubscription} 
                 duration={user.duration}
                 paymentDate={user.paymentDate}
+                price={user.price}
                 state={user.state}
+                clintemail={user.clintemail}
+                websitelink={user.websitelink}
+                tradetype={user.tradetype}
+                currencypaid={user.currencypaid}
                 />
             </ItemStyleClint>
             
@@ -32,12 +43,8 @@ const ClintInformation = () => {
 }
 const MainStyleClint = styled.div`
 width: 100%;
-height: 85vh;
 border: 1px solid var(--font-opacity);
 border-radius: 50px;
-@media (max-width: 550px ) {
-    height: 100%; 
-}
 `
 const ItemStyleClint = styled.div`
 `

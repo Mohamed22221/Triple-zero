@@ -5,7 +5,7 @@ import request from '../../photo/icons/requestswedget.svg'
 import delevery from '../../photo/icons/deleverywedget.svg'
 
 const AboutClint = (props) => {
-    const {name ,logo,idUser ,dateSubscription ,duration ,paymentDate ,state} = props
+    const {name ,logo ,dateSubscription } = props
   return (
     <MainStyleAbout>
       <MainRightAbout>
@@ -122,11 +122,12 @@ align-items: center;
   .icon-wedget , img{
     margin-left: 18px;
   }
+  
   h2{
     font-size: 27px;
     
   }
-  @media (max-width:1300px ) {
+  @media (max-width:1486px ) {
     width: 170px;
   }
   @media (max-width:1000px ) {
@@ -143,12 +144,14 @@ align-items: center;
       font-size: 50px;
       background-color: #ffffff24 ;
       border-radius: 50%;
-     
       padding: 10px;
     }
   }
   :last-child , :nth-child(2) {
     background-color: white;
+    p{
+    color: var(--primary-color);
+  }
   }
   .header-wedget{
     display: flex;
