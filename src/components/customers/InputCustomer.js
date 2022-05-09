@@ -1,31 +1,32 @@
 import React ,{useState} from 'react'
 
 import styled from "styled-components"
+
 const InputCustomer = ({values , setValues}) => {
 
-
+   
   return (
     <StyleMainInput>
         <StyleForm>
             <StyleSmaleDiv>
                 <div className='one-input  '>
                     <StyleLabel>رقم العميل</StyleLabel>
-                    <input type="text" placeholder='#An152sa' value={values.idUser}  onChange={(e) => setValues({...values ,idUser:e.target.value}) }   />
+                    <input type="text" placeholder='#As578' value={values.idUser} disabled     />
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>تاريخ الاشتراك</StyleLabel>
-                    <input type="date"  value={values.dateSubscription} onChange={(e) => setValues({...values , dateSubscription:e.target.value }) }  />
+                    <input type="text"  value={values.dateSubscription} disabled  />
                  </div> 
                 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel>اضف شعار للعميل</StyleLabel>
-                    <input type="file" value={values.logo} onChange={(e) => setValues({...values , logo:e.target.value  }) } />
+                    <input type="file" value={values.logo}  onChange={(e) => setValues({...values , logo:e.target.value  }) } />
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>مده الاشتراك <span>*</span></StyleLabel>
-                    <input type="number" value={values.duration} onChange={(e) =>setValues({...values , duration:e.target.value}) } />
+                    <input type="number" value={values.duration}  onChange={(e) =>setValues({...values , duration:e.target.value}) } />
                  </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
@@ -40,12 +41,13 @@ const InputCustomer = ({values , setValues}) => {
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
-                    <StyleLabel>نوع تجاره العميل <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب نوع التجاره' value={values.tradetype} onChange={(e) =>setValues({...values , tradetype:e.target.value}) }  />
+                    <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب نوع التجاره' value={values.state} onChange={(e) =>setValues({...values , state:e.target.value}) }  />
                     <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                     <input type="email" placeholder='اكتب اميل العميل' value={values.clintemail} onChange={(e) =>setValues({...values , clintemail:e.target.value}) }/>
                     <StyleLabel> رابط الموقع <span>*</span></StyleLabel>
                     <input type="text" placeholder='اكتب رابط الموقع' value={values.websitelink} onChange={(e) =>setValues({...values , websitelink:e.target.value}) } />
+
                </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
@@ -62,6 +64,7 @@ const InputCustomer = ({values , setValues}) => {
                  </div> 
             </StyleSmaleDiv>
         </StyleForm>
+
     </StyleMainInput>
   )
 }

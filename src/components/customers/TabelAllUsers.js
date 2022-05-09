@@ -5,6 +5,7 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
 import { Link } from "react-router-dom";
 
+
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     const UserData = useSelector((state) => state.clint)
 
@@ -12,7 +13,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
         setSortedField(sortName)
-    }, [setSortedField])
+    }, [setSortedField ,UserData])
 
     const sortData = [...UserData].sort((a , b)=>{
         return a.state > b.state ? 1 : -1;

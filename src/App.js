@@ -7,9 +7,9 @@ import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
 function App() {
-  //nav Bar Toggle and add customer
-  const [showBar , setShowBar] = useState(false)
-  const [showCustomer , setshowCustomer] = useState(false)
+  const [showBar , setShowBar] = useState(false) //side par
+  const [showCustomer , setshowCustomer] = useState(false) // add clint
+  const [show , setShow] = useState(false) // added clint massige
 
   const HandelShow = () =>{
     setShowBar(!showBar)
@@ -20,6 +20,7 @@ function App() {
   const HandelClose = () =>{
     setShowBar(false)
     setshowCustomer(false)
+    setShow(false)
   }
   return (
     <StyleApp>
@@ -29,7 +30,15 @@ function App() {
       <Routes>
       <Route path="/" element={<Home HandelShow={HandelShow}  />} />
       <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-      <Route path="Customers" element={<Customers HandelShow={HandelShow} showBar={showBar} HandelShowCustomer={HandelShowCustomer} showCustomer={showCustomer} HandelClose={HandelClose}  />} />
+      <Route path="Customers" element={<Customers
+       HandelShow={HandelShow}
+       showBar={showBar}
+       HandelShowCustomer={HandelShowCustomer}
+       showCustomer={showCustomer}
+       HandelClose={HandelClose}
+       show={show}
+       setShow={setShow}
+        />} />
       <Route path="/clint" element={<Clint HandelShow={HandelShow}  />} >
         <Route path=":clintid" element={<Clint HandelShow={HandelShow}  />} />
       </Route>

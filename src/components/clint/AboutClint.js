@@ -5,7 +5,7 @@ import request from '../../photo/icons/requestswedget.svg'
 import delevery from '../../photo/icons/deleverywedget.svg'
 
 const AboutClint = (props) => {
-    const {name ,logo ,dateSubscription } = props
+    const {name ,logo ,dateSubscription ,compony } = props
   return (
     <MainStyleAbout>
       <MainRightAbout>
@@ -13,7 +13,7 @@ const AboutClint = (props) => {
         <img src={logo} />
       </div>
       <div className='apout'>
-        <h3>مالينيوم</h3>
+        <h3>{compony}</h3>
         <p>{name}</p>
         <p>تاريخ الاشتراك : {dateSubscription}</p>
         <button>تعديل العميل</button>

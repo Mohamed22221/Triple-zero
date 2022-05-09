@@ -3,7 +3,7 @@ import styled from "styled-components"
 import OtherClint from './OtherClint'
 const TabelClient = (props) => {
     const {  name , idUser , price , duration , paymentDate ,
-          state , clintemail , websitelink ,tradetype ,currencypaid  } = props
+          state , clintemail , websitelink  ,currencypaid  } = props
     
   return (
       
@@ -24,7 +24,7 @@ const TabelClient = (props) => {
             <TrBody >
                 <td>{idUser}</td>
                 <td>{name}</td>
-                <td>{idUser}</td>
+                <td>{paymentDate}</td>
                 <td>{price}</td>
                 <td>{duration} اشهر</td>
                 <td>{paymentDate}</td>
@@ -35,7 +35,6 @@ const TabelClient = (props) => {
     <OtherClint 
     clintemail={clintemail}
      websitelink={websitelink} 
-     tradetype={tradetype} 
      currencypaid={currencypaid}
      />
 </StyleTabel>

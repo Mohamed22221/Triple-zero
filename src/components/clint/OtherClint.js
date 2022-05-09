@@ -2,16 +2,10 @@ import React from 'react'
 import styled from "styled-components"
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsLink } from 'react-icons/bs';
-import { RiTrademarkLine } from 'react-icons/ri';
 import { BsCurrencyDollar } from 'react-icons/bs';
 
-
-
-
-
-
 const OtherClint = (props) => {
-const {clintemail , websitelink ,tradetype ,currencypaid  } = props
+const {clintemail , websitelink  ,currencypaid  } = props
   return (
     <MainStyleOther>
      <div className='item-wedget'>
@@ -30,15 +24,6 @@ const {clintemail , websitelink ,tradetype ,currencypaid  } = props
         </div>
         <div className='type'>
           <h3><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h3>
-        </div>
-      </div>
-      <div className='item-wedget'>
-        <div className='header-wedget'>
-          <RiTrademarkLine className='icon-wedget' />
-          <p>نوع تجاره العميل</p>
-        </div>
-        <div className='type'>
-          <h3>{tradetype}</h3>
         </div>
       </div>
       <div className='item-wedget'>

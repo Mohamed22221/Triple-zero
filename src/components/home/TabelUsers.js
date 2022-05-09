@@ -23,7 +23,7 @@ const TabelUsers = () => {
             </TrHead>
         </Thead>
         <Tbody>
-        {UserData.slice(0 , 7 ).map((user , index) =>{
+        {UserData.slice(0 , 6 ).map((user , index) =>{
             return (
                 <TrBody key={user.id}>
                     

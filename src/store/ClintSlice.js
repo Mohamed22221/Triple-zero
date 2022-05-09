@@ -19,7 +19,8 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
     },
     {
       id: 2,

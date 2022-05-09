@@ -5,14 +5,14 @@ import ClintForm from '../components/customers/ClintForm'
 import TabelAllUsers from '../components/customers/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
 
-const Customers = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose}) => {
+const Customers = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose ,show,setShow}) => {
   //sort search
   const [searchSort , setSortSearch] = useState("") 
 
   return (
     <MarginPages>
         <TopBar title={"العملاء"} HandelShow={HandelShow} />
-        <ClintForm showCustomer={showCustomer} HandelClose={HandelClose} />
+        <ClintForm showCustomer={showCustomer} HandelClose={HandelClose} show={show} setShow={setShow} />
         <TabelAllUsers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer}  />
     </MarginPages>
   )

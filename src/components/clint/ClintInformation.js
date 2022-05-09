@@ -22,6 +22,7 @@ const ClintInformation = () => {
                 logo={user.logo} 
                 name={user.name} 
                 dateSubscription={user.dateSubscription} 
+                compony={user.compony}
                 />
                 <TabelClient
                 logo={user.logo} 
