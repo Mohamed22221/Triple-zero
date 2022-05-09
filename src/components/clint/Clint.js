@@ -3,14 +3,16 @@ import styled from "styled-components"
 import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
+import DeleteClint from './DeleteClint'
 
 
-const Clint = ({HandelShow}) => {
+const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose }) => {
   return (
     <MarginPages>
     <TopBar title={"العميل"} HandelShow={HandelShow} />
     <StyleFlex>
-     <ClintInformation />
+     <ClintInformation HandelShowCustomer={HandelShowCustomer}  />
+     <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
     </StyleFlex>
     </MarginPages>
   )

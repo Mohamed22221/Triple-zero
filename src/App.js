@@ -6,6 +6,8 @@ import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
+import BlackList from "./components/customers/BlackList";
+import MainBlackList from "./components/blacklist/MainBlackList";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
@@ -39,8 +41,15 @@ function App() {
        show={show}
        setShow={setShow}
         />} />
-      <Route path="/clint" element={<Clint HandelShow={HandelShow}  />} >
-        <Route path=":clintid" element={<Clint HandelShow={HandelShow}  />} />
+        <Route path="/Customers/BlackList" element={<MainBlackList />} />
+      <Route path="/clint" element={<Clint HandelShow={HandelShow}
+       showCustomer={showCustomer} 
+       HandelShowCustomer={HandelShowCustomer}
+       HandelClose={HandelClose}  />} >
+        <Route path=":clintid" element={<Clint 
+        HandelShow={HandelShow} 
+        HandelShowCustomer={HandelShowCustomer}
+        HandelClose={HandelClose}  />} />
       </Route>
       </Routes>
       </BrowserRouter>

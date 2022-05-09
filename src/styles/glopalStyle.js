@@ -3,7 +3,7 @@ const GlopalStyle = createGlobalStyle`
 :root{
   --primary-color:#FBA30D;
   --secound-color:#2A2E33;
-  --background-color: #f1f1f1ed;
+  --background-color: #e7e7e7e6;
   //#e7e7e7e6 #f1f1f1ed
   --background-opacity:#7070706b;
   --succes-color:#17a563;
@@ -43,7 +43,14 @@ body{
   outline: 1px solid slategrey;
 }
 }
-
+@keyframes MoveUpDown {
+    0%, 100% {
+    left: 0;
+    }
+    50% {
+    left: 15px;
+    }
+  }
 
 
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import {  HiDocumentDuplicate } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 import styled from "styled-components"
 const BlackList = () => {
   return (
     <StyleBlackList>
         <HiDocumentDuplicate className='HiDocumentDuplicate' />
-        <p>القائمه السوداء</p>
+        <Link to="/Customers/blackList"><p>القائمه السوداء</p></Link>
     </StyleBlackList>
   )
 }
@@ -20,6 +21,9 @@ cursor: pointer;
 color: var(--font);
 .HiDocumentDuplicate{
     font-size: 30px;
+}
+a{
+  color: var(--font);
 }
 p{
     padding-right: 15px;

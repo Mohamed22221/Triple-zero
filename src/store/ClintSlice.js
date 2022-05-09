@@ -35,7 +35,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
     },
     {
       id: 3,
@@ -50,7 +52,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
     },
     {
       id: 4,
@@ -65,7 +69,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
     },
     {
       id: 5,
@@ -80,7 +86,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
     },
     {
       id: 6,
@@ -95,7 +103,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
       
     }, 
     {
@@ -111,7 +121,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
     },
     {
       id: 8,
@@ -126,7 +138,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري",
+      compony:"مازيني"
+
     },
      {
       id: 9,
@@ -141,7 +155,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },
      {
       id: 10,
@@ -156,7 +172,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },
     {
       id: 11,
@@ -171,7 +189,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },
      {
       id: 11,
@@ -186,7 +206,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },   
      {
       id: 13,
@@ -201,7 +223,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },
     {
       id: 14,
@@ -216,7 +240,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },
      {
       id: 15,
@@ -231,7 +257,9 @@ const initialState = [
       clintemail : "info@easymedia" ,
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
-      currencypaid : "المصري"
+      currencypaid : "المصري" ,
+      compony:"مازيني"
+
     },      
 ]
 

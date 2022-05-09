@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 
 
 
-const HeaderButton = () => {
+const HeaderButton = ({HandelShowCustomer ,logo,name,dateSubscription,compony}) => {
   return (
     <MainHeaderClint>
         <MainButtonClint>
-            <button><FiPause className='icon-button' />أقاف مؤقت</button>
-            <button><AiOutlineDelete className='icon-button' />حذف العميل</button>
+            <button ><FiPause className='icon-button' />أقاف مؤقت</button>
+            <button  onClick={HandelShowCustomer} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
         <Link to="/Customers">
         <MainReturnClints>
@@ -30,7 +30,6 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 border-bottom:1px solid var(--font-opacity) ;
-
 
 `
 const MainButtonClint = styled.div`

@@ -35,7 +35,7 @@ const TabelUsers = () => {
                     <td>{user.price}</td>
                     <td>{user.duration} اشهر</td>
                     <td>{user.paymentDate} </td>
-                    <td className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</td>
+                    <td ><p className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</p></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
@@ -123,6 +123,7 @@ td {
      font-size: 15px;
      
     }
+
 }
 td:last-child{
     position: relative;
@@ -165,14 +166,17 @@ td:last-child{
 .red{
     color: var(--danger-color);
     font-weight: bold;
-
-
-    
+    background-color: #ff000015;
+    padding: 10px;
+    border-radius:30px ;
         
     }
 .green{
     color: var(--succes-color);
     font-weight: bold;
+    background-color: #00800015;
+    padding: 10px;
+    border-radius:30px ;
 }
 
 `
