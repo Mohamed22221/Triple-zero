@@ -2,25 +2,23 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 import gif from "../../photo/glopal/gif.gif"
-const AddedClint = ({HandelClose , name}) => {
-    
+const DeletedClint = ({HandelClose}) => {
   return (
-    <StyleyAddedClint>
+    <StyleDeletedClint>
         <img src={gif} />
-        <h2>تم اضافه {name} بنجاح</h2>
-        <p>يمكنك تعديل بيانات العميل من حساب العميل</p>
-        <button onClick={HandelClose} >المتابعه</button>
-        <Link to={`/clint/${name}`} onClick={HandelClose}>بيانات العميل</Link>
-    </StyleyAddedClint>
+        <h2>تم حذف العميل بنجاح</h2>
+        <p>يمكنك الرجوع لبيانات العميل مره اخري من القائمه السوداء</p>
+        <button onClick={HandelClose}>المتابعه</button>
+        <Link to="/Customers/blackList" onClick={HandelClose}>القائمه السوداء</Link>
+    </StyleDeletedClint>
   )
 }
-const StyleyAddedClint  = styled.div`
+const StyleDeletedClint = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: center;
+justify-content: center;
 height: 100%;
-position: relative;
 img{
     width: 350px;
     @media screen {
@@ -28,7 +26,6 @@ img{
     }
 
 }
-
 h2{
 margin-top:14px ;
 }
@@ -36,6 +33,8 @@ p{
     color: var(--font);
     font-weight: bold;
     font-size: 15px;
+    padding: 4px 0;
+    text-align: center;
 }
 button{
     all: unset;
@@ -54,7 +53,5 @@ a{
     text-decoration: underline;
     padding: 10px;
 }
-
-  
-` 
-export default AddedClint
+`
+export default DeletedClint

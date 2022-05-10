@@ -2,30 +2,27 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose } from 'react-icons/ai';
 import FormDelete from './FormDelete';
-
-
-import userEvent from '@testing-library/user-event';
+import DeletedClint from './DeletedClint';
 const DeleteClint = ({showCustomer ,HandelClose}) => {
 
-
+ const [deleted , setDeleted] = useState(true)
   return (
+    
     <StyleyDeleteClint showCustomer={showCustomer}>
+      { deleted == true ?
+      <div>
        <HeaderDeleteClint>
           <h2>حذف العميل</h2>
           <AiOutlineClose className='icon-close' onClick={HandelClose} />
        </HeaderDeleteClint>
-       <FormDelete  />
-       <StyleFotter>
-        <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
-       </StyleFotter>
-       
+       <FormDelete setDeleted={setDeleted} />
+       </div>
+      : <DeletedClint HandelClose={HandelClose} />} 
     </StyleyDeleteClint>
   )
 }
 const StyleyDeleteClint = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+overflow: auto;
 padding: 35px;
 position: fixed;
 top: 0;
@@ -51,21 +48,6 @@ justify-content: space-between;
 }
 
 `
-const StyleFotter= styled.div`
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-text-align: center;
 
-p{
-    margin: 15px 0;
-  width: 90%;
-  font-size: 15px;
-  padding: 5px 0;
-  font-weight: bold;
-}
-
-`
 
 export default DeleteClint

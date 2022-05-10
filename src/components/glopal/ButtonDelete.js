@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { addClintBlackList } from '../../store/ClintSlice';
-const ButtonDelete = ({values,nameclint,logo,dateSubscription}) => {
+const ButtonDelete = ({values,nameclint,logo,dateSubscription,setDeleted}) => {
   const dispatch = useDispatch()
    //get value inbut
   const HandelClick = () =>{
@@ -16,6 +16,7 @@ const ButtonDelete = ({values,nameclint,logo,dateSubscription}) => {
     state:values.state,
     dateSubscription:dateSubscription
     }))
+    setDeleted(false)
     }
   return (
     <StyleButtonDelete onClick={HandelClick} >
@@ -47,9 +48,6 @@ transition: 0.6s;
 }
 
 }
-
-
-
 p{
     padding: 0 10px ;
 }

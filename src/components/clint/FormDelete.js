@@ -4,7 +4,7 @@ import { useParams } from 'react-router'
 import styled from "styled-components"
 import ButtonDelete from '../glopal/ButtonDelete'
 
-const FormDelete = ({}) => {
+const FormDelete = ({setDeleted}) => {
      //go to user id
     const UserData = useSelector((state) => state.clint.DataUser)
     const Params = useParams()
@@ -50,7 +50,11 @@ const FormDelete = ({}) => {
         </form>
         
         </FormClint>
-        <ButtonDelete  nameclint={user.name} logo={user.logo} dateSubscription={user.dateSubscription} values={values} setValues={setValues}  />
+        <StyleFotter>
+        <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
+        <ButtonDelete  nameclint={user.name} logo={user.logo} dateSubscription={user.dateSubscription} values={values} setValues={setValues} setDeleted={setDeleted}  />
+
+       </StyleFotter>
         </div>
         )
         })}
@@ -59,6 +63,8 @@ const FormDelete = ({}) => {
 }
 const MainFormDelete = styled.div`
 overflow-y: auto;
+display: flex;
+justify-content: center;
     p.title{
         margin: 25px 0 ;
         font-weight: bold;
@@ -66,7 +72,7 @@ overflow-y: auto;
 `
 const AboutClint = styled.div`
 .item-clint{
-
+    margin-top: 60px;
   .img-clint{
     display: flex;
     align-items: center;
@@ -108,5 +114,23 @@ form{
     }
 
 }
+`
+const StyleFotter= styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-top: 80px;
+
+
+p{
+    margin: 15px 0;
+  width: 90%;
+  font-size: 15px;
+  padding: 5px 0;
+  font-weight: bold;
+}
+
 `
 export default FormDelete
