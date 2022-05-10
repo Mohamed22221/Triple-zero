@@ -28,7 +28,7 @@ const TabelClient = (props) => {
                 <td>{price}</td>
                 <td>{duration} اشهر</td>
                 <td>{paymentDate}</td>
-                <td className={state === "تم الدفع" ? "green" : "red"}>{state}</td>
+                <td><p className={state === "تم الدفع" ? "green" : "red"}>{state}</p></td>
             </TrBody>
         </Tbody>
     </Tabel>
@@ -86,11 +86,18 @@ td{
 }
 .red{
     color: var(--danger-color);
-    font-weight: bold; 
+    font-weight: bold;
+    background-color: #ff000015;
+    padding: 10px;
+    border-radius:30px ;
+        
     }
 .green{
     color: var(--succes-color);
     font-weight: bold;
+    background-color: #00800015;
+    padding: 10px;
+    border-radius:30px ;
 }
 
 `

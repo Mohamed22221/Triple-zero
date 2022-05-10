@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose } from 'react-icons/ai';
-import ButtonDelete from '../glopal/ButtonDelete';
 import FormDelete from './FormDelete';
+
+
+import userEvent from '@testing-library/user-event';
 const DeleteClint = ({showCustomer ,HandelClose}) => {
+
+
   return (
     <StyleyDeleteClint showCustomer={showCustomer}>
        <HeaderDeleteClint>
           <h2>حذف العميل</h2>
           <AiOutlineClose className='icon-close' onClick={HandelClose} />
        </HeaderDeleteClint>
-       <FormDelete />
+       <FormDelete  />
        <StyleFotter>
         <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
-       <ButtonDelete />
        </StyleFotter>
        
     </StyleyDeleteClint>

@@ -1,11 +1,25 @@
 import React from 'react'
 import styled from "styled-components"
-import { MdPersonAddAlt } from 'react-icons/md';
-const ButtonDelete = ({HandelShowCustomer}) => {
+import { AiOutlineDelete } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { addClintBlackList } from '../../store/ClintSlice';
+const ButtonDelete = ({values,nameclint,logo,dateSubscription}) => {
+  const dispatch = useDispatch()
+   //get value inbut
+  const HandelClick = () =>{
+    dispatch(addClintBlackList({
+    userid:values.id,
+    name:nameclint,
+    logo:logo,
+    ReasonDelete:values.ReasonDelete,
+    DeleteDate:values.DeleteDate,
+    state:values.state,
+    dateSubscription:dateSubscription
+    }))
+    }
   return (
-    <StyleButtonDelete >
-      <button> <MdPersonAddAlt className='MdPersonAddAlt' />حذف العميل</button>
-
+    <StyleButtonDelete onClick={HandelClick} >
+      <button> <AiOutlineDelete className='MdPersonAddAlt' />حذف العميل</button>
     </StyleButtonDelete>
   )
 }

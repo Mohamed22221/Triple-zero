@@ -5,7 +5,8 @@ import Logo4 from "../photo/slogan/slogan3.svg"
 
 
 
-const initialState = [
+const initialState = {
+  DataUser : [
     {
       id: 1,
       logo: Logo3 ,
@@ -20,7 +21,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
     },
     {
       id: 2,
@@ -36,7 +39,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -53,7 +58,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -70,7 +77,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -87,7 +96,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -104,7 +115,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
       
     }, 
@@ -122,7 +135,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -139,7 +154,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري",
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
      {
@@ -156,7 +173,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
      {
@@ -173,7 +192,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -190,7 +211,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
      {
@@ -207,7 +230,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },   
      {
@@ -224,7 +249,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
     {
@@ -241,7 +268,9 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },
      {
@@ -258,10 +287,16 @@ const initialState = [
       websitelink : "www.easymedia.agency" ,
       tradetype : "مقاولات" ,
       currencypaid : "المصري" ,
-      compony:"مازيني"
+      compony:"مازيني",
+      ReasonDelete:"فسخ العقد" ,
+      DeleteDate: "4/6/2022",
 
     },      
+],
+blackList:[
+
 ]
+}
 
 
 export const ClintSlice = createSlice({
@@ -269,8 +304,12 @@ export const ClintSlice = createSlice({
   initialState,
   reducers: {
     addClint: (state ,action) => {
-        state.push(action.payload)
+        state.DataUser.push(action.payload)
     },
+    addClintBlackList: (state ,action) => {
+      state.blackList.push(action.payload)
+      console.log(action.payload)
+   },
     removeClint: (state ,action) => {
       
     },
@@ -281,6 +320,6 @@ export const ClintSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addClint, removeClint, editClint } = ClintSlice.actions
+export const { addClint, removeClint, editClint ,addClintBlackList } = ClintSlice.actions
 
 export default ClintSlice.reducer

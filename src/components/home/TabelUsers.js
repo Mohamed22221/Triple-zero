@@ -5,7 +5,7 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 const TabelUsers = () => {
-    const UserData = useSelector((state) => state.clint)
+    const UserData = useSelector((state) => state.clint.DataUser)
   return (
   <MainTabel>
     <Tabel>

@@ -4,6 +4,7 @@ import { FiPause } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from "react-router-dom";
+import ButtonReturn from '../glopal/ButtonReturn';
 
 
 
@@ -14,12 +15,7 @@ const HeaderButton = ({HandelShowCustomer ,logo,name,dateSubscription,compony}) 
             <button ><FiPause className='icon-button' />أقاف مؤقت</button>
             <button  onClick={HandelShowCustomer} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
-        <Link to="/Customers">
-        <MainReturnClints>
-         <span>رجوع</span>
-         <a><BiArrowBack className='icon-button' /></a>
-        </MainReturnClints>
-        </Link>
+        <ButtonReturn />
         
     </MainHeaderClint>
   )
@@ -64,24 +60,5 @@ button {
 
     }
 `
-const MainReturnClints = styled.div`
-display: flex;
-justify-content: center;
-padding: 10px;
 
-span ,.icon-button , a{
-    color: var(--font);
-    cursor: pointer;
-}
-a{
-    display: flex;
-    align-items: center;
-    .icon-button{
-        margin: 4px 11px;
-        font-size: 24px;
-        font-weight: bold;
-    }
-}
-
-`
 export default HeaderButton

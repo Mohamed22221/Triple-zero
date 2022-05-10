@@ -7,7 +7,7 @@ import TabelClient from './TabelClient'
 import { useSelector, useDispatch } from 'react-redux'
 
 const ClintInformation = ({HandelShowCustomer }) => {
-    const UserData = useSelector((state) => state.clint)
+    const UserData = useSelector((state) => state.clint.DataUser)
     const Params = useParams()
     const ParamsId = `${Params.clintid}`
    
