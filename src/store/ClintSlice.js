@@ -304,11 +304,27 @@ export const ClintSlice = createSlice({
   initialState,
   reducers: {
     addClint: (state ,action) => {
-        state.DataUser.push(action.payload)
+      const FindMenueIndex =  state.DataUser.findIndex((item) => item.name == action.payload.name)
+      if (FindMenueIndex >= 0) {
+          state.DataUser[FindMenueIndex].quantityUp += 1 
+      }else{
+          const CartDistracture = {...action.payload ,quantityUp : 1}
+          state.DataUser.push(CartDistracture)
+      }
+        
     },
     addClintBlackList: (state ,action) => {
-      state.blackList.push(action.payload)
-      console.log(action.payload)
+      const FindMenueIndex =  state.blackList.findIndex((item) => item.name == action.payload.name)
+        if (FindMenueIndex >= 0) {
+            state.blackList[FindMenueIndex].quantityUp += 1 
+        }else{
+            const CartDistracture = {...action.payload ,quantityUp : 1}
+            state.blackList.push(CartDistracture)
+            state.DataUser = state.DataUser.filter(item =>item.idUser !== action.payload.userid)
+        }
+    
+      
+    
    },
     removeClint: (state ,action) => {
       

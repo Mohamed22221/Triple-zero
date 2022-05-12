@@ -12,7 +12,9 @@ const FormDelete = ({setDeleted}) => {
     //get date today
     const today = new Date();
     const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-     //get value inbut
+   
+ 
+    //get value inbut
     const [values , setValues] = useState({
      id:"",
      logo:"" ,
@@ -21,14 +23,26 @@ const FormDelete = ({setDeleted}) => {
      ReasonDelete:"",
      DeleteDate:date,
     })
+   //onChange value 
+   const [Disapeld , setDisapeld] = useState(true)
+    const HandelChange = (e) =>{
+        if(e.target.value.length >= 3){
+           setDisapeld(false)
+        }else{
+            setDisapeld(true)
+        }
+       setValues({...values , id:e.target.value}) 
+    }
+    console.log(Disapeld ,values) 
+
 
   return (
     <MainFormDelete>
         {UserData.filter((item => item.name === ParamsId)).map(user  =>{
             return (
-            <div>
-        <AboutClint>
-                <div className='item-clint' key={user.id}>
+            <div key={user.name}>
+        <AboutClint >
+                <div className='item-clint' >
                     <p className='title'>العميل المراد حذفه :</p>
                     <div className='img-clint'>
                         <img src={user.logo} alt="logo"/>
@@ -44,15 +58,25 @@ const FormDelete = ({setDeleted}) => {
         <FormClint>
         <form>
             <label>سبب الحذف</label>
-            <textarea placeholder='الرجاء كتابه سبب الحذف' value={values.ReasonDelete} onChange={(e) => setValues({...values , ReasonDelete:e.target.value})} />
+            <textarea placeholder='الرجاء كتابه سبب الحذف' value={values.ReasonDelete}   onChange={(e) => setValues({...values , ReasonDelete:e.target.value})}  />
             <label>كود التحقق</label>
-            <input placeholder='الرجاء كتابه [id] الخاص بالعميل' value={values.id} onChange={(e) => setValues({...values , id:e.target.value})} />
+            <input placeholder='الرجاء كتابه [id] الخاص بالعميل' value={values.id}  onChange={HandelChange}  />
         </form>
         
         </FormClint>
         <StyleFotter>
         <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
-        <ButtonDelete  nameclint={user.name} logo={user.logo} dateSubscription={user.dateSubscription} values={values} setValues={setValues} setDeleted={setDeleted}  />
+        <ButtonDelete  
+        nameclint={user.name}
+         UserId={user.idUser}
+        logo={user.logo}
+        dateSubscription={user.dateSubscription}
+        values={values}
+        setValues={setValues}
+        setDeleted={setDeleted}
+        Disapeld={Disapeld}
+            
+            />
 
        </StyleFotter>
         </div>
@@ -61,6 +85,7 @@ const FormDelete = ({setDeleted}) => {
     </MainFormDelete>
   )
 }
+
 const MainFormDelete = styled.div`
 overflow-y: auto;
 display: flex;

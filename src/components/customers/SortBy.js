@@ -1,7 +1,7 @@
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
 
-const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate}) => {
+const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate,titleName ,titleDuration}) => {
   
 
   const [stateDataSort ,setDataSort ] = useState({
@@ -9,8 +9,8 @@ const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDa
     dataSort : [   
       {id:1 , name:" الاسم" , state:sortName  },
       {id:2 , name:" الحالة" ,state:sortData  },
-      {id:3 , name:"تاريخ الدفع" , state:sortpaymentDate},
-      {id:4 , name:" المده" ,state:sortDuration},  
+      {id:3 , name:titleName , state:sortpaymentDate},
+      {id:4 , name:titleDuration ,state:sortDuration},  
     ]
   })
   //start Active Class and state sort

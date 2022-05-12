@@ -21,6 +21,8 @@ const SortTabel = (props) => {
         sortName={sortName} 
         sortDuration={sortDuration} 
         sortpaymentDate={sortpaymentDate}
+        titleName={"تاريخ الدفع"}
+        titleDuration={"المده"}
         />
         <AddClint 
         HandelShowCustomer={HandelShowCustomer} 

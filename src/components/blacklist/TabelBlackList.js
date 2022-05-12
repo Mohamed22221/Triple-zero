@@ -1,12 +1,12 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
 import styled from "styled-components"
-import { useSelector } from 'react-redux'
-    
 
-const TabelBlackList = () => {
-    const DataBlackList = useSelector((state) => state.clint.blackList)
+
+
+const TabelBlackList = ({searchSort,sortedField }) => {
   return (
     <StyleTabel>
+
      <Tabel>
         <Thead>
             <TrHead>
@@ -19,14 +19,18 @@ const TabelBlackList = () => {
                 <th>سبب الحذف</th>
                 <th>اعاده التفعيل</th>
                 <th>الحذف</th>
-
-
             </TrHead>
         </Thead>
         <Tbody>
-            {DataBlackList.map(item =>{
+        {sortedField.filter((item)=>{
+            if (searchSort === "") {
+                return item
+            } else if (item.name.includes(searchSort)) {
+                return item
+            }
+        }).map(item =>{
                 return (
-            <TrBody key={item.userid} >
+            <TrBody key={item.name} >
                 <td><img src={item.logo} /></td>
                 <td>{item.userid}</td>
                 <td><p className={item.state === "محذوف" ? "red" : "orange"}>{item.state}</p></td>
@@ -36,7 +40,6 @@ const TabelBlackList = () => {
                 <td>{item.ReasonDelete}</td>  
                 <td><button className='return'>اعاده التفعيل</button></td> 
                 <td><button className='delete'>الحذف للابد</button></td>   
-
             </TrBody>
             )
             })}

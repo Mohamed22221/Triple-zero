@@ -1,27 +1,56 @@
-import React from 'react'
+import React,{useState ,useEffect} from 'react'
 import styled from "styled-components"
 import { MarginPages } from '../../styles/MarginPages'
 import TopBar from '../bars/TopBar'
 import IconsSort from '../customers/IconsSort'
 import SearchCustomer from '../customers/SearchCustomer'
 import SortBy from '../customers/SortBy'
-import { BiArrowBack } from 'react-icons/bi';
 import ButtonReturn from '../glopal/ButtonReturn'
 import TabelBlackList from './TabelBlackList'
+import { useSelector } from 'react-redux'
 
-const MainBlackList = () => {
+const MainBlackList = ({HandelShow }) => {
+  const DataBlackList = useSelector((state) => state.clint.blackList)
+  const [searchSort , setSortSearch] = useState("") 
+          //sort tabel 
+          const [sortedField, setSortedField] = useState([]);
+          useEffect(() => {
+              setSortedField(sortName)
+          }, [setSortedField ,DataBlackList])
+      
+          const sortData = [...DataBlackList].sort((a , b)=>{
+              return a.state > b.state ? 1 : -1;
+          })
+          const sortName = [...DataBlackList].sort((a , b)=>{
+              return a.name < b.name ? 1 : -1;
+          })
+          const sortDuration = [...DataBlackList].sort((a , b)=>{
+              return a.duration > b.duration ? 1 : -1;
+          })
+          const sortpaymentDate = [...DataBlackList].sort((a , b)=>{
+              const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
+              return dateB - dateA
+          })
   return (
     <MarginPages>
-     <TopBar title="العملاء "  /> 
+     <TopBar title="العملاء " HandelShow={HandelShow}  /> 
     <StyleFlex>
       <StyleHeader>
         <h3>القائمه السوداء</h3>
         <IconsSort />
-        <SearchCustomer />
-        <SortBy />
+        <SearchCustomer  searchSort={searchSort} setSortSearch={setSortSearch}  />
+        <SortBy 
+        titleName={"تاريخ الحذف"}
+        titleDuration={"تاريخ الاشتراك"}
+        setSortedField={setSortedField} 
+        sortData={sortData}
+        sortName={sortName} 
+        sortDuration={sortDuration} 
+        sortpaymentDate={sortpaymentDate} 
+        />
         <ButtonReturn />
       </StyleHeader>
-      <TabelBlackList />
+      <TabelBlackList searchSort={searchSort} setSortSearch={setSortSearch} sortedField={sortedField}  />
     </StyleFlex>
     </MarginPages>
   )
