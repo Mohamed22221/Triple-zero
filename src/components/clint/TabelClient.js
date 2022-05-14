@@ -27,7 +27,6 @@ const TabelClient = (props) => {
             <TrBody >
                 <CopyToClipboard text={idUser}>
                 <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
-                
                 </CopyToClipboard>
                 <td>{name}</td>
                 <td>{paymentDate}</td>
@@ -86,13 +85,19 @@ background-color: white;
 
 `
 const TrBody = styled.tr`
+position: relative;
 td:first-child{
     display: flex;
     cursor: pointer;
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-top: 8px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @media (max-width:750px ) {
+        
+    }
     .copy{
         margin-top: 5px;
     }
@@ -104,6 +109,7 @@ td:first-child{
     p{
         margin-left: 4px;
     }
+
 
 }
 td{

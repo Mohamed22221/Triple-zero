@@ -126,7 +126,8 @@ margin-left: 20px;
     .icon-search{
         position: absolute;
         right: 9px;
-        top: 4px;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 26px;
         color: var(--font);
         cursor: pointer;
