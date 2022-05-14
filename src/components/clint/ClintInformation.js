@@ -13,47 +13,46 @@ const ClintInformation = ({HandelShowCustomer }) => {
    
   return (
     <MainStyleClint>
+         
+      {UserData.filter((item => item.name === ParamsId)).map(user =>{
+          return (
+        <ItemStyleClint key={user.id} >
+
+            <HeaderButton
+        HandelShowCustomer={HandelShowCustomer}
+        logo={user.logo} 
+        name={user.name} 
+        dateSubscription={user.dateSubscription} 
+        compony={user.compony}  />
+        <AboutClint 
+        logo={user.logo} 
+        name={user.name} 
+        dateSubscription={user.dateSubscription} 
+        compony={user.compony}
+        />
+        <TabelClient
+        logo={user.logo} 
+        name={user.name} 
+        idUser={user.idUser}
+        dateSubscription={user.dateSubscription} 
+        duration={user.duration}
+        paymentDate={user.paymentDate}
+        price={user.price}
+        state={user.state}
+        clintemail={user.clintemail}
+        websitelink={user.websitelink}
+        tradetype={user.tradetype}
+        currencypaid={user.currencypaid}
+        />
+
         
-        {UserData.filter((item => item.name === ParamsId)).map(user =>{
-          
-        return (
-          <div>
-          {UserData.length >= "" ?   <ItemStyleClint key={user.id} >
-          <HeaderButton
-          HandelShowCustomer={HandelShowCustomer}
-          logo={user.logo} 
-          name={user.name} 
-          dateSubscription={user.dateSubscription} 
-          compony={user.compony}  />
-          <AboutClint 
-          logo={user.logo} 
-          name={user.name} 
-          dateSubscription={user.dateSubscription} 
-          compony={user.compony}
-          />
-          <TabelClient
-          logo={user.logo} 
-          name={user.name} 
-          idUser={user.idUser}
-          dateSubscription={user.dateSubscription} 
-          duration={user.duration}
-          paymentDate={user.paymentDate}
-          price={user.price}
-          state={user.state}
-          clintemail={user.clintemail}
-          websitelink={user.websitelink}
-          tradetype={user.tradetype}
-          currencypaid={user.currencypaid}
-          />
         
-      </ItemStyleClint> 
-      : <h1>فارغ</h1>
-    }
-    </div>
-            
-          
-        )
-    })}
+    </ItemStyleClint>  
+          )
+      })}
+   
+
+    
     </MainStyleClint>
   )
 }

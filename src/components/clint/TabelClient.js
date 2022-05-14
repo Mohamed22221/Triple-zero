@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
 import OtherClint from './OtherClint'
+import { AiOutlineCopy } from 'react-icons/ai';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
 const TabelClient = (props) => {
     const {  name , idUser , price , duration , paymentDate ,
           state , clintemail , websitelink  ,currencypaid  } = props
@@ -22,7 +25,10 @@ const TabelClient = (props) => {
         </Thead>
         <Tbody>
             <TrBody >
-                <td>{idUser}</td>
+                <CopyToClipboard text={idUser}>
+                <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
+                
+                </CopyToClipboard>
                 <td>{name}</td>
                 <td>{paymentDate}</td>
                 <td>{price}</td>
@@ -80,10 +86,31 @@ background-color: white;
 
 `
 const TrBody = styled.tr`
+td:first-child{
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 8px;
+    .copy{
+        margin-top: 5px;
+    }
+    :hover{
+        .copy{
+            color: var(--primary-color);
+        }
+    }
+    p{
+        margin-left: 4px;
+    }
+
+}
 td{
     padding: 15px;
     color: var(--font);
 }
+
 .red{
     color: var(--danger-color);
     font-weight: bold;

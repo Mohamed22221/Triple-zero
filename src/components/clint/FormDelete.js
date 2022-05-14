@@ -18,7 +18,7 @@ const FormDelete = ({setDeleted}) => {
     const [values , setValues] = useState({
      id:"",
      logo:"" ,
-     state:"محذوف",
+     state2:"محذوف",
      name:"",
      ReasonDelete:"",
      DeleteDate:date,
@@ -68,14 +68,26 @@ const FormDelete = ({setDeleted}) => {
         <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
         <ButtonDelete  
         nameclint={user.name}
-         UserId={user.idUser}
+        UserId={user.idUser}
         logo={user.logo}
         dateSubscription={user.dateSubscription}
         values={values}
         setValues={setValues}
         setDeleted={setDeleted}
         Disapeld={Disapeld}
-            
+        price={user.price}
+        duration={user.duration}
+        paymentDate={user.paymentDate}
+        state={user.state}
+        
+        clintemail ={user.clintemail}
+        websitelink={user.websitelink}
+        tradetype = {user.tradetype} 
+        currencypaid ={user.currencypaid} 
+        compony={user.compony}
+        ReasonDelete={user.ReasonDelete} 
+        DeleteDate={user.DeleteDate}
+           
             />
 
        </StyleFotter>

@@ -5,7 +5,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
 import { BsTextParagraph } from 'react-icons/bs';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Link } from "react-router-dom";
 

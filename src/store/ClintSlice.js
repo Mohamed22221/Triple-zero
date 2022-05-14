@@ -327,6 +327,17 @@ export const ClintSlice = createSlice({
     
    },
     removeClint: (state ,action) => {
+      state.blackList = state.blackList.filter(item => item.userid !== action.payload.userid)
+    },
+    ReturnClint: (state ,action) => {
+      const FindMenueIndex =  state.DataUser.findIndex((item) => item.name == action.payload.name)
+      if (FindMenueIndex >= 0) {
+          state.DataUser[FindMenueIndex].quantityUp += 1 
+      }else{
+          const CartDistracture = {...action.payload ,quantityUp : 1}
+          state.DataUser.push(CartDistracture)
+          state.blackList = state.blackList.filter(item => item.userid !== action.payload.idUser)
+      }
       
     },
     editClint: (state, action) => {
@@ -336,6 +347,6 @@ export const ClintSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addClint, removeClint, editClint ,addClintBlackList } = ClintSlice.actions
+export const { addClint, removeClint,ReturnClint, editClint ,addClintBlackList } = ClintSlice.actions
 
 export default ClintSlice.reducer

@@ -3,26 +3,38 @@ import styled from "styled-components"
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useDispatch ,useSelector } from 'react-redux';
 import { addClintBlackList } from '../../store/ClintSlice';
-const ButtonDelete = ({values,nameclint,logo,dateSubscription,setDeleted,Disapeld}) => {
+import { Link } from 'react-router-dom';
+const ButtonDelete = ({values,nameclint,state,logo,dateSubscription,setDeleted,Disapeld,price,duration,paymentDate,clintemail,websitelink,tradetype,currencypaid,compony}) => {
   const dispatch = useDispatch()
   const [disable, setDisable] = React.useState(false);
    //get value inbut
   const HandelClick = () =>{
    
       dispatch(addClintBlackList({
+        //delete Data
         userid:values.id,
         name:nameclint,
         logo:logo,
         ReasonDelete:values.ReasonDelete,
         DeleteDate:values.DeleteDate,
-        state:values.state,
-        dateSubscription:dateSubscription
+        state2:values.state2,
+        state:state,
+        dateSubscription:dateSubscription,
+        price:price,
+        duration:duration,
+        paymentDate:paymentDate,
+        clintemail:clintemail,
+        tradetype:tradetype,
+        currencypaid:currencypaid,
+        compony:compony,
+        websitelink:websitelink
+        
         }))
         setDeleted(false)
     }
 
   return (
-    <StyleButtonDelete onClick={HandelClick}  >
+   <StyleButtonDelete onClick={HandelClick}  >
       <button  disabled={Disapeld}> <AiOutlineDelete className='MdPersonAddAlt' />حذف العميل</button>
     </StyleButtonDelete>
   )
