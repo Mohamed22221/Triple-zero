@@ -5,7 +5,7 @@ const MassegeEmbty = () => {
   return (
     <MainMassegeEmbty>
         <img src={Eroor} />
-        <h3>لا يوجد عملاء تم اضافتهم الي القائمه السوداء</h3>
+        <h3>السجل فارغ</h3>
     </MainMassegeEmbty>
   )
 }

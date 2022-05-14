@@ -6,11 +6,11 @@ import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
-import BlackList from "./components/customers/BlackList";
 import MainBlackList from "./components/blacklist/MainBlackList";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
+  const [showStopClint , setShowStopClint] = useState(false) // stop clint
   const [show , setShow] = useState(false) // added clint massige
 
   const HandelShow = () =>{
@@ -19,16 +19,20 @@ function App() {
   const HandelShowCustomer = () =>{
     setshowCustomer(true)
   }
+  const HandelStopCustomer = () =>{
+    setShowStopClint(true)
+  }
   const HandelClose = () =>{
     setShowBar(false)
     setshowCustomer(false)
+    setShowStopClint(false)
     setShow(false)
   }
   return (
     <StyleApp>
       <BrowserRouter>
       <SideBar showBar={showBar} HandelClose={HandelClose}    />
-      <OverLay HandelClose={HandelClose} showBar={showBar} showCustomer={showCustomer}/>
+      <OverLay HandelClose={HandelClose} showBar={showBar} showCustomer={showCustomer} showStopClint={showStopClint} />
       <Routes>
       <Route path="/" element={<Home HandelShow={HandelShow}  />} />
       <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
@@ -37,6 +41,7 @@ function App() {
        showBar={showBar}
        HandelShowCustomer={HandelShowCustomer}
        showCustomer={showCustomer}
+       showStopClint={showStopClint}
        HandelClose={HandelClose}
        show={show}
        setShow={setShow}
@@ -45,10 +50,13 @@ function App() {
       <Route path="/clint" element={<Clint HandelShow={HandelShow}
        showCustomer={showCustomer} 
        HandelShowCustomer={HandelShowCustomer}
+       HandelStopCustomer={HandelStopCustomer}
+       showStopClint={showStopClint}
        HandelClose={HandelClose}  />} >
         <Route path=":clintid" element={<Clint 
         HandelShow={HandelShow} 
         HandelShowCustomer={HandelShowCustomer}
+        HandelStopCustomer={HandelStopCustomer}
         HandelClose={HandelClose}  />} />
       </Route>
       </Routes>

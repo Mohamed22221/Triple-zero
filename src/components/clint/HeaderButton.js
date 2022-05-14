@@ -2,17 +2,16 @@ import React from 'react'
 import styled from "styled-components"
 import { FiPause } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { BiArrowBack } from 'react-icons/bi';
-import { Link } from "react-router-dom";
+
 import ButtonReturn from '../glopal/ButtonReturn';
 
 
 
-const HeaderButton = ({HandelShowCustomer ,logo,name,dateSubscription,compony}) => {
+const HeaderButton = ({HandelShowCustomer,HandelStopCustomer }) => {
   return (
     <MainHeaderClint>
         <MainButtonClint>
-            <button ><FiPause className='icon-button' />أقاف مؤقت</button>
+            <button onClick={HandelStopCustomer}><FiPause className='icon-button' />أقاف مؤقت</button>
             <button  onClick={HandelShowCustomer} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
         <ButtonReturn />

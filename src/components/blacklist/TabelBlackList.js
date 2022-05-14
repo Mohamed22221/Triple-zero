@@ -84,7 +84,7 @@ const TabelBlackList = ({searchSort,sortedField }) => {
         <Tbody key={item.userid}>
             <div className='Alert'>
             <h3>هل انت متأكد من حذف {item.name}؟</h3>
-            <p>ستؤدي هذه العمليه الي حذف جميل بيانات العميل بشكل نهائي</p>
+            <p>ستؤدي هذه العمليه الي حذف جميع بيانات العميل بشكل نهائي</p>
             <div>
                 <button onClick={()=>DeleteClint(item)}>تاكيد</button>
                 <button onClick={HandelClose}>الغاء</button>

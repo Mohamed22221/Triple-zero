@@ -6,7 +6,7 @@ import HeaderButton from './HeaderButton'
 import TabelClient from './TabelClient'
 import { useSelector, useDispatch } from 'react-redux'
 
-const ClintInformation = ({HandelShowCustomer }) => {
+const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
     const UserData = useSelector((state) => state.clint.DataUser)
     const Params = useParams()
     const ParamsId = `${Params.clintid}`
@@ -20,6 +20,7 @@ const ClintInformation = ({HandelShowCustomer }) => {
 
             <HeaderButton
         HandelShowCustomer={HandelShowCustomer}
+        HandelStopCustomer={HandelStopCustomer}
         logo={user.logo} 
         name={user.name} 
         dateSubscription={user.dateSubscription} 

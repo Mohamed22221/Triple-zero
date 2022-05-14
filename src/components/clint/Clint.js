@@ -4,16 +4,18 @@ import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
 import DeleteClint from './DeleteClint'
+import StopClint from './StopClint'
 
 
-const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose }) => {
+const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
   return (
     <MarginPages>
     <TopBar title={"العميل"} HandelShow={HandelShow} />
     
     <StyleFlex>
-     <ClintInformation HandelShowCustomer={HandelShowCustomer}  />
+     <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer}  />
      <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
+     <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
     </StyleFlex>
     
     </MarginPages>
