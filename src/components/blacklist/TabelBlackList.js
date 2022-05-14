@@ -27,6 +27,7 @@ const TabelBlackList = ({searchSort,sortedField }) => {
                 id: 15,
                 idUser : item.userid,
                 name :item.name,
+                logo:item.logo,
                 dateSubscription: item.dateSubscription,
                 price: item.price,
                 duration: item.duration,
