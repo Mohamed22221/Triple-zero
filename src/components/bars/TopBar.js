@@ -97,6 +97,7 @@ margin-left: 20px;
         padding: 7px 50px 7px 15px;
         width: 750px;
         border-radius: 7px;
+       
         &::placeholder{
             color: var(--font);
             @media (max-width:460px) {  

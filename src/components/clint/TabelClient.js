@@ -99,7 +99,7 @@ td:first-child{
         
     }
     .copy{
-        margin-top: 5px;
+       
     }
     :hover{
         .copy{
