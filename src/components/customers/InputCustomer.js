@@ -3,7 +3,15 @@ import React ,{useState} from 'react'
 import styled from "styled-components"
 
 const InputCustomer = ({values , setValues}) => {
-
+const ImgeHandeler = (e) =>{
+    const Reader = new FileReader()
+    Reader.onload = () =>{
+        if (Reader.readyState === 2) {
+            setValues({...values , logo: Reader.result }) 
+        }
+    }
+    Reader.readAsDataURL(e.target.files[0])
+}
    
   return (
     <StyleMainInput>
@@ -22,7 +30,7 @@ const InputCustomer = ({values , setValues}) => {
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel>اضف شعار للعميل</StyleLabel>
-                    <input type="file" value={values.logo}  onChange={(e) => setValues({...values , logo:e.target.value  }) } />
+                    <input type="file" onChange={ImgeHandeler} />
                 </div>
                 <div className='one-input'> 
                     <StyleLabel>مده الاشتراك <span>*</span></StyleLabel>
