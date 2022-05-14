@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.js": "/Triple-zero/static/js/main.3847a774.js",
+    "main.js": "/Triple-zero/static/js/main.8f6f2679.js",
     "static/media/personlogin.jpg": "/Triple-zero/static/media/personlogin.e6f8030138417ad353d7.jpg",
     "static/media/gif.gif": "/Triple-zero/static/media/gif.404c9b06dbebfe05c81c.gif",
     "static/media/slogan1.svg": "/Triple-zero/static/media/slogan1.89168f3a4d64b5c6f242bf8161fc6ddb.svg",
     "static/media/slogan2.svg": "/Triple-zero/static/media/slogan2.89168f3a4d64b5c6f242bf8161fc6ddb.svg",
     "static/media/slogan3.svg": "/Triple-zero/static/media/slogan3.89168f3a4d64b5c6f242bf8161fc6ddb.svg",
+    "static/media/Eroor.jpg": "/Triple-zero/static/media/Eroor.88e7937f96a56657d382.jpg",
     "static/media/personlogin1.jpg": "/Triple-zero/static/media/personlogin1.119cb9a21854e033d8e7.jpg",
     "static/media/logo.svg": "/Triple-zero/static/media/logo.153589d30ebcd5f489a71ad1a61805c6.svg",
     "static/media/requestswedget.svg": "/Triple-zero/static/media/requestswedget.c4b613d798679b23294b49a05fd5d46e.svg",
@@ -15,9 +16,9 @@
     "static/media/logout.svg": "/Triple-zero/static/media/logout.1a9cfb42a1153041929f062491d08f7b.svg",
     "static/media/notifications.svg": "/Triple-zero/static/media/notifications.cee44213a890381f6931ad967ebba51a.svg",
     "static/media/customerswedget.svg": "/Triple-zero/static/media/customerswedget.4444752a3fc44b158471709d2d845c4a.svg",
-    "main.3847a774.js.map": "/Triple-zero/static/js/main.3847a774.js.map"
+    "main.8f6f2679.js.map": "/Triple-zero/static/js/main.8f6f2679.js.map"
   },
   "entrypoints": [
-    "static/js/main.3847a774.js"
+    "static/js/main.8f6f2679.js"
   ]
 }
