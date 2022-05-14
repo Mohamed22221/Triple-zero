@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/Triple-zero/static/js/main.8f6f2679.js",
+    "main.js": "/Triple-zero/static/js/main.d30f38d0.js",
     "static/media/personlogin.jpg": "/Triple-zero/static/media/personlogin.e6f8030138417ad353d7.jpg",
     "static/media/gif.gif": "/Triple-zero/static/media/gif.404c9b06dbebfe05c81c.gif",
     "static/media/slogan1.svg": "/Triple-zero/static/media/slogan1.89168f3a4d64b5c6f242bf8161fc6ddb.svg",
@@ -12,13 +12,13 @@
     "static/media/requestswedget.svg": "/Triple-zero/static/media/requestswedget.c4b613d798679b23294b49a05fd5d46e.svg",
     "static/media/alert.svg": "/Triple-zero/static/media/alert.002ac8f8305e6eee8f12a7a18808d246.svg",
     "static/media/deleverywedget.svg": "/Triple-zero/static/media/deleverywedget.86de94b393e7714fde3753666072909b.svg",
-    "index.html": "/Triple-zero/index.html",
     "static/media/logout.svg": "/Triple-zero/static/media/logout.1a9cfb42a1153041929f062491d08f7b.svg",
     "static/media/notifications.svg": "/Triple-zero/static/media/notifications.cee44213a890381f6931ad967ebba51a.svg",
     "static/media/customerswedget.svg": "/Triple-zero/static/media/customerswedget.4444752a3fc44b158471709d2d845c4a.svg",
-    "main.8f6f2679.js.map": "/Triple-zero/static/js/main.8f6f2679.js.map"
+    "index.html": "/Triple-zero/index.html",
+    "main.d30f38d0.js.map": "/Triple-zero/static/js/main.d30f38d0.js.map"
   },
   "entrypoints": [
-    "static/js/main.8f6f2679.js"
+    "static/js/main.d30f38d0.js"
   ]
 }
