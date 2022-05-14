@@ -62,8 +62,8 @@ const ImgeHandeler = (e) =>{
                 <div className='one-input'>
                     <StyleLabel> العمله <span>*</span></StyleLabel>
                     <select className="currency" id="cars" form="carform" value={values.currencypaid} onChange={(e) =>setValues({...values , currencypaid:e.target.value}) } >
-                    <option value="Egy">Egy</option>
-                    <option value="Kut">Kut</option>
+                    <option value="مصري">مصري</option>
+                    <option value="كويتي">كويتي</option>
                     </select>
                 </div>
                 <div className='one-input'> 

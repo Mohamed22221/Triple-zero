@@ -17,6 +17,7 @@ const ButtonReturn = () => {
 const MainReturnClints = styled.div`
 display: flex;
 justify-content: center;
+align-items: center;
 padding: 10px;
 
 span ,.icon-button , a{
@@ -26,8 +27,9 @@ span ,.icon-button , a{
 a{
     display: flex;
     align-items: center;
+    margin: 4px 11px 0 11px;
+    
     .icon-button{
-        margin: 4px 11px;
         font-size: 24px;
         font-weight: bold;
     }

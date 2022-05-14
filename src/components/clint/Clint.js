@@ -28,6 +28,8 @@ display: flex;
 justify-content: space-between;
 margin-top: 33px;
 width: 100%;
+border: 1px solid var(--background-opacity);
+border-radius: 40px;
 @media (max-width:910px) {
   flex-direction: column;
   margin-top: 13px;
