@@ -65,9 +65,9 @@ width: 73%;
 const Tabel = styled.table`
     text-align: center;
     border: 0px;
-    border-spacing: 0px 25px;
+    border-spacing: 0px 28px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 22px;
     width:100% ;
     @media (max-width:770px ) {
      margin-top: 10px;
@@ -83,7 +83,7 @@ const TrHead = styled.tr`
     color: white;
 
 th{
-    padding: 10px 30px;
+    padding: 12px 30px;
     @media (max-width:720px) {
      font-size: 13px;
      padding: 10px 40px;

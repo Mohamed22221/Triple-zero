@@ -4,7 +4,7 @@ import styled from "styled-components"
 import AboutClint from './AboutClint'
 import HeaderButton from './HeaderButton'
 import TabelClient from './TabelClient'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
     const UserData = useSelector((state) => state.clint.DataUser)

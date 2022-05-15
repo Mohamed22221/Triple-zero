@@ -7,6 +7,7 @@ import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
 import MainBlackList from "./components/blacklist/MainBlackList";
+import EditUser from "./components/clint/EditUser";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
@@ -57,7 +58,13 @@ function App() {
         HandelShow={HandelShow} 
         HandelShowCustomer={HandelShowCustomer}
         HandelStopCustomer={HandelStopCustomer}
-        HandelClose={HandelClose}  />} />
+        HandelClose={HandelClose}  />} >
+        
+        </Route>
+        
+      </Route>
+      <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
+      <Route path=":userid" element={<EditUser />} />
       </Route>
       </Routes>
       </BrowserRouter>

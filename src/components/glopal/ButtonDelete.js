@@ -35,7 +35,7 @@ const ButtonDelete = ({values,nameclint,state,logo,dateSubscription,setDeleted,D
 
   return (
    <StyleButtonDelete onClick={HandelClick}  >
-      <button  disabled={Disapeld}> <AiOutlineDelete className='MdPersonAddAlt' />حذف العميل</button>
+      <button  disabled={Disapeld}>حذف العميل</button>
     </StyleButtonDelete>
   )
 }
@@ -48,7 +48,7 @@ display: flex;
 align-items: center;
 background-color: var(--danger-color);
 margin: 8px 10px ;
-padding: 8px 25px;
+padding: 12px 25px;
 text-align: center;
 :disabled{
   opacity: 0.4;
@@ -67,6 +67,7 @@ transition: 0.6s;
 .MdPersonAddAlt{
     font-size: 25px;
     margin-left: 10px;
+    cursor: not-allowed;
 }
 
 }

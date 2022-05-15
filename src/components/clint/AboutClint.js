@@ -3,9 +3,13 @@ import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
 import request from '../../photo/icons/requestswedget.svg'
 import delevery from '../../photo/icons/deleverywedget.svg'
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 const AboutClint = (props) => {
     const {name ,logo ,dateSubscription ,compony } = props
+
   return (
     <MainStyleAbout>
       <MainRightAbout>
@@ -16,7 +20,7 @@ const AboutClint = (props) => {
         <h3>{compony}</h3>
         <p>{name}</p>
         <p>تاريخ الاشتراك : {dateSubscription}</p>
-        <button>تعديل العميل</button>
+       <Link to={`/EditUser/${name}`}><button>تعديل العميل</button></Link>
       </div>
       </MainRightAbout>
       <MainLiftAbout>
@@ -79,6 +83,7 @@ align-items: center;
 .apout{
   margin-right: 15px ;
   p {
+    padding: 4px 0;
     color: var(--font);
   }
   @media (max-width:550px ) {

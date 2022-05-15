@@ -91,18 +91,20 @@ align-items: center;
 .search {
 position: relative;
 margin-left: 20px;
+
     input{
         all:unset ;
         background-color: var(--white-color);
         padding: 7px 50px 7px 15px;
         width: 750px;
+        
         border-radius: 7px;
        
         &::placeholder{
             color: var(--font);
             @media (max-width:460px) {  
             width: 100px;
-            font-size: 13px;
+            font-size: 12px;
         }
         }
         @media (max-width:1610px) {

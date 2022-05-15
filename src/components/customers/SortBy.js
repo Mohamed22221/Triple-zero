@@ -55,6 +55,7 @@ const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDa
 }
 const StyleSortBy = styled.div`
   display: flex;
+  align-items: center;
   p{
     margin: 0 8px;
     font-weight: bold;
