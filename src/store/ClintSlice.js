@@ -341,7 +341,21 @@ export const ClintSlice = createSlice({
       
     },
     editClint: (state, action) => {
-     
+     const myDataEdit = state.DataUser.find((item =>item.idUser == action.payload.idUser))
+     if (myDataEdit) {
+      myDataEdit.logo = action.payload.logo
+      myDataEdit.idUser = action.payload.idUser
+      myDataEdit.name = action.payload.name
+      myDataEdit.dateSubscription = action.payload.dateSubscription
+      myDataEdit.price = action.payload.price
+      myDataEdit.duration = action.payload.duration
+      myDataEdit.paymentDate =action.payload. paymentDate
+      myDataEdit.state = action.payload.state
+      myDataEdit.websitelink = action.payload.websitelink
+      myDataEdit.clintemail = action.payload.clintemail
+      myDataEdit.compony = action.payload.compony
+      myDataEdit.currencypaid = action.payload.currencypaid
+     }
     },
   },
 })

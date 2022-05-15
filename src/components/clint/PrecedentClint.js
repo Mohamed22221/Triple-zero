@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components"
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
@@ -7,12 +7,13 @@ const PrecedentClint = () => {
   const UserData = useSelector((state) => state.clint.DataUser)
   const Params = useParams()
   const ParamsId = `${Params.userid}`
+
   return (
     <MainStylePrecedent>
       <h2>البيانات القديمه</h2>
       {UserData.filter((item)=>item.name === ParamsId).map((user =>{
         return (
-          <div className='main-cart'>
+          <div className='main-cart' key={user.idUser}>
             <div className='header-cart'>
               <div className='img'>
                 <img src={user.logo} alt="logo" />
