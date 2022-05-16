@@ -23,6 +23,7 @@ const FormEdit = () => {
   const websitelink= UserData.filter((item)=>item.name === ParamsId).map((user => user.websitelink))
   const state= UserData.filter((item)=>item.name === ParamsId).map((user => user.state))
   const currencypaid = UserData.filter((item)=>item.name === ParamsId).map((user => user.currencypaid))
+  const logo = UserData.filter((item)=>item.name === ParamsId).map((user => user.logo))
 
   const { addToast } = useToasts();
  //redux toolkit
@@ -30,7 +31,7 @@ const FormEdit = () => {
 
  //values input
    const [values , setValues] = useState({
-     logo:"" , 
+     logo:logo[0] , 
      idUser :id[0],
      name :name[0],
      compony:compony[0] ,
@@ -137,7 +138,7 @@ const FormEdit = () => {
             </div>
         </div>
         <div className='edit'>
-        <button onClick={HandelChange} ><Link to={`/clint/${values.name}`}><FaUserEdit/>تعديل</Link></button>
+        <button onClick={HandelChange} ><Link to={`/Customers/clint/${values.name}`}><FaUserEdit/>تعديل</Link></button>
         </div>
          </div>
           )

@@ -42,7 +42,7 @@ const TopBar = ({title ,HandelShow}) => {
             {filterSearch.map((item , index) =>{
                 return (
                     <div className='click-Search' key={index}>
-                        <Link to={`/clint/${item.name}`} onClick={handelLink}><p>{item.name}</p> </Link>
+                        <Link to={`/Customers/clint/${item.name}`} onClick={handelLink}><p>{item.name}</p> </Link>
                     </div>
 
                 )

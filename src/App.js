@@ -48,7 +48,7 @@ function App() {
        setShow={setShow}
         />} />
         <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
-      <Route path="/clint" element={<Clint HandelShow={HandelShow}
+      <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
        showCustomer={showCustomer} 
        HandelShowCustomer={HandelShowCustomer}
        HandelStopCustomer={HandelStopCustomer}

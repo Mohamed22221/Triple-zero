@@ -10,7 +10,7 @@ const AddedClint = ({HandelClose , name}) => {
         <h2>تم اضافه {name} بنجاح</h2>
         <p>يمكنك تعديل بيانات العميل من حساب العميل</p>
         <button onClick={HandelClose} >المتابعه</button>
-        <Link to={`/clint/${name}`} onClick={HandelClose}>بيانات العميل</Link>
+        <Link to={`/Customers/clint/${name}`} onClick={HandelClose}>بيانات العميل</Link>
     </StyleyAddedClint>
   )
 }

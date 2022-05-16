@@ -80,7 +80,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {stateNav.NavBar.map((item ,index) =>{
                 return (
                     <NavLink key={item.id} to={item.link} onClick={HandelClose} exact activeClassName="active" >
-                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} activeClassName="active">
+                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} exact activeClassName="active">
                         <item.icon className='icon-name' />
                         <li>{item.name}</li>
                     </div>
@@ -167,7 +167,7 @@ span img{
         }
     }
     .active{
-        background-color:  var(--background-opacity) ; 
+        background-color:  var(--background-opacity) !important ; 
         li{
                 color: var(--primary-color);
             }

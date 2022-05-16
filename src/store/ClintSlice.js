@@ -6,7 +6,8 @@ import Logo4 from "../photo/slogan/slogan3.svg"
 
 
 const initialState = {
-  DataUser : [
+  DataUser :localStorage.getItem("DataUser") ? JSON.parse(localStorage.getItem("DataUser")) : [
+    
     {
       id: 1,
       logo: Logo3 ,
@@ -293,7 +294,7 @@ const initialState = {
 
     },      
 ],
-blackList:[
+blackList:localStorage.getItem("blackList") ? JSON.parse(localStorage.getItem("blackList")) :[
 
 ]
 }
@@ -311,6 +312,8 @@ export const ClintSlice = createSlice({
           const CartDistracture = {...action.payload ,quantityUp : 1}
           state.DataUser.push(CartDistracture)
       }
+      localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
+      
         
     },
     addClintBlackList: (state ,action) => {
@@ -322,12 +325,15 @@ export const ClintSlice = createSlice({
             state.blackList.push(CartDistracture)
             state.DataUser = state.DataUser.filter(item =>item.idUser !== action.payload.userid)
         }
-    
-      
+        localStorage.setItem("blackList",JSON.stringify(state.blackList))
+        
     
    },
     removeClint: (state ,action) => {
       state.blackList = state.blackList.filter(item => item.userid !== action.payload.userid)
+      localStorage.removeItem("DataUser",JSON.stringify(state.DataUser))
+      localStorage.removeItem("blackList",JSON.stringify(state.blackList))
+
     },
     ReturnClint: (state ,action) => {
       const FindMenueIndex =  state.DataUser.findIndex((item) => item.name == action.payload.name)
@@ -338,6 +344,7 @@ export const ClintSlice = createSlice({
           state.DataUser.push(CartDistracture)
           state.blackList = state.blackList.filter(item => item.userid !== action.payload.idUser)
       }
+      localStorage.removeItem("blackList",JSON.stringify(state.blackList))
       
     },
     editClint: (state, action) => {
@@ -359,6 +366,7 @@ export const ClintSlice = createSlice({
       myDataEdit.DeleteDate = action.payload.DeleteDate
 
      }
+     localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
     },
   },
 })
