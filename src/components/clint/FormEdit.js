@@ -13,6 +13,19 @@ const FormEdit = () => {
   const dateSubscription= UserData.filter((item)=>item.name === ParamsId).map((user => user.dateSubscription))
   const ReasonDelete= UserData.filter((item)=>item.name === ParamsId).map((user => user.ReasonDelete))
   const DeleteDate= UserData.filter((item)=>item.name === ParamsId).map((user => user.DeleteDate))
+  const compony= UserData.filter((item)=>item.name === ParamsId).map((user => user.compony))
+  const name= UserData.filter((item)=>item.name === ParamsId).map((user => user.name))
+  const price= UserData.filter((item)=>item.name === ParamsId).map((user => user.price))
+  const duration= UserData.filter((item)=>item.name === ParamsId).map((user => user.duration))
+  const clintemail= UserData.filter((item)=>item.name === ParamsId).map((user => user.clintemail))
+  const websitelink= UserData.filter((item)=>item.name === ParamsId).map((user => user.websitelink))
+  const state= UserData.filter((item)=>item.name === ParamsId).map((user => user.state))
+  const currencypaid = UserData.filter((item)=>item.name === ParamsId).map((user => user.currencypaid))
+
+
+  
+
+
   const { addToast } = useToasts();
  //redux toolkit
  const dispatch = useDispatch()
@@ -21,16 +34,16 @@ const FormEdit = () => {
    const [values , setValues] = useState({
      logo:"" , 
      idUser :id[0],
-     name :"محمد سيد" ,
-     compony:"العربي" ,
+     name :name[0],
+     compony:compony[0] ,
      dateSubscription: dateSubscription[0],
-     price: "1900",
-     duration: "3" ,
+     price: price[0],
+     duration: duration[0] ,
      paymentDate: dateSubscription[0],
-     clintemail : "hamdymedo525@gmail.com" ,
-     websitelink : "https://www.youtube.com/" ,
-     state : "لم يدفع" ,
-     currencypaid : "المصري",
+     clintemail : clintemail[0],
+     websitelink : websitelink[0] ,
+     state : state[0],
+     currencypaid : currencypaid[0],
      ReasonDelete:ReasonDelete[0] ,
      DeleteDate: DeleteDate[0],
  })
@@ -193,7 +206,6 @@ h2{
     all: unset;
     padding: 10px 50px;
     font-weight: bold;
-    color: white;
     border-radius: 5px;
     cursor: pointer;
     background-color: var(--secound-color);
@@ -201,7 +213,11 @@ h2{
     :hover{
       opacity: 0.6;
     }
+
   }
+  a{
+      color: white;
+    }
 }
 `
 const StyleForm = styled.form`
