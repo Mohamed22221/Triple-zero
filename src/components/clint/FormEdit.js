@@ -158,7 +158,7 @@ display: flex;
 flex-direction: column;
 overflow: auto;
 @media (max-width: 780px) {
-  overflow: hidden;
+  
   height: 100%;
 }
 //scroll
