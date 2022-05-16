@@ -355,6 +355,9 @@ export const ClintSlice = createSlice({
       myDataEdit.clintemail = action.payload.clintemail
       myDataEdit.compony = action.payload.compony
       myDataEdit.currencypaid = action.payload.currencypaid
+      myDataEdit.ReasonDelete = action.payload.ReasonDelete
+      myDataEdit.DeleteDate = action.payload.DeleteDate
+
      }
     },
   },

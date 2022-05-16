@@ -64,7 +64,7 @@ function App() {
         
       </Route>
       <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
-      <Route path=":userid" element={<EditUser />} />
+      <Route path="/EditUser/:userid" element={<EditUser />} />
       </Route>
       </Routes>
       </BrowserRouter>

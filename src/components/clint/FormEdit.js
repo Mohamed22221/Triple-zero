@@ -3,34 +3,36 @@ import styled  from "styled-components"
 import {  editClint } from '../../store/ClintSlice';
 import {  useDispatch ,useSelector } from 'react-redux'
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import {  useToasts } from 'react-toast-notifications';
 const FormEdit = () => {
   const UserData = useSelector((state) => state.clint.DataUser)
   const Params = useParams()
   const ParamsId = `${Params.userid}`
- //get date today
-
- const id= UserData.filter((item)=>item.name === ParamsId).map((user => user.idUser))
- const dateSubscription= UserData.filter((item)=>item.name === ParamsId).map((user => user.dateSubscription))
+  const id= UserData.filter((item)=>item.name === ParamsId).map((user => user.idUser))
+  const dateSubscription= UserData.filter((item)=>item.name === ParamsId).map((user => user.dateSubscription))
+  const ReasonDelete= UserData.filter((item)=>item.name === ParamsId).map((user => user.ReasonDelete))
+  const DeleteDate= UserData.filter((item)=>item.name === ParamsId).map((user => user.DeleteDate))
+  const { addToast } = useToasts();
  //redux toolkit
  const dispatch = useDispatch()
- useEffect(() => {
-  dispatch(editClint({}))
-  }, [UserData])
 
  //values input
    const [values , setValues] = useState({
      logo:"" , 
-     idUser :id,
-     name :"" ,
-     compony:" " ,
-     dateSubscription: dateSubscription,
-     price: "",
+     idUser :id[0],
+     name :"محمد سيد" ,
+     compony:"العربي" ,
+     dateSubscription: dateSubscription[0],
+     price: "1900",
      duration: "3" ,
-     paymentDate: dateSubscription,
-     clintemail : "i" ,
-     websitelink : "" ,
-     state : "" ,
-     currencypaid : ""  
+     paymentDate: dateSubscription[0],
+     clintemail : "hamdymedo525@gmail.com" ,
+     websitelink : "https://www.youtube.com/" ,
+     state : "لم يدفع" ,
+     currencypaid : "المصري",
+     ReasonDelete:ReasonDelete[0] ,
+     DeleteDate: DeleteDate[0],
  })
 
  
@@ -39,7 +41,7 @@ const FormEdit = () => {
     e.preventDefault()
     dispatch(editClint({
       logo: values.logo ,
-      idUser : id ,
+      idUser :values.idUser,
       name : values.name,
       compony:values.compony ,
       dateSubscription:values.dateSubscription,
@@ -49,9 +51,14 @@ const FormEdit = () => {
       clintemail : values.clintemail ,
       websitelink : values.websitelink ,
       state : values.state ,
-      currencypaid : values.currencypaid   
+      currencypaid : values.currencypaid,
+      ReasonDelete:values.ReasonDelete ,
+      DeleteDate:values.DeleteDate
+         
     }))
+    addToast(`تم اجراء التعديلات بنجاح` , { appearance: 'success' });
   }
+
  // click add customer
  const ImgeHandeler = (e) =>{
   const Reader = new FileReader()
@@ -68,6 +75,7 @@ const FormEdit = () => {
       <StyleForm>
       {UserData.filter((item)=>item.name === ParamsId).map((user =>{
         return (
+          <div>
         <div className='display-input' key={user.idUser}>
             <div className='input'>
               <label className='disabled'>رقم العميل <span>*</span></label>
@@ -87,7 +95,7 @@ const FormEdit = () => {
             </div>
             <div className='input'>
               <label>اسم العميل <span>*</span></label>
-              <input type="text" placeholder='عدل اسم العميل' alue={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
+              <input type="text" placeholder='عدل اسم العميل' value={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
             </div>
             <div className='input'>
               <label>اسم الشركه <span>*</span></label>
@@ -117,12 +125,13 @@ const FormEdit = () => {
               </select>
             </div>
         </div>
-
+        <div className='edit'>
+        <button onClick={HandelChange} ><Link to={`/clint/${values.name}`}>تعديل</Link></button>
+        </div>
+         </div>
           )
         }))}
-        <div className='edit'>
-          <button onClick={HandelChange} >تعديل</button>
-        </div>
+
         
         
       </StyleForm>

@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react'
 import styled from "styled-components"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import pattern from "../../photo/glopal/pattern-1.png"
+import EditUser from './EditUser'
+import {  editClint } from '../../store/ClintSlice';
+
 const PrecedentClint = () => {
   const UserData = useSelector((state) => state.clint.DataUser)
   const Params = useParams()
   const ParamsId = `${Params.userid}`
+ //values input
+
+  const dispatch = useDispatch()
 
   return (
     <MainStylePrecedent>

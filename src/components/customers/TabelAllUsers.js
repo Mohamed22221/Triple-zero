@@ -33,9 +33,9 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
   return (
   <MainTabel>
       <SortTabel 
-      setSortSearch={setSortSearch} 
-      searchSort={searchSort} 
-      HandelShowCustomer={HandelShowCustomer}
+       setSortSearch={setSortSearch} 
+       searchSort={searchSort} 
+       HandelShowCustomer={HandelShowCustomer}
        UserData={UserData} 
        setSortedField={setSortedField}
        sortData={sortData} 

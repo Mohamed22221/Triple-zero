@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from "styled-components"
-import Eroor from "../../photo/glopal/Eroor.jpg"
+
 const MassegeEmbty = () => {
   return (
     <MainMassegeEmbty>
-        <img src={Eroor} />
+        
         <h3>السجل فارغ</h3>
     </MainMassegeEmbty>
   )

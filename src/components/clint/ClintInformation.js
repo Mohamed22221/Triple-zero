@@ -16,17 +16,19 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
          
       {UserData.filter((item => item.name === ParamsId)).map(user =>{
           return (
-        <ItemStyleClint key={user.id} >
+        <ItemStyleClint key={user.idUser} >
 
-            <HeaderButton
+          <HeaderButton
         HandelShowCustomer={HandelShowCustomer}
         HandelStopCustomer={HandelStopCustomer}
         logo={user.logo} 
         name={user.name} 
         dateSubscription={user.dateSubscription} 
         compony={user.compony}  />
-        <AboutClint 
-        logo={user.logo} 
+        <AboutClint
+        id={user.id} 
+        logo={user.logo}
+        idUser={user.idUser} 
         name={user.name} 
         dateSubscription={user.dateSubscription} 
         compony={user.compony}

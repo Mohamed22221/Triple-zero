@@ -4,14 +4,11 @@ import { MarginPages } from '../../styles/MarginPages'
 import TopBar from '../bars/TopBar'
 import FormEdit from './FormEdit'
 import PrecedentClint from './PrecedentClint'
-import {  useDispatch ,useSelector } from 'react-redux'
-import {  editClint } from '../../store/ClintSlice';
+
 const EditUser = ({HandelShow}) => {
-  const UserData = useSelector((state) => state.clint.DataUser)
-  const dispatch = useDispatch()
-  useEffect(() => {
-   dispatch(editClint({}))
-   }, [UserData,dispatch])
+
+  
+
   return (
     
     <StyleEdit>

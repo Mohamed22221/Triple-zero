@@ -25,7 +25,7 @@ const TabelUsers = () => {
         <Tbody>
         {UserData.slice(0 , 6 ).map((user , index) =>{
             return (
-                <TrBody key={user.id}>
+                <TrBody key={index}>
                     
                     <td><Link to={`/clint/${user.name}`}><img src={user.logo} alt="logo" /> </Link></td>
                    
@@ -194,6 +194,7 @@ a{
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: black;
 }
 .BsArrowLeftShort{
     font-size: 28px;

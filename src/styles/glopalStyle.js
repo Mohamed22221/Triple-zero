@@ -29,6 +29,7 @@ html {
 
 body{
   font-family: 'Almarai', sans-serif;
+  box-sizing: border-box;
   background-color: var(--background-color);
 ::-webkit-scrollbar {
   width: 10px;
