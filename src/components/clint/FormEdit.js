@@ -5,6 +5,8 @@ import {  useDispatch ,useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import {  useToasts } from 'react-toast-notifications';
+import { FaUserEdit } from 'react-icons/fa';
+
 const FormEdit = () => {
   const UserData = useSelector((state) => state.clint.DataUser)
   const Params = useParams()
@@ -21,10 +23,6 @@ const FormEdit = () => {
   const websitelink= UserData.filter((item)=>item.name === ParamsId).map((user => user.websitelink))
   const state= UserData.filter((item)=>item.name === ParamsId).map((user => user.state))
   const currencypaid = UserData.filter((item)=>item.name === ParamsId).map((user => user.currencypaid))
-
-
-  
-
 
   const { addToast } = useToasts();
  //redux toolkit
@@ -139,7 +137,7 @@ const FormEdit = () => {
             </div>
         </div>
         <div className='edit'>
-        <button onClick={HandelChange} ><Link to={`/clint/${values.name}`}>تعديل</Link></button>
+        <button onClick={HandelChange} ><Link to={`/clint/${values.name}`}><FaUserEdit/>تعديل</Link></button>
         </div>
          </div>
           )
@@ -204,7 +202,7 @@ h2{
   margin: 25px 0 0 0;
   button{
     all: unset;
-    padding: 10px 50px;
+    
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -217,6 +215,13 @@ h2{
   }
   a{
       color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 50px;
+      svg{
+        margin-left: 10px;
+        font-size: 25px;
+      }
     }
 }
 `

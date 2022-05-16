@@ -4,10 +4,11 @@ import logo from "../../photo/glopal/logo.svg"
 import logout from "../../photo/icons/logout.svg"
 import { AiOutlineAppstore  } from 'react-icons/ai';
 import {  BsPerson } from 'react-icons/bs';
+import {  NavLink, useLocation } from 'react-router-dom'
 import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
-import { Link } from "react-router-dom";
 const SideBar = ({showBar,HandelClose }) => {
+    let location = useLocation();
     const [stateNav , setStateNav] = useState({
         activeNav : null ,
         NavBar : [
@@ -28,14 +29,14 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:3 ,
                 name : "حسابي" ,
-                link: "/Triple-zero" ,
+                link: "" ,
                 icon: BsPerson,
             
             },
             {
                 id:4 ,
                 name : "الأعدادات" ,
-                link: "/Triple-zero" ,
+                link: "" ,
                 icon: MdOutlineSettings,
             
             },
@@ -59,9 +60,9 @@ const SideBar = ({showBar,HandelClose }) => {
   }
   const HandelClassName= (index) =>{
     if(stateNav.NavBar[index] ==stateNav.activeSort ){
-      return "item-widget active"
+      return "item-widget"
     }else{
-      return "item-widget unActive"
+      return "item-widget"
     }
   }
 //end Active Class
@@ -78,12 +79,12 @@ const SideBar = ({showBar,HandelClose }) => {
             <ul >
             {stateNav.NavBar.map((item ,index) =>{
                 return (
-                    <Link key={item.id} to={item.link} onClick={HandelClose}>
-                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)}>
-                        <item.icon className='icon-name'/>
+                    <NavLink key={item.id} to={item.link} onClick={HandelClose} exact activeClassName="active" >
+                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} activeClassName="active">
+                        <item.icon className='icon-name' />
                         <li>{item.name}</li>
                     </div>
-                    </Link>
+                    </NavLink>
                 )
             })}
             </ul>
