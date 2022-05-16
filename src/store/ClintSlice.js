@@ -5,8 +5,8 @@ import Logo4 from "../photo/slogan/slogan3.svg"
 
 
 
-const initialState = {
-  DataUser :localStorage.getItem("DataUser") ? JSON.parse(localStorage.getItem("DataUser")) : [
+const initialState =  {
+  DataUser :localStorage.getItem("DataUser")   ? JSON.parse(localStorage.getItem("DataUser")) : [
     
     {
       id: 1,
@@ -294,7 +294,7 @@ const initialState = {
 
     },      
 ],
-blackList:localStorage.getItem("blackList") ? JSON.parse(localStorage.getItem("blackList")) :[
+blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 
 ]
 }
@@ -326,13 +326,14 @@ export const ClintSlice = createSlice({
             state.DataUser = state.DataUser.filter(item =>item.idUser !== action.payload.userid)
         }
         localStorage.setItem("blackList",JSON.stringify(state.blackList))
+        localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
         
     
    },
     removeClint: (state ,action) => {
       state.blackList = state.blackList.filter(item => item.userid !== action.payload.userid)
-      localStorage.removeItem("DataUser",JSON.stringify(state.DataUser))
-      localStorage.removeItem("blackList",JSON.stringify(state.blackList))
+      localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
+      localStorage.setItem("blackList",JSON.stringify(state.blackList))
 
     },
     ReturnClint: (state ,action) => {
@@ -344,7 +345,8 @@ export const ClintSlice = createSlice({
           state.DataUser.push(CartDistracture)
           state.blackList = state.blackList.filter(item => item.userid !== action.payload.idUser)
       }
-      localStorage.removeItem("blackList",JSON.stringify(state.blackList))
+      localStorage.setItem("blackList",JSON.stringify(state.blackList))
+      localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
       
     },
     editClint: (state, action) => {
