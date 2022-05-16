@@ -27,7 +27,7 @@ const TabelUsers = () => {
             return (
                 <TrBody key={index}>
                     
-                    <td><Link to={`/Customers/clint${user.name}`}><img src={user.logo} alt="logo" /> </Link></td>
+                    <td><Link to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /> </Link></td>
                    
                     <td>{user.idUser}</td>
                     <td>{user.name}</td>
