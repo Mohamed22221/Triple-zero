@@ -87,8 +87,8 @@ const FormEdit = () => {
       <StyleForm>
       {UserData.filter((item)=>item.name === ParamsId).map((user =>{
         return (
-          <div>
-        <div className='display-input' key={user.idUser}>
+          <div key={user.idUser}>
+        <div className='display-input' >
             <div className='input'>
               <label className='disabled'>رقم العميل <span>*</span></label>
               <input className='disabled' value={values.idUser}    />
@@ -157,6 +157,10 @@ border-radius: 10px 0px 0px 10px;
 display: flex;
 flex-direction: column;
 overflow: auto;
+@media (max-width: 780px) {
+  overflow: hidden;
+  height: 100%;
+}
 //scroll
 ::-webkit-scrollbar {
   width: 5px;
@@ -170,9 +174,7 @@ overflow: auto;
   background-color: var(--secound-color);
   outline: 1px solid slategrey;
 }
-@media (max-width: 780px) {
-  overflow: hidden;
-}
+
 
 h2{
   text-align: center;
@@ -191,11 +193,10 @@ h2{
 
 @media (max-width:950px) {
   width: 100%;
-  height: 100%;
-}
-@media (max-width:950px) {
+  height: 100%; 
   margin: 10px 0;
 }
+
 .edit{
   display: flex;
   align-items: center;
@@ -231,6 +232,7 @@ margin: 10px 20px;
 .display-input{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  height: 100%;
   @media (max-width:1500px ) {
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   }
