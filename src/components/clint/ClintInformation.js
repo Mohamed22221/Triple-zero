@@ -19,34 +19,34 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
         <ItemStyleClint key={user.idUser} >
 
           <HeaderButton
-        HandelShowCustomer={HandelShowCustomer}
-        HandelStopCustomer={HandelStopCustomer}
-        logo={user.logo} 
-        name={user.name} 
-        dateSubscription={user.dateSubscription} 
-        compony={user.compony}  />
-        <AboutClint
-        id={user.id} 
-        logo={user.logo}
-        idUser={user.idUser} 
-        name={user.name} 
-        dateSubscription={user.dateSubscription} 
-        compony={user.compony}
-        />
-        <TabelClient
-        logo={user.logo} 
-        name={user.name} 
-        idUser={user.idUser}
-        dateSubscription={user.dateSubscription} 
-        duration={user.duration}
-        paymentDate={user.paymentDate}
-        price={user.price}
-        state={user.state}
-        clintemail={user.clintemail}
-        websitelink={user.websitelink}
-        tradetype={user.tradetype}
-        currencypaid={user.currencypaid}
-        />
+            HandelShowCustomer={HandelShowCustomer}
+            HandelStopCustomer={HandelStopCustomer}
+            logo={user.logo} 
+            name={user.name} 
+            dateSubscription={user.dateSubscription} 
+            compony={user.compony}  />
+            <AboutClint
+              id={user.id} 
+              logo={user.logo}
+              idUser={user.idUser} 
+              name={user.name} 
+              dateSubscription={user.dateSubscription} 
+              compony={user.compony}
+            />
+           <TabelClient
+            logo={user.logo} 
+            name={user.name} 
+            idUser={user.idUser}
+            dateSubscription={user.dateSubscription} 
+            duration={user.duration}
+            paymentDate={user.paymentDate}
+            price={user.price}
+            state={user.state}
+            clintemail={user.clintemail}
+            websitelink={user.websitelink}
+            tradetype={user.tradetype}
+            currencypaid={user.currencypaid}
+            />
 
         
         

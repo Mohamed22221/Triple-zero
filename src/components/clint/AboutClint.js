@@ -56,7 +56,7 @@ const AboutClint = (props) => {
     </MainStyleAbout>
   )
 }
-const MainStyleAbout =  styled.div`
+const MainStyleAbout =  styled.div` 
 display: flex;
 justify-content: space-between;
 padding: 30px;
