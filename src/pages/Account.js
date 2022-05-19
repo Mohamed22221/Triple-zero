@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Clint from '../components/clint/Clint';
 import ClintInformation2 from '../components/clint/ClintInformation2';
 import WrapperContainer from '../components/clint/Wrapper';
@@ -9,12 +9,14 @@ import { AiOutlineCopy } from 'react-icons/ai';
 import { FiPause } from 'react-icons/fi';
 // import OtherClint from './OtherClint'
 import ButtonComponent from '../Shared/Button/Button';
+import TabelAllUsersMyAccount from '../components/MyAccount/TabelAllUsers';
 
 
-const Account = () => {
+const Account = ({HandelShowCustomer}) => {
     // <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
     // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
     // <ClintInformation2 HandelShowCustomer='true' HandelStopCustomer='true'  />
+    const [searchSort, setSortSearch] = useState("")
 
     const handleClick = () => {
         console.log('kldf');
@@ -42,34 +44,8 @@ const Account = () => {
                           </div>    
                 </MainRightAbout>
                 
-                 <StyleTabel>
-                    <Tabel>
-                        <Thead>
-                            <TrHead>
-                                <th >رقم النشاط</th>
-                                <th>نوع النشاط</th>
-                                <th>اسم المشرف</th>
-                                <th>رقم التحقيق</th>
-                                <th>تاريخ النشاط</th>
-                                <th></th>
-                            </TrHead>
-                        </Thead>
-                        <Tbody>
-                            <TrBody >
-                                <td>name</td>
-                                <td>paymentDate</td>
-                                <td>price</td>
-                                <td>duration اشهر</td>
-                                <td>paymentDate</td>
-                                <td>
-                                    <StyleBlackList>                                        
-                                        <Link to="/Customers/blackList"><p>القائمه السوداء</p></Link>
-                                    </StyleBlackList>
-                                </td>
-                            </TrBody>
-                        </Tbody>
-                    </Tabel>
-                </StyleTabel>
+                
+                <TabelAllUsersMyAccount  searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer}   />
             </WrapperContainer>
             
             
