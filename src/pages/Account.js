@@ -8,8 +8,9 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { AiOutlineCopy } from 'react-icons/ai';
 import { FiPause } from 'react-icons/fi';
 // import OtherClint from './OtherClint'
-import ButtonComponent from '../Shared/Button/Button';
+import ButtonComponent from '../Shared/Components/Button/Button';
 import TabelAllUsersMyAccount from '../components/MyAccount/TabelAllUsers';
+import ButtonOutLine from '../Shared/Components/ButtonOutLine/ButtonOutLine';
 
 
 const Account = ({HandelShowCustomer}) => {
@@ -34,12 +35,12 @@ const Account = ({HandelShowCustomer}) => {
                             <p>name</p>
                             <p>تاريخ الاشتراك : dateSubscription</p>
                             <Link to={`/EditUser/`}><button>تعديل العميل</button></Link>
+
                         </div>
                     </MainStyleAbout>    
                           <div>
-                            <ButtonComponent text='tsest' onClick={handleClick} Icon={FiPause} type='primary' />      
-                            <ButtonComponent text='tsest2' onClick={handleClick} Icon={AiOutlineCopy} type='primary' />  
-                            <button>تعديل العميل</button>
+                            <ButtonComponent text='إضافة مشرف ' onClick={handleClick} Icon={FiPause} type='primary' />                                  
+                            <Link className='btn-outline btn-outline-dark' to="/Customers">سجل المشرفين  </Link>
 
                           </div>    
                 </MainRightAbout>
@@ -103,7 +104,7 @@ const MainStyleAbout = styled.div `
 display: flex;
 justify-content: space-between;
 padding: 30px;
-border-bottom:1px solid var(--font-opacity) ;
+// border-bottom:1px solid var(--font-opacity) ;
 @media (max-width:688px ) {
     flex-direction: column;
   }

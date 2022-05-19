@@ -9,6 +9,7 @@ import Clint from "./components/clint/Clint";
 import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
 import Account from "./pages/Account";
+import './styles/glopal-style.scss'
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint

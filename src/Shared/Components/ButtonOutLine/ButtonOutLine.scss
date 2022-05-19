@@ -1,0 +1,10 @@
+.btn-outline{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px ;
+    border: 1px solid var(--font);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--font);
+}

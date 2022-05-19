@@ -1,11 +1,3 @@
-/* .primary {
-    background: green !important;
-}
-
-body{
-    background:red !important;
-} */
-
 .btn-outline-black {
     all: unset;
     border: 1px solid var(--font-opacity);

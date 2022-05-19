@@ -45,15 +45,13 @@ const TabelAllUsersMyAccount = ({searchSort , setSortSearch ,HandelShowCustomer 
     <Tabel>
         <Thead>
             <TrHead>
-                <th >الشعار</th>
-                <th >ID</th>
-                <th>الأسم</th>
-                <th>تاريخ الاشتراك</th>
-                <th>السعر</th>
-                <th>المدة</th>
-                <th>تاريخ الدفع</th>
-                <th>الحاله</th>
-                <td>الخيارات</td>
+                <th >رقم النشاط</th>
+                <th >نوع النشاط</th>
+                <th>اسم المشرف</th>
+                <th>رقم التحقيق</th>
+                <th>تاريخ النشاط</th>
+                <th></th>
+                <th></th>
             </TrHead>
         </Thead>
         <Tbody>
@@ -70,16 +68,13 @@ const TabelAllUsersMyAccount = ({searchSort , setSortSearch ,HandelShowCustomer 
                     <td>{user.idUser}</td>
                     <td>{user.name}</td>
                     <td>{user.dateSubscription}</td>
-                    <td>{user.price}</td>
                     <td>{user.duration} اشهر</td>
-                    <td>{user.paymentDate}</td>
-                    <td ><p className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</p></td>
+                    <td></td>
                     <td >
-                     <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
-                     <div className='select-clint'>
-                     <Link to={`/Customers/clint/${user.name}`}> التفاصيل</Link>
-                     <Link to={`/Customers/clint/${user.name}`}>بيانات العميل</Link>
-                     </div>
+                    <Link className='btn-outline d-inline btn-outline-dark' to="/Customers/clint/مراد%20العتيبي">مشاهدة التفاصيل  </Link>
+                    <button className='btn-outline d-inline btn-outline-danger' >
+                        حذف النشاط
+                    </button>
                     </td>
                 </TrBody>
             )

@@ -9,7 +9,7 @@ const SortTabel = (props) => {
   const {HandelShowCustomer ,setSortSearch ,searchSort ,setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate } = props
   return (
     <StyleMainSort>
-        <BlackList />
+        <h3>سجل النشاط</h3>
         <IconsSort />
         <SearchCustomer 
         searchSort={searchSort}
@@ -24,9 +24,7 @@ const SortTabel = (props) => {
         titleName={"تاريخ الدفع"}
         titleDuration={"المده"}
         />
-        <AddClint 
-        HandelShowCustomer={HandelShowCustomer} 
-        />
+       
     </StyleMainSort>
   )
 }
