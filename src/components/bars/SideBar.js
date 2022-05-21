@@ -36,7 +36,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:4 ,
                 name : "الأعدادات" ,
-                link: "" ,
+                link: "/setting" ,
                 icon: MdOutlineSettings,
             
             },

@@ -10,6 +10,7 @@ import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
+import Setting from "./pages/Setting";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
@@ -74,6 +75,7 @@ function App() {
           HandelClose={HandelClose}  />} >
         
         </Route>
+        <Route path="/setting" element={<Setting />} />
         
         <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
         <Route path="/EditUser/:userid" element={<EditUser />} />
