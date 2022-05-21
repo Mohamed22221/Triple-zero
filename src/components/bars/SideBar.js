@@ -29,7 +29,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:3 ,
                 name : "حسابي" ,
-                link: "" ,
+                link: "/account",
                 icon: BsPerson,
             
             },

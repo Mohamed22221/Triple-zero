@@ -8,6 +8,8 @@ import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
 import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
+import Account from "./pages/Account";
+import './styles/glopal-style.scss'
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
@@ -35,37 +37,47 @@ function App() {
       <SideBar showBar={showBar} HandelClose={HandelClose}    />
       <OverLay HandelClose={HandelClose} showBar={showBar} showCustomer={showCustomer} showStopClint={showStopClint} />
       <Routes>
-      <Route path="/" element={<Home HandelShow={HandelShow}  />} />
-      <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-      <Route path="Customers" element={<Customers
-       HandelShow={HandelShow}
-       showBar={showBar}
-       HandelShowCustomer={HandelShowCustomer}
-       showCustomer={showCustomer}
-       showStopClint={showStopClint}
-       HandelClose={HandelClose}
-       show={show}
-       setShow={setShow}
-        />} />
+        <Route path="/" element={<Home HandelShow={HandelShow}  />} />
+        <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
+        <Route path="Customers" element={<Customers
+          HandelShow={HandelShow}
+          showBar={showBar}
+          HandelShowCustomer={HandelShowCustomer}
+          showCustomer={showCustomer}
+          showStopClint={showStopClint}
+          HandelClose={HandelClose}
+          show={show}
+          setShow={setShow}
+          />} />
+      
         <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
-      <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
-       showCustomer={showCustomer} 
-       HandelShowCustomer={HandelShowCustomer}
-       HandelStopCustomer={HandelStopCustomer}
-       showStopClint={showStopClint}
-       HandelClose={HandelClose}  />} >
-        <Route path=":clintid" element={<Clint 
-        HandelShow={HandelShow} 
+        <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
+        showCustomer={showCustomer} 
         HandelShowCustomer={HandelShowCustomer}
         HandelStopCustomer={HandelStopCustomer}
+        showStopClint={showStopClint}
         HandelClose={HandelClose}  />} >
+          <Route path=":clintid" element={<Clint 
+          HandelShow={HandelShow} 
+          HandelShowCustomer={HandelShowCustomer}
+          HandelStopCustomer={HandelStopCustomer}
+          HandelClose={HandelClose}  />} >
+        
+        </Route>
+
+        </Route>
+
+        <Route path="/account" element={<Account
+          HandelShow={HandelShow} 
+          HandelShowCustomer={HandelShowCustomer}
+          HandelStopCustomer={HandelStopCustomer}
+          HandelClose={HandelClose}  />} >
         
         </Route>
         
-      </Route>
-      <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
-      <Route path="/EditUser/:userid" element={<EditUser />} />
-      </Route>
+        <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
+        <Route path="/EditUser/:userid" element={<EditUser />} />
+        </Route>
       </Routes>
       </BrowserRouter>
     </StyleApp>

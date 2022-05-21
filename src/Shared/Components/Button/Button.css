@@ -1,0 +1,11 @@
+.btn-outline-black {
+    all: unset;
+    border: 1px solid var(--font-opacity);
+    border-radius: 7px;
+    padding: 4px 12px;
+    margin-top: 6px;
+    color: var(--font);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
