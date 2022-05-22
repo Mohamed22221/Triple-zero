@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import { Tabs, Radio, Space } from 'antd';
+import AdminsAlerts from './adminsAlerts/adminsAlerts';
+import AdminsPermissions from './adminsPermissions/adminsPermissions';
 import './setting.scss'
-import { Row, Col } from 'antd';
 
-const { TabPane } = Tabs;
 
 const SettingTabs = () => {
   
@@ -13,17 +12,23 @@ const SettingTabs = () => {
     return (
       <div className="setting-page mt-50">
       
-        <Tabs tabPosition='left'>
-          <TabPane tab="التنبيهات" key="1">
-            <Row>
-              <Col span={12}>col-12</Col>
-              <Col span={12}>col-12</Col>
-            </Row>      
-          </TabPane>
-          <TabPane tab="المشرفين" key="2">
-            Content of Tab 2
-          </TabPane>
-        </Tabs>
+        <div className='row'>
+          <div className='col-lg-3 p-lg-0 mt-lg-5 pt-lg-3'>
+            <div className="nav nav-tabs" id="nav-tab" role="tablist">
+              <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">التنبيهات</button>
+              <button className="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">المشرفين</button>
+            </div>
+          </div>
+
+          <div className="col-lg-9 p-lg-0">
+            <div className="tab-content" id="nav-tabContent">
+              <AdminsPermissions />
+              <AdminsAlerts />
+            </div>
+            
+          </div>
+        </div>
+
       </div>
     );
   

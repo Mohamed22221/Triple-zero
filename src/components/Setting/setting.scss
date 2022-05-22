@@ -1,30 +1,78 @@
 .setting-page{
-    .ant-tabs-nav-list{
-        margin-top: 70px;
-        .ant-tabs-tab{
-            width: 321px;
-            height: 94px;
+    .nav.nav-tabs{
+        border: none;
+        .nav-link{
+            z-index: 10;
+            width:50%;
+            border: none;
             font-family: Almarai;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
             text-align: right;
             color: #2a2e33;
+            border-radius: 0;
             text-align: center;
-            transition: 1s;
-            &.ant-tabs-tab-active{
-                transition: 1s;
-                background: #fff;
+            border-bottom: 2px solid transparent;
+            &.active{
+                border-bottom: 2px solid #fba30d;
             }
-            .ant-tabs-tab-btn{
-                margin: auto;
-                color: #000;
+            @media (min-width: 991px) {
+                width: 100%;
+                height: 94px;
+                font-size: 20px;
+                border-right: 2px solid transparent;
+                &.active{
+                    border-bottom: none;
+                    border-right: 2px solid #fba30d;
+                }
             }
         }
     }
-    .ant-tabs-content-holder{
+
+    .tab-content{
         background: #fff;
-        box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2);
-        border-radius: 50px;
-        padding:50px;
+        box-shadow:0px 16px 40px rgba(112, 144, 176, 0.2);
+        border-radius: 10px;
+        padding: 20px 4px;
+
+
+
+        // border-radius: 50px;
+        // padding:50px
     }
+
+
+
+
+
+
+
+    // .ant-tabs-nav-list{
+    //     margin-top: 70px;
+    //     .ant-tabs-tab{
+    //         width: 321px;
+    //         height: 94px;
+    //         font-family: Almarai;
+    //         font-weight: bold;
+    //         font-size: 20px;
+    //         text-align: right;
+    //         color: #2a2e33;
+    //         text-align: center;
+    //         transition: 1s;
+    //         &.ant-tabs-tab-active{
+    //             transition: 1s;
+    //             background: #fff;
+    //         }
+    //         .ant-tabs-tab-btn{
+    //             margin: auto;
+    //             color: #000;
+    //         }
+    //     }
+    // }
+    // .ant-tabs-content-holder{
+    //     background: #fff;
+    //     box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2);
+    //     border-radius: 50px;
+    //     padding:50px;
+    // }
 }
