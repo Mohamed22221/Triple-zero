@@ -1,12 +1,17 @@
-import React from 'react';
-import { Switch } from 'antd';
+import React, {useState} from 'react';
+import SwitchButton from '../../../Shared/Components/Switch/Switch';
+
 
 const AdminsPermissions = () => {
 
-    const onChange = (checked) => {
-        console.log('checked.target', checked.target);
-        console.log(`switch to ${checked}`);
-    };
+
+    const [checked, setChecked] = useState(false);
+
+
+    const handleChange = (e) => {
+        setChecked(!e);
+        console.log('checked', e);
+    }
 
 
     return (
@@ -14,7 +19,7 @@ const AdminsPermissions = () => {
                 <form>
                   <div className='row'>
                     <div className='col-lg-6'> 
-                      <h5>تعديل التنبيهات الواردة</h5>
+                      <h4>تعديل التنبيهات الواردة</h4>
                     </div>
                     <div className='col-lg-6'>
                       <div className='d-flex justify-content-center'>
@@ -26,7 +31,15 @@ const AdminsPermissions = () => {
 
                   <div className="row mt-lg-5">
                     <div className="col-lg-6">
-                      <Switch defaultChecked name='test' onChange={onChange}></Switch>
+                    
+                   <SwitchButton id='all' 
+                    value={checked} 
+                    onChange={() => handleChange(checked)} label='تحديد الكل:' />
+
+
+
+
+
                     </div>
                     <div className="col-lg-6">
                       

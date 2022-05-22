@@ -20,6 +20,7 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-switch": "^6.0.0",
     "react-toast-notifications": "^2.5.1",
     "short-unique-id": "^4.4.4",
     "styled-components": "^5.3.5",
