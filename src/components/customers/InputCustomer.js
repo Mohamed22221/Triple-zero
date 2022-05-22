@@ -10,6 +10,7 @@ const ImgeHandeler = (e) =>{
             setValues({...values , logo: Reader.result }) 
         }
     }
+    console.log('e.target.files[0]', e.target.files[0]);
     Reader.readAsDataURL(e.target.files[0])
 }
    
