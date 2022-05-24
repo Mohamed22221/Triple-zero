@@ -14,8 +14,6 @@ const AdminsAlerts = () => {
     deleteClient: false,
     reactivateClients: false,
     viewClientActivityHistory: false,
-    deleteClient: false,
-    viewClientActivityHistory: false,
     
     
   }
@@ -33,9 +31,6 @@ const AdminsAlerts = () => {
           stopClient: !e['all'],
           deleteClient: !e['all'],
           reactivateClients: !e['all'],
-          // addNewClient: !e['all'],
-          // viewClientActivityHistory: !e['all'],
-          // deleteClient: !e['all'],
           viewClientActivityHistory: !e['all'],
         });
       } else{
@@ -55,14 +50,14 @@ const AdminsAlerts = () => {
 
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className='row'>
           <div className='col-lg-6'> 
             <h4>تعديل سلطات المشرفين الافتراضيه</h4>
           </div>
           <div className='col-lg-6'>
             <div className='d-flex justify-content-center'>
-              <button className='btn btn-success btn-lg px-lg-5'>حفظ التعديل</button>
+              <button onClick={handleSubmit} className='btn btn-success btn-lg px-lg-5'>حفظ التعديل</button>
               <button  className="btn btn-link text-dark">إرجاع للوضع الافتراضي</button>
             </div>
           </div>
