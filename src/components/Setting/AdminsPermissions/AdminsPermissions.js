@@ -45,9 +45,18 @@ const AdminsAlerts = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('checked', checked);
+      console.log('submit', checked);
     }
 
+    const defaultMode = () => {
+      setChecked(initialPermissions)
+    };
+
+
+
+
+
+    
 
     return (
       <form>
@@ -58,7 +67,7 @@ const AdminsAlerts = () => {
           <div className='col-lg-6'>
             <div className='d-flex justify-content-center'>
               <button onClick={handleSubmit} className='btn btn-success btn-lg px-lg-5'>حفظ التعديل</button>
-              <button  className="btn btn-link text-dark">إرجاع للوضع الافتراضي</button>
+              <button type='button' onClick={defaultMode} className="btn btn-link text-dark">إرجاع للوضع الافتراضي</button>
             </div>
           </div>
         </div>

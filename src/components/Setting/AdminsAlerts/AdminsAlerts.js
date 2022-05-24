@@ -4,7 +4,7 @@ import SwitchButton from '../../../Shared/Components/Switch/SwitchButton';
 
 const AdminsPermissions = () => {
 
-  const initialPermissions = {
+  const initialAlerts = {
     all: false,
     contactAdmin: false,
     ClientLatePayment: false,
@@ -16,7 +16,7 @@ const AdminsPermissions = () => {
     
   }
 
-    const [checked, setChecked] = useState(initialPermissions);
+    const [checked, setChecked] = useState(initialAlerts);
 
 
     const handleChange = (e, name) => {
@@ -47,6 +47,11 @@ const AdminsPermissions = () => {
       console.log('checked', checked);
     }
 
+    const defaultMode = () => {
+      setChecked(initialAlerts)
+    };
+
+
 
     return (
       <form onSubmit={handleSubmit}>
@@ -57,7 +62,7 @@ const AdminsPermissions = () => {
           <div className='col-lg-6'>
             <div className='d-flex justify-content-center'>
               <button className='btn btn-success btn-lg px-lg-5'>حفظ التعديل</button>
-              <button  className="btn btn-link text-dark">إرجاع للوضع الافتراضي</button>
+              <button type='button' onClick={defaultMode} className="btn btn-link text-dark">إرجاع للوضع الافتراضي</button>
             </div>
           </div>
         </div>
