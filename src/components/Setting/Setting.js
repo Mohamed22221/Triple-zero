@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import AdminsAlerts from './AdminsAlerts/AdminsAlerts';
-import AdminsPermissions from './AdminsPermissions/AdminsPermissions';
+import AdminsAlerts from './AdminsAlerts1/AdminsAlerts';
+import AdminsPermissions from './AdminsPermissions1/AdminsPermissions';
 import './setting.scss'
 
 
