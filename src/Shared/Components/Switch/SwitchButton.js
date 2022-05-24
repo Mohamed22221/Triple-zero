@@ -2,7 +2,7 @@ import React from 'react';
 import Switch from "react-switch";
 const SwitchButton = ({id, value, onChange, label}) => {
     return (
-         <label className="switch-item" htmlFor={id}>
+         <label className="switch-item mb-3" htmlFor={id}>
             <span> {label}</span>
             <Switch
                 checked={value}

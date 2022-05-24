@@ -1,16 +1,30 @@
 import React, {useState} from 'react';
-import SwitchButton from '../../../Shared/Components/Switch/Switch';
+import SwitchButton from '../../../Shared/Components/Switch/SwitchButton';
 
 
 const AdminsPermissions = () => {
 
+  const initialPermissions = {
+    all: false,
+    contactAdmin: false,
+    CustomerLatePayment: false,
+    payingSubscriptions: false,
+    changeCustomerInformation: false,
+    addNewCustomer: false,
+    stopClient: false,
+    deleteClient: false,
+    
+  }
 
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(initialPermissions);
 
 
-    const handleChange = (e) => {
-        setChecked(!e);
-        console.log('checked', e);
+    const handleChange = (e, name) => {
+      if (name === 'all') {
+        
+      } else{
+        setChecked({...checked, [name]: !e[name]});
+      }
     }
 
 
@@ -32,12 +46,41 @@ const AdminsPermissions = () => {
                   <div className="row mt-lg-5">
                     <div className="col-lg-6">
                     
-                   <SwitchButton id='all' 
-                    value={checked} 
-                    onChange={() => handleChange(checked)} label='تحديد الكل:' />
+                      <SwitchButton id='all' 
+                        value={checked['all']} 
+                        onChange={() => handleChange(checked, 'all')} label='تحديد الكل:' 
+                      />
+                      <SwitchButton id='contactAdmin'
+                        value={checked['contactAdmin']} 
+                        onChange={() => handleChange(checked, 'contactAdmin')} label='تنبيه عند إتصال مشرف:' 
+                      />
+                      <SwitchButton id='CustomerLatePayment'
+                        value={checked['CustomerLatePayment']} 
+                        onChange={() => handleChange(checked, 'CustomerLatePayment')} label='تنبيه لتأخر دفع العميل:' 
+                      />
+                      <SwitchButton id='payingSubscriptions'
+                        value={checked['payingSubscriptions']} 
+                        onChange={() => handleChange(checked, 'payingSubscriptions')} label='تنبيه عند دفع الاشتراكات:' 
+                      />
+                      
+                      <h5 className='my-3'> :تنبيه عن اي تغير عن طريق مشرف في </h5>
 
-
-
+                      <SwitchButton id='changeCustomerInformation' 
+                        value={checked['changeCustomerInformation']} 
+                        onChange={() => handleChange(checked, 'changeCustomerInformation')} label='تغير معلومات العميل:' 
+                      />
+                      <SwitchButton id='addNewCustomer'
+                        value={checked['addNewCustomer']} 
+                        onChange={() => handleChange(checked, 'addNewCustomer')} label='إضافه عميل جديد:' 
+                      />
+                      <SwitchButton id='stopClient'
+                        value={checked['stopClient']} 
+                        onChange={() => handleChange(checked, 'stopClient')} label='إيقاف عميل:' 
+                      />
+                      <SwitchButton id='deleteClient'
+                        value={checked['deleteClient']} 
+                        onChange={() => handleChange(checked, 'deleteClient')} label='حذف عميل:' 
+                      />
 
 
                     </div>

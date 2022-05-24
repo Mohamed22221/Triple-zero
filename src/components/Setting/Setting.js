@@ -10,7 +10,7 @@ const SettingTabs = () => {
 
   
     return (
-      <div className="setting-page mt-50">
+      <div className="setting-page my-5">
       
         <div className='row'>
           <div className='col-lg-3 p-lg-0 mt-lg-5 pt-lg-3'>
