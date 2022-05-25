@@ -144,6 +144,8 @@ const Tbody = styled.tbody`
     
 `
 const TrBody= styled.tr`
+padding: 10px 5px;
+border-top: 10px solid #ebebebe6;
 
 td {
     background-color: white;
