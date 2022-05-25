@@ -10,7 +10,7 @@ import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+
 import Setting from "./pages/Setting";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
