@@ -19,7 +19,7 @@ const TabelUsers = () => {
                 <th>المدة</th>
                 <th>تاريخ الدفع</th>
                 <th>الحاله</th>
-                <td>الخيارات</td>
+                <th>الخيارات</th>
             </TrHead>
         </Thead>
         <Tbody>
@@ -35,7 +35,7 @@ const TabelUsers = () => {
                     <td>{user.price}</td>
                     <td>{user.duration} اشهر</td>
                     <td>{user.paymentDate} </td>
-                    <td ><p className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</p></td>
+                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
@@ -95,6 +95,8 @@ const Tbody = styled.tbody`
     
 `
 const TrBody= styled.tr`
+padding: 10px 5px;
+border-top: 10px solid #ebebebe6;
 
 td {
     background-color: white;

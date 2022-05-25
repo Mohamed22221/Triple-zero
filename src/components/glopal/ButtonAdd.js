@@ -5,8 +5,8 @@ const ButtonAdd = ({AddUser}) => {
   
   return (
     <StyleButtonAdd >
-    <MdPersonAddAlt className='MdPersonAddAlt' />
-    <p onClick={AddUser}>أضافه عميل</p>
+      <MdPersonAddAlt className='MdPersonAddAlt' />
+      <span onClick={AddUser} > أضافه عميل </span>
     </StyleButtonAdd>
   )
 }
@@ -21,6 +21,8 @@ cursor: pointer;
 color: white;
 border-radius: 7px;
 transition: 0.6s;
+display: flex;
+justify-content: space-evenly;
 :hover{
   opacity: 0.7;
 }
