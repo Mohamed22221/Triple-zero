@@ -118,6 +118,7 @@ const StyleTabel = styled.div`
     padding: 0px 0px;
     overflow-x: auto;
      width:100% ;
+     
     @media (max-width:1180px) {
         padding: 0 0px;
     }
@@ -206,6 +207,7 @@ background-color: white;
 
 `
 const TrBody = styled.tr`
+
 td{
     padding: 15px;
     color: var(--font);
