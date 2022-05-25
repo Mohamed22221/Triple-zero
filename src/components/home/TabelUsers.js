@@ -49,7 +49,7 @@ const TabelUsers = () => {
         </Tbody>
     </Tabel>
     <MoreTabel >
-     <h4>250 عميل</h4>
+     <h5>250 عميل</h5>
      <Link to="/Customers">المزيد<BsArrowLeftShort className='BsArrowLeftShort'/></Link>
     </MoreTabel>
   </MainTabel> 
@@ -183,6 +183,7 @@ td:last-child{
 
 `
 const MoreTabel = styled.div`
+margin-top: 15px;
 display: flex;
 justify-content: space-between;
 width: 100%;

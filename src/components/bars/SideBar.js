@@ -73,7 +73,6 @@ const SideBar = ({showBar,HandelClose }) => {
         <StyleTop >
         <div className='img-logo'>
             <img src={logo} />
-            <h4>TRIPLE ZERO</h4>
         </div>
         <div className='widget'>
             <ul >
