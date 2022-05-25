@@ -53,7 +53,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                 <th>المدة</th>
                 <th>تاريخ الدفع</th>
                 <th>الحاله</th>
-                <td>الخيارات</td>
+                <th>الخيارات</th>
             </TrHead>
         </Thead>
         <Tbody>
@@ -66,14 +66,26 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /></Link></td>
-                    <td>{user.idUser}</td>
-                    <td>{user.name}</td>
-                    <td>{user.dateSubscription}</td>
-                    <td>{user.price}</td>
-                    <td>{user.duration} اشهر</td>
-                    <td>{user.paymentDate}</td>
-                    <td ><p className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</p></td>
+                    <td><Link className='mt-2' to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /></Link></td>
+                    <td>
+                        <span>{user.idUser}</span>
+                    </td>
+                    <td>
+                        <span>{user.name}</span>
+                    </td>
+                    <td>
+                        <span>{user.dateSubscription}</span>
+                    </td>
+                    <td>
+                        <span>{user.price}</span>
+                    </td>
+                    <td>
+                        <span>{user.duration} اشهر</span>
+                    </td>
+                    <td>
+                        <span>{user.paymentDate}</span>
+                    </td>
+                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
@@ -144,10 +156,12 @@ const Tbody = styled.tbody`
     
 `
 const TrBody= styled.tr`
+padding: 10px 5px;
+border-top: 10px solid #ebebebe6;
 
 td {
-    background-color: white;
-    border:0;
+    background-color: white;    
+    
     color: var(--font);
     font-size: 17px;
     &:first-child{
@@ -160,7 +174,6 @@ td {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        margin: 10px;
     }
     .BiDotsHorizontalRounded{
         margin-top: 10px;
