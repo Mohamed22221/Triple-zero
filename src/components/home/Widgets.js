@@ -85,6 +85,7 @@ display: flex;
 align-items: center;
 border-radius: 10px;
 margin: 10px 0;
+
 h4{
     margin-right: 40px;
     font-size: 20px;
@@ -109,6 +110,7 @@ justify-content: space-between;
 align-items: center;
 border-radius: 10px;
 margin: 22px 0;
+height: 26%;
 `
 
 const WedgetAboutRight = styled.div`
