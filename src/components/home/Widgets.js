@@ -26,7 +26,7 @@ const Widgets = () => {
             <WedgetAboutRight>
             <img src={Customer}></img>
             <p>عدد العملاء</p>
-            <h2>{counterCustomer}</h2>
+            <h3>{counterCustomer}</h3>
             </WedgetAboutRight>
             <WedgetAboutLeft>
             <BsThreeDotsVertical className='BsThreeDotsVertical' />
@@ -37,7 +37,7 @@ const Widgets = () => {
             <WedgetAboutRight>
             <img src={requests}></img>
             <p>عدد الطلبات</p>
-            <h2>450</h2>
+            <h3>450</h3>
             </WedgetAboutRight>
             <WedgetAboutLeft>
             <BsThreeDotsVertical className='BsThreeDotsVertical' />
@@ -48,7 +48,7 @@ const Widgets = () => {
             <WedgetAboutRight>
             <img src={delevery}></img>
             <p>عدد السائقين</p>
-            <h2>70</h2>
+            <h3>70</h3>
             </WedgetAboutRight>
             <WedgetAboutLeft>
             <BsThreeDotsVertical className='BsThreeDotsVertical' />
@@ -61,7 +61,7 @@ const Widgets = () => {
 
 //style Wedget
 const StyleWedget = styled.div`
-margin-top: 33px;
+margin-top: 9px;
 width: 25%;
 @media (max-width:910px) {
   display:grid;
@@ -103,7 +103,7 @@ span{
 `
 const StyleItemWedgetAbout = styled.div`
 background-color: white;
-padding: 35px;
+padding: 7px 35px;
 display: flex;
 justify-content: space-between;
 align-items: center;

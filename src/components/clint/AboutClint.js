@@ -30,7 +30,7 @@ const AboutClint = (props) => {
           <p>نوع الاشتراك</p>
         </div>
         <div className='type'>
-          <h2>Basic</h2>
+          <h2 className='text-white'>Basic</h2>
         </div>
       </div>
       <div className='item-wedget'>

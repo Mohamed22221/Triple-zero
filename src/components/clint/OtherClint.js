@@ -14,7 +14,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>اميل العميل</p>
         </div>
         <div className='type'>
-          <h3>{clintemail}</h3>
+          <h4>{clintemail}</h4>
         </div>
       </div>
       <div className='item-wedget'>
@@ -23,7 +23,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>موقع العميل</p>
         </div>
         <div className='type'>
-          <h3><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h3>
+          <h4><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h4>
         </div>
       </div>
       <div className='item-wedget'>
@@ -32,7 +32,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>العمله المدفوع بها</p>
         </div>
         <div className='type'>
-          <h3>{currencypaid}</h3>
+          <h4>{currencypaid}</h4>
         </div>
       </div>
     </MainStyleOther>

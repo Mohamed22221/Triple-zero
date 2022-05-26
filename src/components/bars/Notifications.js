@@ -12,14 +12,14 @@ const Notifications = () => {
     <StyleNotifications notifications={notifications}>
         <img src={Nntifications} onClick={HandelNotifications} />
         <div className='content-notification'>
-            <div className='title'>
-            <h4>Notification</h4>
+            <div className='title flex-center'>
+            <h5 className='mb-0'>Notification</h5>
             </div>
             <div className='my-notification'>
             <div className='img-notification'>
                 <img src={personlogin1} />
                 <div className='img-what'>
-                <h5>محمد حمدي</h5>
+                <h6>محمد حمدي</h6>
                 <p>تمت إضافة تذكرة جديدة</p>
                 </div>
             </div>
@@ -31,7 +31,7 @@ const Notifications = () => {
             <div className='img-notification'>
                 <img src={personlogin1} />
                 <div className='img-what'>
-                <h5>كمال حمدي</h5>
+                <h6>كمال حمدي</h6>
                 <p>تمت إضافة تذكرة جديدة</p>
                 </div>
             </div>
@@ -43,7 +43,7 @@ const Notifications = () => {
             <div className='img-notification'>
                 <img src={personlogin1} />
                 <div className='img-what'>
-                <h5>علي سيد</h5>
+                <h6>علي سيد</h6>
                 <p>تمت إضافة تذكرة جديدة</p>
                 </div>
             </div>
