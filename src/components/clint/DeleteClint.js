@@ -15,7 +15,7 @@ const DeleteClint = ({showCustomer ,HandelClose}) => {
           <h2>حذف العميل</h2>
           <AiOutlineClose className='icon-close' onClick={HandelClose} />
        </HeaderDeleteClint>
-       <FormDelete setDeleted={setDeleted} />
+      // <FormDelete setDeleted={setDeleted} />
        </div>
       : <DeletedClint HandelClose={HandelClose} />} 
     </StyleyDeleteClint>

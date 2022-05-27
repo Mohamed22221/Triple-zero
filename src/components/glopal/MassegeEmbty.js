@@ -4,7 +4,6 @@ import styled from "styled-components"
 const MassegeEmbty = () => {
   return (
     <MainMassegeEmbty>
-        
         <h3>السجل فارغ</h3>
     </MainMassegeEmbty>
   )
