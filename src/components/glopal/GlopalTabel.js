@@ -3,45 +3,44 @@ import styled from "styled-components"
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 
 import { Link } from "react-router-dom";
-const GlopalTabel = (props) => {
-    const {title1,title2 ,title3,title4,title5,title6,
-          title7 , title8 ,title9 ,LoopData,content1 ,
-          content2 ,content3 ,content4 ,content5 , content6,
-           content7 ,GoUser}= props 
+const GlopalTabel = ({dataTabel}) => {
+   
+
+           
   return (
     <MainTabel>
         <Tabel>
         <Thead>
             <TrHead>
-                <th>{title1}</th>
-                <th>{title2}</th>
-                <th>{title3}</th>
-                <th>{title4}</th>
-                <th>{title5}</th>
-                <th>{title6}</th>
-                <th>{title7}</th>
-                <th>{title8}</th>
-                <th>{title9}</th>
+                <th>{dataTabel.title1}</th>
+                <th>{dataTabel.title2}</th>
+                <th>{dataTabel.title3}</th>
+                <th>{dataTabel.title4}</th>
+                <th>{dataTabel.title5}</th>
+                <th>{dataTabel.title6}</th>
+                <th>{dataTabel.title7}</th>
+                <th>{dataTabel.title8}</th>
+                <th>{dataTabel.title9}</th>
             </TrHead>
             </Thead>
             <Tbody>
-        {LoopData.map((user , index) =>{
+        {dataTabel.LoopData.map((user , index) =>{
             return (
                 <TrBody key={index}>
 
-                    <td><Link to={`/Customers/clint/${GoUser}`}><img src={content1} alt="logo" /> </Link></td>
-                    <td>{content2}</td>
-                    <td>{content3}</td>
-                    <td>{content4}</td>
-                    <td>{content5}</td>
-                    <td>{content6} اشهر</td>
-                    <td>{content7} </td>
-                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{content1}</span></td>
+                    <td><Link to={`/Customers/clint/${dataTabel.title1}`}><img src={dataTabel.title1} alt="logo" /> </Link></td>
+                    <td>{user.name}</td>
+                    <td>{dataTabel.title1}</td>
+                    <td>{dataTabel.title1}</td>
+                    <td>{dataTabel.title1}</td>
+                    <td>{dataTabel.title1} اشهر</td>
+                    <td>{dataTabel.title1} </td>
+                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{dataTabel.title1}</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Customers/clint/${GoUser}`}>التفاصيل</Link>
-                     <Link to={`/Customers/clint/${GoUser}`}>بيانات العميل</Link>
+                     <Link to={`/Customers/clint/${dataTabel.title1}`}>التفاصيل</Link>
+                     <Link to={`/Customers/clint/${dataTabel.title1}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>
