@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/Triple-zero/static/css/main.c86b1f77.css",
-    "main.js": "/Triple-zero/static/js/main.622c13c0.js",
+    "main.css": "/Triple-zero/static/css/main.63b0999e.css",
+    "main.js": "/Triple-zero/static/js/main.98dd20bf.js",
     "static/media/personlogin.jpg": "/Triple-zero/static/media/personlogin.e6f8030138417ad353d7.jpg",
     "static/media/gif.gif": "/Triple-zero/static/media/gif.404c9b06dbebfe05c81c.gif",
+    "static/media/img.png": "/Triple-zero/static/media/img.13ebe73e3b66cb5ddcf0.png",
     "static/media/pattern-1.png": "/Triple-zero/static/media/pattern-1.684928c6dd791afe1081.png",
     "static/media/slogan1.svg": "/Triple-zero/static/media/slogan1.89168f3a4d64b5c6f242bf8161fc6ddb.svg",
     "static/media/slogan2.svg": "/Triple-zero/static/media/slogan2.89168f3a4d64b5c6f242bf8161fc6ddb.svg",
@@ -17,11 +18,11 @@
     "static/media/logout.svg": "/Triple-zero/static/media/logout.1a9cfb42a1153041929f062491d08f7b.svg",
     "static/media/notifications.svg": "/Triple-zero/static/media/notifications.cee44213a890381f6931ad967ebba51a.svg",
     "static/media/customerswedget.svg": "/Triple-zero/static/media/customerswedget.4444752a3fc44b158471709d2d845c4a.svg",
-    "main.c86b1f77.css.map": "/Triple-zero/static/css/main.c86b1f77.css.map",
-    "main.622c13c0.js.map": "/Triple-zero/static/js/main.622c13c0.js.map"
+    "main.63b0999e.css.map": "/Triple-zero/static/css/main.63b0999e.css.map",
+    "main.98dd20bf.js.map": "/Triple-zero/static/js/main.98dd20bf.js.map"
   },
   "entrypoints": [
-    "static/css/main.c86b1f77.css",
-    "static/js/main.622c13c0.js"
+    "static/css/main.63b0999e.css",
+    "static/js/main.98dd20bf.js"
   ]
 }
