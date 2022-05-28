@@ -40,16 +40,13 @@ function App() {
   return (
     <StyleApp>
       <BrowserRouter>
-<<<<<<< HEAD
       <SideBar showBar={showBar} HandelClose={HandelClose}    />
       <OverLay HandelClose={HandelClose} showBar={showBar} setShowBar={setShowBar} />
-=======
       
       {window.location.pathname ==  "/register" ? null : window.location.pathname ==  "/login" ? null : <SideBar showBar={showBar} HandelClose={HandelClose} /> }
 
 
-      <OverLay HandelClose={HandelClose} showBar={showBar} showCustomer={showCustomer} showStopClint={showStopClint} />
->>>>>>> a3e4929c1d3286e497a8af3ead231d9fb5c9570b
+      <OverLay HandelClose={HandelClose} showBar={showBar}  setShowBar={setShowBar}  />
       <Routes>
         <Route path="/" element={<Home HandelShow={HandelShow}  />} />
         <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
@@ -77,12 +74,9 @@ function App() {
 
         </Route>
         <Route path="/setting" element={<Setting />} />
-<<<<<<< HEAD
-=======
         <Route path="/login" element={<Login /> } />
         <Route path="/register" element={<Register />} />
         
->>>>>>> a3e4929c1d3286e497a8af3ead231d9fb5c9570b
         <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
         <Route path="/EditUser/:userid" element={<EditUser />} />
         </Route>
