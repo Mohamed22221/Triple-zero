@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import { FiPause } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 import ButtonReturn from '../glopal/ButtonReturn';
+import { useDispatch } from 'react-redux';
+import { ShowStop } from '../../store/StateSlice';
+import { ShowDelete } from '../../store/StateSlice';
 
 
 
-const HeaderButton = ({HandelShowCustomer,HandelStopCustomer }) => {
+
+const HeaderButton = ({HandelShowCustomer }) => {
+   const dispatch = useDispatch()
   return (
     <MainHeaderClint>
         <MainButtonClint>
-            <button onClick={HandelStopCustomer}><FiPause className='icon-button' />أقاف مؤقت</button>
-            <button  onClick={HandelShowCustomer} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
+            <button onClick={() => dispatch(ShowStop(true)) }><FiPause className='icon-button' />أقاف مؤقت</button>
+            <button  onClick={() =>dispatch(ShowDelete(true))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
         <ButtonReturn />
         

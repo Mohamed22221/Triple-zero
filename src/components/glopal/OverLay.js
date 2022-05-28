@@ -1,9 +1,21 @@
 import React from 'react'
 import styled from "styled-components"
+import { useDispatch, useSelector } from 'react-redux';
+import { HideSlider, ShowSlider } from '../../store/StateSlice';
 
-const OverLay = ({HandelClose ,showBar , showCustomer ,showStopClint}) => {
+
+
+const OverLay = ({setShowBar ,showBar }) => {
+  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.overLay)
+  
+  const dispatch = useDispatch()
+
+  const HandelCloseOverLay = () =>{
+    dispatch(HideSlider())
+    setShowBar(false)
+  }
   return (
-    <StyleOverLay onClick={HandelClose} showBar={showBar} showCustomer={showCustomer} showStopClint={showStopClint}></StyleOverLay>
+    <StyleOverLay onClick={HandelCloseOverLay} showBar={showBar} ToogleSlider={ToogleSlider}></StyleOverLay>
   )
 }
 const StyleOverLay = styled.div`
@@ -14,7 +26,7 @@ left: 0;
 right: 0;
 bottom: 0;
 opacity: 0.3;
-display: ${props =>  props.showBar  ?   "block" : props.showCustomer ?  "block" : props.showStopClint ?  "block" : "none"};
+display: ${props =>  props.showBar  ?  "block" : props.ToogleSlider ? "block" : "none"};
 z-index: 99;
 cursor: pointer;
 

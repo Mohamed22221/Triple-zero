@@ -80,7 +80,8 @@ const ImgeHandeler = (e) =>{
 const StyleMainInput = styled.div`
 overflow-y: auto;
 overflow-x: hidden;
-padding: 15px 0;
+padding: 20px 0;
+margin-top: 30px;
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -122,6 +123,7 @@ align-items: center;
 }
 
 input,.currency{
+    font-size: 14px;
     width: 230px;
     margin: 8px 0 8px 10px;
     padding: 8px 12px;

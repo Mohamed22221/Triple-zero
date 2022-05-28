@@ -1,9 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 import gif from "../../photo/glopal/gif.gif"
-const AddedClint = ({HandelClose , name}) => {
-    
+import { HideSlider } from '../../store/StateSlice'
+const AddedClint = ( {name}) => {
+
+    const dispatch = useDispatch()
+    const HandelClose = () =>{
+        dispatch(HideSlider())
+    }
   return (
     <StyleyAddedClint>
         <img src={gif} />

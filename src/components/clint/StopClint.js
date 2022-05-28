@@ -2,21 +2,16 @@ import { AiOutlineClose } from 'react-icons/ai';
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import FormStop from './FormStop';
+import SliderClint from '../glopal/SliderClint';
+import { useSelector } from 'react-redux';
 
-const StopClint = ({showStopClint ,HandelClose}) => {
-    
+const StopClint = ({showStopClint }) => {
+  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.stop)
   return (
-    <StyleyStopClint showStopClint={showStopClint} >
-    
-    <div>
-     <HeaderStopClint>
-        <h2>اٍيقاف مؤقت</h2>
-        <AiOutlineClose className='icon-close' onClick={HandelClose}  />
-     </HeaderStopClint>
-     <FormStop />
-    
-     </div>
-    
+    <StyleyStopClint ToogleSlider={ToogleSlider}   >
+     <SliderClint title="ايقاف العميل">
+        <FormStop />
+     </SliderClint>
   </StyleyStopClint>
   )
 }
@@ -35,18 +30,11 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${({showStopClint}) => showStopClint ? 'translateX(0)' : 'translateX(590px)'};
+transform: ${(props) => props.ToogleSlider ? 'translateX(0)  ' : '  translateX(590px)  '};
+
 
 `
-const HeaderStopClint = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
 
-.icon-close{
-  font-size: 28px;
-  cursor: pointer;
-}
 
-`
+
 export default StopClint

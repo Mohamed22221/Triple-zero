@@ -1,8 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 import gif from "../../photo/glopal/gif.gif"
-const DeletedClint = ({HandelClose}) => {
+import { HideSlider } from '../../store/StateSlice'
+const DeletedClint = () => {
+    const dispatch = useDispatch()
+    const HandelClose = () =>{
+        dispatch(HideSlider())
+    }
   return (
     <StyleDeletedClint>
         <img src={gif} />

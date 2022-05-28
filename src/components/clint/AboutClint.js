@@ -17,7 +17,7 @@ const AboutClint = (props) => {
         <img src={logo} />
       </div>
       <div className='apout'>
-        <h3>{compony}</h3>
+        <h5>{compony}</h5>
         <p>{name}</p>
         <p>تاريخ الاشتراك : {dateSubscription}</p>
        <Link to={`/EditUser/${name}`}><button>تعديل العميل</button></Link>
@@ -85,6 +85,9 @@ align-items: center;
   p {
     padding: 4px 0;
     color: var(--font);
+  }
+  h5{
+    font-weight: bold;
   }
   @media (max-width:550px ) {
     p {

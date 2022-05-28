@@ -14,7 +14,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>اميل العميل</p>
         </div>
         <div className='type'>
-          <h4>{clintemail}</h4>
+          <h6>{clintemail}</h6>
         </div>
       </div>
       <div className='item-wedget'>
@@ -23,7 +23,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>موقع العميل</p>
         </div>
         <div className='type'>
-          <h4><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h4>
+          <h6><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h6>
         </div>
       </div>
       <div className='item-wedget'>
@@ -32,7 +32,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>العمله المدفوع بها</p>
         </div>
         <div className='type'>
-          <h4>{currencypaid}</h4>
+          <h6>{currencypaid}</h6>
         </div>
       </div>
     </MainStyleOther>
@@ -57,8 +57,9 @@ flex-wrap: wrap;
   p{
     color: var(--primary-color);
   }
-  h3 {
-      a{color: black;}
+  h6 {
+    font-weight: bold;
+      a{color: black}
   }
   .icon-wedget{
       font-size: 50px;

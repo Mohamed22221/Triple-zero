@@ -1,27 +1,29 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { AiOutlineClose } from 'react-icons/ai';
 import FormDelete from './FormDelete';
 import DeletedClint from './DeletedClint';
+import SliderClint from '../glopal/SliderClint';
+import { useSelector } from 'react-redux';
 const DeleteClint = ({showCustomer ,HandelClose}) => {
 
  const [deleted , setDeleted] = useState(true)
+ const ToogleSlider = useSelector((state) => state.ShowAndHide.value.delete)
   return (
     
-    <StyleyDeleteClint showCustomer={showCustomer}>
+    <StyleyDeleteClint ToogleSlider={ToogleSlider} >
       { deleted == true ?
       <div>
-       <HeaderDeleteClint>
-          <h2>حذف العميل</h2>
-          <AiOutlineClose className='icon-close' onClick={HandelClose} />
-       </HeaderDeleteClint>
-      // <FormDelete setDeleted={setDeleted} />
+        <SliderClint title="حذف العميل">
+        <FormDelete setDeleted={setDeleted} />
+        </SliderClint>
+       
        </div>
       : <DeletedClint HandelClose={HandelClose} />} 
     </StyleyDeleteClint>
   )
 }
 const StyleyDeleteClint = styled.div`
+
 overflow: auto;
 padding: 35px;
 position: fixed;
@@ -36,16 +38,8 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${({showCustomer}) => showCustomer ? 'translateX(0)' : 'translateX(590px)'};
-`
-const HeaderDeleteClint = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-.icon-close{
-  font-size: 28px;
-  cursor: pointer;
-}
+transform: ${(props) => props.ToogleSlider ? 'translateX(0)  ' : '  translateX(590px)  '};
+
 
 `
 

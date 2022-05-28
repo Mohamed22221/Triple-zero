@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
+import { ShowAdd } from '../../store/StateSlice';
 const ButtonAdd = ({AddUser}) => {
-  
+  const dispatch = useDispatch()
+  const AddUsers = () =>{
+    dispatch(ShowAdd(true))
+  }
   return (
-    <StyleButtonAdd >
+    <StyleButtonAdd onClick={AddUsers} >
       <MdPersonAddAlt className='MdPersonAddAlt' />
       <span onClick={AddUser} > أضافه عميل </span>
     </StyleButtonAdd>

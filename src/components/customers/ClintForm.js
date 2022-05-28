@@ -7,8 +7,12 @@ import { addClint } from '../../store/ClintSlice';
 import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import AddedClint from './AddedClint';
+import SliderClint from '../glopal/SliderClint';
+import { MdPersonAddAlt } from 'react-icons/md';
 
 const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
+  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.add)
+
   //get date today
   const today = new Date();
   const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
@@ -50,16 +54,18 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     setShow(true)
   }
   return (
-    <StyleForm showCustomer={showCustomer}>
+    <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
       {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
-      <div className='style-form'>
-      <StyleHeader>
-          <h2>أضافه عميل جديد</h2>
-          <AiOutlineClose className='icon-close' onClick={HandelClose} />
-      </StyleHeader>
-      <InputCustomer values={values} setValues={setValues}  /> 
+      <div className='style-form' ToogleSlider={ToogleSlider}>
+        <SliderClint title="اضافه عميل"   >
+        <InputCustomer values={values} setValues={setValues}  /> 
+        </SliderClint>
       <StyleFotter>
-        <ButtonAdd AddUser={AddUser} />
+        <div className="button">
+        <MdPersonAddAlt className='MdPersonAddAlt' />
+        <button onClick={AddUser}>اضافه عميل</button>
+        </div>
+
         <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
       </StyleFotter> 
       </div>
@@ -68,11 +74,15 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   )
 }
 const StyleForm = styled.div`
+
 .style-form{
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 height: 100%;
+padding: 10px 0;
+overflow: auto;
+
 }
 padding: 35px;
 position: fixed;
@@ -86,26 +96,44 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${({showCustomer}) => showCustomer ? 'translateX(0)' : 'translateX(590px)'};
+transform: ${(props) => props.ToogleSlider ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 `
-const StyleHeader= styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-.icon-close{
-  font-size: 28px;
-  cursor: pointer;
-}
-h2{
-  font-weight: bold;
-}
-`
+
 const StyleFotter= styled.div`
 display: flex;
 justify-content: center;
 flex-direction: column;
 align-items: center;
+.button{
+  display: flex;
+align-items: center;
+background-color: var(--primary-color);
+padding: 8px 20px;
+width: 166px;
+text-align: center;
+cursor: pointer;
+color: white;
+border-radius: 7px;
+transition: 0.6s;
+display: flex;
+justify-content: space-evenly;
+:hover{
+  opacity: 0.7;
+}
+}
+button{
+    padding: 0 10px ;
+    color: white;
+}
+.MdPersonAddAlt{
+    font-size: 25px;
+}
+@media (max-width:1160px) {  
+margin: 10px;
+           
+}
+
 span{
   font-size: 15px;
   padding: 5px 0;
@@ -113,5 +141,6 @@ span{
 a{
   color: var(--primary-color);
 }
+
 `
 export default ClintForm
