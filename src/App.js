@@ -43,7 +43,7 @@ function App() {
   return (
     <StyleApp>
       <BrowserRouter>
-      <OverLay HandelClose={HandelClose} showBar={showBar} showStopClint={showStopClint} />
+      <OverLay HandelClose={HandelClose} showBar={showBar}  />
       
       <Routes>
         {/* public routes */}
@@ -57,8 +57,6 @@ function App() {
             <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
             <Route path="/account" element={<Account
               HandelShow={HandelShow} 
-              HandelShowCustomer={HandelShowCustomer}
-              HandelStopCustomer={HandelStopCustomer}
               HandelClose={HandelClose}  />} />
               <Route path="/setting" element={<Setting />} />
           </Route>
@@ -68,24 +66,15 @@ function App() {
             <Route path="Customers" element={<Customers
               HandelShow={HandelShow}
               showBar={showBar}
-              HandelShowCustomer={HandelShowCustomer}
-              showCustomer={showCustomer}
-              showStopClint={showStopClint}
               HandelClose={HandelClose}
               show={show}
               setShow={setShow}
               />} />
             <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
             <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
-              showCustomer={showCustomer} 
-              HandelShowCustomer={HandelShowCustomer}
-              HandelStopCustomer={HandelStopCustomer}
-              showStopClint={showStopClint}
               HandelClose={HandelClose}  />} >
                 <Route path=":clintid" element={<Clint 
                 HandelShow={HandelShow} 
-                HandelShowCustomer={HandelShowCustomer}
-                HandelStopCustomer={HandelStopCustomer}
                 HandelClose={HandelClose}  />} >
               </Route>
           
