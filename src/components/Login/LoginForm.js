@@ -1,50 +1,75 @@
 import { useRef, useState, useEffect } from 'react';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import Axios from 'axios';
+import axios from '../../api/axios';
+const LOGIN_URL = 'admins/login';
 
-import axios from '../api/axios';
-const LOGIN_URL = '/auth';
-
-const Login = () => {
+const LoginFrom = () => {
     const { setAuth } = useAuth();
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    const userRef = useRef();
+    const emailRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
-        userRef.current.focus();
+        emailRef.current.focus();
     }, [])
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd])
+    }, [email, password])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // console.log(email, password);
+
+        var formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+
+        // console.log('formData', formData);
+
+        // await Axios.post('http://tracking.000itkw.com/api/admins/login', formData, {
+        //     headers: {
+        //     'Content-Type': 'multipart/form-data'
+        //     }
+        // })
+        console.log('JSON.stringify', JSON.stringify({ email, password }));
+        console.log('no', {email, password});
+        console.log('formData', formData);
+
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
+                formData,
+                // JSON.stringify({ email, password }),
                 {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Accept': 'application/json'
+                    },
                 }
             );
             console.log(JSON.stringify(response?.data));
             //console.log(JSON.stringify(response));
-            const accessToken = response?.data?.accessToken;
+            const token = response?.data?.token;
             const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
-            setPwd('');
+            setAuth({
+                email,
+                password,
+                roles,
+                token
+            });
+            setEmail('');
+            setPassword('');
             navigate(from, { replace: true });
         } catch (err) {
             if (!err?.response) {
@@ -62,29 +87,30 @@ const Login = () => {
 
     return (
 
-        <section>
+        <>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:</label>
                 <input
                     type="text"
                     id="username"
-                    ref={userRef}
+                    ref={emailRef}
                     autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={user}
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     required
                 />
+                <br />
 
                 <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     id="password"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                     required
                 />
+                <br />
                 <button>Sign In</button>
             </form>
             <p>
@@ -93,9 +119,9 @@ const Login = () => {
                     <Link to="/register">Sign Up</Link>
                 </span>
             </p>
-        </section>
+        </>
 
     )
 }
 
-export default Login
+export default LoginFrom

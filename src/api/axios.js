@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL = 'http://localhost:3005';
+const BASE_URL = 'http://tracking.000itkw.com/api/';
 
 export default axios.create({
     baseURL: BASE_URL
@@ -7,6 +7,6 @@ export default axios.create({
 
 export const axiosPrivate = axios.create({
     baseURL: BASE_URL,
-    headers: { 'Content-Type': 'application/json' },
-    withCredentials: true
+    // headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'},
+    // withCredentials: true
 });
