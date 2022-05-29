@@ -16,7 +16,7 @@ import Setting from "./pages/Setting";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
-function App(props) {
+function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
   const [showStopClint , setShowStopClint] = useState(false) // stop clint
