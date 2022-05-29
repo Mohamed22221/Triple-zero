@@ -2,6 +2,7 @@ import SideBar from "./components/bars/SideBar";
 import Home from "./pages/Home"
 import styled from "styled-components"
 import React ,{Fragment, useState} from 'react'
+import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
@@ -14,7 +15,8 @@ import './styles/glopal-style.scss'
 import Setting from "./pages/Setting";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-function App() {
+import SidebarLayout from "./components/bars/NotBar";
+function App(props) {
   const [showBar , setShowBar] = useState(false) //side par
   const [showCustomer , setshowCustomer] = useState(false) // add clint
   const [showStopClint , setShowStopClint] = useState(false) // stop clint
@@ -35,70 +37,81 @@ function App() {
     setShowStopClint(false)
     setShow(false)
   }
+  
 
-  // <Fragment>
-  //       {window.location.pathname !== "login" ? <SideBar showBar={showBar} HandelClose={HandelClose} /> : window.location.pathname !== "register" ? <SideBar showBar={showBar} HandelClose={HandelClose} /> : null  }
-  //       if (window.location.pathname !== "login" || window.location.pathname !== "register") {
-  //          <SideBar showBar={showBar} HandelClose={HandelClose} />
-  //         }  else{
-  //         null
-  //       }
-  //     </Fragment>
+  
+
+  const ROLES = {
+    'User': 2001,
+    'Editor': 1984,
+    'Admin': 5150
+  }
       
  
+  // {window.location.pathname ==  "/register" ? null : window.location.pathname ==  "/login" ? null : <SideBar showBar={showBar} HandelClose={HandelClose} /> }
   return (
     <StyleApp>
       <BrowserRouter>
-      
-      {window.location.pathname ==  "/register" ? null : window.location.pathname ==  "/login" ? null : <SideBar showBar={showBar} HandelClose={HandelClose} /> }
-
-
       <OverLay HandelClose={HandelClose} showBar={showBar} showCustomer={showCustomer} showStopClint={showStopClint} />
-      <Routes>
-        <Route path="/" element={<Home HandelShow={HandelShow}  />} />
-        <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-        <Route path="Customers" element={<Customers
-          HandelShow={HandelShow}
-          showBar={showBar}
-          HandelShowCustomer={HandelShowCustomer}
-          showCustomer={showCustomer}
-          showStopClint={showStopClint}
-          HandelClose={HandelClose}
-          show={show}
-          setShow={setShow}
-          />} />
       
-        <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
-        <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
-        showCustomer={showCustomer} 
-        HandelShowCustomer={HandelShowCustomer}
-        HandelStopCustomer={HandelStopCustomer}
-        showStopClint={showStopClint}
-        HandelClose={HandelClose}  />} >
-          <Route path=":clintid" element={<Clint 
-          HandelShow={HandelShow} 
-          HandelShowCustomer={HandelShowCustomer}
-          HandelStopCustomer={HandelStopCustomer}
-          HandelClose={HandelClose}  />} >
-        
-        </Route>
-
-        </Route>
-
-        <Route path="/account" element={<Account
-          HandelShow={HandelShow} 
-          HandelShowCustomer={HandelShowCustomer}
-          HandelStopCustomer={HandelStopCustomer}
-          HandelClose={HandelClose}  />} >
-        
-        </Route>
-        <Route path="/setting" element={<Setting />} />
+      <Routes>
+        {/* public routes */}
         <Route path="/login" element={<Login /> } />
         <Route path="/register" element={<Register />} />
+
+        <Route element={<SidebarLayout />}>
+          {/* User routes */}
+          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
+            <Route path="/" element={<Home HandelShow={HandelShow}  />} />
+            <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
+            <Route path="/account" element={<Account
+              HandelShow={HandelShow} 
+              HandelShowCustomer={HandelShowCustomer}
+              HandelStopCustomer={HandelStopCustomer}
+              HandelClose={HandelClose}  />} />
+              <Route path="/setting" element={<Setting />} />
+          </Route>
+
+          {/* SuperAdmin routes */}
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+            <Route path="Customers" element={<Customers
+              HandelShow={HandelShow}
+              showBar={showBar}
+              HandelShowCustomer={HandelShowCustomer}
+              showCustomer={showCustomer}
+              showStopClint={showStopClint}
+              HandelClose={HandelClose}
+              show={show}
+              setShow={setShow}
+              />} />
+            <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
+            <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
+              showCustomer={showCustomer} 
+              HandelShowCustomer={HandelShowCustomer}
+              HandelStopCustomer={HandelStopCustomer}
+              showStopClint={showStopClint}
+              HandelClose={HandelClose}  />} >
+                <Route path=":clintid" element={<Clint 
+                HandelShow={HandelShow} 
+                HandelShowCustomer={HandelShowCustomer}
+                HandelStopCustomer={HandelStopCustomer}
+                HandelClose={HandelClose}  />} >
+              </Route>
+          
+            </Route>
+            <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
+              <Route path="/EditUser/:userid" element={<EditUser />} />
+            </Route>
+
+          </Route>
         
-        <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
-        <Route path="/EditUser/:userid" element={<EditUser />} />
         </Route>
+          
+        
+
+       
+       
+       
       </Routes>
       </BrowserRouter>
     </StyleApp>
