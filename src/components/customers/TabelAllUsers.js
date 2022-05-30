@@ -4,16 +4,79 @@ import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
 import { Link } from "react-router-dom";
-
+// import Logo3 from "../photo/slogan/slogan2.svg"
+import Logo3 from "../../photo/slogan/slogan2.svg"
+import Axios from 'axios';
+import axios from '../../api/axios';
 
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
-    const UserData = useSelector((state) => state.clint.DataUser)
+    // const UserData = useSelector((state) => state.clint.DataUser) 
+    const UserData = [
+         {
+             id: 1,
+             logo: Logo3,
+             idUser: "#532Bn2 ",
+             name: "سالم العتيبي1",
+             dateSubscription: "5/6/2021",
+             price: "$1300",
+             duration: 7,
+             paymentDate: "4/6/2022",
+             state: "تاخر الدفع",
+             clintemail: "info@easymedia",
+             websitelink: "www.easymedia.agency",
+             tradetype: "مقاولات",
+             currencypaid: "المصري",
+             compony: "مازيني",
+             ReasonDelete: "فسخ العقد",
+             DeleteDate: "4/6/2022",
+         },
+    ] 
+
+    // axios.get('admins' ,headers: {})
+
+    const getClients = () => {
+         try {
+            //  await axios.get('admins', {
+            //      header: {
+            //          'Content-Type': 'application/json',
+            //          'Accept': 'application/json',
+            //          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUwNTEyOTEzLCJleHAiOjE2NTA1MTY1MTMsIm5iZiI6MTY1MDUxMjkxMywianRpIjoiNmpJUkFGWjQ4OEQzeG4weSIsInN1YiI6IjYiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.3shQsl8YiAOU00JDgdWJ9lwLm9Fj9n74tZKtStr-lko'
+            //      }
+            //  })
+            const token = localStorage.getItem('token');
+             Axios.get('http://tracking.000itkw.com/api/users', {
+                 header: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                    // 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUwNTEyOTEzLCJleHAiOjE2NTA1MTY1MTMsIm5iZiI6MTY1MDUxMjkxMywianRpIjoiNmpJUkFGWjQ4OEQzeG4weSIsInN1YiI6IjYiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.3shQsl8YiAOU00JDgdWJ9lwLm9Fj9n74tZKtStr-lko'
+                 }
+             })
+             .then(response => {
+                 console.log('response:' , JSON.stringify(response));
+             }).error(err => {
+                 console.log('error:' , err);
+             })
+
+         } catch (err) {
+             console.log('err', err.message);
+         }
+    }
+
+    useEffect(() => {
+       getClients()
+    },[])
+
+
 
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
         setSortedField(sortName)
-    }, [setSortedField ,UserData])
+    }, [setSortedField ])
+    // useEffect(() => {
+    //     setSortedField(sortName)
+    // }, [setSortedField ,UserData])
 
     const sortData = [...UserData].sort((a , b)=>{
         return a.state > b.state ? 1 : -1;
@@ -66,7 +129,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='mt-2' to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /></Link></td>
                     <td>
                         <span>{user.idUser}</span>
                     </td>

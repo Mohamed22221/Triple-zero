@@ -12,7 +12,7 @@ const LoginFrom = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/Customers";
 
     
     const emailRef = useRef();
@@ -69,6 +69,8 @@ const LoginFrom = () => {
             // const roles = response?.data?.roles;
             // const roles = ['5150', '1984', '2001'];
             localStorage.setItem("loggingIn", true)
+            localStorage.setItem("token", response.data.data.token)
+            console.log('response.token', response.data.data);
             navigate(from, { replace: true });
             // setAuth({
             //     email,
