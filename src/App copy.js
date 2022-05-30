@@ -16,7 +16,6 @@ import Setting from "./pages/Setting";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
-import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -50,17 +49,20 @@ function App() {
         {/* public routes */}
         <Route path="/login" element={<Login /> } />
         <Route path="/register" element={<Register />} />
-        
-        <Route element={<ProtectedRoutesAdmin />}>
-          <Route element={<SidebarLayout />}>
+
+        <Route element={<SidebarLayout />}>
           {/* User routes */}
+          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
             <Route path="/" element={<Home HandelShow={HandelShow}  />} />
             <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
             <Route path="/account" element={<Account
               HandelShow={HandelShow} 
               HandelClose={HandelClose}  />} />
               <Route path="/setting" element={<Setting />} />
+          </Route>
 
+          {/* SuperAdmin routes */}
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route path="Customers" element={<Customers
               HandelShow={HandelShow}
               showBar={showBar}
