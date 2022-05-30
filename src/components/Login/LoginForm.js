@@ -36,7 +36,7 @@ const LoginFrom = () => {
         formData.append('email', email);
         formData.append('password', password);
 
-        dispatch(loginM(formData))
+        // dispatch(loginM(formData))
 
         // console.log(email, password);
 
@@ -52,44 +52,45 @@ const LoginFrom = () => {
         // console.log('no', {email, password});
         // console.log('formData', formData);
 
-        // try {
-        //     const response = await axios.post(LOGIN_URL,
-        //     formData,
-        //     // JSON.stringify({ email, password }),
-        //     {
-        //         headers: {
-        //             'Content-Type': 'multipart/form-data',
-        //             'Accept': 'application/json'
-        //         },
-        //     }
-        //     );
-        //     console.log('res', JSON.stringify(response?.data));
-        //     //console.log(JSON.stringify(response));
-        //     const token = response?.data?.token;
-        //     // const roles = response?.data?.roles;
-        //     const roles = ['5150', '1984', '2001'];
-        //     navigate(from, { replace: true });
-        //     // setAuth({
-        //     //     email,
-        //     //     password,
-        //     //     roles,
-        //     //     token
-        //     // });
-        //     setEmail('');
-        //     setPassword('');
-        // } catch (err) {
-        //     if (!err?.response) {
-        //         console.log('err?.response:', err);
-        //         setErrMsg('No Server Response');
-        //     } else if (err.response?.status === 400) {
-        //         setErrMsg('Missing Username or Password');
-        //     } else if (err.response?.status === 401) {
-        //         setErrMsg('Unauthorized');
-        //     } else {
-        //         setErrMsg('Login Failed');
-        //     }
-        //     errRef.current.focus();
-        // }
+        try {
+            const response = await axios.post(LOGIN_URL,
+            formData,
+            // JSON.stringify({ email, password }),
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                },
+            }
+            );
+            // console.log('res', JSON.stringify(response?.data));
+            //console.log(JSON.stringify(response));
+            // const token = response?.data?.token;
+            // const roles = response?.data?.roles;
+            // const roles = ['5150', '1984', '2001'];
+            localStorage.setItem("loggingIn", true)
+            navigate(from, { replace: true });
+            // setAuth({
+            //     email,
+            //     password,
+            //     roles,
+            //     token
+            // });
+            setEmail('');
+            setPassword('');
+        } catch (err) {
+            if (!err?.response) {
+                console.log('err?.response:', err);
+                setErrMsg('No Server Response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+        }
     }
 
     return (

@@ -19,6 +19,8 @@ export const loginM = createAsyncThunk('auth/login', async(item, thunkAPI) => {
             );
 
             // navigate('/jkldf');
+            window.location.hostname('/ldjkf')
+            console.log('truedkljfdfkldfjkl');
             return response
         } catch (err) {
             return rejectWithValue(err.message)
