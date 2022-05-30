@@ -4,11 +4,13 @@ import logo from "../../photo/glopal/logo.svg"
 import logout from "../../photo/icons/logout.svg"
 import { AiOutlineAppstore  } from 'react-icons/ai';
 import {  BsPerson } from 'react-icons/bs';
-import {  NavLink, useLocation } from 'react-router-dom'
+import {  NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
 const SideBar = ({showBar,HandelClose }) => {
     let location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/login";
     const [stateNav , setStateNav] = useState({
         activeNav : null ,
         NavBar : [
@@ -67,6 +69,13 @@ const SideBar = ({showBar,HandelClose }) => {
   }
 //end Active Class
 
+
+const logOut = () => {
+    localStorage.removeItem('loggingIn')
+    // window.location.hostname('/login')
+    navigate(from, { replace: true });
+}
+
   return (
      
     <StyleSideBar showBar={showBar}    >
@@ -90,8 +99,10 @@ const SideBar = ({showBar,HandelClose }) => {
         </div>
         </StyleTop>
         <Stylebutton>
-            <img src={logout} />
-            <li>تسجيل الخروج</li>
+            <button onClick={logOut}>
+                <img src={logout} />
+                <span>تسجيل الخروج</span>
+            </button>
         </Stylebutton>
     </StyleSideBar>
     
@@ -195,8 +206,9 @@ display: flex;
 padding: 20px;
 margin-bottom: 18px;
 cursor: pointer;
-li{
+span{
     padding-right:12px ;
+    color: white;
 }
 `
 export default SideBar
