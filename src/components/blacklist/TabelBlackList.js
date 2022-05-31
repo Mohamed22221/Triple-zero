@@ -248,9 +248,9 @@ td{
         
     }
 .orange{
-    color: var(--succes-color);
+    color: var(--primary-color);
     font-weight: bold;
-    background-color: #00800015;
+    background-color: #fba30d21;
     padding: 10px;
     border-radius:30px ;
 }

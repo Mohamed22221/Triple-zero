@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import FormDelete from './FormDelete';
-import DeletedClint from './DeletedClint';
 import SliderClint from '../glopal/SliderClint';
 import { useSelector } from 'react-redux';
-const DeleteClint = ({showCustomer ,HandelClose}) => {
+import SendSuccess from '../glopal/SendSuccess';
+const DeleteClint = () => {
 
  const [deleted , setDeleted] = useState(true)
  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.delete)
@@ -18,7 +18,7 @@ const DeleteClint = ({showCustomer ,HandelClose}) => {
         </SliderClint>
        
        </div>
-      : <DeletedClint HandelClose={HandelClose} />} 
+      : <SendSuccess Operationtitle="تم حذف العميل بنجاح"  />} 
     </StyleyDeleteClint>
   )
 }

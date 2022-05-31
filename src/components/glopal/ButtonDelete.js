@@ -6,7 +6,7 @@ import { addClintBlackList } from '../../store/ClintSlice';
 import { Link } from 'react-router-dom';
 const ButtonDelete = ({values,nameclint,state,logo,dateSubscription,setDeleted,Disapeld,price,duration,paymentDate,clintemail,websitelink,tradetype,currencypaid,compony}) => {
   const dispatch = useDispatch()
-  const [disable, setDisable] = React.useState(false);
+ 
    //get value inbut
   const HandelClick = () =>{
    
