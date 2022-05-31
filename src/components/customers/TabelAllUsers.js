@@ -12,7 +12,7 @@ import axios from '../../api/axios';
 
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     //  const UserData = useSelector((state) => state.clint.DataUser) 
-     const UserData = useSelector((state) => state.clints2.clients2)
+     const UserData = useSelector(state => state.clints2.clients2)
      console.log('UserData', UserData);
  /*   const UserData = [
          {

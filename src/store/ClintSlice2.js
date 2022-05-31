@@ -36,7 +36,7 @@ export const ClintSlice = createSlice({
         [getClients2.fulfilled]: (state, action) => {
           // state.isLoading = false;
           state.clients2 = action.payload;
-          console.log('action form fulfilled', action);
+          // console.log('action form fulfilled', action);
           // console.log('action form fulfilled 2', state);
           // console.log('action form fulfilled 2', state.books);
         },
