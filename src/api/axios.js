@@ -7,6 +7,11 @@ export default axios.create({
 
 export const axiosPrivate = axios.create({
     baseURL: BASE_URL,
+    // headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json',
+    //     'Authorization': `Bearer ${token}`
+    // }
     // headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'},
     // withCredentials: true
 });

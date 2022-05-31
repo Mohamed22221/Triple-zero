@@ -36,27 +36,30 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
     const getClients = () => {
          try {
-            //  await axios.get('admins', {
-            //      header: {
-            //          'Content-Type': 'application/json',
-            //          'Accept': 'application/json',
-            //          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUwNTEyOTEzLCJleHAiOjE2NTA1MTY1MTMsIm5iZiI6MTY1MDUxMjkxMywianRpIjoiNmpJUkFGWjQ4OEQzeG4weSIsInN1YiI6IjYiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.3shQsl8YiAOU00JDgdWJ9lwLm9Fj9n74tZKtStr-lko'
+             const token = localStorage.getItem('token');
+              axios.get('users', {
+                 headers: {
+                     'Content-Type': 'application/json',
+                     'Accept': 'application/json',
+                     'Authorization': `Bearer ${token}`
+                 }
+             }).then(response => {
+                console.log('response:' , response.data.data);
+            }).error(err => {
+                console.log('error:' , err);
+            })
+            //  Axios.get('http://tracking.000itkw.com/api/users', {
+            //      headers: {
+            //         'Content-Type': 'application/json',
+            //         'Accept': 'application/json',
+            //         'Authorization': `Bearer ${token}`
             //      }
             //  })
-            const token = localStorage.getItem('token');
-             Axios.get('http://tracking.000itkw.com/api/users', {
-                 header: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                    // 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUwNTEyOTEzLCJleHAiOjE2NTA1MTY1MTMsIm5iZiI6MTY1MDUxMjkxMywianRpIjoiNmpJUkFGWjQ4OEQzeG4weSIsInN1YiI6IjYiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.3shQsl8YiAOU00JDgdWJ9lwLm9Fj9n74tZKtStr-lko'
-                 }
-             })
-             .then(response => {
-                 console.log('response:' , JSON.stringify(response));
-             }).error(err => {
-                 console.log('error:' , err);
-             })
+            //  .then(response => {
+            //      console.log('response:' , response.data.data);
+            //  }).error(err => {
+            //      console.log('error:' , err);
+            //  })
 
          } catch (err) {
              console.log('err', err.message);
