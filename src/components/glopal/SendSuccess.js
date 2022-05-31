@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom'
 import styled from "styled-components"
 import gif from "../../photo/glopal/gif.gif"
 import { HideSlider } from '../../store/StateSlice'
-const DeletedClint = () => {
+const SendSuccess = ({Operationtitle }) => {
     const dispatch = useDispatch()
     const HandelClose = () =>{
         dispatch(HideSlider())
     }
   return (
-    <StyleDeletedClint>
+    <StyleSuccessClint>
         <img src={gif} />
-        <h2>تم حذف العميل بنجاح</h2>
+        <h2>{Operationtitle}</h2>
         <p>يمكنك الرجوع لبيانات العميل مره اخري من القائمه السوداء</p>
         <button onClick={HandelClose}>المتابعه</button>
         <Link to="/Customers/blackList" onClick={HandelClose}>القائمه السوداء</Link>
-    </StyleDeletedClint>
+    </StyleSuccessClint>
   )
 }
-const StyleDeletedClint = styled.div`
+const StyleSuccessClint = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -60,4 +60,4 @@ a{
     padding: 10px;
 }
 `
-export default DeletedClint
+export default SendSuccess

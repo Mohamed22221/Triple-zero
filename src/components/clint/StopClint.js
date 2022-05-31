@@ -4,14 +4,21 @@ import styled from 'styled-components'
 import FormStop from './FormStop';
 import SliderClint from '../glopal/SliderClint';
 import { useSelector } from 'react-redux';
+import SendSuccess from '../glopal/SendSuccess';
 
 const StopClint = ({showStopClint }) => {
   const ToogleSlider = useSelector((state) => state.ShowAndHide.value.stop)
+  const [stoped , setStoped] = useState(true)
+
   return (
     <StyleyStopClint ToogleSlider={ToogleSlider}   >
+        { stoped == true ?
+      <div>
      <SliderClint title="ايقاف العميل">
-        <FormStop />
+        <FormStop setStoped={setStoped}/>
      </SliderClint>
+     </div>
+      : <SendSuccess Operationtitle="تم توقف العميل بنجاح"    />} 
   </StyleyStopClint>
   )
 }

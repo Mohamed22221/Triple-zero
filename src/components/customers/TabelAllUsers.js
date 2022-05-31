@@ -10,8 +10,8 @@ import Axios from 'axios';
 import axios from '../../api/axios';
 
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
-    // const UserData = useSelector((state) => state.clint.DataUser) 
-    const UserData = [
+     const UserData = useSelector((state) => state.clint.DataUser) 
+ /*   const UserData = [
          {
              id: 1,
              logo: Logo3,
@@ -30,7 +30,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
              ReasonDelete: "فسخ العقد",
              DeleteDate: "4/6/2022",
          },
-    ] 
+        ] */ 
 
     // axios.get('admins' ,headers: {})
 
@@ -143,7 +143,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                         <span>{user.dateSubscription}</span>
                     </td>
                     <td>
-                        <span>{user.price}</span>
+                        <span>${user.price}</span>
                     </td>
                     <td>
                         <span>{user.duration} اشهر</span>

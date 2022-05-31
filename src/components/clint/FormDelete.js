@@ -13,7 +13,6 @@ const FormDelete = ({setDeleted}) => {
     const today = new Date();
     const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
    
- 
     //get value inbut
     const [values , setValues] = useState({
      id:"",
