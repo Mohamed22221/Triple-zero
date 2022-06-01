@@ -81,8 +81,8 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
-        setSortedField(sortName)
-    }, [UserData])
+        setSortedField(UserData)
+    }, [UserData, setSortedField])
     // useEffect(() => {
     //     setSortedField(sortName)
     // }, [setSortedField ,UserData])
@@ -138,7 +138,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         {sortedField.filter((item)=>{
             if (searchSort === "") {
                 return item
-            } else if (item.name.includes(searchSort)) {
+            } else if (item.en_name.includes(searchSort)) {
                 return item
             }
         }).map((user , index) =>{
