@@ -9,7 +9,7 @@ import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
 import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
-import Account from "./pages/Account";
+import Restaurants from "./pages/Restaurants";
 import './styles/glopal-style.scss'
 
 import Setting from "./pages/Setting";
@@ -17,6 +17,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
+import Shipping from "./pages/Shipping";
+import Drivers from "./pages/Drivers";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -56,7 +58,7 @@ function App() {
           {/* User routes */}
             <Route path="/" element={<Home HandelShow={HandelShow}  />} />
             <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-            <Route path="/account" element={<Account
+            <Route path="/Restaurants" element={<Restaurants
               HandelShow={HandelShow} 
               HandelClose={HandelClose}  />} />
               <Route path="/setting" element={<Setting />} />
@@ -68,6 +70,9 @@ function App() {
               show={show}
               setShow={setShow}
               />} />
+              <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
+              <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
+
             <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
             <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
               HandelClose={HandelClose}  />} >

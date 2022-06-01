@@ -16,27 +16,41 @@ const SideBar = ({showBar,HandelClose }) => {
         NavBar : [
             {
                 id:1 ,
-                name : "الرئيسية" ,
+                name : "الرئيسيه" ,
                 link: "/Triple-zero" ,
                 icon: AiOutlineAppstore,
             
             },
             {
                 id:2 ,
-                name : "العملاء" ,
+                name : "المشرفين" ,
                 link: "/Customers" ,
                 icon: MdSupervisorAccount,
             
             },
             {
                 id:3 ,
-                name : "حسابي" ,
-                link: "/account",
-                icon: BsPerson,
+                name : "شركات الشحن" ,
+                link: "/ShippingCompanies" ,
+                icon: MdSupervisorAccount,
             
             },
             {
                 id:4 ,
+                name : "مطاعم" ,
+                link: "/Restaurants",
+                icon: BsPerson,
+            
+            },
+            {
+                id:6 ,
+                name : "سواقين" ,
+                link: "/Drivers",
+                icon: BsPerson,
+            
+            },
+            {
+                id:7 ,
                 name : "الأعدادات" ,
                 link: "/setting" ,
                 icon: MdOutlineSettings,
@@ -120,7 +134,7 @@ flex-direction: column;
 justify-content:space-between;
 padding: 20px 0;
 align-items: center;
-width: 230px;
+width: 240px;
 z-index: 100;
 transition: 0.7s;
 background-color: var(--secound-color);
@@ -159,10 +173,11 @@ span img{
      .item-widget{
         display: flex;
         align-items: center;
+        width: 250px;
         cursor: pointer;
         margin: 10px 0;
         transition: 0.6s;
-        padding: 15px 90px ;
+        padding: 15px 40px ;
         .icon-name{
            font-size:28px;
            transition: 0.6s;
@@ -197,6 +212,9 @@ span img{
         transition: 0.6s;
         font-size: 17px;
         margin-right: 10px;  
+       
+       
+       
     }
 }
 
@@ -204,7 +222,7 @@ span img{
 
 const Stylebutton = styled.div`
 display: flex;
-padding: 20px;
+padding: 15px;
 margin-bottom: 18px;
 cursor: pointer;
 span{

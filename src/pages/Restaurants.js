@@ -13,7 +13,7 @@ import TabelAllUsersMyAccount from '../components/MyAccount/TabelAllUsers';
 import ButtonOutLine from '../Shared/Components/ButtonOutLine/ButtonOutLine';
 
 
-const Account = ({HandelShowCustomer}) => {
+const Restaurants = ({HandelShowCustomer}) => {
     // <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
     // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
     // <ClintInformation2 HandelShowCustomer='true' HandelStopCustomer='true'  />
@@ -220,4 +220,4 @@ p{
 }
 `
 
-export default Account;
+export default Restaurants;
