@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
+import {getClients2} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
 import Logo3 from "../../photo/slogan/slogan2.svg"
@@ -10,7 +11,9 @@ import Axios from 'axios';
 import axios from '../../api/axios';
 
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
-     const UserData = useSelector((state) => state.clint.DataUser) 
+    //  const UserData = useSelector((state) => state.clint.DataUser) 
+     const UserData = useSelector(state => state.clients2.clients2)
+     console.log('UserData', UserData);
  /*   const UserData = [
          {
              id: 1,
@@ -34,55 +37,64 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
     // axios.get('admins' ,headers: {})
 
-    const getClients = () => {
-         try {
-            //  await axios.get('admins', {
-            //      header: {
-            //          'Content-Type': 'application/json',
-            //          'Accept': 'application/json',
-            //          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUwNTEyOTEzLCJleHAiOjE2NTA1MTY1MTMsIm5iZiI6MTY1MDUxMjkxMywianRpIjoiNmpJUkFGWjQ4OEQzeG4weSIsInN1YiI6IjYiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.3shQsl8YiAOU00JDgdWJ9lwLm9Fj9n74tZKtStr-lko'
-            //      }
-            //  })
-            const token = localStorage.getItem('token');
-             Axios.get('http://tracking.000itkw.com/api/users', {
-                 header: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                    // 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjUwNTEyOTEzLCJleHAiOjE2NTA1MTY1MTMsIm5iZiI6MTY1MDUxMjkxMywianRpIjoiNmpJUkFGWjQ4OEQzeG4weSIsInN1YiI6IjYiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.3shQsl8YiAOU00JDgdWJ9lwLm9Fj9n74tZKtStr-lko'
-                 }
-             })
-             .then(response => {
-                 console.log('response:' , JSON.stringify(response));
-             }).error(err => {
-                 console.log('error:' , err);
-             })
+    // const getClients = () => {
+    //      try {
+    //          const token = localStorage.getItem('token');
+    //           axios.get('users', {
+    //              headers: {
+    //                  'Content-Type': 'application/json',
+    //                  'Accept': 'application/json',
+    //                  'Authorization': `Bearer ${token}`
+    //              }
+    //          }).then(response => {
+    //             console.log('response:' , response.data.data);
+    //         }).error(err => {
+    //             console.log('error:' , err);
+    //         })
+    //         //  Axios.get('http://tracking.000itkw.com/api/users', {
+    //         //      headers: {
+    //         //         'Content-Type': 'application/json',
+    //         //         'Accept': 'application/json',
+    //         //         'Authorization': `Bearer ${token}`
+    //         //      }
+    //         //  })
+    //         //  .then(response => {
+    //         //      console.log('response:' , response.data.data);
+    //         //  }).error(err => {
+    //         //      console.log('error:' , err);
+    //         //  })
 
-         } catch (err) {
-             console.log('err', err.message);
-         }
-    }
+    //      } catch (err) {
+    //          console.log('err', err.message);
+    //      }
+    // }
 
+    const dispatch = useDispatch();
     useEffect(() => {
-       getClients()
-    },[])
+    //    getClients()
+    dispatch(getClients2())
+    }, [dispatch])
+
 
 
 
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
-        setSortedField(sortName)
-    }, [setSortedField ])
+        setSortedField(UserData)
+    }, [UserData, setSortedField])
     // useEffect(() => {
     //     setSortedField(sortName)
     // }, [setSortedField ,UserData])
 
+    const sortID = [...UserData].sort((a , b)=>{
+        return a.id < b.id ? 1 : -1;
+    })
     const sortData = [...UserData].sort((a , b)=>{
         return a.state > b.state ? 1 : -1;
     })
     const sortName = [...UserData].sort((a , b)=>{
-        return a.name < b.name ? 1 : -1;
+        return a.en_name < b.en_name ? 1 : -1;
     })
     const sortDuration = [...UserData].sort((a , b)=>{
         return a.duration > b.duration ? 1 : -1;
@@ -91,6 +103,8 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
         return dateB - dateA
     })
+
+    console.log('sortedField', sortedField);
     
 
   return (
@@ -102,6 +116,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
        UserData={UserData} 
        setSortedField={setSortedField}
        sortData={sortData} 
+       sortID={sortID} 
        sortName={sortName} 
        sortDuration={sortDuration}
        sortpaymentDate={sortpaymentDate}  />
@@ -123,24 +138,24 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         {sortedField.filter((item)=>{
             if (searchSort === "") {
                 return item
-            } else if (item.name.includes(searchSort)) {
+            } else if (item.en_name.includes(searchSort)) {
                 return item
             }
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Customers/clint/${user.id}`}><img src={user.logo} alt="logo" /></Link></td>
                     <td>
-                        <span>{user.idUser}</span>
+                        <Link className='text-link' to={`/Customers/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
-                        <span>{user.name}</span>
+                        <span>{user.en_name}</span>
                     </td>
                     <td>
-                        <span>{user.dateSubscription}</span>
+                        <span>{user.mobile}</span>
                     </td>
                     <td>
-                        <span>${user.price}</span>
+                        <span>{user.email}</span>
                     </td>
                     <td>
                         <span>{user.duration} اشهر</span>
@@ -152,8 +167,8 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Customers/clint/${user.name}`}> التفاصيل</Link>
-                     <Link to={`/Customers/clint/${user.name}`}>بيانات العميل</Link>
+                     <Link to={`/Customers/clint/${user.id}`}> التفاصيل</Link>
+                     <Link to={`/Customers/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

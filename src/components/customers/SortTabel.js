@@ -6,7 +6,7 @@ import IconsSort from './IconsSort'
 import SearchCustomer from './SearchCustomer'
 import SortBy from './SortBy'
 const SortTabel = (props) => {
-  const {HandelShowCustomer ,setSortSearch ,searchSort ,setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate } = props
+  const {HandelShowCustomer ,setSortSearch ,searchSort ,setSortedField ,sortData, sortID ,sortName ,sortDuration ,sortpaymentDate } = props
   return (
     <StyleMainSort>
         <BlackList />
@@ -18,6 +18,7 @@ const SortTabel = (props) => {
         <SortBy 
         setSortedField={setSortedField} 
         sortData={sortData}
+        sortID={sortID}
         sortName={sortName} 
         sortDuration={sortDuration} 
         sortpaymentDate={sortpaymentDate}

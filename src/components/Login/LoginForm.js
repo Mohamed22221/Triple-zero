@@ -70,7 +70,7 @@ const LoginFrom = () => {
             // const roles = ['5150', '1984', '2001'];
             localStorage.setItem("loggingIn", true)
             localStorage.setItem("token", response.data.data.token)
-            console.log('response.token', response.data.data);
+            console.log('response.token', response.data.data.token);
             navigate(from, { replace: true });
             // setAuth({
             //     email,
