@@ -82,7 +82,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
         setSortedField(sortName)
-    }, [setSortedField ])
+    }, [UserData])
     // useEffect(() => {
     //     setSortedField(sortName)
     // }, [setSortedField ,UserData])
