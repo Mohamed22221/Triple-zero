@@ -10,13 +10,20 @@ export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thu
     const { rejectWithValue } = thunkAPI
 
      try {
-     const res =  await get('users')
+     const res =  await get('restaurants')
      return res.data
-    //   await get('users').then(response => {
-    //     console.log('response11:' , response.data);
-    // }).error(err => {
-    //     console.log('error:' , err);
-    // })
+  } catch (err) {
+    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+      return rejectWithValue(err.message)
+  }
+})
+
+export const getClientDetails = createAsyncThunk('clients2/getClientDetails', async (id, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI
+
+     try {
+     const res = await get(`restaurants/show/${id}`)
+     return res.data
   } catch (err) {
     console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
       return rejectWithValue(err.message)
@@ -26,22 +33,27 @@ export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thu
 
 export const ClintSlice = createSlice({
   name: 'clients2',
-  initialState: {clients2: [], error: null},
+  initialState: {clients2: [], clientDetails: {},error: null},
   extraReducers: {
         [getClients2.pending]: (state, action) => {
-          // state.isLoading = true;
           state.error = null;
-          // console.log(action);
         },
         [getClients2.fulfilled]: (state, action) => {
-          // state.isLoading = false;
           state.clients2 = action.payload;
-          // console.log('action form fulfilled', action);
-          // console.log('action form fulfilled 2', state);
-          // console.log('action form fulfilled 2', state.books);
         },
         [getClients2.rejected]: (state, action) => {
-          // state.isLoading = false;
+          state.error = action;
+          console.log('action', action);
+        },
+
+
+        [getClientDetails.pending]: (state, action) => {
+          state.error = null;
+        },
+        [getClientDetails.fulfilled]: (state, action) => {
+          state.clientDetails = action.payload;
+        },
+        [getClientDetails.rejected]: (state, action) => {
           state.error = action;
           console.log(action);
         },
