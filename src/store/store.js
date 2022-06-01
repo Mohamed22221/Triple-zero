@@ -7,7 +7,7 @@ import auth from './authSlice'
 export const store = configureStore({
   reducer: {
       clint : ClintSlice,
-      clints2: ClintSlice2,
+      clients2: ClintSlice2,
       ShowAndHide : StateSlice,
       auth: auth
   },
