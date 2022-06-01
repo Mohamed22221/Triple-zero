@@ -9,7 +9,6 @@ import ShortUniqueId from 'short-unique-id'
 import AddedClint from './AddedClint';
 import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
-import SendSuccess from '../glopal/SendSuccess';
 
 const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   const ToogleSlider = useSelector((state) => state.ShowAndHide.value.add)
@@ -56,7 +55,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   }
   return (
     <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
-      {show === true ? <SendSuccess Operationtitle="تم اضافه العميل بنجاح" /> :
+      {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
       <div className='style-form' ToogleSlider={ToogleSlider}>
         <SliderClint title="اضافه عميل"   >
         <InputCustomer values={values} setValues={setValues}  /> 
