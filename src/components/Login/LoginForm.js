@@ -71,7 +71,8 @@ const LoginFrom = () => {
             localStorage.setItem("loggingIn", true)
             localStorage.setItem("token", response.data.data.token)
             console.log('response.token', response.data.data.token);
-            navigate(from, { replace: true });
+            // navigate(from, { replace: true });
+            window.location.href = '/'
             // setAuth({
             //     email,
             //     password,
