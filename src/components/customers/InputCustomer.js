@@ -7,7 +7,7 @@ const ImgeHandeler = (e) =>{
     const Reader = new FileReader()
     Reader.onload = () =>{
         if (Reader.readyState === 2) {
-            setValues({...values , logo: Reader.result }) 
+            setValues({...values , photo: Reader.result }) 
         }
     }
     console.log('e.target.files[0]', e.target.files[0]);
@@ -20,12 +20,9 @@ const ImgeHandeler = (e) =>{
             <StyleSmaleDiv>
                 <div className='one-input  '>
                     <StyleLabel>رقم العميل</StyleLabel>
-                    <input type="text" placeholder='#As578' value={values.idUser} disabled     />
+                    <input type="text" placeholder='#As578' value={values.user_id} disabled     />
                 </div>
-                <div className='one-input'> 
-                    <StyleLabel>تاريخ الاشتراك</StyleLabel>
-                    <input type="text"  value={values.dateSubscription} disabled  />
-                 </div> 
+
                 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
@@ -33,45 +30,33 @@ const ImgeHandeler = (e) =>{
                     <StyleLabel>اضف شعار للعميل</StyleLabel>
                     <input type="file" onChange={ImgeHandeler} />
                 </div>
-                <div className='one-input'> 
-                    <StyleLabel>مده الاشتراك <span>*</span></StyleLabel>
-                    <input type="number" value={values.duration}  onChange={(e) =>setValues({...values , duration:e.target.value}) } />
-                 </div> 
+
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
                     <StyleLabel>اسم العميل <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب اسم العميل' value={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
+                    <input type="text" placeholder='اكتب اسم العميل' value={values.en_name} onChange={(e) =>setValues({...values , en_name:e.target.value}) } />
                 </div>
                 <div className='one-input'> 
-                    <StyleLabel>اسم الشركه <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب اسم الشركه' value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
+                    <StyleLabel>رقم التلفون <span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                  </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
-                    <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب نوع التجاره' value={values.state} onChange={(e) =>setValues({...values , state:e.target.value}) }  />
+                    <StyleLabel>رقم اخر <span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب رقم اخر' value={values.telephone} onChange={(e) =>setValues({...values , telephone:e.target.value}) }/>
+
                     <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
-                    <input type="email" placeholder='اكتب اميل العميل' value={values.clintemail} onChange={(e) =>setValues({...values , clintemail:e.target.value}) }/>
-                    <StyleLabel> رابط الموقع <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب رابط الموقع' value={values.websitelink} onChange={(e) =>setValues({...values , websitelink:e.target.value}) } />
+                    <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) =>setValues({...values , email:e.target.value}) }/>
+                    <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status:e.target.value}) }  />
+                    <StyleLabel>  العنوان <span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب العنوان الموقع' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
 
                </div> 
             </StyleSmaleDiv>
-            <StyleSmaleDiv>
-                <div className='one-input'>
-                    <StyleLabel> العمله <span>*</span></StyleLabel>
-                    <select className="currency" id="cars" form="carform" value={values.currencypaid} onChange={(e) =>setValues({...values , currencypaid:e.target.value}) } >
-                    <option value="مصري">مصري</option>
-                    <option value="كويتي">كويتي</option>
-                    </select>
-                </div>
-                <div className='one-input'> 
-                    <StyleLabel>سعر الاشتراك <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب سعر الاشتراك' value={values.price} onChange={(e) =>setValues({...values , price:e.target.value}) } />
-                 </div> 
-            </StyleSmaleDiv>
+
         </StyleForm>
 
     </StyleMainInput>

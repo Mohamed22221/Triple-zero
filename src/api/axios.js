@@ -52,9 +52,7 @@ export async function post(url, data, config = {
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`
             }) {
-  return axiosApi
-    .post(url, { ...data }, { ...config })
-    .then(response => response.data)
+  return axiosApi.post(url, { ...data }, { ...config }).then(response => response.data)
 }
 
 export async function postFromData(url, data, config = {}) {

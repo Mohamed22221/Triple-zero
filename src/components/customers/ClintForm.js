@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { AiOutlineClose } from 'react-icons/ai';
 import ButtonAdd from '../glopal/ButtonAdd';
 import InputCustomer from './InputCustomer';
-import { addClint } from '../../store/ClintSlice';
+import { SendClint } from '../../store/ClintSlice2';
 import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import AddedClint from './AddedClint';
@@ -22,34 +22,31 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     const uid = new ShortUniqueId({ length: 6 });
   //values input
     const [values , setValues] = useState({
-      logo: ``  ,
-      idUser :`#${uid()}`,
-      name : "  جاسم فيصل",
-      compony:"easy media" ,
-      dateSubscription: date,
-      price: "1500",
-      duration: "3" ,
-      paymentDate: date,
-      clintemail : "info@easymedia.agency" ,
-      websitelink : "www.easymedia.agency" ,
-      state : "تم الدفع" ,
-      currencypaid : "مصري"  
+      photo: ``  ,
+      user_id :`#${uid()}`,
+      en_name : "  جاسم فيصل",
+      mobile:"easy media" ,
+      telephone: "",
+      address: "",
+      email : "info@easymedia.agency" ,
+      status : 1 ,
+      
   })
   // click add customer
   const AddUser = () =>{
-    dispatch(addClint({
-      logo: values.logo ,
-      idUser : values.idUser ,
-      name : values.name,
-      compony:values.compony ,
-      dateSubscription:values.dateSubscription,
-      price: values.price,
-      duration: values.duration ,
-      paymentDate: values.dateSubscription,
-      clintemail : values.clintemail ,
-      websitelink : values.websitelink ,
-      state : values.state ,
-      currencypaid : values.currencypaid  
+    dispatch(SendClint({
+      photo: values.photo ,
+      user_id : values.user_id ,
+      quote_id :null ,
+      en_name : values.en_name,
+      mobile:values.mobile ,
+      telephone:values.telephone,
+      address: values.address,
+      email : values.email ,
+      status : values.status ,
+      lon:-5650,
+      lat:2365,
+      id:15
     }))
     setShow(true)
   }

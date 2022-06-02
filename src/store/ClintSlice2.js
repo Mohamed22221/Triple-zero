@@ -2,10 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import Logo2 from "../photo/slogan/slogan1.svg"
 import Logo3 from "../photo/slogan/slogan2.svg"
 import Logo4 from "../photo/slogan/slogan3.svg"
-import { get } from '../api/axios'
+import { get ,post } from '../api/axios'
 
 
 
+
+// get data clints resturant
 export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
 
@@ -17,7 +19,7 @@ export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thu
       return rejectWithValue(err.message)
   }
 })
-
+// get data clint Details
 export const getClientDetails = createAsyncThunk('clients2/getClientDetails', async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
 
@@ -29,6 +31,25 @@ export const getClientDetails = createAsyncThunk('clients2/getClientDetails', as
       return rejectWithValue(err.message)
   }
 })
+// send data clint 
+
+
+export const SendClint = createAsyncThunk("clients2/SendClint" , async (dataClint , thunkApi ) =>{
+  const {rejectWithValue} = thunkApi
+  try {
+    const res = await post("restaurants/store" ,{
+      body:JSON.stringify(dataClint) ,
+     
+      
+    })
+    const data = await res.json()
+    return data
+ }catch (err) {
+  console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+  return rejectWithValue(err.message)
+ }
+})
+
 
 
 
@@ -44,6 +65,7 @@ export const ClintSlice = createSlice({
     
     },
   extraReducers: {
+      //get clint data
         [getClients2.pending]: (state, action) => {
           state.error = null;
         },
@@ -55,7 +77,7 @@ export const ClintSlice = createSlice({
           console.log('action', action);
         },
 
-
+      //get clint Details
         [getClientDetails.pending]: (state, action) => {
           state.error = null;
         },
@@ -66,8 +88,19 @@ export const ClintSlice = createSlice({
           state.error = action;
           console.log(action);
         },
+      //send data clint  
+      [SendClint.pending]: (state, action) => {
+        state.error = null;
+      },
+      [SendClint.fulfilled]: (state, action) => {
+        state.clients2.push(action.payload) ;
+      },
+      [SendClint.rejected]: (state, action) => {
+        state.error = action.payload;
+        console.log(action);
+      },
   },
-  reducer :{
+  /*reducer :{
          addClintBlackList: (state ,action) => {
        const FindMenueIndex =  state.blackList.findIndex((item) => item.name == action.payload.name)
          if (FindMenueIndex >= 0) {
@@ -80,7 +113,7 @@ export const ClintSlice = createSlice({
          localStorage.setItem("blackList",JSON.stringify(state.blackList))
          localStorage.setItem("clients2",JSON.stringify(state.clients2))
   }
-}
+}*/
 })
 
 
