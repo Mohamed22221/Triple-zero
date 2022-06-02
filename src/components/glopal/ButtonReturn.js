@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const ButtonReturn = () => {
   return (
-    <Link to="/Customers">
+    <Link to="/Restaurants">
     <MainReturnClints>
      <span>رجوع</span>
      <a><BiArrowBack className='icon-button' /></a>

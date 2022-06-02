@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 const AboutClint = (props) => {
-    const {id,name ,logo ,mobile ,telephone } = props
+    const {id,name ,logo ,mobile ,telephone ,idUser } = props
 
   return (
     <MainStyleAbout key={id}>

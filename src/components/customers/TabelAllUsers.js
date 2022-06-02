@@ -126,8 +126,8 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                 <th >الشعار</th>
                 <th >ID</th>
                 <th>الأسم</th>
-                <th>تاريخ الاشتراك</th>
-                <th>السعر</th>
+                <th>رقم التلفون</th>
+                <th>الاميل</th>
                 <th>المدة</th>
                 <th>تاريخ الدفع</th>
                 <th>الحاله</th>
@@ -163,12 +163,12 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td>
                         <span>{user.paymentDate}</span>
                     </td>
-                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</span></td>
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.en_name}`}> التفاصيل</Link>
+                     <Link to={`/Restaurants/clint/${user.en_name}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

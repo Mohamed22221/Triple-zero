@@ -5,7 +5,7 @@ import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const TabelClient = (props) => {
-    const {  name , idUser , price , duration , paymentDate ,
+    const {  name , idUser , number , telephone , paymentDate ,
           state , clintemail , websitelink  ,currencypaid  } = props
     
   return (
@@ -18,7 +18,6 @@ const TabelClient = (props) => {
                 <th>الأسم</th>
                 <th>رقم التلفون</th>
                 <th>رقم اخر</th>
-                <th>المدة</th>
                 <th>تاريخ الدفع</th>
                 <th>الحاله</th>
             </TrHead>
@@ -29,11 +28,10 @@ const TabelClient = (props) => {
                 <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
                 </CopyToClipboard>
                 <td>{name}</td>
-                <td>{paymentDate}</td>
-                <td>{price}</td>
-                <td>{duration} اشهر</td>
-                <td>{paymentDate}</td>
-                <td><p className={state === "تم الدفع" ? "green" : "red"}>{state}</p></td>
+                <td>{number}</td>
+                <td>{telephone}</td>
+                <td>{}</td>
+                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
             </TrBody>
         </Tbody>
     </Tabel>

@@ -36,7 +36,7 @@ export const ClintSlice = createSlice({
   name: 'clients2',
   initialState: {
     clients2: [],
-    clientDetails: [{}],
+    clientDetails: {},
     error: null ,
     blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 

@@ -8,7 +8,8 @@ import {  useToasts } from 'react-toast-notifications';
 import { FaUserEdit } from 'react-icons/fa';
 
 const FormEdit = () => {
-  const UserData = useSelector((state) => state.clint.DataUser)
+  const UserData = useSelector(state => state.clients2.clients2)
+
   const Params = useParams()
   const ParamsId = `${Params.userid}`
   const id= UserData.filter((item)=>item.name === ParamsId).map((user => user.idUser))
@@ -85,7 +86,7 @@ const FormEdit = () => {
     <StyleMainInput>
       <h2>تعديل البيانات</h2>
       <StyleForm>
-      {UserData.filter((item)=>item.name === ParamsId).map((user =>{
+      {UserData.filter((item)=>item.en_name === ParamsId).map((user =>{
         return (
           <div key={user.idUser}>
         <div className='display-input' >

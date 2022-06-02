@@ -38,11 +38,9 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
             logo={user.photo} 
             name={user.en_name} 
             idUser={user.user_id}
-            dateSubscription={user.mobile} 
-            duration={user.mobile}
-            paymentDate={user.telephone}
-            price={user.price}
-            state={user.state}
+            number={user.mobile} 
+            telephone={user.telephone}
+            state={user.status}
             clintemail={user.email}
             websitelink={user.address}
             tradetype={user.email}

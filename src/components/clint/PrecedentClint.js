@@ -7,7 +7,7 @@ import EditUser from './EditUser'
 import {  editClint } from '../../store/ClintSlice';
 
 const PrecedentClint = () => {
-  const UserData = useSelector((state) => state.clint.DataUser)
+  const clientDetails = useSelector(state => state.clients2.clients2)
   const Params = useParams()
   const ParamsId = `${Params.userid}`
  //values input
@@ -17,7 +17,7 @@ const PrecedentClint = () => {
   return (
     <MainStylePrecedent>
       <h2>البيانات القديمه</h2>
-      {UserData.filter((item)=>item.name === ParamsId).map((user =>{
+      {clientDetails.filter((item)=>item.en_name === ParamsId).map((user =>{
         return (
           <div className='main-cart' key={user.idUser}>
             <div className='header-cart'>
