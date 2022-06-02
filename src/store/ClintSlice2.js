@@ -31,9 +31,18 @@ export const getClientDetails = createAsyncThunk('clients2/getClientDetails', as
 })
 
 
+
 export const ClintSlice = createSlice({
   name: 'clients2',
-  initialState: {clients2: [], clientDetails: {},error: null},
+  initialState: {
+    clients2: [],
+    clientDetails: [{}],
+    error: null ,
+    blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
+
+    ]
+    
+    },
   extraReducers: {
         [getClients2.pending]: (state, action) => {
           state.error = null;
@@ -57,76 +66,27 @@ export const ClintSlice = createSlice({
           state.error = action;
           console.log(action);
         },
+  },
+  reducer :{
+         addClintBlackList: (state ,action) => {
+       const FindMenueIndex =  state.blackList.findIndex((item) => item.name == action.payload.name)
+         if (FindMenueIndex >= 0) {
+             state.blackList[FindMenueIndex].quantityUp += 1 
+         }else{
+             const CartDistracture = {...action.payload ,quantityUp : 1}
+             state.blackList.push(CartDistracture)
+             state.clients2 = state.clients2.filter(item =>item.user_id !== action.payload.userid)
+         }
+         localStorage.setItem("blackList",JSON.stringify(state.blackList))
+         localStorage.setItem("clients2",JSON.stringify(state.clients2))
   }
-  // reducers: {
-  //   addClint: (state ,action) => {
-  //     const FindMenueIndex =  state.DataUser.findIndex((item) => item.name == action.payload.name)
-  //     if (FindMenueIndex >= 0) {
-  //         state.DataUser[FindMenueIndex].quantityUp += 1 
-  //     }else{
-  //         const CartDistracture = {...action.payload ,quantityUp : 1}
-  //         state.DataUser.push(CartDistracture)
-  //     }
-  //     localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
-      
-        
-  //   },
-  //   addClintBlackList: (state ,action) => {
-  //     const FindMenueIndex =  state.blackList.findIndex((item) => item.name == action.payload.name)
-  //       if (FindMenueIndex >= 0) {
-  //           state.blackList[FindMenueIndex].quantityUp += 1 
-  //       }else{
-  //           const CartDistracture = {...action.payload ,quantityUp : 1}
-  //           state.blackList.push(CartDistracture)
-  //           state.DataUser = state.DataUser.filter(item =>item.idUser !== action.payload.userid)
-  //       }
-  //       localStorage.setItem("blackList",JSON.stringify(state.blackList))
-  //       localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
+}
+})
+
+
         
     
-  //  },
-  //   removeClint: (state ,action) => {
-  //     state.blackList = state.blackList.filter(item => item.userid !== action.payload.userid)
-  //     localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
-  //     localStorage.setItem("blackList",JSON.stringify(state.blackList))
 
-  //   },
-  //   ReturnClint: (state ,action) => {
-  //     const FindMenueIndex =  state.DataUser.findIndex((item) => item.name == action.payload.name)
-  //     if (FindMenueIndex >= 0) {
-  //         state.DataUser[FindMenueIndex].quantityUp += 1 
-  //     }else{
-  //         const CartDistracture = {...action.payload ,quantityUp : 1}
-  //         state.DataUser.push(CartDistracture)
-  //         state.blackList = state.blackList.filter(item => item.userid !== action.payload.idUser)
-  //     }
-  //     localStorage.setItem("blackList",JSON.stringify(state.blackList))
-  //     localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
-      
-  //   },
-  //   editClint: (state, action) => {
-  //    const myDataEdit = state.DataUser.find((item =>item.idUser == action.payload.idUser))
-  //    if (myDataEdit) {
-  //     myDataEdit.logo = action.payload.logo
-  //     myDataEdit.idUser = action.payload.idUser
-  //     myDataEdit.name = action.payload.name
-  //     myDataEdit.dateSubscription = action.payload.dateSubscription
-  //     myDataEdit.price = action.payload.price
-  //     myDataEdit.duration = action.payload.duration
-  //     myDataEdit.paymentDate =action.payload. paymentDate
-  //     myDataEdit.state = action.payload.state
-  //     myDataEdit.websitelink = action.payload.websitelink
-  //     myDataEdit.clintemail = action.payload.clintemail
-  //     myDataEdit.compony = action.payload.compony
-  //     myDataEdit.currencypaid = action.payload.currencypaid
-  //     myDataEdit.ReasonDelete = action.payload.ReasonDelete
-  //     myDataEdit.DeleteDate = action.payload.DeleteDate
-
-  //    }
-  //    localStorage.setItem("DataUser",JSON.stringify(state.DataUser))
-  //   },
-  // },
-})
 
 // Action creators are generated for each case reducer function
 export const { addClint, removeClint,ReturnClint, editClint ,addClintBlackList } = ClintSlice.actions

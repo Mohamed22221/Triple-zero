@@ -58,12 +58,12 @@ function App() {
           {/* User routes */}
             <Route path="/" element={<Home HandelShow={HandelShow}  />} />
             <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-            <Route path="/Restaurants" element={<Restaurants
+            <Route path="/Customers" element={<Restaurants
               HandelShow={HandelShow} 
               HandelClose={HandelClose}  />} />
               <Route path="/setting" element={<Setting />} />
 
-            <Route path="Customers" element={<Customers
+            <Route path="Restaurants" element={<Customers
               HandelShow={HandelShow}
               showBar={showBar}
               HandelClose={HandelClose}
@@ -73,8 +73,8 @@ function App() {
               <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
               <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
 
-            <Route path="/Customers/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
-            <Route path="/Customers/clint" element={<Clint HandelShow={HandelShow}
+            <Route path="/Restaurants/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
+            <Route path="/Restaurants/clint" element={<Clint HandelShow={HandelShow}
               HandelClose={HandelClose}  />} >
                 <Route path=":clintid" element={<Clint 
                 HandelShow={HandelShow} 

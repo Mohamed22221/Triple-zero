@@ -6,7 +6,7 @@ import ButtonDelete from '../glopal/ButtonDelete'
 
 const FormDelete = ({setDeleted}) => {
      //go to user id
-    const UserData = useSelector((state) => state.clint.DataUser)
+     const clientDetails = useSelector(state => state.clients2.clients2)
     const Params = useParams()
     const ParamsId = `${Params.clintid}` 
     //get date today
@@ -25,7 +25,7 @@ const FormDelete = ({setDeleted}) => {
    //onChange value 
    const [Disapeld , setDisapeld] = useState(true)
     const HandelChange = (e) =>{
-        if(e.target.value.length >= 3){
+        if(e.target.value.length >= 1){
            setDisapeld(false)
         }else{
             setDisapeld(true)
@@ -37,17 +37,16 @@ const FormDelete = ({setDeleted}) => {
 
   return (
     <MainFormDelete>
-        {UserData.filter((item => item.name === ParamsId)).map(user  =>{
+        {clientDetails.filter((item => item.en_name === ParamsId)).map(user  =>{
             return (
-            <div key={user.name}>
+            <div key={user.en_name}>
         <AboutClint >
                 <div className='item-clint' >
                     <p className='title'>العميل المراد حذفه :</p>
                     <div className='img-clint'>
-                        <img src={user.logo} alt="logo"/>
+                        <img src={user.photo} alt="logo"/>
                         <div className='information'>
-                            <h5>{user.compony}</h5>
-                            <p >{user.name}</p>
+                            <p >{user.en_name}</p>
                             <p>تاريخ الاشتراك : {user.dateSubscription}</p>
                         </div>
                     </div>
@@ -66,9 +65,9 @@ const FormDelete = ({setDeleted}) => {
         <StyleFotter>
         <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
         <ButtonDelete  
-        nameclint={user.name}
+        nameclint={user.en_name}
         UserId={user.idUser}
-        logo={user.logo}
+        logo={user.photo}
         dateSubscription={user.dateSubscription}
         values={values}
         setValues={setValues}

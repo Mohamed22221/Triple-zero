@@ -16,8 +16,8 @@ const TabelClient = (props) => {
             <TrHead>
                 <th >ID</th>
                 <th>الأسم</th>
-                <th>تاريخ الاشتراك</th>
-                <th>السعر</th>
+                <th>رقم التلفون</th>
+                <th>رقم اخر</th>
                 <th>المدة</th>
                 <th>تاريخ الدفع</th>
                 <th>الحاله</th>

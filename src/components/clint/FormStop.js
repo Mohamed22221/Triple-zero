@@ -8,7 +8,7 @@ import { addClintBlackList } from '../../store/ClintSlice'
 
 const FormStop= ({setStoped}) => {
      //go to user id
-    const UserData = useSelector((state) => state.clint.DataUser)
+     const clientDetails = useSelector(state => state.clients2.clients2)
     const Params = useParams()
     const ParamsId = `${Params.clintid}`
     const dispatch = useDispatch() 
@@ -61,7 +61,7 @@ const FormStop= ({setStoped}) => {
     console.log(values)
   return (
     <MainFormDelete>
-        {UserData.filter((item => item.name === ParamsId)).map(user  =>{
+        {clientDetails.filter((item => item.en_name === ParamsId)).map(user  =>{
             return (
             <div key={user.name}>
         <AboutClint >
@@ -71,7 +71,7 @@ const FormStop= ({setStoped}) => {
                         <img src={user.logo} alt="logo" />
                         <div className='information'>
                             <h5>{user.compony}</h5>
-                            <p >{user.name}</p>
+                            <p >{user.en_name}</p>
                             <p>تاريخ الاشتراك : {user.dateSubscription}</p>
                         </div>
                     </div>

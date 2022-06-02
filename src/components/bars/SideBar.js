@@ -23,8 +23,8 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:2 ,
-                name : "المشرفين" ,
-                link: "/Customers" ,
+                name : "المطاعم" ,
+                link: "/Restaurants" ,
                 icon: MdSupervisorAccount,
             
             },
@@ -35,13 +35,9 @@ const SideBar = ({showBar,HandelClose }) => {
                 icon: MdSupervisorAccount,
             
             },
-            {
-                id:4 ,
-                name : "مطاعم" ,
-                link: "/Restaurants",
-                icon: BsPerson,
-            
-            },
+        
+  
+       
             {
                 id:6 ,
                 name : "سواقين" ,

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useDispatch ,useSelector } from 'react-redux';
-import { addClintBlackList } from '../../store/ClintSlice';
+import { addClintBlackList } from '../../store/ClintSlice2';
 import { Link } from 'react-router-dom';
 const ButtonDelete = ({values,nameclint,state,logo,dateSubscription,setDeleted,Disapeld,price,duration,paymentDate,clintemail,websitelink,tradetype,currencypaid,compony}) => {
   const dispatch = useDispatch()

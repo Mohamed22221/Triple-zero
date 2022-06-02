@@ -8,18 +8,20 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 const AboutClint = (props) => {
-    const {id,name ,logo ,dateSubscription ,compony } = props
+    const {id,name ,logo ,mobile ,telephone } = props
 
   return (
-    <MainStyleAbout>
+    <MainStyleAbout key={id}>
       <MainRightAbout>
       <div className='photo-logo'>
-        <img src={logo} />
+        <img src={logo} alt="logo" />
       </div>
       <div className='apout'>
-        <h5>{compony}</h5>
-        <p>{name}</p>
-        <p>تاريخ الاشتراك : {dateSubscription}</p>
+        
+        <h5>الاسم : {name}</h5>
+        <p>رقم الموبايل : {mobile}</p>
+        <p>رقم اخر : {telephone}</p>
+
        <Link to={`/EditUser/${name}`}><button>تعديل العميل</button></Link>
       </div>
       </MainRightAbout>
