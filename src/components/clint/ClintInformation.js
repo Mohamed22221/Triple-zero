@@ -15,7 +15,7 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
   return (
     <MainStyleClint>
          
-      {clientDetails.filter((item => item.en_name === ParamsId)).map(user =>{
+      {clientDetails.filter((item => item.id == ParamsId)).map(user =>{
           return (
         <ItemStyleClint key={user.idUser} >
 

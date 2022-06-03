@@ -144,9 +144,9 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Restaurants/clint/${user.en_name}`}><img src={user.logo} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Restaurants/clint/${user.id}`}><img src={user.logo} alt="logo" /></Link></td>
                     <td>
-                        <Link className='text-link' to={`/Restaurants/clint/${user.en_name}`}>{user.id}#</Link>
+                        <Link className='text-link' to={`/Restaurants/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
                         <span>{user.en_name}</span>
@@ -167,8 +167,8 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.en_name}`}> التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.en_name}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}> التفاصيل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

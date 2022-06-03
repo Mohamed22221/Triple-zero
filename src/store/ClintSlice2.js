@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import Logo2 from "../photo/slogan/slogan1.svg"
 import Logo3 from "../photo/slogan/slogan2.svg"
 import Logo4 from "../photo/slogan/slogan3.svg"
-import { get ,post } from '../api/axios'
+import { get ,post, postFromData } from '../api/axios'
 
 
 
@@ -36,16 +36,18 @@ export const getClientDetails = createAsyncThunk('clients2/getClientDetails', as
 
 export const SendClint = createAsyncThunk("clients2/SendClint" , async (dataClint , thunkApi ) =>{
   const {rejectWithValue} = thunkApi
+  const body = new FormData()
+  
   try {
-    const res = await post("restaurants/store" ,{
-      body:JSON.stringify(dataClint) ,
-     
-      
-    })
-    const data = await res.json()
+
+    const res = await postFromData("restaurants/store", dataClint)
+    const data = res.json()
+    console.log('data added to store', data);
     return data
  }catch (err) {
   console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+  console.log('rejectWithValue(err.message)', dataClint);
+
   return rejectWithValue(err.message)
  }
 })
