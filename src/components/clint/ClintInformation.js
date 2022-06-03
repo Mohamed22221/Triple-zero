@@ -25,15 +25,17 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
             logo={user.logo} 
             name={user.en_name} 
             mobile={user.mobile} 
-            compony={user.compony}  />
-            <AboutClint
-              id={user.user_id} 
-              logo={user.photo}
-              idUser={user.user_id} 
-              name={user.en_name} 
-              mobile={user.mobile} 
-              telephone={user.telephone}
-            />
+            compony={user.compony}  
+            id={user.id}
+          />
+          <AboutClint
+            id={user.user_id} 
+            logo={user.photo}
+            idUser={user.user_id} 
+            name={user.en_name} 
+            mobile={user.mobile} 
+            telephone={user.telephone}
+          />
            <TabelClient
             logo={user.photo} 
             name={user.en_name} 

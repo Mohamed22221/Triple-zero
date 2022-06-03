@@ -7,17 +7,22 @@ import ButtonReturn from '../glopal/ButtonReturn';
 import { useDispatch } from 'react-redux';
 import { ShowStop } from '../../store/StateSlice';
 import { ShowDelete } from '../../store/StateSlice';
+import {deleteClient, changeStatusClient} from './../../store/ClintSlice2'
 
 
 
 
-const HeaderButton = ({HandelShowCustomer }) => {
+
+
+const HeaderButton = ({HandelShowCustomer, id }) => {
    const dispatch = useDispatch()
+//    <button onClick={() => dispatch(ShowStop(true)) }><FiPause className='icon-button' />أقاف مؤقت</button>
+//    <button  onClick={() =>dispatch(ShowDelete(true))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
   return (
     <MainHeaderClint>
         <MainButtonClint>
-            <button onClick={() => dispatch(ShowStop(true)) }><FiPause className='icon-button' />أقاف مؤقت</button>
-            <button  onClick={() =>dispatch(ShowDelete(true))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
+            <button onClick={() => dispatch(changeStatusClient(id)) }><FiPause className='icon-button' />أقاف مؤقت</button>
+            <button  onClick={() =>dispatch(deleteClient(id))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
         <ButtonReturn />
         

@@ -36,20 +36,43 @@ export const getClientDetails = createAsyncThunk('clients2/getClientDetails', as
 
 export const SendClint = createAsyncThunk("clients2/SendClint" , async (dataClint , thunkApi ) =>{
   const {rejectWithValue} = thunkApi
-  const body = new FormData()
-  
   try {
-
-    const res = await postFromData("restaurants/store", dataClint)
-    const data = res.json()
-    console.log('data added to store', data);
-    return data
+    const response = await postFromData("restaurants/store", dataClint);
+    // const data = res
+    console.log('data added to store', response.data);
+    return response.data
  }catch (err) {
   console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
   console.log('rejectWithValue(err.message)', dataClint);
 
   return rejectWithValue(err.message)
  }
+})
+
+// changeStatusClient
+export const changeStatusClient = createAsyncThunk('clients2/changeStatusClient', async (id, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI
+
+     try {
+     const res = await get(`restaurants/status/${id}`)
+     return res.data
+  } catch (err) {
+    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+      return rejectWithValue(err.message)
+  }
+})
+
+// deleteClient
+export const deleteClient = createAsyncThunk('clients2/deleteClient', async (id, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI
+
+     try {
+     const res = await get(`restaurants/destroy/${id}`)
+     return res.data
+  } catch (err) {
+    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+      return rejectWithValue(err.message)
+  }
 })
 
 
@@ -95,11 +118,27 @@ export const ClintSlice = createSlice({
         state.error = null;
       },
       [SendClint.fulfilled]: (state, action) => {
-        state.clients2.push(action.payload) ;
+        state.clients2.push(action.payload);
+        console.log('true|||||||||||||||||||||||||||||||||||||||||');
       },
       [SendClint.rejected]: (state, action) => {
         state.error = action.payload;
         console.log(action);
+      },
+
+      [deleteClient.fulfilled]: (state, action) => {
+        // state.isLoading = false;
+        const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
+        state.clients2 = filter
+        console.log('filter', filter);
+        console.log('action form fulfilled', action.meta.arg);
+      },
+      [changeStatusClient.fulfilled]: (state, action) => {
+        // state.isLoading = false;
+        const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
+        state.clients2 = filter
+        console.log('filter', filter);
+        console.log('action form fulfilled', action.meta.arg);
       },
   },
   /*reducer :{
