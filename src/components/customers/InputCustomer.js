@@ -7,7 +7,9 @@ const ImgeHandeler = (e) =>{
     const Reader = new FileReader()
     Reader.onload = () =>{
         if (Reader.readyState === 2) {
-            setValues({...values , photo: Reader.result }) 
+            setValues({...values , photo: e.target.files[0] }) 
+            console.log('e.target.files[0]:::::1111111', e.target.files[0]);
+            console.log('e.target.files[0]:::::1111111', Reader.result);
         }
     }
     console.log('e.target.files[0]', e.target.files[0]);

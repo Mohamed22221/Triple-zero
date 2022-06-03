@@ -22,7 +22,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     const uid = new ShortUniqueId({ length: 6 });
   //values input
     const [values , setValues] = useState({
-      photo: ``  ,
+      photo: null,
       user_id :`#${uid()}`,
       en_name : "  جاسم فيصل",
       mobile:"easy media" ,
@@ -35,18 +35,20 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   // click add customer
   const AddUser = () =>{
     dispatch(SendClint({
-      photo: values.photo ,
-      user_id : values.user_id ,
-      quote_id :null ,
-      en_name : values.en_name,
-      mobile:values.mobile ,
-      telephone:values.telephone,
+      photo: values.photo,
+      user_id : 1 ,
+      // quote_id :null ,
+      en_name : 'values.en_name222',
+      ar_name : 'values.en_name222',
+      mobile: '012947831931',
+      telephone:'3434893134893489',
       address: values.address,
       email : values.email ,
       status : values.status ,
       lon:-5650,
       lat:2365,
-      id:15
+      password: '12345678',
+      status: 1
     }))
     setShow(true)
   }
