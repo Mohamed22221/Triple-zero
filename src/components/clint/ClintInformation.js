@@ -27,6 +27,7 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
             mobile={user.mobile} 
             compony={user.compony}  
             id={user.id}
+            status={user.status}
           />
           <AboutClint
             id={user.user_id} 

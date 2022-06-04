@@ -3,6 +3,7 @@ import Logo2 from "../photo/slogan/slogan1.svg"
 import Logo3 from "../photo/slogan/slogan2.svg"
 import Logo4 from "../photo/slogan/slogan3.svg"
 import { get ,post, postFromData } from '../api/axios'
+import swal from 'sweetalert';
 
 
 
@@ -119,7 +120,14 @@ export const ClintSlice = createSlice({
       },
       [SendClint.fulfilled]: (state, action) => {
         state.clients2.push(action.payload);
-        console.log('true|||||||||||||||||||||||||||||||||||||||||');
+        // TODO: ALERT 
+        //  swal("تم تنفيذ الامر بنجاح", {
+        //    icon: "success",
+        //    button: 'موافق'
+        //  });
+         
+
+ 
       },
       [SendClint.rejected]: (state, action) => {
         state.error = action.payload;

@@ -37,7 +37,12 @@ axiosApi.defaults.headers.common["Authorization"] = `Bearer ${token}`
 
 axiosApi.interceptors.response.use(
   response => response,
-  error => Promise.reject(error)
+  error => {
+    if (error.message == 'Request failed with status code 401') {
+      window.location.pathname =  "/login"
+    }
+    Promise.reject(error)
+  }
 )
 
 export async function get(url, config = {

@@ -23,6 +23,7 @@
     "react-toast-notifications": "^2.5.1",
     "short-unique-id": "^4.4.4",
     "styled-components": "^5.3.5",
+    "sweetalert": "^2.1.2",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
