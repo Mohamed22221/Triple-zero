@@ -55,24 +55,8 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   }
   return (
     // // TODO: ALERT 
-    <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
-      {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
-      <div className='style-form' ToogleSlider={ToogleSlider}>
-        <SliderClint title="اضافه عميل"   >
-        <InputCustomer values={values} setValues={setValues}  /> 
-        </SliderClint>
-      <StyleFotter>
-        <div className="button">
-        <MdPersonAddAlt className='MdPersonAddAlt' />
-        <button onClick={AddUser}>اضافه عميل</button>
-        </div>
-
-        <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
-      </StyleFotter> 
-      </div>
-      }
-      </StyleForm>
     // <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
+    //   {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
     //   <div className='style-form' ToogleSlider={ToogleSlider}>
     //     <SliderClint title="اضافه عميل"   >
     //     <InputCustomer values={values} setValues={setValues}  /> 
@@ -86,7 +70,23 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     //     <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
     //   </StyleFotter> 
     //   </div>
-    // </StyleForm>
+    //   }
+    //   </StyleForm>
+    <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
+      <div className='style-form' ToogleSlider={ToogleSlider}>
+        <SliderClint title="اضافه عميل"   >
+        <InputCustomer values={values} setValues={setValues}  /> 
+        </SliderClint>
+      <StyleFotter>
+        <div className="button">
+        <MdPersonAddAlt className='MdPersonAddAlt' />
+        <button onClick={AddUser}>اضافه عميل</button>
+        </div>
+
+        <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
+      </StyleFotter> 
+      </div>
+    </StyleForm>
   )
 }
 const StyleForm = styled.div`
