@@ -170,10 +170,10 @@ export const ClintSlice = createSlice({
       [SendClint.fulfilled]: (state, action) => {
         state.clients2.push(action.payload);
         // TODO: ALERT 
-        //  swal("تم تنفيذ الامر بنجاح", {
-        //    icon: "success",
-        //    button: 'موافق'
-        //  });
+         swal("تم تنفيذ الامر بنجاح", {
+           icon: "success",
+           button: 'موافق'
+         });
          
 
  

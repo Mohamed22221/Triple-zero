@@ -11,6 +11,8 @@ import { SendClint } from '../../store/ClintSlice2';
 const ClintInformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails }) => {
 
 
+  console.log('clientDetails', clientDetails.id);
+
     
   return (
     <MainStyleClint>
@@ -25,7 +27,10 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails 
             logo={clientDetails.logo} 
             name={clientDetails.en_name} 
             mobile={clientDetails.mobile} 
-            compony={clientDetails.compony}  />
+            compony={clientDetails.compony} 
+            id={clientDetails.id} 
+            status={clientDetails.status} 
+            />
             <AboutClint
               id={clientDetails.user_id} 
               logo={clientDetails.photo}
