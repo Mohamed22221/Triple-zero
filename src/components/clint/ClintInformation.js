@@ -18,6 +18,8 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.clients2.clientDetails)
 
+  console.log('clientDetails', clientDetails.id);
+
     
   return (
     <MainStyleClint>
@@ -32,7 +34,10 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
             logo={clientDetails.logo} 
             name={clientDetails.en_name} 
             mobile={clientDetails.mobile} 
-            compony={clientDetails.compony}  />
+            compony={clientDetails.compony} 
+            id={clientDetails.id} 
+            status={clientDetails.status} 
+            />
             <AboutClint
               id={clientDetails.user_id} 
               logo={clientDetails.photo}
