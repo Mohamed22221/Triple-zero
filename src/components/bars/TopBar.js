@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 
 
 const TopBar = ({title ,HandelShow}) => {
-    const UserData = useSelector((state) => state.clint.DataUser)
+    const UserData = useSelector((state) => state.clients2.clients2)
      //filter search 
     const [filterSearch , setfilterSearch] = useState([])
     const handelChange = (e) => {
         const valueInput = e.target.value 
         const NewData =UserData.filter((item) =>{
             return (
-                item.name.includes(valueInput)
+                item.en_name.includes(valueInput)
             )
         })
         if (valueInput === "") {
@@ -42,7 +42,7 @@ const TopBar = ({title ,HandelShow}) => {
             {filterSearch.map((item , index) =>{
                 return (
                     <div className='click-Search' key={index}>
-                        <Link to={`/Customers/clint/${item.name}`} onClick={handelLink}><p>{item.name}</p> </Link>
+                        <Link to={`/Restaurants/clint/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
                     </div>
 
                 )

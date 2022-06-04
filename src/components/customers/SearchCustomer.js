@@ -4,7 +4,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 const SearchCustomer = ({setSortSearch ,searchSort}) => {
     // value inbut finction
     const HandelValue = (e) =>{
-        setSortSearch(e.target.value)
+        setSortSearch(e.target.value.toLowerCase())
     }
   return (
     <StyleSearchCustomer>

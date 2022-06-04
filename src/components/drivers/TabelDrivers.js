@@ -1,4 +1,3 @@
-
 import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,15 +6,15 @@ import SortTabel from './SortTabel';
 import {getClients2} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
-import Logo3 from "../../photo/slogan/slogan2.svg"
+
+import Logo3 from "../../photo/slogan/user-avatar.svg"
 import Axios from 'axios';
 import axios from '../../api/axios';
 
 const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
-      //const UserData = useSelector((state) => state.clint.DataUser) 
-      
+    //  const UserData = useSelector((state) => state.clint.DataUser) 
      const UserData = useSelector(state => state.clients2.clients2)
-     console.log('UserData', UserData);
+     
  /*   const UserData = [
          {
              id: 1,
@@ -93,7 +92,7 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         return a.id < b.id ? 1 : -1;
     })
     const sortData = [...UserData].sort((a , b)=>{
-        return a.state > b.state ? 1 : -1;
+        return a.status > b.status ? 1 : -1;
     })
     const sortName = [...UserData].sort((a , b)=>{
         return a.en_name < b.en_name ? 1 : -1;
@@ -106,7 +105,7 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         return dateB - dateA
     })
 
-    // console.log('sortedField', sortedField);
+     console.log('sortedField', sortedField);
     
 
   return (
@@ -127,11 +126,12 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
             <TrHead>
                 <th >الشعار</th>
                 <th >ID</th>
-                <th>الأسم</th>
-                <th>تاريخ الاشتراك</th>
-                <th>السعر</th>
-                <th>المدة</th>
-                <th>تاريخ الدفع</th>
+                <th> الأسم بالانجليزي</th>
+                <th>رقم التلفون</th>
+                <th>الاميل</th>
+                <th>العنوان</th>
+
+                
                 <th>الحاله</th>
                 <th>الخيارات</th>
             </TrHead>
@@ -146,13 +146,14 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Customers/clint/${user.id}`}><img src={user.logo} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Restaurants/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                     <td>
-                        <Link className='text-link' to={`/Customers/clint/${user.id}`}>{user.id}#</Link>
+                        <Link className='text-link' to={`/Restaurants/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
                         <span>{user.en_name}</span>
                     </td>
+
                     <td>
                         <span>{user.mobile}</span>
                     </td>
@@ -160,17 +161,15 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                         <span>{user.email}</span>
                     </td>
                     <td>
-                        <span>{user.duration} اشهر</span>
+                        <span>{user.address}</span>
                     </td>
-                    <td>
-                        <span>{user.paymentDate}</span>
-                    </td>
-                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</span></td>
+
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Customers/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Customers/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}> التفاصيل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

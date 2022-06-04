@@ -37,12 +37,15 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
               id={clientDetails.user_id} 
               logo={clientDetails.photo}
               idUser={clientDetails.user_id} 
-              name={clientDetails.en_name} 
+              nameEn={clientDetails.en_name} 
+              nameAr={clientDetails.ar_name} 
+
               mobile={clientDetails.mobile} 
               telephone={clientDetails.telephone}
             />
            <TabelClient
             logo={clientDetails.photo} 
+            id={clientDetails.id}
             name={clientDetails.en_name} 
             idUser={clientDetails.user_id}
             number={clientDetails.mobile} 

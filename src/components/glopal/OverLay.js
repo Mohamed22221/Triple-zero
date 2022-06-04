@@ -15,7 +15,7 @@ const OverLay = ({setShowBar ,showBar }) => {
     setShowBar(false)
   }
   return (
-    <StyleOverLay onClick={HandelCloseOverLay} showBar={showBar} ToogleSlider={ToogleSlider}></StyleOverLay>
+    <StyleOverLay id='overLay' onClick={HandelCloseOverLay} showBar={showBar} ToogleSlider={ToogleSlider}></StyleOverLay>
   )
 }
 const StyleOverLay = styled.div`

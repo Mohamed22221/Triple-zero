@@ -12,8 +12,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 
 const Widgets = () => {
-    const UserData = useSelector((state) => state.clint.DataUser)
-
+    const UserData = useSelector((state) => state.clients2.clients2)
     const counterCustomer = UserData.length
   return (
     <StyleWedget>

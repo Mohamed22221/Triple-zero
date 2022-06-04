@@ -22,35 +22,39 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     const uid = new ShortUniqueId({ length: 6 });
   //values input
     const [values , setValues] = useState({
-      photo: ``  ,
+      photo: null,
       user_id :`#${uid()}`,
-      en_name : "  جاسم فيصل",
-      mobile:"easy media" ,
-      telephone: "",
+      en_name : "",
+      ar_name : "" ,
+      mobile:"" ,
+      telephone: null,
       address: "",
-      email : "info@easymedia.agency" ,
+      email : "" ,
       status : 1 ,
       
   })
   // click add customer
   const AddUser = () =>{
     dispatch(SendClint({
-      photo: values.photo ,
-      user_id : values.user_id ,
-      quote_id :null ,
+      photo: values.photo,
+      user_id : 1 ,
+      //quote_id :null ,
       en_name : values.en_name,
-      mobile:values.mobile ,
+      ar_name : values.ar_name,
+      mobile: values.mobile,
       telephone:values.telephone,
       address: values.address,
       email : values.email ,
       status : values.status ,
       lon:-5650,
       lat:2365,
-      id:15
+      password: '12345678',
+      status: 1
     }))
     setShow(true)
   }
   return (
+    // // TODO: ALERT 
     <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
       {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
       <div className='style-form' ToogleSlider={ToogleSlider}>
@@ -68,6 +72,21 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
       </div>
       }
       </StyleForm>
+    // <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
+    //   <div className='style-form' ToogleSlider={ToogleSlider}>
+    //     <SliderClint title="اضافه عميل"   >
+    //     <InputCustomer values={values} setValues={setValues}  /> 
+    //     </SliderClint>
+    //   <StyleFotter>
+    //     <div className="button">
+    //     <MdPersonAddAlt className='MdPersonAddAlt' />
+    //     <button onClick={AddUser}>اضافه عميل</button>
+    //     </div>
+
+    //     <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
+    //   </StyleFotter> 
+    //   </div>
+    // </StyleForm>
   )
 }
 const StyleForm = styled.div`

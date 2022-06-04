@@ -37,7 +37,12 @@ axiosApi.defaults.headers.common["Authorization"] = `Bearer ${token}`
 
 axiosApi.interceptors.response.use(
   response => response,
-  error => Promise.reject(error)
+  error => {
+    if (error.message == 'Request failed with status code 401') {
+      window.location.pathname =  "/login"
+    }
+    Promise.reject(error)
+  }
 )
 
 export async function get(url, config = {
@@ -55,20 +60,31 @@ export async function post(url, data, config = {
   return axiosApi.post(url, { ...data }, { ...config }).then(response => response.data)
 }
 
+// export async function postFromData(url, data, config = {}) {
+//   const formData = new FormData()
+//   const  dataList = data
+//   for (let item in dataList) {
+//     formData.append(item, dataList[item])
+//   }
+//   console.log('dataList', dataList);
+//   console.log('formData', formData);
+//   axiosApi({
+//     url: url,
+//     method: 'POST',
+//     headers: config,
+//     data: formData,
+//   }).then(response => response.data)
+// }
+
 export async function postFromData(url, data, config = {}) {
   const formData = new FormData()
   const  dataList = data
   for (let item in dataList) {
     formData.append(item, dataList[item])
   }
-  console.log('dataList', dataList);
-  console.log('formData', formData);
-  axiosApi({
-    url: url,
-    method: 'POST',
-    headers: config,
-    data: formData,
-  })  
+  return axiosApi
+    .post(url, formData)
+    .then(response => response.data)
 }
 
 export async function put(url, data, config = {}) {

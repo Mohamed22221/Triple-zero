@@ -6,23 +6,25 @@ import delevery from '../../photo/icons/deleverywedget.svg'
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-
+import Logo3 from "../../photo/slogan/user-avatar.svg"
 const AboutClint = (props) => {
-    const {id,name ,logo ,mobile ,telephone ,idUser } = props
+    const {id,nameAr , nameEn ,logo ,mobile ,telephone ,idUser } = props
 
   return (
     <MainStyleAbout key={id}>
       <MainRightAbout>
       <div className='photo-logo'>
-        <img src={logo} alt="logo" />
+        <img src={Logo3} alt="logo" />
       </div>
       <div className='apout'>
         
-        <h5>الاسم : {name}</h5>
-        <p>رقم الموبايل : {mobile}</p>
-        <p>رقم اخر : {telephone}</p>
+        <h5>  الاسم بالانجليزي : {nameEn}</h5>
+        <h5>  الاسم بالعربي : {nameAr}</h5>
 
-       <Link to={`/EditUser/${name}`}><button>تعديل العميل</button></Link>
+        <p>رقم الموبايل : {mobile}</p>
+        
+
+       <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link>
       </div>
       </MainRightAbout>
       <MainLiftAbout>
@@ -84,13 +86,14 @@ align-items: center;
 }
 .apout{
   margin-right: 15px ;
-  p {
+  p ,h5 {
     padding: 4px 0;
     color: var(--font);
   }
   h5{
-    font-weight: bold;
+    font-size: 17px;
   }
+
   @media (max-width:550px ) {
     p {
       font-size: 14px;

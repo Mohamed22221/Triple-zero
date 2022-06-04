@@ -4,8 +4,10 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
+import Logo3 from "../../photo/slogan/user-avatar.svg"
+
 const TabelUsers = () => {
-    const UserData = useSelector((state) => state.clint.DataUser)
+    const UserData = useSelector((state) => state.clients2.clients2)
   return (
   <MainTabel>
     <Tabel>
@@ -14,10 +16,9 @@ const TabelUsers = () => {
                 <th>الشعار</th>
                 <th>ID</th>
                 <th>الأسم</th>
-                <th>تاريخ الاشتراك</th>
-                <th>السعر</th>
-                <th>المدة</th>
-                <th>تاريخ الدفع</th>
+                <th>رقم التلفون</th>
+                <th>العنوان</th>
+                <th>الاميل</th>
                 <th>الحاله</th>
                 <th>الخيارات</th>
             </TrHead>
@@ -27,20 +28,20 @@ const TabelUsers = () => {
             return (
                 <TrBody key={index}>
                     
-                    <td><Link to={`/Customers/clint/${user.name}`}><img src={user.logo} alt="logo" /> </Link></td>
+                    <td><Link to={`/Restaurants/clint/${user.name}`}><img src={Logo3} alt="logo" /> </Link></td>
                    
-                    <td>{user.idUser}</td>
-                    <td>{user.name}</td>
-                    <td>{user.dateSubscription}</td>
-                    <td>{user.price}</td>
-                    <td>{user.duration} اشهر</td>
-                    <td>{user.paymentDate} </td>
-                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</span></td>
+                    <td>{user.id}</td>
+                    <td>{user.en_name}</td>
+                    <td>{user.mobile}</td>
+                    <td>{user.address}</td>
+                    <td>{user.email}</td>
+                   
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Customers/clint/${user.name}`}>التفاصيل</Link>
-                     <Link to={`/Customers/clint/${user.name}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.name}`}>التفاصيل</Link>
+                     <Link to={`/Restaurants/clint/${user.name}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

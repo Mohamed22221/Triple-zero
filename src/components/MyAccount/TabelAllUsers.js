@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 
 const TabelAllUsersMyAccount = ({searchSort , setSortSearch ,HandelShowCustomer }) => { 
-    const UserData = useSelector((state) => state.clint.DataUser)
+    const UserData = useSelector((state) => state.clients2.clients2)
 
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);

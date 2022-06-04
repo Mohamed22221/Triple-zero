@@ -6,7 +6,8 @@ import SortTabel from './SortTabel';
 import {getClients2} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
-import Logo3 from "../../photo/slogan/slogan2.svg"
+
+import Logo3 from "../../photo/slogan/user-avatar.svg"
 import Axios from 'axios';
 import axios from '../../api/axios';
 
@@ -125,11 +126,12 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
             <TrHead>
                 <th >الشعار</th>
                 <th >ID</th>
-                <th>الأسم</th>
+                <th> الأسم بالانجليزي</th>
                 <th>رقم التلفون</th>
                 <th>الاميل</th>
-                <th>المدة</th>
-                <th>تاريخ الدفع</th>
+                <th>العنوان</th>
+
+                
                 <th>الحاله</th>
                 <th>الخيارات</th>
             </TrHead>
@@ -144,13 +146,14 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Restaurants/clint/${user.id}`}><img src={user.photo} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Restaurants/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                     <td>
                         <Link className='text-link' to={`/Restaurants/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
                         <span>{user.en_name}</span>
                     </td>
+
                     <td>
                         <span>{user.mobile}</span>
                     </td>
@@ -158,11 +161,9 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                         <span>{user.email}</span>
                     </td>
                     <td>
-                        <span>{user.duration} اشهر</span>
+                        <span>{user.address}</span>
                     </td>
-                    <td>
-                        <span>{user.paymentDate}</span>
-                    </td>
+
                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
