@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
-import {getClients2} from './../../store/ClintSlice2'
+import {getDrivers} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
 
@@ -13,7 +13,7 @@ import axios from '../../api/axios';
 
 const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     //  const UserData = useSelector((state) => state.clint.DataUser) 
-     const UserData = useSelector(state => state.clients2.clients2)
+     const UserData = useSelector(state => state.clients2.clientDrivers)
      
  /*   const UserData = [
          {
@@ -72,8 +72,8 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-    //    getClients()
-    dispatch(getClients2())
+    //    getDrivers()
+    dispatch(getDrivers())
     }, [dispatch])
 
 
@@ -129,24 +129,16 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                 <th> الأسم بالانجليزي</th>
                 <th>رقم التلفون</th>
                 <th>الاميل</th>
-                <th>العنوان</th>
-
                 
                 <th>الحاله</th>
                 <th>الخيارات</th>
             </TrHead>
         </Thead>
         <Tbody>
-        {sortedField.filter((item)=>{
-            if (searchSort === "") {
-                return item
-            } else if (item.en_name.includes(searchSort)) {
-                return item
-            }
-        }).map((user , index) =>{
+        {sortedField.map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Restaurants/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Drivers/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                     <td>
                         <Link className='text-link' to={`/Restaurants/clint/${user.id}`}>{user.id}#</Link>
                     </td>
@@ -160,9 +152,7 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td>
                         <span>{user.email}</span>
                     </td>
-                    <td>
-                        <span>{user.address}</span>
-                    </td>
+
 
                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
                     <td >

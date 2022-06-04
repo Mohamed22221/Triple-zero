@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components"
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import Logo3 from "../../photo/slogan/user-avatar.svg"
+import {getClients2} from './../../store/ClintSlice2'
 
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
+    const dispatch = useDispatch();
+    useEffect(() => {
+    //    getDrivers()
+    dispatch(getClients2())
+    }, [dispatch])
   return (
   <MainTabel>
     <Tabel>

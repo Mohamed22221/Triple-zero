@@ -2,31 +2,29 @@ import React, {useEffect} from 'react'
 import styled from "styled-components"
 import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
-import ClintInformation from './ClintInformation'
-import DeleteClint from './DeleteClint'
-import StopClint from './StopClint'
+import ClintInformation from '../clint/ClintInformation'
+
 import { useSelector, useDispatch } from 'react-redux'
-import {getClientDetails} from './../../store/ClintSlice2'
+import {getDriversDetails} from '../../store/ClintSlice2'
 import { useParams } from 'react-router'
 
 
 const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
-  const dispatch = useDispatch()
-  let { clintid } = useParams();
-  useEffect(() => {
-      dispatch(getClientDetails(clintid))
-  }, [getClientDetails])
-
-  //TODO: clientDetails
-  const clientDetails = useSelector(state => state.clients2.clientDetails)
+    const dispatch = useDispatch()
+    let { clintid } = useParams();
+    useEffect(() => {
+        dispatch(getDriversDetails(clintid))
+    }, [getDriversDetails])
+  
+    //TODO: clientDetails
+    const clientDetails = useSelector(state => state.clients2.clientDriversDetails)
   return (
     <MarginPages>
     <TopBar title={"العميل"} HandelShow={HandelShow} />
     
     <StyleFlex>
      <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
-     <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
-     <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
+
     </StyleFlex>
     
     </MarginPages>

@@ -8,15 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {getClientDetails} from './../../store/ClintSlice2'
 import { SendClint } from '../../store/ClintSlice2';
 
-const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
-  const dispatch = useDispatch()
-  let { clintid } = useParams();
-  useEffect(() => {
-      dispatch(getClientDetails(clintid))
-  }, [getClientDetails])
+const ClintInformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails }) => {
 
-  //TODO: clientDetails
-  const clientDetails = useSelector(state => state.clients2.clientDetails)
 
     
   return (

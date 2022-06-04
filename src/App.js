@@ -7,6 +7,8 @@ import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
+import ClintDrivers from "./components/drivers/Clint";
+
 import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
 import Restaurants from "./pages/Restaurants";
@@ -62,7 +64,7 @@ function App() {
               HandelShow={HandelShow} 
               HandelClose={HandelClose}  />} />
               <Route path="/setting" element={<Setting />} />
-
+            {/*Restaurants */}
             <Route path="Restaurants" element={<Customers
               HandelShow={HandelShow}
               showBar={showBar}
@@ -70,9 +72,7 @@ function App() {
               show={show}
               setShow={setShow}
               />} />
-              <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
-              <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
-
+              
             <Route path="/Restaurants/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
             <Route path="/Restaurants/clint" element={<Clint HandelShow={HandelShow}
               HandelClose={HandelClose}  />} >
@@ -80,6 +80,18 @@ function App() {
                 HandelShow={HandelShow} 
                 HandelClose={HandelClose}  />} >
               </Route>
+            </Route>
+            
+            <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
+            {/*Drivers */}
+            <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
+            <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}
+              HandelClose={HandelClose}  />} >
+                <Route path=":clintid" element={<ClintDrivers 
+                HandelShow={HandelShow} 
+                HandelClose={HandelClose}  />} >
+              </Route>
+             
           
             </Route>
             <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >

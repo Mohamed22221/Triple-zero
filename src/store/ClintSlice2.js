@@ -20,6 +20,30 @@ export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thu
       return rejectWithValue(err.message)
   }
 })
+// get data clints drivers
+export const getDrivers = createAsyncThunk('clients2/getDrivers', async(_, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+   try {
+   const res =  await get('admins/drivers')
+   return res.data
+} catch (err) {
+  console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+}
+})
+// get data clint driver Details
+export const getDriversDetails = createAsyncThunk('clients2/getDriversDetails', async (id, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+   try {
+   const res = await get(`admins/drivers/show/${id}`)
+   return res.data
+} catch (err) {
+  console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+}
+})
 // get data clint Details
 export const getClientDetails = createAsyncThunk('clients2/getClientDetails', async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
@@ -83,7 +107,10 @@ export const ClintSlice = createSlice({
   name: 'clients2',
   initialState: {
     clients2: [],
+    clientDrivers: [],
     clientDetails: {},
+    clientDriversDetails: {},
+
     error: null ,
     blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 
@@ -102,6 +129,17 @@ export const ClintSlice = createSlice({
           state.error = action;
           console.log('action', action);
         },
+        //get clint drivers
+        [getDrivers.pending]: (state, action) => {
+          state.error = null;
+        },
+        [getDrivers.fulfilled]: (state, action) => {
+          state.clientDrivers = action.payload;
+        },
+        [getDrivers.rejected]: (state, action) => {
+          state.error = action;
+          console.log('action', action);
+        },
 
       //get clint Details
         [getClientDetails.pending]: (state, action) => {
@@ -111,6 +149,17 @@ export const ClintSlice = createSlice({
           state.clientDetails = action.payload;
         },
         [getClientDetails.rejected]: (state, action) => {
+          state.error = action;
+          console.log(action);
+        },
+         //get clint Details
+        [getDriversDetails.pending]: (state, action) => {
+          state.error = null;
+        },
+        [getDriversDetails.fulfilled]: (state, action) => {
+          state.clientDriversDetails = action.payload;
+        },
+        [getDriversDetails.rejected]: (state, action) => {
           state.error = action;
           console.log(action);
         },
