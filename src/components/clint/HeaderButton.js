@@ -5,6 +5,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import swal from 'sweetalert';
 import ButtonReturn from '../glopal/ButtonReturn';
 import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ShowStop } from '../../store/StateSlice';
 import { ShowDelete } from '../../store/StateSlice';
 import {deleteClient, changeStatusClient} from './../../store/ClintSlice2'
@@ -16,6 +17,9 @@ import {deleteClient, changeStatusClient} from './../../store/ClintSlice2'
 
 const HeaderButton = ({HandelShowCustomer, id, status }) => {
    const dispatch = useDispatch()
+   const navigate = useNavigate();
+   const location = useLocation();
+   const from = location.state?.from?.pathname || "/Restaurants";
 //    <button onClick={() => dispatch(ShowStop(true)) }><FiPause className='icon-button' />أقاف مؤقت</button>
 //    <button  onClick={() =>dispatch(ShowDelete(true))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
 
@@ -44,9 +48,9 @@ const handelStatusClient = () => {
             dangerMode: true,
         })
         .then((willDelete) => {
-            dispatch(changeStatusClient(id))
-            setHandelStatus(!handelStatus)
             if (willDelete) {
+                dispatch(changeStatusClient(id))
+                setHandelStatus(!handelStatus)
                 swal("تم تنفيذ الامر بنجاح", {
                     icon: "success",
                     button: 'موافق'
@@ -58,12 +62,38 @@ const handelStatusClient = () => {
                 });
             }
         });
-
+        
 }
-const deleteClient = () => {
+const handelDeleteClient = () => {
+        swal({
+                title: 'هل أنت واثق؟',
+                text: 'من حذف هذا العميل',
+                icon: "warning",
+                buttons: {
+                    cancel: "الغاء",
+                    catch: {
+                        text: "موافق",
+                        value: "catch",
+                    },
+                },
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    dispatch(deleteClient(id))
+                    navigate(from, { replace: true });
+                    swal("تم تنفيذ الامر بنجاح", {
+                        icon: "success",
+                        button: 'موافق'
+                    });
+                } else {
+                    swal("تم الغاء الامر", {
+                        icon: "error",
+                        button: 'موافق'
+                    });
+                }
+            });
 
-
-    // dispatch(deleteClient(id))
 }
 
 
@@ -73,7 +103,7 @@ const deleteClient = () => {
     <MainHeaderClint>
         <MainButtonClint>
             <button onClick={handelStatusClient}><FiPause className='icon-button' />أقاف مؤقت</button>
-            <button onClick={deleteClient} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
+            <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
         <ButtonReturn />
         
