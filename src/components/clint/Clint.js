@@ -13,16 +13,10 @@ import { useParams } from 'react-router'
 const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
 
 
-  const dispatch = useDispatch();
-  let { clintid } = useParams();
-  useEffect(() => {
-      dispatch(getClientDetails(clintid))
-  }, [])
 
-  //TODO: clientDetails
-  const clientDetails = useSelector(state => state.clients2.clientDetails)
 
-  console.log('clientDetails', clientDetails);
+
+  
 
   return (
     <MarginPages>

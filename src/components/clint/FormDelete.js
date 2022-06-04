@@ -5,10 +5,8 @@ import styled from "styled-components"
 import ButtonDelete from '../glopal/ButtonDelete'
 
 const FormDelete = ({setDeleted}) => {
-     //go to user id
-     const clientDetails = useSelector(state => state.clients2.clients2)
-    const Params = useParams()
-    const ParamsId = `${Params.clintid}` 
+     //go to clientDetails id
+     const clientDetails = useSelector(state => state.clients2.clientDetails)
     //get date today
     const today = new Date();
     const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
@@ -37,17 +35,17 @@ const FormDelete = ({setDeleted}) => {
 
   return (
     <MainFormDelete>
-        {clientDetails.filter((item => item.en_name === ParamsId)).map(user  =>{
-            return (
-            <div key={user.en_name}>
+       
+           
+            <div key={clientDetails.en_name}>
         <AboutClint >
                 <div className='item-clint' >
                     <p className='title'>العميل المراد حذفه :</p>
                     <div className='img-clint'>
-                        <img src={user.photo} alt="logo"/>
+                        <img src={clientDetails.photo} alt="logo"/>
                         <div className='information'>
-                            <p >{user.en_name}</p>
-                            <p>تاريخ الاشتراك : {user.dateSubscription}</p>
+                            <p >{clientDetails.en_name}</p>
+                            <p>تاريخ الاشتراك : {clientDetails.dateSubscription}</p>
                         </div>
                     </div>
                 </div>   
@@ -65,33 +63,32 @@ const FormDelete = ({setDeleted}) => {
         <StyleFotter>
         <p> *هذه العمليه ستؤدي الي حذف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
         <ButtonDelete  
-        nameclint={user.en_name}
-        UserId={user.idUser}
-        logo={user.photo}
-        dateSubscription={user.dateSubscription}
+        nameclint={clientDetails.en_name}
+        clientDetailsId={clientDetails.idUser}
+        logo={clientDetails.photo}
+        dateSubscription={clientDetails.dateSubscription}
         values={values}
         setValues={setValues}
         setDeleted={setDeleted}
         Disapeld={Disapeld}
-        price={user.price}
-        duration={user.duration}
-        paymentDate={user.paymentDate}
-        state={user.state}
+        price={clientDetails.price}
+        duration={clientDetails.duration}
+        paymentDate={clientDetails.paymentDate}
+        state={clientDetails.state}
         
-        clintemail ={user.clintemail}
-        websitelink={user.websitelink}
-        tradetype = {user.tradetype} 
-        currencypaid ={user.currencypaid} 
-        compony={user.compony}
-        ReasonDelete={user.ReasonDelete} 
-        DeleteDate={user.DeleteDate}
+        clintemail ={clientDetails.clintemail}
+        websitelink={clientDetails.websitelink}
+        tradetype = {clientDetails.tradetype} 
+        currencypaid ={clientDetails.currencypaid} 
+        compony={clientDetails.compony}
+        ReasonDelete={clientDetails.ReasonDelete} 
+        DeleteDate={clientDetails.DeleteDate}
            
             />
 
        </StyleFotter>
         </div>
-        )
-        })}
+     
     </MainFormDelete>
   )
 }

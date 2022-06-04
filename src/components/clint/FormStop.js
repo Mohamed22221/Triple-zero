@@ -8,9 +8,8 @@ import { addClintBlackList } from '../../store/ClintSlice'
 
 const FormStop= ({setStoped}) => {
      //go to user id
-     const clientDetails = useSelector(state => state.clients2.clients2)
-    const Params = useParams()
-    const ParamsId = `${Params.clintid}`
+     const clientDetails = useSelector(state => state.clients2.clientDetails)
+    
     const dispatch = useDispatch() 
     const [disapeld , setDesapeld] = useState(true) 
 
@@ -29,21 +28,21 @@ const FormStop= ({setStoped}) => {
     const HandelDataStop = (user,e) =>{
         dispatch(addClintBlackList({
             userid:values.id,
-            name:user.name,
-            logo:user.logo,
+            name:clientDetails.name,
+            logo:clientDetails.logo,
             ReasonDelete:values.ReasonDelete,
             DeleteDate:values.DeleteDate,
             state2:values.state2,
-            state:user.state,
-            dateSubscription:user.dateSubscription,
-            price:user.price,
-            duration:user.duration,
-            paymentDate:user.paymentDate,
-            clintemail:user.clintemail,
-            tradetype:user.tradetype,
-            currencypaid:user.currencypaid,
-            compony:user.compony,
-            websitelink:user.websitelink
+            state:clientDetails.state,
+            dateSubscription:clientDetails.dateSubscription,
+            price:clientDetails.price,
+            duration:clientDetails.duration,
+            paymentDate:clientDetails.paymentDate,
+            clintemail:clientDetails.clintemail,
+            tradetype:clientDetails.tradetype,
+            currencypaid:clientDetails.currencypaid,
+            compony:clientDetails.compony,
+            websitelink:clientDetails.websitelink
             
             }))
             setStoped(false)
@@ -61,18 +60,17 @@ const FormStop= ({setStoped}) => {
     console.log(values)
   return (
     <MainFormDelete>
-        {clientDetails.filter((item => item.en_name === ParamsId)).map(user  =>{
-            return (
-            <div key={user.name}>
+
+          
         <AboutClint >
                 <div className='item-clint' >
                     <p className='title'>العميل المراد اٍيقافه :</p>
                     <div className='img-clint'>
-                        <img src={user.logo} alt="logo" />
+                        <img src={clientDetails.logo} alt="logo" />
                         <div className='information'>
-                            <h5>{user.compony}</h5>
-                            <p >{user.en_name}</p>
-                            <p>تاريخ الاشتراك : {user.dateSubscription}</p>
+                            <h5>{clientDetails.compony}</h5>
+                            <p >{clientDetails.en_name}</p>
+                            <p>تاريخ الاشتراك : {clientDetails.dateSubscription}</p>
                         </div>
                     </div>
                 </div>   
@@ -95,13 +93,12 @@ const FormStop= ({setStoped}) => {
         </FormClint>
         <StyleFotter>
         <p > *هذه العمليه ستؤدي الي اٍقاف العميل بصوره تامه ولاكن ستتبقي معلومات الحساب</p>
-        <MainButtonClint onClick={()=>HandelDataStop(user)}>
+        <MainButtonClint onClick={()=>HandelDataStop(clientDetails)}>
         <button disabled={disapeld} ><FiPause className='icon-button' />اٍقاف مؤقت</button>
          </MainButtonClint>
        </StyleFotter>
-        </div>
-        )
-        })}
+        
+    
     </MainFormDelete>
   )
 }
@@ -109,6 +106,7 @@ const FormStop= ({setStoped}) => {
 const MainFormDelete = styled.div`
 overflow-y: auto;
 display: flex;
+flex-direction: column;
 justify-content: center;
     p.title{
         margin: 25px 0 ;

@@ -1,57 +1,64 @@
-import React from 'react'
-import { useParams } from 'react-router'
+import React ,{useEffect} from 'react'
+import { useParams  } from 'react-router'
 import styled from "styled-components"
 import AboutClint from './AboutClint'
 import HeaderButton from './HeaderButton'
 import TabelClient from './TabelClient'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import {getClientDetails} from './../../store/ClintSlice2'
+import { SendClint } from '../../store/ClintSlice2';
 
 const ClintInformation = ({HandelShowCustomer,HandelStopCustomer }) => {
-    
-    const clientDetails = useSelector(state => state.clients2.clients2)
-    const Params = useParams()
-    const ParamsId = `${Params.clintid}`
+  const dispatch = useDispatch()
+  let { clintid } = useParams();
+  useEffect(() => {
+      dispatch(getClientDetails(clintid))
+  }, [getClientDetails])
+
+  //TODO: clientDetails
+  const clientDetails = useSelector(state => state.clients2.clientDetails)
+
     
   return (
     <MainStyleClint>
          
-      {clientDetails.filter((item => item.en_name === ParamsId)).map(user =>{
-          return (
-        <ItemStyleClint key={user.idUser} >
+      
+         
+        <ItemStyleClint key={clientDetails.idUser} >
 
           <HeaderButton
             HandelShowCustomer={HandelShowCustomer}
             HandelStopCustomer={HandelStopCustomer}
-            logo={user.logo} 
-            name={user.en_name} 
-            mobile={user.mobile} 
-            compony={user.compony}  />
+            logo={clientDetails.logo} 
+            name={clientDetails.en_name} 
+            mobile={clientDetails.mobile} 
+            compony={clientDetails.compony}  />
             <AboutClint
-              id={user.user_id} 
-              logo={user.photo}
-              idUser={user.user_id} 
-              name={user.en_name} 
-              mobile={user.mobile} 
-              telephone={user.telephone}
+              id={clientDetails.user_id} 
+              logo={clientDetails.photo}
+              idUser={clientDetails.user_id} 
+              name={clientDetails.en_name} 
+              mobile={clientDetails.mobile} 
+              telephone={clientDetails.telephone}
             />
            <TabelClient
-            logo={user.photo} 
-            name={user.en_name} 
-            idUser={user.user_id}
-            number={user.mobile} 
-            telephone={user.telephone}
-            state={user.status}
-            clintemail={user.email}
-            websitelink={user.address}
-            tradetype={user.email}
-            currencypaid={user.status}
+            logo={clientDetails.photo} 
+            name={clientDetails.en_name} 
+            idUser={clientDetails.user_id}
+            number={clientDetails.mobile} 
+            telephone={clientDetails.telephone}
+            state={clientDetails.status}
+            clintemail={clientDetails.email}
+            websitelink={clientDetails.address}
+            tradetype={clientDetails.email}
+            currencypaid={clientDetails.status}
             />
 
         
         
     </ItemStyleClint>  
-          )
-      })}
+          
+    
    
 
     
