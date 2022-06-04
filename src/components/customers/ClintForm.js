@@ -40,8 +40,8 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
       // quote_id :null ,
       en_name : 'values.en_name11',
       ar_name : 'values.en_name11',
-      mobile: '01236543333332542331',
-      telephone:'332434333343444',
+      mobile: '01236334442542331',
+      telephone:'3334433343444',
       address: values.address,
       email : values.email ,
       status : values.status ,
@@ -53,6 +53,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     setShow(true)
   }
   return (
+    // // TODO: ALERT 
     <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
       {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
       <div className='style-form' ToogleSlider={ToogleSlider}>
@@ -70,6 +71,21 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
       </div>
       }
       </StyleForm>
+    // <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
+    //   <div className='style-form' ToogleSlider={ToogleSlider}>
+    //     <SliderClint title="اضافه عميل"   >
+    //     <InputCustomer values={values} setValues={setValues}  /> 
+    //     </SliderClint>
+    //   <StyleFotter>
+    //     <div className="button">
+    //     <MdPersonAddAlt className='MdPersonAddAlt' />
+    //     <button onClick={AddUser}>اضافه عميل</button>
+    //     </div>
+
+    //     <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
+    //   </StyleFotter> 
+    //   </div>
+    // </StyleForm>
   )
 }
 const StyleForm = styled.div`
