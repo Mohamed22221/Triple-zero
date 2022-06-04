@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import styled from "styled-components"
 import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
-import ClintInformation from '../clint/ClintInformation'
+import ClintInformation from './ClintInformation'
 
 import { useSelector, useDispatch } from 'react-redux'
 import {getDriversDetails} from '../../store/ClintSlice2'

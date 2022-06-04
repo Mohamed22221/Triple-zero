@@ -129,18 +129,25 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                 <th> الأسم بالانجليزي</th>
                 <th>رقم التلفون</th>
                 <th>الاميل</th>
-                
-                <th>الحاله</th>
+                <th>حاله الدفع</th>
+                <th>حاله الاتصال</th>
+
                 <th>الخيارات</th>
             </TrHead>
         </Thead>
         <Tbody>
-        {sortedField.map((user , index) =>{
+        {sortedField.filter((item)=>{
+            if (searchSort === "") {
+                return item
+            } else if (item.en_name.includes(searchSort)) {
+                return item
+            }
+        }).map((user , index) =>{
             return (
                 <TrBody key={index}>
                     <td><Link className='my-2' to={`/Drivers/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                     <td>
-                        <Link className='text-link' to={`/Restaurants/clint/${user.id}`}>{user.id}#</Link>
+                        <Link className='text-link' to={`/Drivers/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
                         <span>{user.en_name}</span>
@@ -155,11 +162,13 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
 
                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
+                    <td ><span className={user.isOnline === 0 ? "green" : "red"}>{user.status === 1 ? "متصل" : "غير متصل" }</span></td>
+
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/Drivers/clint/${user.id}`}> التفاصيل</Link>
+                     <Link to={`/Drivers/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

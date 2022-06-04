@@ -5,7 +5,7 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import Logo3 from "../../photo/slogan/user-avatar.svg"
-import {getClients2} from './../../store/ClintSlice2'
+import {getClients2 ,getDrivers} from './../../store/ClintSlice2'
 
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
@@ -13,6 +13,8 @@ const TabelUsers = () => {
     useEffect(() => {
     //    getDrivers()
     dispatch(getClients2())
+    dispatch(getDrivers())
+
     }, [dispatch])
   return (
   <MainTabel>
@@ -34,7 +36,7 @@ const TabelUsers = () => {
             return (
                 <TrBody key={index}>
                     
-                    <td><Link to={`/Restaurants/clint/${user.name}`}><img src={Logo3} alt="logo" /> </Link></td>
+                    <td><Link to={`/Restaurants/clint/${user.id}`}><img src={Logo3} alt="logo" /> </Link></td>
                    
                     <td>{user.id}</td>
                     <td>{user.en_name}</td>
@@ -46,8 +48,8 @@ const TabelUsers = () => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.name}`}>التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.name}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}>التفاصيل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>

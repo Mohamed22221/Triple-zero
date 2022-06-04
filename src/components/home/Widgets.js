@@ -13,7 +13,10 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const Widgets = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
+    const UserDataDrivers = useSelector(state => state.clients2.clientDrivers)
     const counterCustomer = UserData.length
+    const counterDrivers = UserDataDrivers.length
+
   return (
     <StyleWedget>
         <StyleItemWedgetAlert>
@@ -47,7 +50,7 @@ const Widgets = () => {
             <WedgetAboutRight>
             <img src={delevery}></img>
             <p>عدد السائقين</p>
-            <h3>70</h3>
+            <h3>{counterDrivers}</h3>
             </WedgetAboutRight>
             <WedgetAboutLeft>
             <BsThreeDotsVertical className='BsThreeDotsVertical' />

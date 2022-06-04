@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
 import TabelDrivers from '../components/drivers/TabelDrivers'
 import {MarginPages} from '../styles/MarginPages'
 
-const Drivers = ({HandelShow}) => {
+const Drivers = ({HandelShow ,HandelShowCustomer }) => {
+  const [searchSort , setSortSearch] = useState("") 
   return (
     <MarginPages>
     <TopBar title={"السواقين"} HandelShow={HandelShow} />
     <StyleFlex>
-        <TabelDrivers />
+        <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
     </StyleFlex>
 </MarginPages>
   )

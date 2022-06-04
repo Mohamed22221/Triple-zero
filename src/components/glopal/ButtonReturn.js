@@ -4,9 +4,9 @@ import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 
-const ButtonReturn = () => {
+const ButtonReturn = ({title}) => {
   return (
-    <Link to="/Restaurants">
+    <Link to={title} >
     <MainReturnClints>
      <span>رجوع</span>
      <a><BiArrowBack className='icon-button' /></a>
