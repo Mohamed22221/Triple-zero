@@ -1,0 +1,75 @@
+.auth-container{
+    width:100vw;
+    height: 100vh;    
+    .container-2{
+        z-index: 10;
+        position: absolute;
+        inset: 0;
+        .login-form{
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.2);
+            margin-top: 100px;
+            h5{
+                font-family: Almarai;
+                font-weight: bold;
+                font-size: 17px;
+                color: #2a2e33;
+            }
+        }
+        .icon-auth{
+            img{
+                height: 75vh;
+                width: 100%;
+                object-fit: contain;
+            }
+            h1{
+                font-family: Almarai;
+                font-weight: bold;
+                font-size: 42px;
+                line-height: 68px;
+                color: #2a2e33;
+            }
+            h5{
+                font-family: Almarai;
+                font-weight: normal;
+                font-size: 25px;
+                color: #2a2e33;
+            }
+        }
+        .parent-input{
+            height: 60px;
+            border-radius: 5px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            display:flex;
+            margin-top: 20px;
+            direction: rtl;
+            justify-content: center;
+            align-items: center;
+            input{
+                border: none;
+                width: 85%;
+                height: 100%;
+                display:block;
+            }
+            svg{
+                width: 15%;
+            }
+        }    
+        button{
+            margin-top: 26px;
+            margin-bottom: 16px;
+        }   
+        .forget{
+            font-family: Almarai;
+            font-weight: normal;
+            text-decoration: underline;
+            font-size: 16px;
+            color: #1d1d1d;
+            margin-top: 10px;
+            text-align:left;
+            display: block;
+        }
+    }
+}
