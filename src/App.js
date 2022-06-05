@@ -1,7 +1,7 @@
 import SideBar from "./components/bars/SideBar";
 import Home from "./pages/Home"
 import styled from "styled-components"
-import React ,{Fragment, useState} from 'react'
+import React ,{Fragment, useState, useEffect} from 'react'
 import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter ,Routes ,Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
@@ -21,9 +21,11 @@ import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import Shipping from "./pages/Shipping";
 import Drivers from "./pages/Drivers";
+import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
+  const [loader, setLoader] = useState(true);
 
   const HandelShow = () =>{
     setShowBar(!showBar)
@@ -43,73 +45,81 @@ function App() {
     'Admin': 5150
   }
       
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 2000);
+  }, []);
  
   // {window.location.pathname ==  "/register" ? null : window.location.pathname ==  "/login" ? null : <SideBar showBar={showBar} HandelClose={HandelClose} /> }
   return (
-    <StyleApp>
-      <BrowserRouter>
-      <OverLay HandelClose={HandelClose} showBar={showBar}  />
-      
-      <Routes>
-        {/* public routes */}
-        <Route path="/login" element={<Login /> } />
-        <Route path="/register" element={<Register />} />
+    <Fragment>
+      {loader && <PreLoader />}
+      <StyleApp>
+        <BrowserRouter>
+        <OverLay HandelClose={HandelClose} showBar={showBar}  />
         
-        <Route element={<ProtectedRoutesAdmin />}>
-          <Route element={<SidebarLayout />}>
-          {/* User routes */}
-            <Route path="/" element={<Home HandelShow={HandelShow}  />} />
-            <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-            <Route path="/Customers" element={<Restaurants
-              HandelShow={HandelShow} 
-              HandelClose={HandelClose}  />} />
-              <Route path="/setting" element={<Setting />} />
-            {/*Restaurants */}
-            <Route path="Restaurants" element={<Customers
-              HandelShow={HandelShow}
-              showBar={showBar}
-              HandelClose={HandelClose}
-              show={show}
-              setShow={setShow}
-              />} />
+        <Routes>
+          {/* public routes */}
+          <Route path="/login" element={<Login /> } />
+          <Route path="/register" element={<Register />} />
+          
+          <Route element={<ProtectedRoutesAdmin />}>
+            <Route element={<SidebarLayout />}>
+            {/* User routes */}
+              <Route path="/" element={<Home HandelShow={HandelShow}  />} />
+              <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
+              <Route path="/Customers" element={<Restaurants
+                HandelShow={HandelShow} 
+                HandelClose={HandelClose}  />} />
+                <Route path="/setting" element={<Setting />} />
+              {/*Restaurants */}
+              <Route path="Restaurants" element={<Customers
+                HandelShow={HandelShow}
+                showBar={showBar}
+                HandelClose={HandelClose}
+                show={show}
+                setShow={setShow}
+                />} />
+                
+              <Route path="/Restaurants/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
+              <Route path="/Restaurants/clint" element={<Clint HandelShow={HandelShow}
+                HandelClose={HandelClose}  />} >
+                  <Route path=":clintid" element={<Clint 
+                  HandelShow={HandelShow} 
+                  HandelClose={HandelClose}  />} >
+                </Route>
+              </Route>
               
-            <Route path="/Restaurants/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
-            <Route path="/Restaurants/clint" element={<Clint HandelShow={HandelShow}
-              HandelClose={HandelClose}  />} >
-                <Route path=":clintid" element={<Clint 
-                HandelShow={HandelShow} 
+              <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
+              {/*Drivers */}
+              <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
+              <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}
                 HandelClose={HandelClose}  />} >
-              </Route>
-            </Route>
+                  <Route path=":clintid" element={<ClintDrivers 
+                  HandelShow={HandelShow} 
+                  HandelClose={HandelClose}  />} >
+                </Route>
+              
             
-            <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
-            {/*Drivers */}
-            <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
-            <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}
-              HandelClose={HandelClose}  />} >
-                <Route path=":clintid" element={<ClintDrivers 
-                HandelShow={HandelShow} 
-                HandelClose={HandelClose}  />} >
               </Route>
-             
-          
-            </Route>
-            <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
-              <Route path="/EditUser/:userid" element={<EditUser />} />
-            </Route>
+              <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
+                <Route path="/EditUser/:userid" element={<EditUser />} />
+              </Route>
 
+            </Route>
+          
           </Route>
-        
-        </Route>
+            
           
-        
 
-       
-       
-       
-      </Routes>
-      </BrowserRouter>
-    </StyleApp>
+        
+        
+        
+        </Routes>
+        </BrowserRouter>
+      </StyleApp>
+    </Fragment>
 
   );
 }
