@@ -10,7 +10,7 @@ const RegisterFrom = () => {
     const from = location.state?.from?.pathname || "/login";
 
     
-    const emailRef = useRef();
+    const nameRef = useRef();
     const errRef = useRef();
 
     const [name, setName] = useState('12345678');
@@ -20,7 +20,7 @@ const RegisterFrom = () => {
     const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
-        emailRef.current.focus();
+        nameRef.current.focus();
     }, [])
 
     useEffect(() => {
@@ -34,6 +34,8 @@ const RegisterFrom = () => {
         formData.append('email', email);
         formData.append('password', password);
         formData.append('password_confirmation', password_confirmation);
+
+
         try {
             const response = await axios.post(REGISTER_URL,
             formData,
@@ -43,12 +45,14 @@ const RegisterFrom = () => {
                     'Accept': 'application/json'
                 },
             }
-            );
+            )
           
             console.log('response', response);
             navigate(from, { replace: true });
+            setName('');
             setEmail('');
             setPassword('');
+            setPassword_confirmation('');
         } catch (err) {
             if (!err?.response) {
                 console.log('err?.response:', err);
@@ -77,10 +81,10 @@ const RegisterFrom = () => {
                     <input
                         type="text"
                         id="name"
-                        ref={emailRef}
+                        ref={nameRef}
                         autoComplete="off"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
                         required
                         placeholder='ادخل الاسم'
                     />
@@ -93,9 +97,8 @@ const RegisterFrom = () => {
                     </svg>
 
                     <input
-                        type="text"
+                        type="email"
                         id="email"
-                        ref={emailRef}
                         autoComplete="off"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
@@ -127,9 +130,9 @@ const RegisterFrom = () => {
                     </svg>
                     <input
                         type="password"
-                        id="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
+                        id="password_confirmation"
+                        onChange={(e) => setPassword_confirmation(e.target.value)}
+                        value={password_confirmation}
                         required
                         placeholder=' تاكيد كلة السر'
                     />
