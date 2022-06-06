@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import styled from "styled-components"
 import { FiPause } from 'react-icons/fi';
+import { GrPlay } from 'react-icons/gr';
 import { AiOutlineDelete } from 'react-icons/ai';
 import swal from 'sweetalert';
 import ButtonReturn from '../glopal/ButtonReturn';
@@ -102,7 +103,19 @@ const handelDeleteClient = () => {
   return (
     <MainHeaderClint>
         <MainButtonClint>
-            <button onClick={handelStatusClient}><FiPause className='icon-button' />أقاف مؤقت</button>
+            <button onClick={handelStatusClient}>
+            {
+                handelStatus ?
+                <Fragment>
+                    <FiPause className='icon-button' />أقاف مؤقت
+                </Fragment>
+                : 
+                <Fragment>
+                    <GrPlay className='icon-button' /> اعادة تفيعل
+                </Fragment>
+            }
+                
+            </button>
             <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
         </MainButtonClint>
         <ButtonReturn title="/Restaurants" />
@@ -138,6 +151,9 @@ button {
     .icon-button{
         margin: 0 5px;
         font-size: 24px;
+    }
+    polygon{
+        stroke: #fff;
     }
 
 }
