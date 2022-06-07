@@ -14,12 +14,13 @@ const Drivers = ({HandelShow ,HandelShowCustomer }) => {
         <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
         <AddDrivers />
     </StyleFlex>
-</MarginPages>
+  </MarginPages>
   )
 }
 const StyleFlex = styled.div`
 display: flex;
 justify-content: space-between;
+
 @media (max-width:910px) {
   flex-direction: column;
 }

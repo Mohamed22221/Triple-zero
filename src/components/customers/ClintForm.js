@@ -26,7 +26,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
       user_id :`#${uid()}`,
       en_name : "",
       ar_name : "" ,
-      mobile:"" ,
+      mobile:null ,
       telephone: null,
       address: "",
       email : "" ,

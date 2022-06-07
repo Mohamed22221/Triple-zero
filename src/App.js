@@ -22,6 +22,7 @@ import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import Shipping from "./pages/Shipping";
 import Drivers from "./pages/Drivers";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
+import ActiveDrivers from "./components/drivers/ActiveDrivers";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -63,7 +64,6 @@ function App() {
           {/* public routes */}
           <Route path="/login" element={<Login /> } />
           <Route path="/register" element={<Register />} />
-          
           <Route element={<ProtectedRoutesAdmin />}>
             <Route element={<SidebarLayout />}>
             {/* User routes */}
@@ -102,14 +102,16 @@ function App() {
 
               {/*Drivers */}
               <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
+              <Route path="Drivers/ActiveDrivers" element={<ActiveDrivers />} />
               <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}
+
                 HandelClose={HandelClose}  />} >
                   <Route path=":clintid" element={<ClintDrivers 
                   HandelShow={HandelShow} 
                   HandelClose={HandelClose}  />} >
                 </Route>
               
-            
+              
               </Route>
               <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
                 <Route path="/EditUser/:userid" element={<EditUser />} />

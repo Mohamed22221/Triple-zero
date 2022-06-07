@@ -1,16 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
 import IconsSort from '../customers/IconsSort'
+import ButtonActive from './ButtonActive'
 import ButtonAdd from './ButtonAdd'
-
-
-
 import SearchCustomer from './SearchCustomer'
 import SortBy from './SortBy'
 const SortTabel = (props) => {
   const {HandelShowCustomer ,setSortSearch ,searchSort ,setSortedField ,sortData, sortID ,sortName ,sortDuration ,sortpaymentDate } = props
   return (
     <StyleMainSort>
+        <ButtonActive />
         <IconsSort />
         <SearchCustomer 
         searchSort={searchSort}
