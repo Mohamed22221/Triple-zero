@@ -32,6 +32,20 @@ export const getDrivers = createAsyncThunk('clients2/getDrivers', async(_, thunk
     return rejectWithValue(err.message)
 }
 })
+// get data clints drivers
+export const getActiveDrivers = createAsyncThunk('clients2/getDrivers', async(_, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+   try {
+   const res = await get('admins/drivers/active')
+   return res.data
+} catch (err) {
+  console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+}
+})
+
+
 // get data clint driver Details
 export const getDriversDetails = createAsyncThunk('clients2/getDriversDetails', async (id, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -109,6 +123,7 @@ export const ClintSlice = createSlice({
     clients2: [],
     clientDetails: {},
     clientDrivers: [],
+    activeDrivers: [],
     clientDriversDetails: {},
     error: null ,
     blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
@@ -136,6 +151,17 @@ export const ClintSlice = createSlice({
           state.clientDrivers = action.payload;
         },
         [getDrivers.rejected]: (state, action) => {
+          state.error = action;
+          console.log('action', action);
+        },
+        //getActiveDrivers
+        [getActiveDrivers.pending]: (state, action) => {
+          state.error = null;
+        },
+        [getActiveDrivers.fulfilled]: (state, action) => {
+          state.activeDrivers = action.payload;
+        },
+        [getActiveDrivers.rejected]: (state, action) => {
           state.error = action;
           console.log('action', action);
         },
