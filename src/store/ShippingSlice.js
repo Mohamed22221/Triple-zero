@@ -25,6 +25,34 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
   }
   })
 
+  
+  // changeStatusShipping
+  export const changeStatusShipping = createAsyncThunk('shipping/changeStatusShipping', async (id, thunkAPI) => {
+      const { rejectWithValue } = thunkAPI
+
+      try {
+      const res = await get(`users/status/${id}`)
+      return res.data
+    } catch (err) {
+      console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+        return rejectWithValue(err.message)
+    }
+  })
+
+  // deleteShipping
+  export const deleteShipping = createAsyncThunk('shipping/deleteShipping', async (id, thunkAPI) => {
+      const { rejectWithValue } = thunkAPI
+
+      try {
+      const res = await get(`users/destroy/${id}`)
+      return res.data
+    } catch (err) {
+      console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+        return rejectWithValue(err.message)
+    }
+  })
+
+
 
 
 
@@ -64,6 +92,22 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
             state.error = action;
             console.log(action);
           },
+
+          [changeStatusShipping.fulfilled]: (state, action) => {
+            // state.isLoading = false;
+            const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
+            state.shipping = filter
+            console.log('filter', filter);
+            console.log('action form fulfilled', action.meta.arg);
+          },
+          [deleteShipping.fulfilled]: (state, action) => {
+            // state.isLoading = false;
+            const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
+            state.shipping = filter
+            console.log('filter', filter);
+            console.log('action form fulfilled', action.meta.arg);
+          },
+
        
     },
 
