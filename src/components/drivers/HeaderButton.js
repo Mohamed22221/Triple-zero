@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ShowStop } from '../../store/StateSlice';
 import { ShowDelete } from '../../store/StateSlice';
-import {deleteClient, changeStatusClient} from './../../store/ClintSlice2'
+import {deleteDriver, changeStatusDriver} from './../../store/ClintSlice2'
 
 
 
@@ -50,7 +50,7 @@ const handelStatusClient = () => {
         })
         .then((willDelete) => {
             if (willDelete) {
-                dispatch(changeStatusClient(id))
+                dispatch(changeStatusDriver(id))
                 setHandelStatus(!handelStatus)
                 swal("تم تنفيذ الامر بنجاح", {
                     icon: "success",
@@ -81,7 +81,7 @@ const handelDeleteClient = () => {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    dispatch(deleteClient(id))
+                    dispatch(deleteDriver(id))
                     navigate(from, { replace: true });
                     swal("تم تنفيذ الامر بنجاح", {
                         icon: "success",

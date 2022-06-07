@@ -3,8 +3,10 @@ import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import { SendClint } from '../../store/ClintSlice2';
+import { SendDirver } from '../../store/ClintSlice2';
 import { MdPersonAddAlt } from 'react-icons/md';
+import swal from 'sweetalert';
+import { HideSlider } from '../../store/StateSlice';
 
 
 const FormAddDeivers = ({setDeleted}) => {
@@ -13,11 +15,8 @@ const FormAddDeivers = ({setDeleted}) => {
         Reader.onload = () =>{
             if (Reader.readyState === 2) {
                 setValues({...values , photo: e.target.files[0] }) 
-                console.log('e.target.files[0]:::::1111111', e.target.files[0]);
-                console.log('e.target.files[0]:::::1111111', Reader.result);
             }
         }
-        console.log('e.target.files[0]', e.target.files[0]);
         Reader.readAsDataURL(e.target.files[0])
     }
     //get date today
@@ -27,37 +26,43 @@ const FormAddDeivers = ({setDeleted}) => {
   const dispatch = useDispatch()
   //uniqe id
     const uid = new ShortUniqueId({ length: 6 });
+
+    const initialState = {
+        photo: null,
+        user_id: 2,
+        en_name: "",
+        ar_name: "",
+        mobile: "",
+        address: "",
+        email: "",
+        status: 1,
+        isOnline: 0,
+        password: '',
+
+    }
+
   //values input
-    const [values , setValues] = useState({
-      photo: null,
-      user_id :`#${uid()}`,
-      en_name : "",
-      ar_name : "" ,
-      mobile:"" ,
-      address: "",
-      email : "" ,
-      status : 1 ,
-      isOnline:0 ,
-      
-  })
+    const [values, setValues] = useState(initialState)
   // click add customer
   const AddUser = () =>{
-    dispatch(SendClint({
-      photo: values.photo,
-      user_id : 2 ,
-      //quote_id :null ,
-      en_name : values.en_name,
-      ar_name : values.ar_name,
-      mobile: values.mobile,
-      address: values.address,
-      email : values.email ,
-      status : values.status ,
-      lon:-5650,
-      lat:2365,
-      password: '12345678',
-      status: 1 ,
-      isOnline : values.isOnline
-    }))
+    dispatch(SendDirver(values))
+    .unwrap()
+    .then(() => {
+      setValues(initialState)
+      dispatch(HideSlider())
+      swal("تم تنفيذ الامر بنجاح", {
+        icon: "success",
+        button: 'موافق',
+      });
+    }).catch(() => {
+      swal("عفوا لم يتم تنفيذ الامر", {
+        icon: "error",
+        button: 'موافق'
+      });
+
+    })
+
+
     setDeleted(false)
    
 }
@@ -93,7 +98,7 @@ const FormAddDeivers = ({setDeleted}) => {
         <StyleSmaleDiv>
             <div className='one-input'>
                 <StyleLabel>رقم التلفون <span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
+                <input type="number" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                
 
                 <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
@@ -101,9 +106,11 @@ const FormAddDeivers = ({setDeleted}) => {
                 <StyleLabel>  العنوان <span>*</span></StyleLabel>
                 <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
                 <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status:e.target.value}) }  />
+                <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status1:e.target.value}) }  />
                 <StyleLabel>حاله الاتصال<span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب حاله الدفع' value={values.isOnline} onChange={(e) =>setValues({...values , isOnline:e.target.value}) }  />
+                <input type="text" placeholder='اكتب حاله الاتصال' value={values.isOnline} onChange={(e) =>setValues({...values , isOnline:e.target.value}) }  />
+                <StyleLabel>كلمة السر<span>*</span></StyleLabel>
+                <input type="text" placeholder='اكتب حاله الدفع' value={values.password} onChange={(e) =>setValues({...values , password:e.target.value}) }  />
 
            </div> 
         </StyleSmaleDiv>

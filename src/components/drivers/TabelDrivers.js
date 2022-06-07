@@ -164,8 +164,8 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     </td>
 
 
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
-                    <td ><span className={user.isOnline === 0 ? "green" : "red"}>{user.status === 1 ? "متصل" : "غير متصل" }</span></td>
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status == 1 ? "تم الدفع" : "لم يدفع" }</span></td>
+                    <td ><span className={user.isOnline === 0 ? "green" : "red"}>{user.status == 1 ? "متصل" : "غير متصل" }</span></td>
 
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>

@@ -58,6 +58,26 @@ export const getDriversDetails = createAsyncThunk('clients2/getDriversDetails', 
     return rejectWithValue(err.message)
 }
 })
+
+export const SendDirver = createAsyncThunk("clients2/SendDirver", async (dataClint, thunkApi) => {
+  const {
+    rejectWithValue
+  } = thunkApi
+  try {
+    const response = await postFromData("admins/drivers/store", dataClint);
+    // const data = res
+    console.log('data added to store', response.data);
+    return response.data
+  } catch (err) {
+    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    console.log('rejectWithValue(err.message)', dataClint);
+
+    return rejectWithValue(err.message)
+  }
+})
+
+
+
 // get data clint Details
 export const getClientDetails = createAsyncThunk('clients2/getClientDetails', async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
@@ -113,6 +133,37 @@ export const deleteClient = createAsyncThunk('clients2/deleteClient', async (id,
       return rejectWithValue(err.message)
   }
 })
+
+// changeStatusDriver
+export const changeStatusDriver = createAsyncThunk('clients2/changeStatusDriver', async (id, thunkAPI) => {
+  const {
+    rejectWithValue
+  } = thunkAPI
+
+  try {
+    const res = await get(`admins/drivers/status/${id}`)
+    return res.data
+  } catch (err) {
+    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+  }
+})
+
+// deleteDriver
+export const deleteDriver = createAsyncThunk('clients2/deleteDriver', async (id, thunkAPI) => {
+  const {
+    rejectWithValue
+  } = thunkAPI
+
+  try {
+    const res = await post(`admins/drivers/destroy/${id}`)
+    return res.data
+  } catch (err) {
+    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+  }
+})
+
 
 
 
@@ -193,17 +244,21 @@ export const ClintSlice = createSlice({
         state.error = null;
       },
       [SendClint.fulfilled]: (state, action) => {
-        state.clients2.push(action.payload);
-        // TODO: ALERT 
-         swal("تم تنفيذ الامر بنجاح", {
-           icon: "success",
-           button: 'موافق'
-         });
-         
-
- 
+        state.clients2.push(action.payload);               
       },
       [SendClint.rejected]: (state, action) => {
+        state.error = action.payload;
+        console.log(action);
+      },
+
+      // SendDirver  
+      [SendDirver.pending]: (state, action) => {
+        state.error = null;
+      },
+      [SendDirver.fulfilled]: (state, action) => {
+        state.clientDrivers.push(action.payload);
+      },
+      [SendDirver.rejected]: (state, action) => {
         state.error = action.payload;
         console.log(action);
       },
@@ -221,6 +276,21 @@ export const ClintSlice = createSlice({
         state.clients2 = filter
         console.log('filter', filter);
         console.log('action form fulfilled', action.meta.arg);
+      },
+      
+      [deleteDriver.fulfilled]: (state, action) => {
+        // state.isLoading = false;
+        const filter = state.clientDrivers.filter(drivers => drivers.id != action.meta.arg.id);
+        state.clientDrivers = filter
+        console.log('filter', filter);
+        console.log('action form fulfilled', action.meta.arg);
+      },
+      [changeStatusDriver.fulfilled]: (state, action) => {
+        // state.isLoading = false;
+        // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
+        // state.clients2 = filter
+        // console.log('filter', filter);
+        // console.log('action form fulfilled', action.meta.arg);
       },
   },
   /*reducer :{

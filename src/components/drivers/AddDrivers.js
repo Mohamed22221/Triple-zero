@@ -12,14 +12,12 @@ const AddDrivers = (props) => {
   return (
     
     <StyleyDeleteClint ToogleSlider={ToogleSlider} >
-      { deleted == true ?
       <div>
         <SliderClint title="اضافه سائق">
-        <FormAddDeivers setDeleted={setDeleted} />
+          <FormAddDeivers setDeleted={setDeleted} />
         </SliderClint>
        
        </div>
-      : <SendSuccess Operationtitle="تم اضافه العميل بنجاح"  />} 
     </StyleyDeleteClint>
   )
 }
