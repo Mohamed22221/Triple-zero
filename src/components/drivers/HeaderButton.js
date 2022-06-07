@@ -82,11 +82,21 @@ const handelDeleteClient = () => {
             .then((willDelete) => {
                 if (willDelete) {
                     dispatch(deleteDriver(id))
-                    navigate(from, { replace: true });
-                    swal("تم تنفيذ الامر بنجاح", {
-                        icon: "success",
-                        button: 'موافق'
-                    });
+                    .unwrap()
+                    .then(() => {
+                        setHandelStatus(!handelStatus)
+                        navigate(from, { replace: true });
+                        swal("تم تنفيذ الامر بنجاح", {
+                            icon: "success",
+                            button: 'موافق',
+                        });
+                    }).catch(() => {
+                        swal("عفوا لم يتم تنفيذ الامر", {
+                            icon: "error",
+                            button: 'موافق'
+                        });
+                    })
+                   
                 } else {
                     swal("تم الغاء الامر", {
                         icon: "error",
