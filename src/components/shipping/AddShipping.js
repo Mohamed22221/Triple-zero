@@ -12,14 +12,11 @@ const AddShipping = (props) => {
   return (
     
     <StyleyDeleteClint ToogleSlider={ToogleSlider} >
-      { deleted == true ?
       <div>
         <SliderClint title="اضافه شركه شحن">
-        <FormAddShipping setDeleted={setDeleted} />
+          <FormAddShipping setDeleted={setDeleted} />
         </SliderClint>
-       
        </div>
-      : <SendSuccess Operationtitle="تم اضافه شركه شحن بنجاح"  />} 
     </StyleyDeleteClint>
   )
 }

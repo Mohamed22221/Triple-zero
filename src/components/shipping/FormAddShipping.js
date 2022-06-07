@@ -5,6 +5,8 @@ import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
 import { SendShipping } from '../../store/ShippingSlice';
 import { MdPersonAddAlt } from 'react-icons/md';
+import { HideSlider } from '../../store/StateSlice';
+import swal from 'sweetalert';
 
 
 const FormAddShipping = ({setDeleted}) => {
@@ -28,38 +30,43 @@ const FormAddShipping = ({setDeleted}) => {
   //uniqe id
     const uid = new ShortUniqueId({ length: 6 });
   //values input
-    const [values , setValues] = useState({
-      photo: null,
-      user_id :`#${uid()}`,
-      en_name : "mohamed",
-      ar_name : "محمد" ,
-      mobile:"012211",
-      address: "cairo",
-      email : "hamdy@gmail" ,
-      status : 1 ,
-     
-      
-  })
+
+  const initialState = {
+    photo: null,
+    user_id: 2,
+    en_name: "",
+    ar_name: "",
+    mobile: "",
+    address: "",
+    email: "",
+    status: 1,
+    lon:-5650,
+    lat:2365,
+    password: ''
+
+  }
+
+const [values, setValues] = useState(initialState)
   // click add customer
   const AddUser = () =>{
-    dispatch(SendShipping({
-      photo: values.photo,
-      user_id : 2 ,
-      //quote_id :null ,
-      en_name : values.en_name,
-      ar_name : values.ar_name,
-      mobile: "025412121",
-      address: values.address,
-      email : values.email ,
-      status : values.status ,
-      lon:-5650,
-      lat:2365,
-      password: '12345678',
-      status: 1 ,
-      quote_id:null
+    dispatch(SendShipping(values))
+     .unwrap()
+    .then(() => {
+      setValues(initialState)
+      dispatch(HideSlider())
+      swal("تم تنفيذ الامر بنجاح", {
+        icon: "success",
+        button: 'موافق',
+      });
+    }).catch(() => {
+      swal("عفوا لم يتم تنفيذ الامر", {
+        icon: "error",
+        button: 'موافق'
+      });
+
+    })
 
 
-    }))
     setDeleted(false)
    
 }
@@ -101,8 +108,9 @@ const FormAddShipping = ({setDeleted}) => {
                 <StyleLabel>  العنوان <span>*</span></StyleLabel>
                 <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
                 <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status:e.target.value}) }  />
-
+                <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status1:e.target.value}) }  />
+                <StyleLabel>كلة السر<span>*</span></StyleLabel>
+                <input type="text" placeholder='اكتب كلة السر' value={values.status} onChange={(e) =>setValues({...values , password:e.target.value}) }  />
            </div> 
         </StyleSmaleDiv>
 
