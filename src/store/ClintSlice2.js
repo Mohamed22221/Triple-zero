@@ -33,7 +33,7 @@ export const getDrivers = createAsyncThunk('clients2/getDrivers', async(_, thunk
 }
 })
 // get data clints drivers
-export const getActiveDrivers = createAsyncThunk('clients2/getDrivers', async(_, thunkAPI) => {
+export const getActiveDrivers = createAsyncThunk('clients2/getActiveDrivers', async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
    try {
