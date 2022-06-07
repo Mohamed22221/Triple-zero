@@ -49,7 +49,6 @@ const FormAddDeivers = ({setDeleted}) => {
       en_name : values.en_name,
       ar_name : values.ar_name,
       mobile: values.mobile,
-      telephone:values.telephone,
       address: values.address,
       email : values.email ,
       status : values.status ,

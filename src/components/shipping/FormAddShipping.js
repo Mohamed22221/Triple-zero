@@ -3,7 +3,7 @@ import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import { SendClint } from '../../store/ClintSlice2';
+import { SendShipping } from '../../store/ShippingSlice';
 import { MdPersonAddAlt } from 'react-icons/md';
 
 
@@ -31,25 +31,24 @@ const FormAddShipping = ({setDeleted}) => {
     const [values , setValues] = useState({
       photo: null,
       user_id :`#${uid()}`,
-      en_name : "",
-      ar_name : "" ,
-      mobile:"" ,
-      address: "",
-      email : "" ,
+      en_name : "mohamed",
+      ar_name : "محمد" ,
+      mobile:"012211",
+      address: "cairo",
+      email : "hamdy@gmail" ,
       status : 1 ,
-      isOnline:0 ,
+     
       
   })
   // click add customer
   const AddUser = () =>{
-    dispatch(SendClint({
+    dispatch(SendShipping({
       photo: values.photo,
       user_id : 2 ,
       //quote_id :null ,
       en_name : values.en_name,
       ar_name : values.ar_name,
-      mobile: values.mobile,
-      telephone:values.telephone,
+      mobile: "025412121",
       address: values.address,
       email : values.email ,
       status : values.status ,
@@ -57,7 +56,9 @@ const FormAddShipping = ({setDeleted}) => {
       lat:2365,
       password: '12345678',
       status: 1 ,
-      isOnline : values.isOnline
+      quote_id:null
+
+
     }))
     setDeleted(false)
    
@@ -94,17 +95,13 @@ const FormAddShipping = ({setDeleted}) => {
         <StyleSmaleDiv>
             <div className='one-input'>
                 <StyleLabel>رقم التلفون <span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
-               
-
+                <input type="number" required placeholder='اكتب رقم التلفون'  value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                 <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                 <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) =>setValues({...values , email:e.target.value}) }/>
                 <StyleLabel>  العنوان <span>*</span></StyleLabel>
                 <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
                 <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
                 <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status:e.target.value}) }  />
-                <StyleLabel>حاله الاتصال<span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب حاله الدفع' value={values.isOnline} onChange={(e) =>setValues({...values , isOnline:e.target.value}) }  />
 
            </div> 
         </StyleSmaleDiv>

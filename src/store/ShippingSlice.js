@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get ,post, postFromData } from '../api/axios'
-// get data clints drivers
+import swal from 'sweetalert';
+// get data clints Shipping
 export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
   
@@ -12,7 +13,7 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
       return rejectWithValue(err.message)
   }
   })
-  // get data clint driver Details
+  // get data clint Shipping Details
   export const getShippingDetails = createAsyncThunk('shipping/getShippingDetails', async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
   
@@ -24,6 +25,23 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
       return rejectWithValue(err.message)
   }
   })
+  // send Shipping clint 
+
+
+export const SendShipping = createAsyncThunk("shipping/SendShipping" , async (dataClint , thunkApi ) =>{
+  const {rejectWithValue} = thunkApi
+  try {
+    const response = await postFromData("users/store", dataClint);
+    // const data = res
+    console.log('data added to store', response.data);
+    return response.data
+ }catch (err) {
+  console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+  console.log('rejectWithValue(err.message)', dataClint);
+
+  return rejectWithValue(err.message)
+ }
+})
 
   
   // changeStatusShipping
@@ -51,10 +69,6 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
         return rejectWithValue(err.message)
     }
   })
-
-
-
-
 
 
 
@@ -92,6 +106,21 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
             state.error = action;
             console.log(action);
           },
+            //send data clint  
+          [SendShipping.pending]: (state, action) => {
+             state.error = null;
+           },
+          [SendShipping.fulfilled]: (state, action) => {
+             state.shipping.push(action.payload);
+             // TODO: ALERT 
+             swal("تم تنفيذ الامر بنجاح", {
+               icon: "success",
+               button: 'موافق'
+             });
+         
+
+ 
+      },
 
           [changeStatusShipping.fulfilled]: (state, action) => {
             // state.isLoading = false;
