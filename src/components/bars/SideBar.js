@@ -92,7 +92,7 @@ const logOut = () => {
     <StyleSideBar showBar={showBar}    >
         <StyleTop >
         <div className='img-logo'>
-            <img src={logo} />
+            <NavLink to="/Triple-zero"><img src={logo} /></NavLink>
         </div>
         <div className='widget'>
             <ul >
