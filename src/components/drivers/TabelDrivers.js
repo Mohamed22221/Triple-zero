@@ -13,7 +13,7 @@ import axios from '../../api/axios';
 import ButtonAdd from './ButtonAdd';
 
 const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
-    //  const UserData = useSelector((state) => state.clint.DataUser) 
+    
      const UserData = useSelector(state => state.clients2.clientDrivers)
      
  /*   const UserData = [
@@ -88,7 +88,7 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     // useEffect(() => {
     //     setSortedField(sortName)
     // }, [setSortedField ,UserData])
-
+    console.log(sortedField)
     const sortID = [...UserData].sort((a , b)=>{
         return a.id < b.id ? 1 : -1;
     })

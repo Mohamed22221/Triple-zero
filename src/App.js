@@ -13,7 +13,7 @@ import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
 import Restaurants from "./pages/Restaurants";
 import './styles/glopal-style.scss'
-
+import ClintShipping from "./components/shipping/Clint"
 import Setting from "./pages/Setting";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -92,6 +92,14 @@ function App() {
               </Route>
               {/*ShippingCompanies */}
               <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
+              <Route path="/ShippingCompanies/clint" element={<ClintShipping HandelShow={HandelShow}
+                HandelClose={HandelClose}  />} >
+                  <Route path=":clintid" element={<ClintShipping 
+                  HandelShow={HandelShow} 
+                  HandelClose={HandelClose}  />} >
+                </Route>
+              </Route>
+
               {/*Drivers */}
               <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />}/>
               <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}

@@ -58,7 +58,7 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async(_, thu
             state.error = null;
           },
           [getShippingDetails.fulfilled]: (state, action) => {
-            state.ClientShipping = action.payload;
+            state.ShippingDetailsDetails = action.payload;
           },
           [getShippingDetails.rejected]: (state, action) => {
             state.error = action;

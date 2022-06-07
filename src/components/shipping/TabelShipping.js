@@ -146,9 +146,9 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Drivers/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/ShippingCompanies/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                     <td>
-                        <Link className='text-link' to={`/Drivers/clint/${user.id}`}>{user.id}#</Link>
+                        <Link className='text-link' to={`/ShippingCompanies/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
                         <span>{user.en_name}</span>
@@ -168,8 +168,8 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Drivers/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Drivers/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/ShippingCompanies/clint/${user.id}`}> التفاصيل</Link>
+                     <Link to={`/ShippingCompanies/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>
