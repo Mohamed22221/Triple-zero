@@ -9,6 +9,8 @@ import ShortUniqueId from 'short-unique-id'
 import AddedClint from './AddedClint';
 import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
+import swal from 'sweetalert';
+import { HideSlider } from '../../store/StateSlice';
 
 const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   const ToogleSlider = useSelector((state) => state.ShowAndHide.value.add)
@@ -18,39 +20,42 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
   //redux toolkit
   const dispatch = useDispatch()
-  //uniqe id
-    const uid = new ShortUniqueId({ length: 6 });
-  //values input
-    const [values , setValues] = useState({
+
+  const initialState = {
       photo: null,
-      user_id :`#${uid()}`,
-      en_name : "",
-      ar_name : "" ,
-      mobile:null ,
-      telephone: null,
+      user_id: 2,
+      en_name: "",
+      ar_name: "" ,
+      mobile: '' ,
+      telephone: '',
       address: "",
       email : "" ,
-      status : 1 ,
-      
-  })
-  // click add customer
-  const AddUser = () =>{
-    dispatch(SendClint({
-      photo: values.photo,
-      user_id : 2 ,
-      //quote_id :null ,
-      en_name : values.en_name,
-      ar_name : values.ar_name,
-      mobile: values.mobile,
-      telephone:values.telephone,
-      address: values.address,
-      email : values.email ,
-      status : values.status ,
+      status : 1,
+      password: '',
       lon:-5650,
       lat:2365,
-      password: '12345678',
-      status: 1
-    }))
+      
+  }
+
+  const [values, setValues] = useState(initialState)
+  const AddUser = () =>{
+    dispatch(SendClint(values))
+    .unwrap()
+    .then(() => {
+      setValues(initialState)
+      dispatch(HideSlider())
+      swal("تم تنفيذ الامر بنجاح", {
+        icon: "success",
+        button: 'موافق',
+      });
+    }).catch(() => {
+      swal("عفوا لم يتم تنفيذ الامر", {
+        icon: "error",
+        button: 'موافق'
+      });
+
+    })
+
     setShow(true)
   }
   return (

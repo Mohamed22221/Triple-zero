@@ -331,3 +331,22 @@ iframe {border: none !important;}
   align-items: center !important;
   justify-content: center !important;
 }
+
+
+.swal-button.swal-button--catch,
+.swal-button.swal-button--confirm
+{
+  background-color: #FBA30D;
+}
+.swal-button.swal-button--catch:hover,
+.swal-button.swal-button--confirm:hover
+{
+  background-color: #f39e0c;
+
+}
+.swal-button.swal-button--catch:focus,
+.swal-button.swal-button--confirm:focus
+{
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #fba40e4a;
+
+}

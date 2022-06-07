@@ -1,6 +1,7 @@
-import React ,{useState} from 'react'
-
+import React from 'react'
 import styled from "styled-components"
+
+
 
 const InputCustomer = ({values , setValues}) => {
 const ImgeHandeler = (e) =>{
@@ -8,23 +9,32 @@ const ImgeHandeler = (e) =>{
     Reader.onload = () =>{
         if (Reader.readyState === 2) {
             setValues({...values , photo: e.target.files[0] }) 
-            console.log('e.target.files[0]:::::1111111', e.target.files[0]);
-            console.log('e.target.files[0]:::::1111111', Reader.result);
         }
     }
     console.log('e.target.files[0]', e.target.files[0]);
     Reader.readAsDataURL(e.target.files[0])
 }
    
+// <StyleSmaleDiv>
+
+// <div className='one-input  '>
+//     <StyleLabel>رقم العميل</StyleLabel>
+//     <input type="text" placeholder='#As578' value={values.user_id} disabled     />
+// </div>
+    
+// </StyleSmaleDiv>
   return (
     <StyleMainInput>
         <StyleForm>
             <StyleSmaleDiv>
-                <div className='one-input  '>
-                    <StyleLabel>رقم العميل</StyleLabel>
-                    <input type="text" placeholder='#As578' value={values.user_id} disabled     />
+                <div className='one-input'>
+                    <StyleLabel>الاسم بالانجليزي <span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب الاسم بالانجليزي' value={values.en_name} onChange={(e) =>setValues({...values , en_name:e.target.value}) } />
                 </div>
-
+                <div className='one-input'>
+                    <StyleLabel>الاسم بالعربي <span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب الاسم بالعربي' value={values.ar_name} onChange={(e) =>setValues({...values , ar_name:e.target.value}) } />
+                </div>
                 
             </StyleSmaleDiv>
             <StyleSmaleDiv>
@@ -36,28 +46,20 @@ const ImgeHandeler = (e) =>{
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
-                    <StyleLabel>الاسم بالانجليزي <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب الاسم بالانجليزي' value={values.en_name} onChange={(e) =>setValues({...values , en_name:e.target.value}) } />
-                </div>
-                <div className='one-input'>
-                    <StyleLabel>الاسم بالعربي <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب الاسم بالعربي' value={values.ar_name} onChange={(e) =>setValues({...values , ar_name:e.target.value}) } />
-                </div>
-                 
-            </StyleSmaleDiv>
-            <StyleSmaleDiv>
-                <div className='one-input'>
                     <StyleLabel>رقم التلفون <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
+                    <input type="number" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                     <StyleLabel>رقم اخر <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب رقم اخر' value={values.telephone} onChange={(e) =>setValues({...values , telephone:e.target.value}) }/>
+                    <input type="number" placeholder='اكتب رقم اخر' value={values.telephone} onChange={(e) =>setValues({...values , telephone:e.target.value}) }/>
 
                     <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                     <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) =>setValues({...values , email:e.target.value}) }/>
                     <StyleLabel>  العنوان <span>*</span></StyleLabel>
                     <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
                     <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status:e.target.value}) }  />
+                    <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status1:e.target.value}) }  />
+                    
+                    <StyleLabel>الرقم السري<span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب الرقم السري' value={values.password} onChange={(e) =>setValues({...values , password:e.target.value}) }  />
 
                </div> 
             </StyleSmaleDiv>
