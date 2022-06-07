@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
+import IconsSort from '../customers/IconsSort'
+import ButtonAdd from './ButtonAdd'
 
 
 
@@ -9,8 +11,7 @@ const SortTabel = (props) => {
   const {HandelShowCustomer ,setSortSearch ,searchSort ,setSortedField ,sortData, sortID ,sortName ,sortDuration ,sortpaymentDate } = props
   return (
     <StyleMainSort>
-        
-        
+        <IconsSort />
         <SearchCustomer 
         searchSort={searchSort}
         setSortSearch={setSortSearch} 
@@ -25,6 +26,7 @@ const SortTabel = (props) => {
         titleName={"تاريخ الدفع"}
         titleDuration={"المده"}
         />
+        <ButtonAdd />
 
     </StyleMainSort>
   )

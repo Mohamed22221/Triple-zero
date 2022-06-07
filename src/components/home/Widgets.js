@@ -9,8 +9,6 @@ import { AiOutlineArrowUp } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux'
 
 
-
-
 const Widgets = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
     const UserDataDrivers = useSelector(state => state.clients2.clientDrivers)

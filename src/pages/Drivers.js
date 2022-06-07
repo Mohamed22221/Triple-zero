@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
+import AddDrivers from '../components/drivers/AddDrivers'
 import TabelDrivers from '../components/drivers/TabelDrivers'
 import {MarginPages} from '../styles/MarginPages'
 
@@ -11,6 +12,7 @@ const Drivers = ({HandelShow ,HandelShowCustomer }) => {
     <TopBar title={"السواقين"} HandelShow={HandelShow} />
     <StyleFlex>
         <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
+        <AddDrivers />
     </StyleFlex>
 </MarginPages>
   )

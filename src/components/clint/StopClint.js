@@ -37,7 +37,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.ToogleSlider ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => props.ToogleSlider ? 'translateX(550px)  ' : '  translateX(590px)  '};
 
 
 `
