@@ -37,7 +37,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   const AddUser = () =>{
     dispatch(SendClint({
       photo: values.photo,
-      user_id : 1 ,
+      user_id : 2 ,
       //quote_id :null ,
       en_name : values.en_name,
       ar_name : values.ar_name,
