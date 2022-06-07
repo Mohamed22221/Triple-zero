@@ -2,7 +2,7 @@ import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import {getDrivers} from './../../store/ClintSlice2'
+import {getActiveDrivers} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
 
@@ -10,11 +10,11 @@ import Logo3 from "../../photo/slogan/user-avatar.svg"
 
 const TabelActiveDrivers = ({ }) => {
     
-    const UserData = useSelector(state => state.clients2.clientDrivers)
+    const UserData = useSelector(state => state.clients2.activeDrivers)
     const dispatch = useDispatch();
     useEffect(() => {
     //    getDrivers()
-    dispatch(getDrivers())
+    dispatch(getActiveDrivers())
     }, [dispatch])
 
     //sort tabel 
