@@ -3,18 +3,19 @@ import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
-import {getClients2} from './../../store/ClintSlice2'
+import {getDrivers} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
-import Logo3 from "../../photo/slogan/slogan2.svg"
-import Axios from 'axios';
-import axios from '../../api/axios';
+
+import Logo3 from "../../photo/slogan/user-avatar.svg"
+
+import { getShipping } from '../../store/ShippingSlice';
 
 const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
-      //const UserData = useSelector((state) => state.clint.DataUser) 
-      
-     const UserData = useSelector(state => state.clients2.clients2)
-     console.log('UserData', UserData);
+    //  const UserData = useSelector((state) => state.clint.DataUser) 
+     const UserData = useSelector(state => state.shipping.shipping)
+    // const UserData = useSelector(state => state.clients2.clientDrivers)
+     
  /*   const UserData = [
          {
              id: 1,
@@ -72,8 +73,8 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-    //    getClients()
-    dispatch(getClients2())
+    //    getDrivers()
+    dispatch(getShipping())
     }, [dispatch])
 
 
@@ -92,7 +93,7 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         return a.id < b.id ? 1 : -1;
     })
     const sortData = [...UserData].sort((a , b)=>{
-        return a.state > b.state ? 1 : -1;
+        return a.status > b.status ? 1 : -1;
     })
     const sortName = [...UserData].sort((a , b)=>{
         return a.en_name < b.en_name ? 1 : -1;
@@ -105,11 +106,12 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         return dateB - dateA
     })
 
-    // console.log('sortedField', sortedField);
+     console.log('sortedField', sortedField);
     
 
   return (
   <MainTabel>
+     
       <SortTabel 
        setSortSearch={setSortSearch} 
        searchSort={searchSort} 
@@ -121,17 +123,16 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
        sortName={sortName} 
        sortDuration={sortDuration}
        sortpaymentDate={sortpaymentDate}  />
+      
     <Tabel>
         <Thead>
             <TrHead>
                 <th >الشعار</th>
                 <th >ID</th>
-                <th>الأسم</th>
-                <th>تاريخ الاشتراك</th>
-                <th>السعر</th>
-                <th>المدة</th>
-                <th>تاريخ الدفع</th>
-                <th>الحاله</th>
+                <th> الأسم بالانجليزي</th>
+                <th>رقم التلفون</th>
+                <th>الاميل</th>
+                <th>حاله الدفع</th>
                 <th>الخيارات</th>
             </TrHead>
         </Thead>
@@ -145,31 +146,30 @@ const TabelShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         }).map((user , index) =>{
             return (
                 <TrBody key={index}>
-                    <td><Link className='my-2' to={`/Customers/clint/${user.id}`}><img src={user.logo} alt="logo" /></Link></td>
+                    <td><Link className='my-2' to={`/Drivers/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                     <td>
-                        <Link className='text-link' to={`/Customers/clint/${user.id}`}>{user.id}#</Link>
+                        <Link className='text-link' to={`/Drivers/clint/${user.id}`}>{user.id}#</Link>
                     </td>
                     <td>
                         <span>{user.en_name}</span>
                     </td>
+
                     <td>
                         <span>{user.mobile}</span>
                     </td>
                     <td>
                         <span>{user.email}</span>
                     </td>
-                    <td>
-                        <span>{user.duration} اشهر</span>
-                    </td>
-                    <td>
-                        <span>{user.paymentDate}</span>
-                    </td>
-                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</span></td>
+
+
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
+              
+
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Customers/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Customers/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/Drivers/clint/${user.id}`}> التفاصيل</Link>
+                     <Link to={`/Drivers/clint/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>
@@ -320,6 +320,5 @@ td:last-child{
 }
 
 `
-
 
 export default TabelShipping
