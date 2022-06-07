@@ -20,7 +20,7 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
    const dispatch = useDispatch()
    const navigate = useNavigate();
    const location = useLocation();
-   const from = location.state?.from?.pathname || "/Restaurants";
+   const from = location.state?.from?.pathname || "/Drivers";
 //    <button onClick={() => dispatch(ShowStop(true)) }><FiPause className='icon-button' />أقاف مؤقت</button>
 //    <button  onClick={() =>dispatch(ShowDelete(true))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
 

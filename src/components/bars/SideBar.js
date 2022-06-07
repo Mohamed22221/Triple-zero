@@ -40,7 +40,7 @@ const SideBar = ({showBar,HandelClose }) => {
        
             {
                 id:6 ,
-                name : "السواقين" ,
+                name : "السائقين" ,
                 link: "/Drivers",
                 icon: BsPerson,
             

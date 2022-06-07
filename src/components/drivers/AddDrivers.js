@@ -14,7 +14,7 @@ const AddDrivers = (props) => {
     <StyleyDeleteClint ToogleSlider={ToogleSlider} >
       { deleted == true ?
       <div>
-        <SliderClint title="اضافه سواق">
+        <SliderClint title="اضافه سائق">
         <FormAddDeivers setDeleted={setDeleted} />
         </SliderClint>
        

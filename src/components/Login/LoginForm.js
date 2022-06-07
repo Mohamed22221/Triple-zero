@@ -71,7 +71,7 @@ const LoginFrom = () => {
             console.log('response.token', response.data.data.token);
             localStorage.setItem("token", response.data.data.token)
             localStorage.setItem("loggingIn", true)
-            window.location.href = '/triple-zero'
+            window.location.href = '/Triple-zero'
             // navigate(from, { replace: true });
             // setAuth({
             //     email,
