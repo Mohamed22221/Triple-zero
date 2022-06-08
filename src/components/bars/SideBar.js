@@ -9,6 +9,8 @@ import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
 import {  MdDirectionsCar } from 'react-icons/md';
 import {  FaShoppingCart } from 'react-icons/fa';
+import {  BsPersonCircle } from 'react-icons/bs';
+
 
 
 
@@ -60,6 +62,13 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:8 ,
+                name : "حسابي" ,
+                link: "/Account" ,
+                icon: BsPersonCircle,
+            
+            },
+            {
+                id:9 ,
                 name : "الأعدادات" ,
                 link: "/setting" ,
                 icon: MdOutlineSettings,

@@ -11,7 +11,7 @@ import ClintDrivers from "./components/drivers/Clint";
 
 import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
-import Restaurants from "./pages/Restaurants";
+import Account from "./pages/Account";
 import './styles/glopal-style.scss'
 import ClintShipping from "./components/shipping/Clint"
 import Setting from "./pages/Setting";
@@ -71,9 +71,7 @@ function App() {
             {/* User routes */}
               <Route path="/" element={<Home HandelShow={HandelShow}  />} />
               <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
-              <Route path="/Customers" element={<Restaurants
-                HandelShow={HandelShow} 
-                HandelClose={HandelClose}  />} />
+
                 <Route path="/setting" element={<Setting />} />
               {/*Restaurants */}
               <Route path="Restaurants" element={<Customers
@@ -113,7 +111,7 @@ function App() {
                   HandelClose={HandelClose}  />} >
                 </Route>
               </Route>
-               {/*managers */}
+              
                <Route path="Managers" element={<Managers HandelShow={HandelShow} />}/>
                <Route path="/Managers/clint" element={<Manager HandelShow={HandelShow}
                 HandelClose={HandelClose}  />} >
@@ -122,6 +120,10 @@ function App() {
                   HandelClose={HandelClose}  />} >
                 </Route>
               </Route>
+              {/*Account */}
+              <Route path="/Account" element={<Account
+                HandelShow={HandelShow} 
+                HandelClose={HandelClose}  />} />
                
               <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
                 <Route path="/EditUser/:userid" element={<EditUser />} />

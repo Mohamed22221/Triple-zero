@@ -13,7 +13,7 @@ const WrapperContainer = ({children, HandelShow , showCustomer ,HandelShowCustom
   // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
   return (
     <MarginPages>
-      <TopBar title={"المطاعم"} HandelShow={HandelShow} />
+      <TopBar title={"حسابي"} HandelShow={HandelShow} />
       
       
       <StyleFlex>
