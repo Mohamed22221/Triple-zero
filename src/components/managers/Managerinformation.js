@@ -27,15 +27,13 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails 
             HandelStopCustomer={HandelStopCustomer}
             logo={clientDetails.logo} 
             name={clientDetails.name} 
-            mobile={clientDetails.mobile} 
-            compony={clientDetails.compony} 
+
             id={clientDetails.id} 
             status={clientDetails.status} 
             />
             <AboutClint
               id={clientDetails.id} 
               logo={clientDetails.photo}
-              idUser={clientDetails.user_id} 
               nameEn={clientDetails.name} 
            
             />

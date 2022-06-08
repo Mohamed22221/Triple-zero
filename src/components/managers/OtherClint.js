@@ -21,7 +21,7 @@ const {clintemail , isOnline  ,state ,created_at  } = props
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>حاله الدفع</p>
+          <p>حاله الاتصال</p>
         </div>
         <div className='type'>
           <h6>{state === 1 ? "متصل" : "غير متصل"}</h6>
