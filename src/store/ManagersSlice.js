@@ -123,20 +123,21 @@ export const SendManager = createAsyncThunk("managers/SendManager" , async (data
  
       },
 
-          [changeStatusManager.fulfilled]: (state, action) => {
-            // state.isLoading = false;
-            const filter = state.shipping.filter(managers => managers.id != action.meta.arg.id);
-            state.shipping = filter
-            console.log('filter', filter);
-            console.log('action form fulfilled', action.meta.arg);
-          },
-          [deleteManager.fulfilled]: (state, action) => {
-            // state.isLoading = false;
-            const filter = state.shipping.filter(managers => managers.id != action.meta.arg.id);
-            state.shipping = filter
-            console.log('filter', filter);
-            console.log('action form fulfilled', action.meta.arg);
-          },
+      [changeStatusManager.fulfilled]: (state, action) => {
+        // state.isLoading = false;
+        const filter = state.managers.filter(managers => managers.id != action.meta.arg.id);
+        state.managers = filter
+        console.log('filter', filter);
+        console.log('action form fulfilled', action.meta.arg);
+      },
+
+      [deleteManager.fulfilled]: (state, action) => {
+        // state.isLoading = false;
+        const filter = state.managers.filter(managers => managers.id != action.meta.arg.id);
+        state.managers = filter
+        console.log('filter', filter);
+        console.log('action form fulfilled', action.meta.arg);
+      },
 
        
     },
