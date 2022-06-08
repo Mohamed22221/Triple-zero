@@ -3,13 +3,13 @@ import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import { SendShipping } from '../../store/ShippingSlice';
+import { SendManager } from '../../store/ManagersSlice';
 import { MdPersonAddAlt } from 'react-icons/md';
 import { HideSlider } from '../../store/StateSlice';
 import swal from 'sweetalert';
 
 
-const FormAddShipping = ({setDeleted}) => {
+const FormAddManager = ({setDeleted}) => {
     const ImgeHandeler = (e) =>{
         const Reader = new FileReader()
         Reader.onload = () =>{
@@ -33,23 +33,16 @@ const FormAddShipping = ({setDeleted}) => {
 
   const initialState = {
     photo: null,
-    user_id: 2,
-    en_name: "",
-    ar_name: "",
-    mobile: "",
-    address: "",
+    name: "",
     email: "",
     status: 1,
-    lon:-5650,
-    lat:2365,
-    password: ''
-
+    password:""
   }
 
 const [values, setValues] = useState(initialState)
-  // click add customer
+  // click add Manager
   const AddUser = () =>{
-    dispatch(SendShipping(values))
+    dispatch(SendManager(values))
      .unwrap()
     .then(() => {
       setValues(initialState)
@@ -74,10 +67,7 @@ const [values, setValues] = useState(initialState)
     <StyleMainInput>
     <StyleForm>
         <StyleSmaleDiv>
-            <div className='one-input  '>
-                <StyleLabel>رقم العميل</StyleLabel>
-                <input type="text" placeholder='#As578' value={values.user_id} disabled     />
-            </div>
+
 
             
         </StyleSmaleDiv>
@@ -90,27 +80,23 @@ const [values, setValues] = useState(initialState)
         </StyleSmaleDiv>
         <StyleSmaleDiv>
             <div className='one-input'>
-                <StyleLabel>الاسم بالانجليزي <span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب الاسم بالانجليزي' value={values.en_name} onChange={(e) =>setValues({...values , en_name:e.target.value}) } />
+                <StyleLabel>الاسم  <span>*</span></StyleLabel>
+                <input type="text" placeholder='اكتب الاسم بالانجليزي' value={values.ename} onChange={(e) =>setValues({...values , name:e.target.value}) } />
             </div>
-            <div className='one-input'>
-                <StyleLabel>الاسم بالعربي <span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب الاسم بالعربي' value={values.ar_name} onChange={(e) =>setValues({...values , ar_name:e.target.value}) } />
-            </div>
+
              
         </StyleSmaleDiv>
         <StyleSmaleDiv>
             <div className='one-input'>
-                <StyleLabel>رقم التلفون <span>*</span></StyleLabel>
-                <input type="number" required placeholder='اكتب رقم التلفون'  value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
+              
                 <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                 <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) =>setValues({...values , email:e.target.value}) }/>
-                <StyleLabel>  العنوان <span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
+              
                 <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status1:e.target.value}) }  />
-                <StyleLabel>كلة السر<span>*</span></StyleLabel>
-                <input type="text" placeholder='اكتب كلة السر' value={values.password} onChange={(e) =>setValues({...values , password:e.target.value}) }  />
+                <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status:e.target.value}) }  />
+                <StyleLabel>كلمه مرور<span>*</span></StyleLabel>
+                <input type="text" placeholder='اكتب حاله الدفع' value={values.password} onChange={(e) =>setValues({...values , password:e.target.value}) }  />
+               
            </div> 
         </StyleSmaleDiv>
 
@@ -235,4 +221,4 @@ margin: 10px;
            
 }
 `
-export default FormAddShipping
+export default FormAddManager

@@ -23,6 +23,8 @@ import Shipping from "./pages/Shipping";
 import Drivers from "./pages/Drivers";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import ActiveDrivers from "./components/drivers/ActiveDrivers";
+import Managers from "./pages/Managers";
+import Manager from "./components/managers/Manager"
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -110,9 +112,17 @@ function App() {
                   HandelShow={HandelShow} 
                   HandelClose={HandelClose}  />} >
                 </Route>
-              
-              
               </Route>
+               {/*managers */}
+               <Route path="Managers" element={<Managers HandelShow={HandelShow} />}/>
+               <Route path="/Managers/clint" element={<Manager HandelShow={HandelShow}
+                HandelClose={HandelClose}  />} >
+                  <Route path=":clintid" element={<Manager 
+                  HandelShow={HandelShow} 
+                  HandelClose={HandelClose}  />} >
+                </Route>
+              </Route>
+               
               <Route path="/EditUser" element={<EditUser HandelShow={HandelShow}/>} >
                 <Route path="/EditUser/:userid" element={<EditUser />} />
               </Route>

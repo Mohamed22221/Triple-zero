@@ -47,6 +47,13 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:7 ,
+                name : "المديرين" ,
+                link: "/Managers",
+                icon: BsPerson,
+            
+            },
+            {
+                id:8 ,
                 name : "الأعدادات" ,
                 link: "/setting" ,
                 icon: MdOutlineSettings,

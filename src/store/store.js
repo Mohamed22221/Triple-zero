@@ -6,6 +6,7 @@ import StateSlice from './StateSlice'
 
 
 import auth from './authSlice'
+import ManagersSlice from './ManagersSlice'
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
       clients2: ClintSlice2,
       shipping : ShippingSlice,
       ShowAndHide : StateSlice,
+      managers : ManagersSlice ,
       auth: auth
   },
 })
