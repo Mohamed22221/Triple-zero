@@ -3,7 +3,7 @@ import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import { SendDirver } from '../../store/ClintSlice2';
+import { SendDirver } from '../../store/DriverSlice';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';

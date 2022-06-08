@@ -5,7 +5,7 @@ import {MarginPages} from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
 
 import { useSelector, useDispatch } from 'react-redux'
-import {getDriversDetails} from '../../store/ClintSlice2'
+import {getDriversDetails} from '../../store/DriverSlice'
 import { useParams } from 'react-router'
 
 
@@ -17,10 +17,10 @@ const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,Hand
     }, [getDriversDetails])
   
     //TODO: clientDetails
-    const clientDetails = useSelector(state => state.clients2.clientDriversDetails)
+    const clientDetails = useSelector(state => state.drivers.clientDriversDetails)
   return (
     <MarginPages>
-    <TopBar title={"العميل"} HandelShow={HandelShow} />
+    <TopBar title={"السائق"} HandelShow={HandelShow} />
     
     <StyleFlex>
      <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />

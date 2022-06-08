@@ -5,8 +5,8 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import Logo3 from "../../photo/slogan/user-avatar.svg"
-import {getClients2 ,getDrivers} from './../../store/ClintSlice2'
-
+import {getClients2 } from './../../store/ClintSlice2'
+import {getDrivers} from "../../store/DriverSlice"
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
     const dispatch = useDispatch();

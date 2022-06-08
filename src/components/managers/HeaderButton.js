@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ShowStop } from '../../store/StateSlice';
 import { ShowDelete } from '../../store/StateSlice';
-import {changeStatusShipping, deleteShipping} from './../../store/ShippingSlice'
+import {changeStatusManager, deleteManager} from './../../store/ManagersSlice'
 
 
 
@@ -19,10 +19,10 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/ShippingCompanies";
+    const from = location.state?.from?.pathname || "/Managers";
 
 
-    const clientDetails = useSelector(state => state.shipping.ShippingDetailsDetails)
+    const clientDetails = useSelector(state => state.managers.ManagersDetails)
     
     
     const statusVal = clientDetails.status == 1 ? true : false;
@@ -50,7 +50,7 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    dispatch(changeStatusShipping(id))
+                    dispatch(changeStatusManager(id))
                     .unwrap()
                     .then((res) => {
                         setHandelStatus(!handelStatus)
@@ -91,7 +91,7 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        dispatch(deleteShipping(id))
+                        dispatch(deleteManager(id))
                         .unwrap()
                         .then((res) => {
                             setHandelStatus(!handelStatus)

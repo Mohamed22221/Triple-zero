@@ -7,6 +7,12 @@ import {  BsPerson } from 'react-icons/bs';
 import {  NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {  MdOutlineSettings } from 'react-icons/md';
 import {  MdSupervisorAccount } from 'react-icons/md';
+import {  MdDirectionsCar } from 'react-icons/md';
+import {  FaShoppingCart } from 'react-icons/fa';
+
+
+
+
 const SideBar = ({showBar,HandelClose }) => {
     let location = useLocation();
     const navigate = useNavigate();
@@ -32,7 +38,7 @@ const SideBar = ({showBar,HandelClose }) => {
                 id:3 ,
                 name : "شركات الشحن" ,
                 link: "/ShippingCompanies" ,
-                icon: MdSupervisorAccount,
+                icon: FaShoppingCart,
             
             },
         
@@ -42,7 +48,7 @@ const SideBar = ({showBar,HandelClose }) => {
                 id:6 ,
                 name : "السائقين" ,
                 link: "/Drivers",
-                icon: BsPerson,
+                icon: MdDirectionsCar,
             
             },
             {

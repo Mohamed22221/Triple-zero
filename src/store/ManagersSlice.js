@@ -46,11 +46,11 @@ export const SendManager = createAsyncThunk("managers/SendManager" , async (data
 
   
   // changeStatusManager
-  export const changeStatusShipping = createAsyncThunk('managers/changeStatusShipping', async (id, thunkAPI) => {
+  export const changeStatusManager = createAsyncThunk('managers/changeStatusManager', async (id, thunkAPI) => {
       const { rejectWithValue } = thunkAPI
 
       try {
-      const res = await get(`users/status/${id}`)
+      const res = await get(`admins/status/${id}`)
       return res.data
     } catch (err) {
       console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -59,11 +59,11 @@ export const SendManager = createAsyncThunk("managers/SendManager" , async (data
   })
 
   // deleteManager
-  export const deleteShipping = createAsyncThunk('managers/deleteShipping', async (id, thunkAPI) => {
+  export const deleteManager = createAsyncThunk('managers/deleteManager', async (id, thunkAPI) => {
       const { rejectWithValue } = thunkAPI
 
       try {
-      const res = await get(`users/destroy/${id}`)
+      const res = await get(`admins/destroy/${id}`)
       return res.data
     } catch (err) {
       console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -78,7 +78,7 @@ export const SendManager = createAsyncThunk("managers/SendManager" , async (data
     name: 'managers',
     initialState: {
       managers: [],
-     ManagersDetails: {},
+      ManagersDetails: {},
       error: null ,
       
       },
@@ -123,16 +123,16 @@ export const SendManager = createAsyncThunk("managers/SendManager" , async (data
  
       },
 
-          [changeStatusShipping.fulfilled]: (state, action) => {
+          [changeStatusManager.fulfilled]: (state, action) => {
             // state.isLoading = false;
-            const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
+            const filter = state.shipping.filter(managers => managers.id != action.meta.arg.id);
             state.shipping = filter
             console.log('filter', filter);
             console.log('action form fulfilled', action.meta.arg);
           },
-          [deleteShipping.fulfilled]: (state, action) => {
+          [deleteManager.fulfilled]: (state, action) => {
             // state.isLoading = false;
-            const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
+            const filter = state.shipping.filter(managers => managers.id != action.meta.arg.id);
             state.shipping = filter
             console.log('filter', filter);
             console.log('action form fulfilled', action.meta.arg);

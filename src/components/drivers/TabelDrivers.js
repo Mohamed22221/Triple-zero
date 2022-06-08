@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
-import {getDrivers} from './../../store/ClintSlice2'
+import {getDrivers} from './../../store/DriverSlice'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
 
@@ -14,62 +14,9 @@ import ButtonAdd from './ButtonAdd';
 
 const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     
-     const UserData = useSelector(state => state.clients2.clientDrivers)
+     const UserData = useSelector(state => state.drivers.clientDrivers)
      
- /*   const UserData = [
-         {
-             id: 1,
-             logo: Logo3,
-             idUser: "#532Bn2 ",
-             name: "سالم العتيبي1",
-             dateSubscription: "5/6/2021",
-             price: "$1300",
-             duration: 7,
-             paymentDate: "4/6/2022",
-             state: "تاخر الدفع",
-             clintemail: "info@easymedia",
-             websitelink: "www.easymedia.agency",
-             tradetype: "مقاولات",
-             currencypaid: "المصري",
-             compony: "مازيني",
-             ReasonDelete: "فسخ العقد",
-             DeleteDate: "4/6/2022",
-         },
-        ] */ 
-
-    // axios.get('admins' ,headers: {})
-
-    // const getClients = () => {
-    //      try {
-    //          const token = localStorage.getItem('token');
-    //           axios.get('users', {
-    //              headers: {
-    //                  'Content-Type': 'application/json',
-    //                  'Accept': 'application/json',
-    //                  'Authorization': `Bearer ${token}`
-    //              }
-    //          }).then(response => {
-    //             console.log('response:' , response.data.data);
-    //         }).error(err => {
-    //             console.log('error:' , err);
-    //         })
-    //         //  Axios.get('http://tracking.000itkw.com/api/users', {
-    //         //      headers: {
-    //         //         'Content-Type': 'application/json',
-    //         //         'Accept': 'application/json',
-    //         //         'Authorization': `Bearer ${token}`
-    //         //      }
-    //         //  })
-    //         //  .then(response => {
-    //         //      console.log('response:' , response.data.data);
-    //         //  }).error(err => {
-    //         //      console.log('error:' , err);
-    //         //  })
-
-    //      } catch (err) {
-    //          console.log('err', err.message);
-    //      }
-    // }
+ 
 
     const dispatch = useDispatch();
     useEffect(() => {
