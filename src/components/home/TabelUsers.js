@@ -24,10 +24,10 @@ const TabelUsers = () => {
                 <th>الشعار</th>
                 <th>ID</th>
                 <th>الأسم</th>
-                <th>رقم التلفون</th>
+                <th>رقم التليفون</th>
                 <th>العنوان</th>
-                <th>الاميل</th>
-                <th>الحاله</th>
+                <th>الايميل</th>
+                <th>الحالة</th>
                 <th>الخيارات</th>
             </TrHead>
         </Thead>
@@ -44,7 +44,7 @@ const TabelUsers = () => {
                     <td>{user.address}</td>
                     <td>{user.email}</td>
                    
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشظ" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>

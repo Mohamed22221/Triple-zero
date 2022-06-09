@@ -67,9 +67,9 @@ const TabelManagers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         <Thead>
             <TrHead>
                 <th >الشعار</th>
-                <th >ID</th>
+                <th >#</th>
                 <th> الأسم </th>
-                <th>الاميل</th>
+                <th>الايميل</th>
                 <th>حاله </th>
                 <th>الخيارات</th>
             </TrHead>

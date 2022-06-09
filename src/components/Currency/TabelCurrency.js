@@ -65,7 +65,7 @@ const TabelCurrency = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         <Thead>
             <TrHead>
 
-                <th >ID</th>
+                <th >#</th>
                 <th>  الأسم بالانجليزي </th>
                 <th>الأسم بالعربي</th>
                 <th>رمز العمله </th>

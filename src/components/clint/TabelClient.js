@@ -19,7 +19,7 @@ const TabelClient = (props) => {
                 <th>الأسم</th>
                 <th>رقم اخر</th>
                 <th>العنوان</th>
-                <th>الحاله</th>
+                <th>الحالة</th>
             </TrHead>
         </Thead>
         <Tbody>
@@ -31,7 +31,7 @@ const TabelClient = (props) => {
                 <td>{name}</td>         
                 <td>{telephone === null ? "01245456" : telephone}</td>
                 <td>{websitelink}</td>
-                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
+                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "نشط" : "غير نشظ" }</span></td>
             </TrBody>
         </Tbody>
     </Tabel>

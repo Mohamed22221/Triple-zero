@@ -30,10 +30,10 @@ const TabelBlackList = ({ }) => {
         <Thead>
             <TrHead>
                 <th >الشعار</th>
-                <th >ID</th>
+                <th >#</th>
                 <th> الأسم بالانجليزي</th>
-                <th>رقم التلفون</th>
-                <th>الاميل</th>
+                <th>رقم التليفون</th>
+                <th>الايميل</th>
                 
 
                 <th>حاله الدفع</th>
@@ -61,7 +61,7 @@ const TabelBlackList = ({ }) => {
                     </td>
 
 
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "تم الدفع" : "لم يدفع" }</span></td>
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشظ" }</span></td>
                   
 
                     <td >

@@ -35,7 +35,7 @@ const GlopalTabel = ({dataTabel}) => {
                     <td>{dataTabel.title1}</td>
                     <td>{dataTabel.title1} اشهر</td>
                     <td>{dataTabel.title1} </td>
-                    <td ><span className={user.state === "تم الدفع" ? "green" : "red"}>{dataTabel.title1}</span></td>
+                    <td ><span className={user.state === "نشط" ? "green" : "red"}>{dataTabel.title1}</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>

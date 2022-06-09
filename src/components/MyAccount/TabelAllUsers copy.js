@@ -46,13 +46,13 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         <Thead>
             <TrHead>
                 <th >الشعار</th>
-                <th >ID</th>
+                <th >#</th>
                 <th>الأسم</th>
                 <th>تاريخ الاشتراك</th>
                 <th>السعر</th>
                 <th>المدة</th>
                 <th>تاريخ الدفع</th>
-                <th>الحاله</th>
+                <th>الحالة</th>
                 <td>الخيارات</td>
             </TrHead>
         </Thead>
@@ -73,7 +73,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td>{user.price}</td>
                     <td>{user.duration} اشهر</td>
                     <td>{user.paymentDate}</td>
-                    <td ><p className={user.state === "تم الدفع" ? "green" : "red"}>{user.state}</p></td>
+                    <td ><p className={user.state === "نشط" ? "green" : "red"}>{user.state}</p></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>

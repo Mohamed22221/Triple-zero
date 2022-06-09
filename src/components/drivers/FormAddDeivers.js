@@ -97,8 +97,8 @@ const FormAddDeivers = ({setDeleted}) => {
         </StyleSmaleDiv>
         <StyleSmaleDiv>
             <div className='one-input'>
-                <StyleLabel>رقم التلفون <span>*</span></StyleLabel>
-                <input type="number" placeholder='اكتب رقم التلفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
+                <StyleLabel>رقم التليفون <span>*</span></StyleLabel>
+                <input type="number" placeholder='اكتب رقم التليفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                
 
                 <StyleLabel>ايميل العميل <span>*</span></StyleLabel>

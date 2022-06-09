@@ -46,7 +46,7 @@ const PrecedentClint = () => {
                 <h3>موقع العميل : <span>{user.websitelink}</span></h3>
               </div>
               <div className='item'>
-                <h3> الحاله : <span>{user.state}</span></h3>
+                <h3> الحالة : <span>{user.state}</span></h3>
               </div>
               <div className='item'>
                 <h3> السعر : <span>{user.price}</span></h3>

@@ -7,7 +7,7 @@ const SortBy = ({setSortedField ,sortData ,sortName, sortID ,sortDuration ,sortp
   const [stateDataSort ,setDataSort ] = useState({
     activeSort:null ,
     dataSort : [   
-      {id:1 , name:" ID#" , state:sortID  },
+      {id:1 , name:" #" , state:sortID  },
       {id:2 , name:" الاسم" , state:sortName  },
       {id:3 , name:" الحالة" ,state:sortData  },
       {id:4 , name:titleName , state:sortpaymentDate},

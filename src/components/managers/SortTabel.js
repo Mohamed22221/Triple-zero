@@ -23,7 +23,7 @@ const SortTabel = (props) => {
         sortName={sortName} 
         sortDuration={sortDuration} 
         sortpaymentDate={sortpaymentDate}
-        titleName={"الاميل"}
+        titleName={"الايميل"}
        
         />
         <ButtonAdd />
