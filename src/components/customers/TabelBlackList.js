@@ -103,7 +103,8 @@ const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
+                         <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
+                         <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
                      </div>
                     </td>
                 </TrBody>

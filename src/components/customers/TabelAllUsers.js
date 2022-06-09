@@ -69,6 +69,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
                 
                 <th>الحالة</th>
+                <th>شركة الشحن</th>
                 <th>الخيارات</th>
             </TrHead>
         </Thead>
@@ -101,10 +102,14 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     </td>
 
                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
+                    <td>
+                        <span>{user.user.ar_name }</span>
+                    </td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
+                         <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
+                         <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
                      </div>
                     </td>
                 </TrBody>
@@ -158,7 +163,7 @@ color: white;
 const TrHead = styled.tr`
 
 th{
-    padding: 10px 30px;
+    padding: 10px 25px;
     @media (max-width:720px) {
      font-size: 13px;
      padding: 10px 40px;

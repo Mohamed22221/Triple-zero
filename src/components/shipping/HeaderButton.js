@@ -19,7 +19,7 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/ShippingCompanies";
+    const from = location.state?.from?.pathname || "/shipping-companies";
 
 
     const clientDetails = useSelector(state => state.shipping.ShippingDetailsDetails)
@@ -138,7 +138,7 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
                 </button>
                 <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
             </MainButtonClint>
-            <ButtonReturn title="/ShippingCompanies" />
+            <ButtonReturn title="/shipping-companies" />
             
         </MainHeaderClint>
     )

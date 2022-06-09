@@ -110,12 +110,12 @@ function App() {
                   HandelClose={HandelClose}  />} >
                 </Route>
               </Route>
-              {/*ShippingCompanies */}
-              <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
-              <Route path="ShippingCompanies/blackList" element={<DisActiveBlackList />} />
-              <Route path="/ShippingCompanies/clint" element={<ClintShipping HandelShow={HandelShow}
+              {/*shipping-companies */}
+              <Route path="shipping-companies" element={<Shipping HandelShow={HandelShow} />}/>
+              <Route path="shipping-companies/blackList" element={<DisActiveBlackList />} />
+              <Route path="/shipping-companies" element={<ClintShipping HandelShow={HandelShow}
                 HandelClose={HandelClose}  />} >
-                  <Route path=":clintid" element={<ClintShipping 
+                  <Route path=":id" element={<ClintShipping 
                   HandelShow={HandelShow} 
                   HandelClose={HandelClose}  />} >
                 </Route>

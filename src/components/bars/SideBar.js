@@ -37,7 +37,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:3 ,
                 name : "شركات الشحن" ,
-                link: "/ShippingCompanies" ,
+                link: "/shipping-companies" ,
                 icon: FaShoppingCart,
             
             },
