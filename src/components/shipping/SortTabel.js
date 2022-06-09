@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import IconsSort from '../customers/IconsSort'
+import BlackList from './BlackList'
 import ButtonAdd from './ButtonAdd'
 
 
@@ -11,6 +12,7 @@ const SortTabel = (props) => {
   const { setSortSearch ,searchSort ,setSortedField ,sortData, sortID ,sortName ,sortDuration ,sortpaymentDate } = props
   return (
     <StyleMainSort>
+       <BlackList />
         <IconsSort />
         <SearchCustomer 
         searchSort={searchSort}

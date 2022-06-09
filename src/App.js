@@ -8,8 +8,6 @@ import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
 import ClintDrivers from "./components/drivers/Clint";
-
-import MainBlackList from "./components/blacklist/MainBlackList";
 import EditUser from "./components/clint/EditUser";
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
@@ -30,6 +28,8 @@ import AddDrivers from "./components/drivers/AddDrivers";
 import AddManager from "./components/managers/AddManager";
 import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
+import ActiveBlackList from "./components/customers/ActiveBlackList";
+import DisActiveBlackList from "./components/shipping/DisActiveBlackList";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -84,6 +84,7 @@ function App() {
 
                 <Route path="/setting" element={<Setting />} />
               {/*Restaurants */}
+              <Route path="Restaurants/blackList" element={<ActiveBlackList />} />
               <Route path="Restaurants" element={<Customers
                 HandelShow={HandelShow}
                 showBar={showBar}
@@ -92,7 +93,7 @@ function App() {
                 setShow={setShow}
                 />} />
                 
-              <Route path="/Restaurants/BlackList" element={<MainBlackList HandelShow={HandelShow} />} />
+              
               <Route path="/Restaurants/clint" element={<Clint HandelShow={HandelShow}
                 HandelClose={HandelClose}  />} >
                   <Route path=":clintid" element={<Clint 
@@ -102,6 +103,7 @@ function App() {
               </Route>
               {/*ShippingCompanies */}
               <Route path="ShippingCompanies" element={<Shipping HandelShow={HandelShow} />}/>
+              <Route path="ShippingCompanies/blackList" element={<DisActiveBlackList />} />
               <Route path="/ShippingCompanies/clint" element={<ClintShipping HandelShow={HandelShow}
                 HandelClose={HandelClose}  />} >
                   <Route path=":clintid" element={<ClintShipping 

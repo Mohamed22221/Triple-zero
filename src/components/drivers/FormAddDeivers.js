@@ -118,7 +118,7 @@ const FormAddDeivers = ({setDeleted}) => {
     </StyleForm>
         <StyleButtonAdd onClick={AddUser} >
       <MdPersonAddAlt className='MdPersonAddAlt' />
-      <span > أضافه عميل </span>
+      <span > أضافه سائق </span>
     </StyleButtonAdd>
 </StyleMainInput>
   )

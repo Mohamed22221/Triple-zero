@@ -6,7 +6,7 @@ export const getCurrency = createAsyncThunk('currency/getCurrency', async(_, thu
     const { rejectWithValue } = thunkAPI
   
      try {
-     const res =  await get('currency')
+     const res =  await get('currencys')
      return res.data
   } catch (err) {
     console.log('rejectWithValue(err.message)', rejectWithValue(err.message));

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
-import { addShipping ,AddManager, ShowAdd ,AddDriver} from '../../store/StateSlice';
+import { addShipping ,AddManager, ShowAdd ,AddDriver ,AddCurrency} from '../../store/StateSlice';
 import { useDispatch, useSelector } from 'react-redux';
 const ButtonsAdd = ({buttons,setbuttons}) => {
 
@@ -22,13 +22,21 @@ const ButtonsAdd = ({buttons,setbuttons}) => {
         dispatch(AddManager(true))
         setbuttons(false)
     }
+    const AddCurrencys = () =>{
+        dispatch(AddCurrency(true))
+        setbuttons(false)
+    }
    
   return (
     <StyleButtonAdd buttons={buttons}>
+
         <button onClick={AddResturant}><MdPersonAddAlt  /> اضافه  مطعم</button>
         <button onClick={AddShipping}><MdPersonAddAlt />اضافه  شركه</button>
         <button onClick={AddDrivers}><MdPersonAddAlt  />اضافه  سائق</button>
         <button onClick={AddManagers}><MdPersonAddAlt />اضافه  مدير</button>
+        <button onClick={AddCurrencys}><MdPersonAddAlt />اضافه  عمله</button>
+
+
        
 
     </StyleButtonAdd>
@@ -39,17 +47,27 @@ position: absolute;
 top: 50px;
 z-index: 50;
 width: 250px;
+height: 250px;
 left: -25px;
 background-color: white;
 padding: 20px;
-
 flex-direction: column;
 align-items: center;
 border-radius: 5px;
 box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.56);
 -webkit-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.30);
 -moz-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.86);
-
+overflow: auto;
+&::-webkit-scrollbar{
+        width: 4px;
+}
+&::-webkit-scrollbar-thumb {
+        background-color: var(--secound-color);
+        border-radius: 10px;
+}
+&::-webkit-scrollbar-track {
+	background: var(--primary-color);
+}
 display:  ${props => props.buttons ? "flex" : "none"};
 button{
     display: flex;
