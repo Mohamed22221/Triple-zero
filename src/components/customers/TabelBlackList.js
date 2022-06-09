@@ -43,7 +43,7 @@ const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
 
 
   return (
-  <MainTabel>
+  <MainTable>
       <SortTabel 
        setSortSearch={setSortSearch} 
        searchSort={searchSort} 
@@ -99,12 +99,11 @@ const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                         <span>{user.address}</span>
                     </td>
 
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
+                    <td ><span className='red'>غير نشط</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
                      </div>
                     </td>
                 </TrBody>
@@ -113,10 +112,10 @@ const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         </Tbody>
     </Tabel>
 
-  </MainTabel> 
+  </MainTable> 
   )
 }
-const MainTabel = styled.div`
+const MainTable = styled.div`
     overflow-x: auto;
      width:100% ;
      height: 84vh;
@@ -229,9 +228,11 @@ td:last-child{
             color: var(--font);
             cursor: pointer;
             padding: 5px 0;
-            &:nth-child(1){
-                border-bottom: 1px solid black;
+            border-bottom: 1px solid black;
+            &:last-child{
+                border-bottom: none;
             }
+
 
         }
     }

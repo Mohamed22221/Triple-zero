@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
-import ButtonAdd from '../glopal/ButtonAdd';
+import ButtonAdd from './ButtonAdd';
 const AddClint = ({HandelShowCustomer }) => {
   return (
     <StyleAddClint onClick={HandelShowCustomer}>

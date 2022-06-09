@@ -104,8 +104,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}> التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات المطعم</Link>
                      </div>
                     </td>
                 </TrBody>
@@ -230,8 +229,9 @@ td:last-child{
             color: var(--font);
             cursor: pointer;
             padding: 5px 0;
-            &:nth-child(1){
-                border-bottom: 1px solid black;
+            border-bottom: 1px solid black;
+            &:last-child{
+                border-bottom: none;
             }
 
         }
