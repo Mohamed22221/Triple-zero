@@ -6,6 +6,7 @@ const initialState = {
     add:false,
     Shipping:false,
     driver : false,
+    currency:false,
     manager:false,
     stop:false,
     delete:false,
@@ -30,6 +31,10 @@ const StateSlice = createSlice({
     state.value.driver = actions.payload
     state.value.overLay = true
   },
+  AddCurrency(state , actions){
+    state.value.currency = actions.payload
+    state.value.overLay = true
+  },
   AddManager(state , actions){
     state.value.manager = actions.payload
     state.value.overLay = true
@@ -48,6 +53,8 @@ const StateSlice = createSlice({
         state.value.add = actions.payload
         state.value.Shipping = actions.payload
         state.value.driver = actions.payload
+        state.value.currency = actions.payload
+
         state.value.manager = actions.payload
         state.value.stop = actions.payload
         state.value.delete = actions.payload
@@ -62,5 +69,5 @@ const StateSlice = createSlice({
   },
 })
 
-export const { ShowAdd,addShipping,AddDriver,AddManager,ShowStop,ShowDelete, HideSlider } = StateSlice.actions
+export const { ShowAdd,addShipping,AddDriver,AddManager ,AddCurrency,ShowStop,ShowDelete, HideSlider } = StateSlice.actions
 export default StateSlice.reducer

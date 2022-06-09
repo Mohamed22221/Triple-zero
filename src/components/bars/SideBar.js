@@ -10,6 +10,8 @@ import {  MdSupervisorAccount } from 'react-icons/md';
 import {  MdDirectionsCar } from 'react-icons/md';
 import {  FaShoppingCart } from 'react-icons/fa';
 import {  BsPersonCircle } from 'react-icons/bs';
+import {  HiCurrencyDollar } from 'react-icons/hi';
+
 
 
 
@@ -55,20 +57,27 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:7 ,
+                name : "العملاات" ,
+                link: "/Currencies",
+                icon: HiCurrencyDollar,
+            
+            },
+            {
+                id:8 ,
                 name : "المديرين" ,
                 link: "/Managers",
                 icon: BsPerson,
             
             },
             {
-                id:8 ,
+                id:9 ,
                 name : "حسابي" ,
                 link: "/Account" ,
                 icon: BsPersonCircle,
             
             },
             {
-                id:9 ,
+                id:10 ,
                 name : "الأعدادات" ,
                 link: "/setting" ,
                 icon: MdOutlineSettings,
