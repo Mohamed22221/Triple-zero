@@ -5,36 +5,36 @@ import { BsLink } from 'react-icons/bs';
 import { BsCurrencyDollar } from 'react-icons/bs';
 
 const OtherClint = (props) => {
-const {clintemail , isOnline  ,state ,created_at  } = props
+const {symbol , exchange_rate  ,sequence   } = props
   return (
     <MainStyleOther>
      <div className='item-wedget'>
         <div className='header-wedget'>
           <AiOutlineMail className='icon-wedget' />
-          <p>اميل العميل</p>
+          <p>رمز العمله</p>
         </div>
         <div className='type'>
-          <h6>{clintemail}</h6>
+          <h6>{symbol}</h6>
         </div>
       </div>
 
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>حاله الاتصال</p>
+          <p>سعر الصرف</p>
         </div>
         <div className='type'>
-          <h6>{state === 1 ? "متصل" : "غير متصل"}</h6>
+          <h6>{exchange_rate}</h6>
         </div>
       </div>
 
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>تاريخ الانشاء</p>
+          <p>التسلسل</p>
         </div>
         <div className='type'>
-          <h6>{created_at }</h6>
+          <h6>{sequence }</h6>
         </div>
       </div>
     </MainStyleOther>

@@ -3,7 +3,7 @@ import {  useDispatch ,useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import { SendManager } from '../../store/ManagersSlice';
+import { SendCurrency } from '../../store/CurrencySlice';
 import { MdPersonAddAlt } from 'react-icons/md';
 import { HideSlider } from '../../store/StateSlice';
 import swal from 'sweetalert';
@@ -31,7 +31,7 @@ const [values, setValues] = useState(initialState)
 console.log(values)
   // click add Manager
   const AddUser = () =>{
-    dispatch(SendManager(values))
+    dispatch(SendCurrency(values))
      .unwrap()
     .then(() => {
       setValues(initialState)

@@ -30,6 +30,8 @@ import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
 import ActiveBlackList from "./components/customers/ActiveBlackList";
 import DisActiveBlackList from "./components/shipping/DisActiveBlackList";
+import ClintForm from "./components/customers/ClintForm";
+import OneCurrency from "./components/Currency/OneCurrency";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -70,6 +72,7 @@ function App() {
         <AddDrivers />
         <AddManager />
         <AddCurrency />
+        <ClintForm />
         <OverLay HandelClose={HandelClose} showBar={showBar}  />
         
         <Routes>
@@ -125,6 +128,13 @@ function App() {
               </Route>
               {/*currencies */}
               <Route path="Currencies" element={<Currencies HandelShow={HandelShow} />}/>
+              <Route path="/Currencies/clint" element={<OneCurrency HandelShow={HandelShow}
+                HandelClose={HandelClose}  />} >
+                  <Route path=":clintid" element={<OneCurrency 
+                  HandelShow={HandelShow} 
+                  HandelClose={HandelClose}  />} >
+                </Route>
+              </Route>
                {/*Managers */}
                <Route path="Managers" element={<Managers HandelShow={HandelShow} />}/>
                <Route path="/Managers/clint" element={<Manager HandelShow={HandelShow}

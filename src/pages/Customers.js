@@ -18,7 +18,7 @@ const Customers = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose ,s
   return (
     <MarginPages>
         <TopBar title={"المطاعم"} HandelShow={HandelShow} />
-        <ClintForm showCustomer={showCustomer} HandelClose={HandelClose} show={show} setShow={setShow} />
+        
         <TabelAllUsers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer}  />
         
     </MarginPages>

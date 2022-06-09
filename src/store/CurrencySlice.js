@@ -6,7 +6,7 @@ export const getCurrency = createAsyncThunk('currency/getCurrency', async(_, thu
     const { rejectWithValue } = thunkAPI
   
      try {
-     const res =  await get('currencys')
+     const res =  await get('currency')
      return res.data
   } catch (err) {
     console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -28,11 +28,11 @@ export const getActiveDrivers = createAsyncThunk('drivers/getActiveDrivers', asy
   
   
   // get data Currency Details
-  export const getDriversDetails = createAsyncThunk('drivers/getDriversDetails', async (id, thunkAPI) => {
+  export const getCurrencyDetails = createAsyncThunk('currency/getCurrencyDetails', async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
   
      try {
-     const res = await get(`admins/drivers/show/${id}`)
+     const res = await get(`currency/show/${id}`)
      return res.data
   } catch (err) {
     console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -40,12 +40,12 @@ export const getActiveDrivers = createAsyncThunk('drivers/getActiveDrivers', asy
   }
   })
   // send data  Currency Details
-  export const SendDirver = createAsyncThunk("drivers/SendDirver", async (dataClint, thunkApi) => {
+  export const SendCurrency = createAsyncThunk("currency/SendCurrency", async (dataClint, thunkApi) => {
     const {
       rejectWithValue
     } = thunkApi
     try {
-      const response = await postFromData("admins/drivers/store", dataClint);
+      const response = await postFromData("currency/store", dataClint);
       // const data = res
       console.log('data added to store', response.data);
       return response.data
@@ -92,7 +92,7 @@ export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, 
     initialState: {
         currencys: [],
         activeDrivers: [],
-        clientDriversDetails: {},
+        CurrencyDetails: {},
         error: null ,
       
       },
@@ -110,13 +110,13 @@ export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, 
             console.log('action', action);
           },
          //get Currency Details
-          [getDriversDetails.pending]: (state, action) => {
+          [getCurrencyDetails.pending]: (state, action) => {
             state.error = null;
           },
-          [getDriversDetails.fulfilled]: (state, action) => {
-            state.clientDriversDetails = action.payload;
+          [getCurrencyDetails.fulfilled]: (state, action) => {
+            state.CurrencyDetails = action.payload;
           },
-          [getDriversDetails.rejected]: (state, action) => {
+          [getCurrencyDetails.rejected]: (state, action) => {
             state.error = action;
             console.log(action);
           },
@@ -132,13 +132,13 @@ export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, 
             console.log('action', action);
           },
          // SendCurrency
-         [SendDirver.pending]: (state, action) => {
+         [SendCurrency.pending]: (state, action) => {
             state.error = null;
          },
-         [SendDirver.fulfilled]: (state, action) => {
-           state.clientDrivers.push(action.payload);
+         [SendCurrency.fulfilled]: (state, action) => {
+           state.currencys.push(action.payload);
          },
-         [SendDirver.rejected]: (state, action) => {
+         [SendCurrency.rejected]: (state, action) => {
            state.error = action.payload;
            console.log(action);
          },   

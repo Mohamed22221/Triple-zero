@@ -2,28 +2,28 @@ import React, {useEffect} from 'react'
 import styled from "styled-components"
 import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
-import Managerinformation from './Managerinformation'
+import Currencyinformation from './Currencyinformation'
 
 import { useSelector, useDispatch } from 'react-redux'
-import {getManagersDetails} from '../../store/ManagersSlice'
+import {getCurrencyDetails} from '../../store/CurrencySlice'
 import { useParams } from 'react-router'
 
 
-const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
+const OneCurrency = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
     const dispatch = useDispatch()
     let { clintid } = useParams();
     useEffect(() => {
-        dispatch(getManagersDetails(clintid))
-    }, [getManagersDetails])
+        dispatch(getCurrencyDetails(clintid))
+    }, [getCurrencyDetails])
   
     //TODO: clientDetails
-    const clientDetails = useSelector(state => state.managers.ManagersDetails)
+    const clientDetails = useSelector(state => state.currency.CurrencyDetails)
   return (
     <MarginPages>
     <TopBar title={"المدير"} HandelShow={HandelShow} />
     
     <StyleFlex>
-     <Managerinformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
+     <Currencyinformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
 
     </StyleFlex>
     
@@ -44,4 +44,4 @@ border-radius: 40px;
   margin-top: 13px;
 }
 `
-export default Clint
+export default OneCurrency

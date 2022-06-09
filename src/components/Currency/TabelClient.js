@@ -5,19 +5,19 @@ import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const TabelClient = (props) => {
-    const { isOnline , name , idUser ,id, number , telephone , paymentDate ,
-          state , clintemail , websitelink  ,created_at  } = props
+    const {   symbol , exchange_rate ,id,
+        sequence } = props
     
   return (
       
 <StyleTabel>
 
     <OtherClint 
-     clintemail={clintemail}
-     websitelink={websitelink} 
-     state={state}
-     isOnline={isOnline}
-     created_at={created_at}
+     symbol={symbol}
+     exchange_rate={exchange_rate} 
+     id={id}
+     sequence={sequence}
+     
      
      />
 </StyleTabel>

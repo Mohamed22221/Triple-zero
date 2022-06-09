@@ -13,10 +13,6 @@ import {  BsPersonCircle } from 'react-icons/bs';
 import {  HiCurrencyDollar } from 'react-icons/hi';
 
 
-
-
-
-
 const SideBar = ({showBar,HandelClose }) => {
     let location = useLocation();
     const navigate = useNavigate();
@@ -193,7 +189,7 @@ span img{
 }
 //ul icon 
 .widget{
-    margin-top: 80px;
+    margin-top: 50px;
     transition:0.7s;
     display: flex;
     justify-content: center;
@@ -202,7 +198,7 @@ span img{
         align-items: center;
         width: 250px;
         cursor: pointer;
-        margin: 10px 0;
+        margin: 6px 0;
         transition: 0.6s;
         padding: 15px 40px ;
         .icon-name{

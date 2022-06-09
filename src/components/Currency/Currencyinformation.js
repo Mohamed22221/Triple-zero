@@ -1,15 +1,10 @@
 import React ,{useEffect} from 'react'
-import { useParams  } from 'react-router'
 import styled from "styled-components"
-import AboutClint from './AboutClint'
-
+import AboutCurrency from './AboutCurrency'
 import TabelClient from './TabelClient'
-import { useDispatch, useSelector } from 'react-redux'
-import {getClientDetails} from '../../store/ClintSlice2'
-import { SendClint } from '../../store/ClintSlice2';
 import HeaderButton from './HeaderButton'
 
-const ClintInformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails }) => {
+const Currencyinformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails }) => {
 
 
   console.log('clientDetails', clientDetails.id);
@@ -17,33 +12,29 @@ const ClintInformation = ({HandelShowCustomer,HandelStopCustomer ,clientDetails 
     
   return (
     <MainStyleClint>
-         
-      
-         
-        <ItemStyleClint key={clientDetails.idUser} >
 
+        <ItemStyleClint key={clientDetails.id} >
         <HeaderButton
             HandelShowCustomer={HandelShowCustomer}
             HandelStopCustomer={HandelStopCustomer}
             logo={clientDetails.logo} 
-            name={clientDetails.name} 
-
+            name={clientDetails.en_title} 
             id={clientDetails.id} 
             status={clientDetails.status} 
             />
-            <AboutClint
+            <AboutCurrency
               id={clientDetails.id} 
-              logo={clientDetails.photo}
-              nameEn={clientDetails.name} 
+              nameEn={clientDetails.en_title} 
+              nameAr={clientDetails.ar_title} 
+
            
             />
            <TabelClient
             id={clientDetails.id}
-            idUser={clientDetails.user_id}
-            state={clientDetails.status}
-            clintemail={clientDetails.email}
-            isOnline={clientDetails.isOnline}
-            created_at={clientDetails.created_at}
+            symbol={clientDetails.symbol}
+            exchange_rate={clientDetails.exchange_rate}
+
+            sequence={clientDetails.sequence}
             />
 
         
@@ -64,4 +55,4 @@ width: 100%;
 const ItemStyleClint = styled.div`
 `
 
-export default ClintInformation
+export default Currencyinformation

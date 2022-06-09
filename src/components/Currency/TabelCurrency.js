@@ -102,7 +102,7 @@ const TabelCurrency = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                     <td>
                         <span>{user.exchange_rate}</span>
                     </td>
-                    <td ><span className={user.sequence === 1 ? "green" : "red"}>{user.sequence === 1 ? "متصل" : "غير متصل" }</span></td>
+                    <td ><span >{user.sequence}</span></td>
               
 
                     <td >

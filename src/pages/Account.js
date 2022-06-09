@@ -11,6 +11,8 @@ import { FiPause } from 'react-icons/fi';
 import ButtonComponent from '../Shared/Components/Button/Button';
 import TabelAllUsersMyAccount from '../components/MyAccount/TabelAllUsers';
 import ButtonOutLine from '../Shared/Components/ButtonOutLine/ButtonOutLine';
+import { AddManager} from '../store/StateSlice';
+import { useDispatch } from 'react-redux';
 
 
 const Account = ({HandelShowCustomer}) => {
@@ -18,10 +20,11 @@ const Account = ({HandelShowCustomer}) => {
     // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
     // <ClintInformation2 HandelShowCustomer='true' HandelStopCustomer='true'  />
     const [searchSort, setSortSearch] = useState("")
-
-    const handleClick = () => {
-        console.log('kldf');
-    }
+    const dispatch = useDispatch()
+    const AddManagers = () =>{
+      dispatch(AddManager(true))
+      
+  }
     return (
         <>
            <WrapperContainer>
@@ -39,8 +42,8 @@ const Account = ({HandelShowCustomer}) => {
                         </div>
                     </MainStyleAbout>    
                           <div>
-                            <ButtonComponent text='إضافة مشرف ' onClick={handleClick} Icon={FiPause} type='primary' />                                  
-                            <Link className='btn-outline btn-outline-dark' to="/Customers">سجل المشرفين  </Link>
+                            <ButtonComponent text='إضافة مدير ' onClick={AddManagers} Icon={FiPause} type='primary' />                                  
+                            <Link className='btn-outline btn-outline-dark' to="/Managers">سجل المديرين  </Link>
 
                           </div>    
                 </MainRightAbout>

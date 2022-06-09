@@ -7,20 +7,20 @@ import { useParams } from 'react-router';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Logo3 from "../../photo/slogan/user-avatar.svg"
-const AboutClint = (props) => {
+const AboutCurrency = (props) => {
     const {id,nameAr , nameEn ,logo ,mobile ,telephone ,idUser } = props
 
   return (
     <MainStyleAbout key={id}>
       <MainRightAbout>
-      <div className='photo-logo'>
-        <img src={Logo3} alt="logo" />
-      </div>
+
       <div className='apout'>
          <h5>رقم الهوية: {id}  </h5>
-        <h5>  الاسم  : {nameEn}</h5>
+        <h5>  الاسم بالانجليزي  : {nameEn}</h5>
+        <h5>  الاسم بالعربي  : {nameAr}</h5>
 
-       <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link>
+
+       <Link to={`/EditUser/${id}`}><button>تعديل العميل</button></Link>
       </div>
       </MainRightAbout>
       <MainLiftAbout>
@@ -170,4 +170,4 @@ align-items: center;
   
 }
 `
-export default AboutClint
+export default AboutCurrency

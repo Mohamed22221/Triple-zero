@@ -79,13 +79,13 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     //   </StyleForm>
     <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
       <div className='style-form' ToogleSlider={ToogleSlider}>
-        <SliderClint title="اضافه عميل"   >
+        <SliderClint title="اضافه مطعم"   >
         <InputCustomer values={values} setValues={setValues}  /> 
         </SliderClint>
       <StyleFotter>
         <div className="button">
         <MdPersonAddAlt className='MdPersonAddAlt' />
-        <button onClick={AddUser}>اضافه عميل</button>
+        <button onClick={AddUser}>اضافه مطعم</button>
         </div>
 
         <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
