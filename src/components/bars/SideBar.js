@@ -30,7 +30,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:2 ,
                 name : "المطاعم" ,
-                link: "/Restaurants" ,
+                link: "/restaurants" ,
                 icon: MdSupervisorAccount,
             
             },

@@ -86,15 +86,15 @@ function App() {
               <Route path="Triple-zero" element={<Home HandelShow={HandelShow}  />} />
 
                 <Route path="/setting" element={<Setting />} />
-              {/*Restaurants */}
-              <Route path="Restaurants/blackList" element={<ActiveBlackList 
+              {/*restaurants */}
+              <Route path="restaurants/blackList" element={<ActiveBlackList 
                  HandelShow={HandelShow}
                 showBar={showBar}
                 HandelClose={HandelClose}
                 show={show}
                 setShow={setShow}
                 />} />
-              <Route path="Restaurants" element={<Customers
+              <Route path="restaurants" element={<Customers
                 HandelShow={HandelShow}
                 showBar={showBar}
                 HandelClose={HandelClose}
@@ -103,9 +103,9 @@ function App() {
                 />} />
                 
               
-              <Route path="/Restaurants/clint" element={<Clint HandelShow={HandelShow}
+              <Route path="/restaurants" element={<Clint HandelShow={HandelShow}
                 HandelClose={HandelClose}  />} >
-                  <Route path=":clintid" element={<Clint 
+                  <Route path=":restaurantId" element={<Clint 
                   HandelShow={HandelShow} 
                   HandelClose={HandelClose}  />} >
                 </Route>

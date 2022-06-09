@@ -36,7 +36,7 @@ const TabelUsers = () => {
             return (
                 <TrBody key={index}>
                     
-                    <td><Link to={`/Restaurants/clint/${user.id}`}><img src={Logo3} alt="logo" /> </Link></td>
+                    <td><Link to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /> </Link></td>
                    
                     <td>{user.id}</td>
                     <td>{user.en_name}</td>
@@ -48,8 +48,8 @@ const TabelUsers = () => {
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
-                     <Link to={`/Restaurants/clint/${user.id}`}>التفاصيل</Link>
-                     <Link to={`/Restaurants/clint/${user.id}`}>بيانات العميل</Link>
+                     <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
+                     <Link to={`/restaurants/${user.id}`}>بيانات العميل</Link>
                      </div>
                     </td>
                 </TrBody>
