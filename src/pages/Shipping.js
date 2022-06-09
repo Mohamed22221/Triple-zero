@@ -11,7 +11,7 @@ const Shipping = ({HandelShow }) => {
         <TopBar title={" الشحن"} HandelShow={HandelShow} />
         <StyleFlex>
             <TabelShipping searchSort={searchSort} setSortSearch={setSortSearch} />
-            <AddShipping />
+            
         </StyleFlex>
     </MarginPages>
   )

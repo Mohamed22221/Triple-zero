@@ -25,6 +25,9 @@ import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import ActiveDrivers from "./components/drivers/ActiveDrivers";
 import Managers from "./pages/Managers";
 import Manager from "./components/managers/Manager"
+import AddShipping from "./components/shipping/AddShipping";
+import AddDrivers from "./components/drivers/AddDrivers";
+import AddManager from "./components/managers/AddManager";
 function App() {
   const [showBar , setShowBar] = useState(false) //side par
   const [show , setShow] = useState(false) // added clint massige
@@ -60,6 +63,10 @@ function App() {
       {loader && <PreLoader />}
       <StyleApp>
         <BrowserRouter>
+         {/* public sliders */}
+        <AddShipping />
+        <AddDrivers />
+        <AddManager />
         <OverLay HandelClose={HandelClose} showBar={showBar}  />
         
         <Routes>

@@ -8,9 +8,15 @@ import { BsTextParagraph } from 'react-icons/bs';
 import { useSelector } from 'react-redux'
 
 import { Link } from "react-router-dom";
+import ButtonsAdd from './ButtonsAdd';
 
 
 const TopBar = ({title ,HandelShow}) => {
+    // adds button
+    const [buttons , setbuttons] = useState(false)
+    const HandelButton = () => {
+        setbuttons(!buttons)
+    }
     const UserData = useSelector((state) => state.clients2.clients2)
      //filter search 
     const [filterSearch , setfilterSearch] = useState([])
@@ -52,8 +58,10 @@ const TopBar = ({title ,HandelShow}) => {
 
         <div className='icons-topbar'>
         <BsArrowClockwise className='icon-topbar' />
-        <MdAddBox className='icon-topbar' />
+        <MdAddBox className='icon-topbar' onClick={HandelButton} />
+        <ButtonsAdd buttons={buttons} setbuttons={setbuttons} />
         </div>
+       
         </StyleRightTopBar>
         <StyleLeftTopBar>
             <LoginManager />
@@ -138,6 +146,7 @@ margin-left: 20px;
     }
 }
 .icons-topbar{
+    position: relative;
     display: flex;
     cursor: pointer;
     .icon-topbar{

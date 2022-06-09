@@ -12,7 +12,7 @@ const Managers = ({HandelShow ,HandelShowCustomer }) => {
     <TopBar title={"المديرين"} HandelShow={HandelShow} />
     <StyleFlex>
         <TabelManagers searchSort={searchSort} setSortSearch={setSortSearch} />
-        <AddManager />
+        
        
     </StyleFlex>
   </MarginPages>

@@ -12,7 +12,7 @@ const Drivers = ({HandelShow ,HandelShowCustomer }) => {
     <TopBar title={"السائقين"} HandelShow={HandelShow} />
     <StyleFlex>
         <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
-        <AddDrivers />
+        
     </StyleFlex>
   </MarginPages>
   )

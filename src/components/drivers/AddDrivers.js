@@ -8,7 +8,7 @@ import FormAddDeivers from './FormAddDeivers';
 const AddDrivers = (props) => {
 
  const [deleted , setDeleted] = useState(true)
- const ToogleSlider = useSelector((state) => state.ShowAndHide.value.add)
+ const ToogleSlider = useSelector((state) => state.ShowAndHide.value.driver)
   return (
     
     <StyleyDeleteClint ToogleSlider={ToogleSlider} >

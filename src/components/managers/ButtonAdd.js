@@ -2,12 +2,12 @@ import React from 'react'
 import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { ShowAdd } from '../../store/StateSlice';
+import { AddManager } from '../../store/StateSlice';
 
 const ButtonAdd = ({}) => {
     const dispatch = useDispatch()
     const AddUsers = () =>{
-        dispatch(ShowAdd(true))
+        dispatch(AddManager(true))
       }
   return (
     <StyleButtonAdd onClick={AddUsers} >
