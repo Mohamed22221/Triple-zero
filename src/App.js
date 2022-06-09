@@ -87,7 +87,7 @@ function App() {
 
                 <Route path="/setting" element={<Setting />} />
               {/*restaurants */}
-              <Route path="restaurants/blackList" element={<ActiveBlackList 
+              <Route path="restaurants/black-list" element={<ActiveBlackList 
                  HandelShow={HandelShow}
                 showBar={showBar}
                 HandelClose={HandelClose}

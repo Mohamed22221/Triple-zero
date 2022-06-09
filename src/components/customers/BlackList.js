@@ -6,7 +6,7 @@ const BlackList = () => {
   return (
     <StyleBlackList>
         <HiDocumentDuplicate className='HiDocumentDuplicate' />
-        <Link to="/restaurants/blackList"><span>القائمه السوداء</span></Link>
+        <Link to="/restaurants/black-list"><span>القائمه السوداء</span></Link>
     </StyleBlackList>
   )
 }
