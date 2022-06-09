@@ -8,7 +8,7 @@ const SearchCustomer = ({setSortSearch ,searchSort}) => {
     }
   return (
     <StyleSearchCustomer>
-              <input type="search" placeholder='أبحث عن اسم العميل' 
+              <input type="search" placeholder='أبحث عن اسم المطعم' 
               onChange={HandelValue}  />
             <AiOutlineSearch className='icon-search'  />
     </StyleSearchCustomer>
