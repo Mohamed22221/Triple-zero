@@ -117,7 +117,7 @@ const [values, setValues] = useState(initialState)
     </StyleForm>
         <StyleButtonAdd onClick={AddUser} >
       <MdPersonAddAlt className='MdPersonAddAlt' />
-      <span > أضافه عميل </span>
+      <span > إضافة عميل </span>
     </StyleButtonAdd>
 </StyleMainInput>
   )

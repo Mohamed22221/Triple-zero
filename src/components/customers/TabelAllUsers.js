@@ -164,7 +164,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                         <span>{user.address}</span>
                     </td>
 
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشظ" }</span></td>
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>

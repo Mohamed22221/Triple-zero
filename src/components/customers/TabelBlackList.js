@@ -2,30 +2,125 @@ import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
+import SortTabel from './SortTabel';
 import {getClients2} from './../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
 
 import Logo3 from "../../photo/slogan/user-avatar.svg"
+import Axios from 'axios';
+import axios from '../../api/axios';
 
-const TabelBlackList = ({ }) => {
-    
-    const UserData = useSelector(state => state.clients2.clients2)
+const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
+    //  const UserData = useSelector((state) => state.clint.DataUser) 
+     const UserData = useSelector(state => state.clients2.clients2)
+     console.log('UserData', UserData);
+ /*   const UserData = [
+         {
+             id: 1,
+             logo: Logo3,
+             idUser: "#532Bn2 ",
+             name: "سالم العتيبي1",
+             dateSubscription: "5/6/2021",
+             price: "$1300",
+             duration: 7,
+             paymentDate: "4/6/2022",
+             state: "تاخر الدفع",
+             clintemail: "info@easymedia",
+             websitelink: "www.easymedia.agency",
+             tradetype: "مقاولات",
+             currencypaid: "المصري",
+             compony: "مازيني",
+             ReasonDelete: "فسخ العقد",
+             DeleteDate: "4/6/2022",
+         },
+        ] */ 
+
+    // axios.get('admins' ,headers: {})
+
+    // const getClients = () => {
+    //      try {
+    //          const token = localStorage.getItem('token');
+    //           axios.get('users', {
+    //              headers: {
+    //                  'Content-Type': 'application/json',
+    //                  'Accept': 'application/json',
+    //                  'Authorization': `Bearer ${token}`
+    //              }
+    //          }).then(response => {
+    //             console.log('response:' , response.data.data);
+    //         }).error(err => {
+    //             console.log('error:' , err);
+    //         })
+    //         //  Axios.get('http://tracking.000itkw.com/api/users', {
+    //         //      headers: {
+    //         //         'Content-Type': 'application/json',
+    //         //         'Accept': 'application/json',
+    //         //         'Authorization': `Bearer ${token}`
+    //         //      }
+    //         //  })
+    //         //  .then(response => {
+    //         //      console.log('response:' , response.data.data);
+    //         //  }).error(err => {
+    //         //      console.log('error:' , err);
+    //         //  })
+
+    //      } catch (err) {
+    //          console.log('err', err.message);
+    //      }
+    // }
+
     const dispatch = useDispatch();
     useEffect(() => {
-    //    getDrivers()
+    //    getClients()
     dispatch(getClients2())
     }, [dispatch])
+
+
+
 
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
         setSortedField(UserData)
     }, [UserData, setSortedField])
+    // useEffect(() => {
+    //     setSortedField(sortName)
+    // }, [setSortedField ,UserData])
+
+    const sortID = [...UserData].sort((a , b)=>{
+        return a.id < b.id ? 1 : -1;
+    })
+    const sortData = [...UserData].sort((a , b)=>{
+        return a.state > b.state ? 1 : -1;
+    })
+    const sortName = [...UserData].sort((a , b)=>{
+        return a.en_name < b.en_name ? 1 : -1;
+    })
+    const sortDuration = [...UserData].sort((a , b)=>{
+        return a.duration > b.duration ? 1 : -1;
+    })
+    const sortpaymentDate = [...UserData].sort((a , b)=>{
+        const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
+        return dateB - dateA
+    })
+
+    // console.log('sortedField', sortedField);
+    
 
   return (
   <MainTabel>
-
+      <SortTabel 
+       setSortSearch={setSortSearch} 
+       searchSort={searchSort} 
+       HandelShowCustomer={HandelShowCustomer}
+       UserData={UserData} 
+       setSortedField={setSortedField}
+       sortData={sortData} 
+       sortID={sortID} 
+       sortName={sortName} 
+       sortDuration={sortDuration}
+       sortpaymentDate={sortpaymentDate}  />
     <Tabel>
         <Thead>
             <TrHead>
@@ -36,13 +131,20 @@ const TabelBlackList = ({ }) => {
                 <th>الايميل</th>
                 <th>العنوان</th>
 
-                <th>حاله الدفع</th>
-               
+                
+                <th>الحالة</th>
                 <th>الخيارات</th>
             </TrHead>
         </Thead>
         <Tbody>
-        {sortedField.filter((item) => item.status === 0 && item).map((user , index) =>{
+        {sortedField.filter((item)=>{
+            if (searchSort === "") {
+                return item
+            } else if (item.en_name.includes(searchSort)) {
+                return item
+            }
+        }).filter(statusItem => statusItem.status == 0 )
+        .map((user , index) =>{
             return (
                 <TrBody key={index}>
                     <td><Link className='my-2' to={`/Restaurants/clint/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
@@ -63,9 +165,7 @@ const TabelBlackList = ({ }) => {
                         <span>{user.address}</span>
                     </td>
 
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشظ" }</span></td>
-                  
-
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
                     <td >
                      <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
                      <div className='select-clint'>
@@ -223,6 +323,4 @@ td:last-child{
 `
 
 
-
-
-export default TabelBlackList
+export default TabelAllUsers

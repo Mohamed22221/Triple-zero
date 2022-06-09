@@ -87,7 +87,13 @@ function App() {
 
                 <Route path="/setting" element={<Setting />} />
               {/*Restaurants */}
-              <Route path="Restaurants/blackList" element={<ActiveBlackList />} />
+              <Route path="Restaurants/blackList" element={<ActiveBlackList 
+                 HandelShow={HandelShow}
+                showBar={showBar}
+                HandelClose={HandelClose}
+                show={show}
+                setShow={setShow}
+                />} />
               <Route path="Restaurants" element={<Customers
                 HandelShow={HandelShow}
                 showBar={showBar}

@@ -59,7 +59,7 @@ const TabelActiveDrivers = ({ }) => {
                     </td>
 
 
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشظ" }</span></td>
+                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
                     <td ><span className={user.isOnline === 0 ? "green" : "red"}>{user.status === 1 ? "متصل" : "غير متصل" }</span></td>
 
                     <td >

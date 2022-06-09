@@ -81,7 +81,7 @@ const AdminsAlerts = () => {
             />
             <SwitchButton id='addNewClient'
               value={checked['addNewClient']} 
-              onChange={() => handleChange(checked, 'addNewClient')} label='أضافه العملاء الجدد:' 
+              onChange={() => handleChange(checked, 'addNewClient')} label='إضافة العملاء الجدد:' 
             />
             <SwitchButton id='editClientAccounts'
               value={checked['editClientAccounts']} 

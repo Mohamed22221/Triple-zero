@@ -5,14 +5,15 @@ import { MarginPages } from '../../styles/MarginPages'
 import TopBar from '../bars/TopBar'
 
 import TabelBlackList from './TabelBlackList'
-const ActiveBlackList = () => {
+const ActiveBlackList = ({HandelShow ,HandelShowCustomer}) => {
+  const [searchSort, setSortSearch] = useState("")
   return (
     
         
         <MarginPages>
         <TopBar title={"القائمه السوداء"}  />
             <StyleFlex>
-              <TabelBlackList />
+              <TabelBlackList  searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
             </StyleFlex>
              
         </MarginPages>

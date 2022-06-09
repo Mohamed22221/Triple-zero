@@ -54,7 +54,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
       {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
       <div className='style-form'>
       <StyleHeader>
-          <h2>أضافه عميل جديد</h2>
+          <h2>إضافة عميل جديد</h2>
           <AiOutlineClose className='icon-close' onClick={HandelClose} />
       </StyleHeader>
        <InputCustomer values={values} setValues={setValues}  /> 

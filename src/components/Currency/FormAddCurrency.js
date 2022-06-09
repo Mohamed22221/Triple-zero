@@ -80,7 +80,7 @@ console.log(values)
     </StyleForm>
         <StyleButtonAdd onClick={AddUser} >
       <MdPersonAddAlt className='MdPersonAddAlt' />
-      <span > أضافه عمله </span>
+      <span > إضافة عمله </span>
     </StyleButtonAdd>
 </StyleMainInput>
   )

@@ -24,7 +24,7 @@ const {clintemail , isOnline  ,state ,created_at  } = props
           <p>حاله الدفع</p>
         </div>
         <div className='type'>
-          <h6>{state === 1 ? "نشط" : "غير نشظ"}</h6>
+          <h6>{state === 1 ? "نشط" : "غير نشط"}</h6>
         </div>
       </div>
       <div className='item-wedget'>
