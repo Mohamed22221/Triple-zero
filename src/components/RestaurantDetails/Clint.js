@@ -4,7 +4,7 @@ import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
 import { useSelector, useDispatch } from 'react-redux'
-import {getClientDetails} from './../../store/ClintSlice2'
+import {getClientDetails} from '../../store/ClintSlice2'
 import { useParams } from 'react-router'
 
 

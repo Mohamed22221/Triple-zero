@@ -6,7 +6,7 @@ import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
-import Clint from "./components/clint/Clint";
+import Clint from "./components/RestaurantDetails/Clint";
 import ClintDrivers from "./components/drivers/Clint";
 // import EditUser from "./components/clint/EditUser_R";
 import Account from "./pages/Account";
