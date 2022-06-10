@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Clint from '../components/RestaurantDetails/Clint';
+// import Clint from '../components/RestaurantDetails/Clint';
 // import ClintInformation2 from '../components/clint/ClintInformation2_R_R';
-import WrapperContainer from '../components/RestaurantDetails/Wrapper';
+import WrapperContainer from '../components/Restaurants/RestaurantDetails/Wrapper';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
 import {CopyToClipboard} from 'react-copy-to-clipboard';

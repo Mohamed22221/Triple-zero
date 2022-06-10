@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
-import TopBar from '../bars/TopBar'
-import {MarginPages} from '../../styles/MarginPages'
+import TopBar from '../../bars/TopBar'
+import {MarginPages} from '../../../styles/MarginPages'
 // import ClintInformation from './ClintInformation'
 // import DeleteClint from './DeleteClint'
 // import StopClint from './StopClint_R_R'

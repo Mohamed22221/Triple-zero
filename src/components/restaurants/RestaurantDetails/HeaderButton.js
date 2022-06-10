@@ -4,12 +4,12 @@ import { FiPause } from 'react-icons/fi';
 import { GrPlay } from 'react-icons/gr';
 import { AiOutlineDelete } from 'react-icons/ai';
 import swal from 'sweetalert';
-import ButtonReturn from '../glopal/ButtonReturn';
+import ButtonReturn from '../../glopal/ButtonReturn';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ShowStop } from '../../store/StateSlice';
-import { ShowDelete } from '../../store/StateSlice';
-import {deleteClient, changeStatusClient} from '../../store/ClintSlice2'
+// import { ShowStop } from '../../store/StateSlice';
+// import { ShowDelete } from '../../store/StateSlice';
+import {deleteClient, changeStatusClient} from '../../../store/ClintSlice2'
 
 
 
