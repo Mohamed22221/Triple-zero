@@ -1,8 +1,12 @@
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
+import { AiOutlineClose } from 'react-icons/ai';
+import ButtonAdd from '../glopal/ButtonAdd';
 import InputCustomer from './InputCustomer';
 import { SendClint } from '../../store/ClintSlice2';
 import {  useDispatch ,useSelector } from 'react-redux'
+import ShortUniqueId from 'short-unique-id'
+import AddedClint from './AddedClint';
 import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
@@ -55,16 +59,34 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     setShow(true)
   }
   return (
+    // // TODO: ALERT 
+    // <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
+    //   {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
+    //   <div className='style-form' ToogleSlider={ToogleSlider}>
+    //     <SliderClint title="اضافه عميل"   >
+    //     <InputCustomer values={values} setValues={setValues}  /> 
+    //     </SliderClint>
+    //   <StyleFotter>
+    //     <div className="button">
+    //     <MdPersonAddAlt className='MdPersonAddAlt' />
+    //     <button onClick={AddUser}>اضافه عميل</button>
+    //     </div>
+
+    //     <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
+    //   </StyleFotter> 
+    //   </div>
+    //   }
+    //   </StyleForm>
     <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
       <div className='style-form' ToogleSlider={ToogleSlider}>
         <SliderClint title="اضافه مطعم"   >
         <InputCustomer values={values} setValues={setValues}  /> 
         </SliderClint>
       <StyleFotter>
-        <button onClick={AddUser} className="btn btn-main">
-          <MdPersonAddAlt className='MdPersonAddAlt' />
-          <span>اضافه مطعم</span>
-        </button>
+        <div className="button">
+        <MdPersonAddAlt className='MdPersonAddAlt' />
+        <button onClick={AddUser}>اضافه مطعم</button>
+        </div>
 
         <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
       </StyleFotter> 
@@ -104,8 +126,27 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 align-items: center;
-
-
+.button{
+  display: flex;
+align-items: center;
+background-color: var(--primary-color);
+padding: 8px 20px;
+width: 166px;
+text-align: center;
+cursor: pointer;
+color: white;
+border-radius: 7px;
+transition: 0.6s;
+display: flex;
+justify-content: space-evenly;
+:hover{
+  opacity: 0.7;
+}
+}
+button{
+    padding: 0 10px ;
+    color: white;
+}
 .MdPersonAddAlt{
     font-size: 25px;
 }
@@ -114,6 +155,10 @@ margin: 10px;
            
 }
 
+span{
+  font-size: 15px;
+  padding: 5px 0;
+}
 a{
   color: var(--primary-color);
 }

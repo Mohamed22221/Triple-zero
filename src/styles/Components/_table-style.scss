@@ -1,92 +1,106 @@
-.main-table{
+.main-table {
     overflow-x: auto;
-    width:100% ;
+    width: 100%;
     height: 84vh;
-    padding:  50px;
-    
-    
+    padding: 50px;
+
+
     @media (max-width:1180px) {
         padding: 0 0px;
     }
-    &::-webkit-scrollbar{
-        width: 0;   
+
+    &::-webkit-scrollbar {
+        width: 0;
     }
 
-    table{
+    table {
         text-align: center;
         border: 0px;
         border-spacing: 0px 20px;
         align-items: center;
-        width:100% ;
+        width: 100%;
         margin: 0;
         padding: 0;
+
         @media (max-width:1180px) {
             padding: 0 10px;
         }
-        @media (max-width:770px ) {
+
+        @media (max-width:770px) {
             margin-top: 10px;
             padding: 0 0px;
         }
 
-        thead{
-            background-color:var(--secound-color);
+        thead {
+            background-color: var(--secound-color);
             color: white;
-            tr{
-                th{
+
+            tr {
+                th {
                     padding: 10px 25px;
+
                     @media (max-width:720px) {
-                    font-size: 13px;
-                    padding: 10px 40px;
+                        font-size: 13px;
+                        padding: 10px 40px;
                     }
                 }
             }
         }
 
-        tbody{
+        tbody {
             border-radius: 10px;
-            tr{
+
+            tr {
                 padding: 10px 5px;
                 border-top: 10px solid #ebebebe6;
 
                 td {
-                    background-color: white;    
-                    
+                    background-color: white;
+
                     color: var(--font);
                     font-size: 17px;
-                    &:first-child{
+
+                    &:first-child {
                         border-radius: 0px 10px 10px 0;
                     }
-                    &:last-child{
+
+                    &:last-child {
                         border-radius: 10px 0px 0px 10px;
                     }
-                    img{
+
+                    img {
                         width: 60px;
                         height: 60px;
                         border-radius: 50%;
                     }
-                    .BiDotsHorizontalRounded{
+
+                    .BiDotsHorizontalRounded {
                         margin-top: 10px;
                         font-size: 30px;
                         cursor: pointer;
 
                     }
+
                     @media (max-width:720px) {
-                    font-size: 15px;
-                    
+                        font-size: 15px;
+
                     }
                 }
-                td:last-child{
+
+                td:last-child {
                     position: relative;
-                    &:hover{
-                        .select-clint{
+
+                    &:hover {
+                        .select-clint {
                             transform: scale(1);
-                            transform-origin: 0 100% 100% 100% ;
-                        }  
+                            transform-origin: 0 100% 100% 100%;
+                        }
                     }
-                    .select-clint{
-                        box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.46);
-                        -webkit-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.40);
-                        -moz-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.30);
+
+                    .select-clint {
+                        box-shadow: -2px 5px 13px -4px rgba(0, 0, 0, 0.46);
+                        -webkit-box-shadow: -2px 5px 13px -4px rgba(0, 0, 0, 0.40);
+                        -moz-box-shadow: -2px 5px 13px -4px rgba(0, 0, 0, 0.30);
                         position: absolute;
                         transform: scale(0);
                         transform-origin: 20% 40%;
@@ -97,15 +111,17 @@
                         display: flex;
                         flex-direction: column;
                         background-color: white;
-                        transition: 0.4s;    
-                        a{
+                        transition: 0.4s;
+
+                        a {
                             font-size: 14px;
                             font-weight: bold;
                             color: var(--font);
                             cursor: pointer;
                             padding: 5px 0;
                             border-bottom: 1px solid black;
-                            &:last-child{
+
+                            &:last-child {
                                 border-bottom: none;
                             }
 
@@ -113,20 +129,21 @@
                     }
                 }
 
-                .red{
+                .red {
                     color: var(--danger-color);
                     font-weight: bold;
                     background-color: #ff000015;
                     padding: 10px;
-                    border-radius:30px ;
-                        
-                    }
-                .green{
+                    border-radius: 30px;
+
+                }
+
+                .green {
                     color: var(--succes-color);
                     font-weight: bold;
                     background-color: #00800015;
                     padding: 10px;
-                    border-radius:30px ;
+                    border-radius: 30px;
                 }
             }
         }

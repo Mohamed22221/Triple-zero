@@ -1,16 +1,22 @@
 import React from 'react'
-import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
-import ButtonAdd from './ButtonAdd';
-const AddClint = ({HandelShowCustomer }) => {
+import { useDispatch } from 'react-redux';
+import { ShowAdd } from '../../store/StateSlice';
+const AddClint = () => {
+  const dispatch = useDispatch()
+  const AddUsers = () => {
+    dispatch(ShowAdd(true))
+  }
   return (
-    <StyleAddClint onClick={HandelShowCustomer}>
-      <ButtonAdd />
-    </StyleAddClint>
+    <div >
+      <button className='btn btn-main' onClick={AddUsers} >
+        <MdPersonAddAlt className='MdPersonAddAlt' />
+        <span> إضافة مطعم </span>
+      </button>
+    </div>
   )
 }
-const StyleAddClint = styled.div`
-`
+
 
 
 export default AddClint

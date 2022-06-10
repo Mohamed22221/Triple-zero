@@ -12,9 +12,9 @@ import { useParams } from 'react-router'
 
 const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
   const dispatch = useDispatch()
-  let { clintid } = useParams();
+  let { restaurantId } = useParams();
   useEffect(() => {
-      dispatch(getClientDetails(clintid))
+      dispatch(getClientDetails(restaurantId))
   }, [getClientDetails])
 
   //TODO: clientDetails

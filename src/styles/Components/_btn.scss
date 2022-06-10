@@ -1,42 +1,47 @@
 .btn-outline{
-    // display: flex;
     align-items: center;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px;
-    font-size: 16px;
     background-color: transparent;
-    cursor: pointer;
-    // color: white;
-    margin: 8px 10px;
-    padding: 10px 25px;
     border-radius: 8px;
-    cursor: pointer;
+    a,span{
+        padding: 0 2px;
+    }
     &.btn-outline-dark{
         border: 1px solid var(--font);
         color: var(--font);
+        a{
+            color: var(--font);
+        }
     }
     &.btn-outline-danger{
         border: 1px solid #be0e08;
         color: #be0e08;
         
     }
-   
+}
+
+.btn{
+    color: #fff;
+    &:hover, &:focus{
+        background: transparent;
+    }
+    span{
+        padding: 0 2px;
+    }
+}
+.btn-main{
+    background: #FBA30D;
+    &:hover, &:focus{
+        color: #FBA30D;
+    }
+}
+.btn-dark{
+    &:hover, &:focus{
+        color: #212529;
+    }
 }
 
 
-// .btn{
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     padding: 8px 10px;
-//     font-size: 16px;
-//     cursor: pointer;
-//     margin: 8px 10px;
-//     padding: 10px 25px;
-//     border-radius: 8px;
-    
-   
-// }
 
 
