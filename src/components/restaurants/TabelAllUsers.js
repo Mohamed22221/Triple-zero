@@ -10,6 +10,7 @@ import Logo1 from "../../photo/slogan/logo-rest.png"
 
 const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
     const UserData = useSelector(state => state.clients2.clients2)
+    const listView = useSelector(state => state.clients2.listView)
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -41,8 +42,6 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
         const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
         return dateB - dateA
     })
-
-    const [listView, setListView] = useState(false)
 
 
     const dataRender =  (
@@ -108,7 +107,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
             </tbody>
         </table> 
         : 
-        <>
+        <div className='row mt-2'>
             {sortedField.filter((item) => {
                 if (searchSort === "") {
                     return item
@@ -117,7 +116,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                 }
             }).map((user, index) => {
                 return (
-                    <div className='col-lg-3'>
+                    <div className='col-lg-3 mt-3'>
                         <div className="card">
                             <Link to={`/restaurants/${user.id}`} className='img-parent'>
                                 <img src={Logo1} className="card-img-top" alt="..." />
@@ -151,7 +150,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                    </div>
                 )
             })}
-        </>
+        </div>
 
                
     )
@@ -169,11 +168,9 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                 sortName={sortName}
                 sortDuration={sortDuration}
                 sortpaymentDate={sortpaymentDate}
-                listView={listView}
-                setListView={setListView}
                 />
                 
-            <div className='row mt-5 gird-show'>
+            <div className='gird-show'>
                 {dataRender}
             </div>
 

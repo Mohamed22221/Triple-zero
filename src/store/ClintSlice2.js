@@ -81,6 +81,14 @@ export const deleteClient = createAsyncThunk('clients2/deleteClient', async (id,
 })
 
 
+// deleteClient
+export const handleListView = createAsyncThunk('clients2/handleListView', async (id, thunkAPI) => {
+
+  return id
+  
+})
+
+
 
 
 
@@ -94,6 +102,7 @@ export const ClintSlice = createSlice({
     clients2: [],
     clientDetails: {},
     error: null ,
+    listView: true,
     blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 
     ]
@@ -110,6 +119,10 @@ export const ClintSlice = createSlice({
         [getClients2.rejected]: (state, action) => {
           state.error = action;
           console.log('action', action);
+        },
+        [handleListView.fulfilled]: (state, action) => {
+          state.listView = action.payload
+          // console.log('ac', action.payload);
         },
         
 
@@ -156,20 +169,14 @@ export const ClintSlice = createSlice({
       
     
   },
-  /*reducer :{
-         addClintBlackList: (state ,action) => {
-       const FindMenueIndex =  state.blackList.findIndex((item) => item.name == action.payload.name)
-         if (FindMenueIndex >= 0) {
-             state.blackList[FindMenueIndex].quantityUp += 1 
-         }else{
-             const CartDistracture = {...action.payload ,quantityUp : 1}
-             state.blackList.push(CartDistracture)
-             state.clients2 = state.clients2.filter(item =>item.user_id !== action.payload.userid)
-         }
-         localStorage.setItem("blackList",JSON.stringify(state.blackList))
-         localStorage.setItem("clients2",JSON.stringify(state.clients2))
-  }
-}*/
+//   reducer :{
+//     handleListView: (state ,action) => {
+//       state.listView = !state.listView
+//       console.log('state.listView', state.listView);
+         
+//   }
+// }
+
 })
 
 
@@ -178,6 +185,6 @@ export const ClintSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { addClint, removeClint,ReturnClint, editClint ,addClintBlackList } = ClintSlice.actions
+export const { addClint, removeClint, ReturnClint, editClint, addClintBlackList } = ClintSlice.actions
 
 export default ClintSlice.reducer

@@ -7,13 +7,17 @@ import { AiOutlineAppstore } from 'react-icons/ai';
 import SearchCustomer from './Search';
 import SortBy from './SortBy';
 import ButtonReturn from '../glopal/ButtonReturn';
+import { useSelector, useDispatch } from 'react-redux';
+import { handleListView } from './../../store/ClintSlice2'
 
 
 
 
 const SortTabel = (props) => {
-  const { HandelShowCustomer, setSortSearch, searchSort, setSortedField, sortData, sortID, sortName, sortDuration, sortpaymentDate, listView, setListView } = props
+  const { HandelShowCustomer, setSortSearch, searchSort, setSortedField, sortData, sortID, sortName, sortDuration, sortpaymentDate } = props
   const location = useLocation();
+  const dispatch = useDispatch()
+  const listView = useSelector(state => state.clients2.listView)
 
 
   return (
@@ -23,8 +27,8 @@ const SortTabel = (props) => {
       }
 
       <div className='style-icons-sort'>
-        <AiOutlineBars className={`sort-icon ${listView ? 'active': '' }`} onClick={() => setListView(true)}  />
-        <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => setListView(false)} />
+        <AiOutlineBars className={`sort-icon ${listView ? 'active': '' }`} onClick={() => dispatch(handleListView(true))}  />
+        <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(false))} />
       </div>
       <SearchCustomer
         searchSort={searchSort}
