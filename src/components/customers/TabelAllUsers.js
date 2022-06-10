@@ -1,5 +1,4 @@
 import React , {useState ,useEffect} from 'react'
-import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
@@ -55,7 +54,6 @@ const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         sortName={sortName} 
         sortDuration={sortDuration}
         sortpaymentDate={sortpaymentDate}  />
-        // TODO: table
         <table>
             <thead>
                 <tr>
