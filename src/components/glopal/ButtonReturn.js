@@ -18,7 +18,7 @@ const MainReturnClints = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 10px;
+// padding: 10px;
 
 span ,.icon-button , a{
     color: var(--font);

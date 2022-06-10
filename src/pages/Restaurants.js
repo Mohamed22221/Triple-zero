@@ -7,7 +7,7 @@ import GlopalTabel from '../components/glopal/GlopalTabel'
 import {MarginPages} from '../styles/MarginPages'
 import { useSelector, useDispatch } from 'react-redux'
 
-const Customers = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose ,show,setShow }
+const Restaurants = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose ,show,setShow }
   
   ) => {
 
@@ -28,4 +28,4 @@ const Customers = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose ,s
 const StyleFlex = styled.div`
 
 `
-export default Customers
+export default Restaurants

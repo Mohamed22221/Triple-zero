@@ -5,7 +5,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
-import Customers from "./pages/Customers";
+import Restaurants from "./pages/Restaurants";
 import Clint from "./components/RestaurantDetails/Clint";
 import ClintDrivers from "./components/drivers/Clint";
 // import EditUser from "./components/clint/EditUser_R";
@@ -85,30 +85,35 @@ function App() {
                 <Route path="Triple-zero" element={<Home HandelShow={HandelShow} />} />
 
                 <Route path="/setting" element={<Setting />} />
-                {/*restaurants */}
-                <Route path="restaurants/black-list" element={<ActiveBlackList
-                  HandelShow={HandelShow}
-                  showBar={showBar}
-                  HandelClose={HandelClose}
-                  show={show}
-                  setShow={setShow}
-                />} />
-                <Route path="restaurants" element={<Customers
-                  HandelShow={HandelShow}
-                  showBar={showBar}
-                  HandelClose={HandelClose}
-                  show={show}
-                  setShow={setShow}
-                />} />
 
 
-                <Route path="/restaurants" element={<Clint HandelShow={HandelShow}
-                  HandelClose={HandelClose} />} >
+
+                {/*Restaurants Routes */}
+                <Route path="restaurants">
+                  <Route path="" element={<Restaurants
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
                   <Route path=":restaurantId" element={<Clint
                     HandelShow={HandelShow}
-                    HandelClose={HandelClose} />} >
-                  </Route>
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="black-list" element={<ActiveBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
                 </Route>
+
+
+                {/* <Route path="/restaurants" element={<Clint HandelShow={HandelShow}
+                  HandelClose={HandelClose} />} > */}
+                {/* </Route> */}
                 {/*shipping-companies */}
                 <Route path="shipping-companies" element={<Shipping HandelShow={HandelShow} />} />
                 <Route path="shipping-companies/blackList" element={<DisActiveBlackList />} />
