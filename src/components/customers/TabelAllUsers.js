@@ -42,83 +42,82 @@ const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         return dateB - dateA
     })
 
-    
-
   return (
-  <div className="main-table">
-      <SortTabel 
-       setSortSearch={setSortSearch} 
-       searchSort={searchSort} 
-       HandelShowCustomer={HandelShowCustomer}
-       UserData={UserData} 
-       setSortedField={setSortedField}
-       sortData={sortData} 
-       sortID={sortID} 
-       sortName={sortName} 
-       sortDuration={sortDuration}
-       sortpaymentDate={sortpaymentDate}  />
-    <table>
-        <thead>
-            <tr>
-                <th >الشعار</th>
-                <th >#</th>
-                <th> الأسم بالانجليزي</th>
-                <th>رقم التليفون</th>
-                <th>الايميل</th>
-                <th>العنوان</th>
+    <div className="main-table">
+        <SortTabel 
+        setSortSearch={setSortSearch} 
+        searchSort={searchSort} 
+        HandelShowCustomer={HandelShowCustomer}
+        UserData={UserData} 
+        setSortedField={setSortedField}
+        sortData={sortData} 
+        sortID={sortID} 
+        sortName={sortName} 
+        sortDuration={sortDuration}
+        sortpaymentDate={sortpaymentDate}  />
+        // TODO: table
+        <table>
+            <thead>
+                <tr>
+                    <th >الشعار</th>
+                    <th >#</th>
+                    <th> الأسم بالانجليزي</th>
+                    <th>رقم التليفون</th>
+                    <th>الايميل</th>
+                    <th>العنوان</th>
 
-                
-                <th>الحالة</th>
-                <th>شركة الشحن</th>
-                <th>الخيارات</th>
-            </tr>
-        </thead>
-        <tbody>
-        {sortedField.filter((item)=>{
-            if (searchSort === "") {
-                return item
-            } else if (item.en_name.includes(searchSort)) {
-                return item
-            }
-        }).map((user , index) =>{
-            return (
-                <tr key={index}>
-                    <td><Link className='my-2' to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
-                    <td>
-                        <Link className='text-link' to={`/restaurants/${user.id}`}>{user.id}#</Link>
-                    </td>
-                    <td>
-                        <span>{user.en_name}</span>
-                    </td>
-
-                    <td>
-                        <span>{user.mobile}</span>
-                    </td>
-                    <td>
-                        <span>{user.email}</span>
-                    </td>
-                    <td>
-                        <span>{user.address}</span>
-                    </td>
-
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
-                    <td>
-                        <span>{user.user.ar_name }</span>
-                    </td>
-                    <td >
-                     <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
-                     <div className='select-clint'>
-                         <Link to={`/restaurants/${user.id}`}>بيانات المطعم</Link>
-                         <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
-                     </div>
-                    </td>
+                    
+                    <th>الحالة</th>
+                    <th>شركة الشحن</th>
+                    <th>الخيارات</th>
                 </tr>
-            )
-        })}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {sortedField.filter((item)=>{
+                if (searchSort === "") {
+                    return item
+                } else if (item.en_name.includes(searchSort)) {
+                    return item
+                }
+            }).map((user , index) =>{
+                return (
+                    <tr key={index}>
+                        <td><Link className='my-2' to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
+                        <td>
+                            <Link className='text-link' to={`/restaurants/${user.id}`}>{user.id}#</Link>
+                        </td>
+                        <td>
+                            <span>{user.en_name}</span>
+                        </td>
 
-  </div> 
+                        <td>
+                            <span>{user.mobile}</span>
+                        </td>
+                        <td>
+                            <span>{user.email}</span>
+                        </td>
+                        <td>
+                            <span>{user.address}</span>
+                        </td>
+
+                        <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
+                        <td>
+                            <span>{user.user.ar_name }</span>
+                        </td>
+                        <td >
+                        <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
+                        <div className='select-clint'>
+                            <Link to={`/restaurants/${user.id}`}>بيانات المطعم</Link>
+                            <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
+                        </div>
+                        </td>
+                    </tr>
+                )
+            })}
+            </tbody>
+        </table>
+
+    </div> 
   )
 }
 
