@@ -7,10 +7,10 @@ import SendSuccess from '../glopal/SendSuccess';
 const DeleteClint = () => {
 
  const [deleted , setDeleted] = useState(true)
- const ToogleSlider = useSelector((state) => state.ShowAndHide.value.delete)
+ const toogleslider= useSelector((state) => state.ShowAndHide.value.delete)
   return (
     
-    <StyleyDeleteClint ToogleSlider={ToogleSlider} >
+    <StyleyDeleteClint toogleslider={toogleslider} >
       { deleted == true ?
       <div>
         <SliderClint title="حذف العميل">
@@ -38,7 +38,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.ToogleSlider ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 
 `

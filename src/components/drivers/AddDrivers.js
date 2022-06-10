@@ -8,10 +8,10 @@ import FormAddDeivers from './FormAddDeivers';
 const AddDrivers = (props) => {
 
  const [deleted , setDeleted] = useState(true)
- const ToogleSlider = useSelector((state) => state.ShowAndHide.value.driver)
+ const toogleslider= useSelector((state) => state.ShowAndHide.value.driver)
   return (
     
-    <StyleyDeleteClint ToogleSlider={ToogleSlider} >
+    <StyleyDeleteClint toogleslider={toogleslider} >
       <div>
         <SliderClint title="اضافه سائق">
           <FormAddDeivers setDeleted={setDeleted} />
@@ -37,7 +37,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.ToogleSlider ? 'translateX(0px)  ' : '  translateX(590px)  '};
+transform: ${(props) => props.toogleslider ? 'translateX(0px)  ' : '  translateX(590px)  '};
 
 
 `

@@ -13,7 +13,7 @@ import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 
 const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
-  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.add)
+  const toogleslider = useSelector((state) => state.ShowAndHide.value.add)
 
   //get date today
   const today = new Date();
@@ -60,9 +60,9 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   }
   return (
     // // TODO: ALERT 
-    // <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
+    // <StyleForm showCustomer={showCustomer} toogleslider={toogleslider}>
     //   {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
-    //   <div className='style-form' ToogleSlider={ToogleSlider}>
+    //   <div className='style-form' toogleslider={toogleslider}>
     //     <SliderClint title="اضافه عميل"   >
     //     <InputCustomer values={values} setValues={setValues}  /> 
     //     </SliderClint>
@@ -77,8 +77,8 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     //   </div>
     //   }
     //   </StyleForm>
-    <StyleForm showCustomer={showCustomer} ToogleSlider={ToogleSlider}>
-      <div className='style-form' ToogleSlider={ToogleSlider}>
+    <StyleForm showCustomer={showCustomer} toogleslider={toogleslider}>
+      <div className='style-form' toogleslider={toogleslider}>
         <SliderClint title="اضافه مطعم"   >
         <InputCustomer values={values} setValues={setValues}  /> 
         </SliderClint>
@@ -117,7 +117,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.ToogleSlider ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 `
 

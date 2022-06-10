@@ -7,11 +7,11 @@ import { useSelector } from 'react-redux';
 import SendSuccess from '../glopal/SendSuccess';
 
 const StopClint = ({showStopClint }) => {
-  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.stop)
+  const toogleslider= useSelector((state) => state.ShowAndHide.value.stop)
   const [stoped , setStoped] = useState(true)
 
   return (
-    <StyleyStopClint ToogleSlider={ToogleSlider}   >
+    <StyleyStopClint toogleslider={toogleslider}   >
         { stoped == true ?
       <div>
      <SliderClint title="ايقاف العميل">
@@ -37,7 +37,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.ToogleSlider ? 'translateX(550px)  ' : '  translateX(590px)  '};
+transform: ${(props) => props.toogleslider ? 'translateX(550px)  ' : '  translateX(590px)  '};
 
 
 `

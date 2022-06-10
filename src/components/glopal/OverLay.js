@@ -6,7 +6,7 @@ import { HideSlider, ShowSlider } from '../../store/StateSlice';
 
 
 const OverLay = ({setShowBar ,showBar }) => {
-  const ToogleSlider = useSelector((state) => state.ShowAndHide.value.overLay)
+  const toogleslider= useSelector((state) => state.ShowAndHide.value.overLay)
   
   const dispatch = useDispatch()
 
@@ -15,7 +15,7 @@ const OverLay = ({setShowBar ,showBar }) => {
     setShowBar(false)
   }
   return (
-    <StyleOverLay id='overLay' onClick={HandelCloseOverLay} showBar={showBar} ToogleSlider={ToogleSlider}></StyleOverLay>
+    <StyleOverLay id='overLay' onClick={HandelCloseOverLay} showBar={showBar} toogleslider={toogleslider}></StyleOverLay>
   )
 }
 const StyleOverLay = styled.div`
@@ -26,7 +26,7 @@ left: 0;
 right: 0;
 bottom: 0;
 opacity: 0.3;
-display: ${props =>  props.showBar  ?  "block" : props.ToogleSlider ? "block" : "none"};
+display: ${props =>  props.showBar  ?  "block" : props.toogleslider ? "block" : "none"};
 z-index: 99;
 cursor: pointer;
 
