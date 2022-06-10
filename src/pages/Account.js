@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Clint from '../components/clint/Clint';
-import ClintInformation2 from '../components/clint/ClintInformation2';
+// import ClintInformation2 from '../components/clint/ClintInformation2_R_R';
 import WrapperContainer from '../components/clint/Wrapper';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';

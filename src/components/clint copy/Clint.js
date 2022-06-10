@@ -3,6 +3,7 @@ import styled from "styled-components"
 import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
+import DeleteClint from './DeleteClint'
 import { useSelector, useDispatch } from 'react-redux'
 import {getClientDetails} from './../../store/ClintSlice2'
 import { useParams } from 'react-router'
@@ -23,6 +24,8 @@ const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,Hand
     
     <StyleFlex>
      <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
+     <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
+     {/* <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} /> */}
     </StyleFlex>
     
     </MarginPages>

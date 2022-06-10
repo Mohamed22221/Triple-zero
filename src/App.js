@@ -8,7 +8,7 @@ import OverLay from "./components/glopal/OverLay";
 import Customers from "./pages/Customers";
 import Clint from "./components/clint/Clint";
 import ClintDrivers from "./components/drivers/Clint";
-import EditUser from "./components/clint/EditUser";
+// import EditUser from "./components/clint/EditUser_R";
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
 import ClintShipping from "./components/shipping/Clint"
@@ -155,9 +155,9 @@ function App() {
                   HandelShow={HandelShow}
                   HandelClose={HandelClose} />} />
 
-                <Route path="/EditUser" element={<EditUser HandelShow={HandelShow} />} >
+                {/* <Route path="/EditUser" element={<EditUser HandelShow={HandelShow} />} >
                   <Route path="/EditUser/:userid" element={<EditUser />} />
-                </Route>
+                </Route> */}
 
               </Route>
 

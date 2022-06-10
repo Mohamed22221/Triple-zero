@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import styled from "styled-components"
-import ButtonStop from './ButtonStop'
 import { FiPause } from 'react-icons/fi';
 import { addClintBlackList } from '../../store/ClintSlice'
 

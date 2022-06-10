@@ -3,8 +3,8 @@ import styled from "styled-components"
 import TopBar from '../bars/TopBar'
 import {MarginPages} from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
-// import DeleteClint from './DeleteClint'
-// import StopClint from './StopClint_R_R'
+import DeleteClint from './DeleteClint'
+import StopClint from './StopClint'
 
 
 const WrapperContainer = ({children, HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {

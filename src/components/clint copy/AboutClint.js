@@ -24,7 +24,7 @@ const AboutClint = (props) => {
         <p>رقم الموبايل : {mobile}</p>
         
 
-       {/* <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link> */}
+       <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link>
       </div>
       </MainRightAbout>
       <MainLiftAbout>
