@@ -5,7 +5,7 @@ import AboutClint from './AboutClint'
 
 import TabelClient from './TabelClient'
 import { useDispatch, useSelector } from 'react-redux'
-import {getClientDetails} from './../../store/ClintSlice2'
+import {getClientDetails} from '../../store/ClintSlice2'
 import { SendClint } from '../../store/ClintSlice2';
 import HeaderButton from './HeaderButton'
 

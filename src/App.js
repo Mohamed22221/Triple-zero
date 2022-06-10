@@ -11,7 +11,7 @@ import ClintDrivers from "./components/drivers/Clint";
 // import EditUser from "./components/clint/EditUser_R";
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
-import ClintShipping from "./components/shipping/Clint"
+import ClintShipping from "./components/Shipping/Clint"
 import Setting from "./pages/Setting";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -23,14 +23,14 @@ import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import ActiveDrivers from "./components/drivers/ActiveDrivers";
 import Managers from "./pages/Managers";
 import Manager from "./components/managers/Manager"
-import AddShipping from "./components/shipping/AddShipping";
+import AddShipping from "./components/Shipping/AddShipping";
 import AddDrivers from "./components/drivers/AddDrivers";
 import AddManager from "./components/managers/AddManager";
 import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
-import ActiveBlackList from "./components/restaurants/BlackList";
-import DisActiveBlackList from "./components/shipping/DisActiveBlackList";
-import ClintForm from "./components/restaurants/ClintForm";
+import ActiveBlackList from "./components/Restaurants/BlackList";
+import DisActiveBlackList from "./components/Shipping/DisActiveBlackList";
+import ClintForm from "./components/Restaurants/ClintForm";
 import OneCurrency from "./components/Currency/OneCurrency";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par

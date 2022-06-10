@@ -2,7 +2,7 @@ import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import {getShipping} from './../../store/ShippingSlice'
+import {getShipping} from '../../store/ShippingSlice'
 import { Link } from "react-router-dom";
 // import Logo3 from "../photo/slogan/slogan2.svg"
 

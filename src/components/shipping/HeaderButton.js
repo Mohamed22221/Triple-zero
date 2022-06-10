@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ShowStop } from '../../store/StateSlice';
 import { ShowDelete } from '../../store/StateSlice';
-import {changeStatusShipping, deleteShipping} from './../../store/ShippingSlice'
+import {changeStatusShipping, deleteShipping} from '../../store/ShippingSlice'
 
 
 
