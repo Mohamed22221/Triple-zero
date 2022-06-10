@@ -21,8 +21,6 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
    const navigate = useNavigate();
    const location = useLocation();
    const from = location.state?.from?.pathname || "/restaurants";
-//    <button onClick={() => dispatch(ShowStop(true)) }><FiPause className='icon-button' />أقاف مؤقت</button>
-//    <button  onClick={() =>dispatch(ShowDelete(true))} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
 
 
 const statusVal = status == 1 ? true : false;
@@ -32,7 +30,6 @@ const [handelStatus, setHandelStatus] = useState(statusVal);
 const handelStatusClient = () => {
 
 
-    // const title = statusVal ? 'هل تريد حقا ايقاف هذا العميل' : 'هل تريد حقا اعاده هذا العميل'
     const text = handelStatus ? 'من ايقاف هذا العميل' : 'من اعادة تشغيل هذا العميل'
 
     swal({
