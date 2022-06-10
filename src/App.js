@@ -28,9 +28,9 @@ import AddDrivers from "./components/drivers/AddDrivers";
 import AddManager from "./components/managers/AddManager";
 import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
-import ActiveBlackList from "./components/customers/BlackList";
+import ActiveBlackList from "./components/restaurants/BlackList";
 import DisActiveBlackList from "./components/shipping/DisActiveBlackList";
-import ClintForm from "./components/customers/ClintForm";
+import ClintForm from "./components/restaurants/ClintForm";
 import OneCurrency from "./components/Currency/OneCurrency";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par

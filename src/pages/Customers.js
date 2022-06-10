@@ -1,8 +1,8 @@
 import React , {useState ,useEffect} from 'react'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
-import ClintForm from '../components/customers/ClintForm'
-import TabelAllUsers from '../components/customers/TabelAllUsers'
+import ClintForm from '../components/restaurants/ClintForm'
+import TabelAllUsers from '../components/restaurants/TabelAllUsers'
 import GlopalTabel from '../components/glopal/GlopalTabel'
 import {MarginPages} from '../styles/MarginPages'
 import { useSelector, useDispatch } from 'react-redux'

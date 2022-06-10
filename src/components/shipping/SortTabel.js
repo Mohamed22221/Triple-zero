@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import IconsSort from '../customers/IconsSort'
+import IconsSort from '../restaurants/IconsSort'
 import BlackList from './BlackList'
 import ButtonAdd from './ButtonAdd'
 

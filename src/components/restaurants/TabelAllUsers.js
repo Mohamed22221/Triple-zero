@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
-import { getClients2 } from './../../store/ClintSlice2'
+import { getClients2 } from '../../store/ClintSlice2'
 import { Link } from "react-router-dom";
 
 import Logo3 from "../../photo/slogan/user-avatar.svg"
