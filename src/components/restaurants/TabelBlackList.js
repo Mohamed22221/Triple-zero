@@ -43,116 +43,128 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
         return dateB - dateA
     })
 
+    const sortedFieldBlackList = sortedField.filter(statusItem => statusItem.status == 0)
+
+
 
     const dataRender = (
-        listView ?
-            <table>
-                <thead>
-                    <tr>
-                        <th >الشعار</th>
-                        <th >#</th>
-                        <th> الأسم بالانجليزي</th>
-                        <th>رقم التليفون</th>
-                        <th>الايميل</th>
-                        <th>العنوان</th>
+        <>
+            {
+                sortedFieldBlackList.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد مطاعم</h3></div>
+                    : <>
+                        {listView ?
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th >الشعار</th>
+                                        <th >#</th>
+                                        <th> الأسم بالانجليزي</th>
+                                        <th>رقم التليفون</th>
+                                        <th>الايميل</th>
+                                        <th>العنوان</th>
 
 
-                        <th>الحالة</th>
-                        <th>شركة الشحن</th>
-                        <th>الخيارات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedField.filter((item) => {
-                        if (searchSort === "") {
-                            return item
-                        } else if (item.en_name.includes(searchSort)) {
-                            return item
-                        }
-                    }).filter(statusItem => statusItem.status == 0 ).map((user, index) => {
-                        return (
-                            <tr key={index}>
-                                <td><Link className='my-2' to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
-                                <td>
-                                    <Link className='text-link' to={`/restaurants/${user.id}`}>{user.id}#</Link>
-                                </td>
-                                <td>
-                                    <span>{user.en_name}</span>
-                                </td>
+                                        <th>الحالة</th>
+                                        <th>شركة الشحن</th>
+                                        <th>الخيارات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <>
+                                        {sortedFieldBlackList.filter((item) => {
+                                            if (searchSort === "") {
+                                                return item
+                                            } else if (item.en_name.includes(searchSort)) {
+                                                return item
+                                            }
+                                        }).map((user, index) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <td><Link className='my-2' to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
+                                                    <td>
+                                                        <Link className='text-link' to={`/restaurants/${user.id}`}>{user.id}#</Link>
+                                                    </td>
+                                                    <td>
+                                                        <span>{user.en_name}</span>
+                                                    </td>
 
-                                <td>
-                                    <span>{user.mobile}</span>
-                                </td>
-                                <td>
-                                    <span>{user.email}</span>
-                                </td>
-                                <td>
-                                    <span>{user.address}</span>
-                                </td>
+                                                    <td>
+                                                        <span>{user.mobile}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>{user.email}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>{user.address}</span>
+                                                    </td>
 
-                                <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
-                                <td>
-                                    <span>{user.user.ar_name}</span>
-                                </td>
-                                <td >
-                                    <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
-                                    <div className='select-clint'>
-                                        <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
-                                        <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
-                                    </div>
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            :
-            <div className='row mt-2'>
-                {sortedField.filter((item) => {
-                    if (searchSort === "") {
-                        return item
-                    } else if (item.en_name.includes(searchSort)) {
-                        return item
-                    }
-                }).filter(statusItem => statusItem.status == 0 ).map((user, index) => {
-                    return (
-                        <div className='col-lg-3 mt-3'>
-                            <div className="card">
-                                <Link to={`/restaurants/${user.id}`} className='img-parent'>
-                                    <img src={Logo1} className="card-img-top" alt="..." />
-                                </Link>
-                                <div className="card-body text-center">
-                                    <h6 className="card-title mb-1">
-                                        <Link to={`/restaurants/${user.id}`}>{user.en_name}</Link>
-                                    </h6>
-                                    <p className='mt-2'>
-                                        <a href={`tel:+${user.mobile}`}>{user.mobile}</a>
-                                    </p>
-                                    <div className='row actions-btns'>
-                                        <div className='col-3 p-0 actions-list'>
-                                            <span>
-                                                <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" className="BiDotsHorizontalRounded" height="30" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
-                                                <div className='select-clint'>
-                                                    <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
-                                                    <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
+                                                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
+                                                    <td>
+                                                        <span>{user.user.ar_name}</span>
+                                                    </td>
+                                                    <td >
+                                                        <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
+                                                        <div className='select-clint'>
+                                                            <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
+                                                            <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+
+                                    </>
+                                </tbody>
+                            </table>
+                            :
+                            <div className='row mt-2'>
+                                {sortedField.filter((item) => {
+                                    if (searchSort === "") {
+                                        return item
+                                    } else if (item.en_name.includes(searchSort)) {
+                                        return item
+                                    }
+                                }).filter(statusItem => statusItem.status == 0).map((user, index) => {
+                                    return (
+                                        <div className='col-lg-3 mt-3'>
+                                            <div className="card">
+                                                <Link to={`/restaurants/${user.id}`} className='img-parent'>
+                                                    <img src={Logo1} className="card-img-top" alt="..." />
+                                                </Link>
+                                                <div className="card-body text-center">
+                                                    <h6 className="card-title mb-1">
+                                                        <Link to={`/restaurants/${user.id}`}>{user.en_name}</Link>
+                                                    </h6>
+                                                    <p className='mt-2'>
+                                                        <a href={`tel:+${user.mobile}`}>{user.mobile}</a>
+                                                    </p>
+                                                    <div className='row actions-btns'>
+                                                        <div className='col-3 p-0 actions-list'>
+                                                            <span>
+                                                                <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" className="BiDotsHorizontalRounded" height="30" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
+                                                                <div className='select-clint'>
+                                                                    <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
+                                                                    <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
+                                                                </div>
+                                                            </span>
+                                                        </div>
+                                                        <div className='col-4 p-0 flex-center'>
+                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span>
+                                                        </div>
+                                                        <div className='col-5 p-0'>
+                                                            <Link to={`/restaurants/${user.id}`} className="btn btn-main">التفاصيل</Link>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </span>
+                                            </div>
                                         </div>
-                                        <div className='col-4 p-0 flex-center'>
-                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span>
-                                        </div>
-                                        <div className='col-5 p-0'>
-                                            <Link to={`/restaurants/${user.id}`} className="btn btn-main">التفاصيل</Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
+                                    )
+                                })}
+                            </div>}
 
-
+                    </>
+            }
+        </>
     )
 
     return (
