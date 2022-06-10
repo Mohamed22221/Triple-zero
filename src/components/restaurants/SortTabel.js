@@ -1,11 +1,11 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
-import AddClint from './AddClint'
-import BlackList from './BtnBlackList'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import ButtonAdd from './ButtonAdd';
+import BlackList from './BtnBlackList';
 import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
-import SearchCustomer from './SearchCustomer'
-import SortBy from './SortBy'
+import SearchCustomer from './Search';
+import SortBy from './SortBy';
 import ButtonReturn from '../glopal/ButtonReturn';
 
 
@@ -40,7 +40,7 @@ const SortTabel = (props) => {
         titleDuration={"المده"}
       />
       {location.pathname.includes('black-list') ? <ButtonReturn title='/restaurants' /> :
-        <AddClint
+        <ButtonAdd
           HandelShowCustomer={HandelShowCustomer}
         />
       }

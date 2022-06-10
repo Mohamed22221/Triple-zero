@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from "styled-components"
-import AboutClint from './AboutClint'
-import HeaderButton from './HeaderButton'
-import TabelClient from './TabelClient'
+import React from 'react';
+import styled from "styled-components";
+import AboutClint from './About';
+import HeaderButton from './HeaderButton';
+import TabelClient from './TabelUser';
 
 const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetails }) => {
 

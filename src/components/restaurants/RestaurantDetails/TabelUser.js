@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from "styled-components"
-import OtherClint from './OtherClint'
+import styled from "styled-components";
+import OtherClint from './OtherUser';
 import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 

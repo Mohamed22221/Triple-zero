@@ -1,6 +1,6 @@
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import InputCustomer from './InputCustomer';
+import InputCustomer from './Inputs'
 import { SendClint } from '../../store/ClintSlice2';
 import {  useDispatch ,useSelector } from 'react-redux'
 import SliderClint from '../glopal/SliderClint';
