@@ -81,10 +81,10 @@ export const deleteClient = createAsyncThunk('clients2/deleteClient', async (id,
 })
 
 
-// deleteClient
-export const handleListView = createAsyncThunk('clients2/handleListView', async (id, thunkAPI) => {
+// handleListView
+export const handleListView = createAsyncThunk('clients2/handleListView', (status) => {
 
-  return id
+  return status
   
 })
 
@@ -122,7 +122,6 @@ export const ClintSlice = createSlice({
         },
         [handleListView.fulfilled]: (state, action) => {
           state.listView = action.payload
-          // console.log('ac', action.payload);
         },
         
 
