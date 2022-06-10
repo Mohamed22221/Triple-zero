@@ -29,8 +29,9 @@
         cursor: pointer;
         color: var(--font);
 
-        &:first-child {
+        &.active {
             color: var(--primary-color);
+            fill: var(--primary-color);
         }
     }
 }

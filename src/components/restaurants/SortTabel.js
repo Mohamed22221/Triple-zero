@@ -12,8 +12,9 @@ import ButtonReturn from '../glopal/ButtonReturn';
 
 
 const SortTabel = (props) => {
-  const { HandelShowCustomer, setSortSearch, searchSort, setSortedField, sortData, sortID, sortName, sortDuration, sortpaymentDate } = props
+  const { HandelShowCustomer, setSortSearch, searchSort, setSortedField, sortData, sortID, sortName, sortDuration, sortpaymentDate, listView, setListView } = props
   const location = useLocation();
+
 
   return (
     <div className='style-main-sort'>
@@ -22,8 +23,8 @@ const SortTabel = (props) => {
       }
 
       <div className='style-icons-sort'>
-        <AiOutlineBars className='sort-icon' />
-        <AiOutlineAppstore className='sort-icon' />
+        <AiOutlineBars className={`sort-icon ${listView ? 'active': '' }`} onClick={() => setListView(true)}  />
+        <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => setListView(false)} />
       </div>
       <SearchCustomer
         searchSort={searchSort}

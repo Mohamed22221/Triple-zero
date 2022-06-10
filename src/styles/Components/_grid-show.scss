@@ -1,0 +1,99 @@
+.gird-show {
+    .card{
+        transition: box-shadow .3s,border-color .3s;
+        overflow: hidden;
+        &:hover{
+            transition: box-shadow .3s,border-color .3s;
+            // border-color: transparent;
+            box-shadow: 0 1px 2px -2px #00000029,
+            0 3px 6px #0000001f,
+            0 5px 12px 4px #00000017;
+            .card-img-top {
+                transform: scale(1.1);
+                transition: .3s;
+            }
+        }
+        a.img-parent {
+            overflow: hidden;
+            height: 277px;
+            .card-img-top{
+                transition: .3s;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+        .card-body{
+            padding: 11px 0 7px;
+
+
+            .actions-btns{
+                border-top: 1px solid rgba(0, 0, 0, .06);
+                margin: 0;
+                padding: 8px 0 4px;
+                .actions-list{
+                    span{
+                        padding: 4px;
+                        display: inline-block;
+                        cursor: pointer;
+                        position: relative;
+                        &:hover {
+                            .select-clint {
+                                transform: scale(1);
+                                transform-origin: 0 100% 100% 100%;
+                            }
+                        }
+                        .select-clint {
+                            box-shadow: -2px 5px 13px -4px rgba(0, 0, 0, 0.46);
+                            -webkit-box-shadow: -2px 5px 13px -4px rgba(0, 0, 0, 0.40);
+                            -moz-box-shadow: -2px 5px 13px -4px rgba(0, 0, 0, 0.30);
+                            position: absolute;
+                            transform: scale(0);
+                            transform-origin: 20% 40%;
+                            right: -16px;
+                            top: 40px;
+                            z-index: 4;
+                            width: 100px;
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            transition: 0.4s;
+        
+                            a {
+                                font-size: 14px;
+                                font-weight: bold;
+                                color: var(--font);
+                                cursor: pointer;
+                                padding: 5px 0;
+                                border-bottom: 1px solid black;
+        
+                                &:last-child {
+                                    border-bottom: none;
+                                }
+        
+                            }
+                        }
+                    }
+                }
+            }
+          
+          .red {
+              color: var(--danger-color);
+              font-weight: bold;
+              background-color: #ff000015;
+              padding: 7px;
+              border-radius: 30px;
+        
+          }
+        
+          .green {
+              color: var(--succes-color);
+              font-weight: bold;
+              background-color: #00800015;
+              padding: 10px;
+              border-radius: 30px;
+          }
+        }
+
+    }
+
+}
