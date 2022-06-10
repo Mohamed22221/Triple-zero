@@ -3,9 +3,6 @@ import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
 import request from '../../photo/icons/requestswedget.svg'
 import delevery from '../../photo/icons/deleverywedget.svg'
-import { useParams } from 'react-router';
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
 import Logo3 from "../../photo/slogan/user-avatar.svg"
 const AboutClint = (props) => {
     const {id,nameAr , nameEn ,logo ,mobile ,telephone ,idUser } = props

@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router'
+import React from 'react'
 import styled from "styled-components"
 import AboutClint from './AboutClint'
 import HeaderButton from './HeaderButton'
 import TabelClient from './TabelClient'
-import { useDispatch, useSelector } from 'react-redux'
-import { getClientDetails } from './../../store/ClintSlice2'
-import { SendClint } from '../../store/ClintSlice2';
 
 const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetails }) => {
 
