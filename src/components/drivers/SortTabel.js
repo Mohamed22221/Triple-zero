@@ -8,7 +8,7 @@ import SearchCustomer from './Search';
 import SortBy from './SortBy';
 import ButtonReturn from '../glopal/ButtonReturn';
 import { useSelector, useDispatch } from 'react-redux';
-import { handleListView } from '../../store/ManagersSlice'
+import { handleListView } from '../../store/DriverSlice'
 
 
 
@@ -17,7 +17,8 @@ const SortTabel = (props) => {
   const { HandelShowCustomer, setSortSearch, searchSort, setSortedField, sortData, sortID, sortName, sortDuration, sortpaymentDate } = props
   const location = useLocation();
   const dispatch = useDispatch()
-  const listView = useSelector(state => state.managers.listView)
+  const listView = useSelector(state => state.drivers.listView)
+
 
 
   return (
@@ -27,7 +28,7 @@ const SortTabel = (props) => {
       }
 
       <div className='style-icons-sort'>
-        <AiOutlineBars className={`sort-icon ${listView ? 'active': '' }`} onClick={() => dispatch(handleListView(true))}  />
+        <AiOutlineBars className={`sort-icon ${listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(true))} />
         <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(false))} />
       </div>
       <SearchCustomer

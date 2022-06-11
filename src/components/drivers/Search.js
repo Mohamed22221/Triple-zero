@@ -1,18 +1,18 @@
-import React ,{useState} from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import { AiOutlineSearch } from 'react-icons/ai';
-const SearchCustomer = ({setSortSearch ,searchSort}) => {
+const SearchCustomer = ({ setSortSearch, searchSort }) => {
     // value inbut finction
-    const HandelValue = (e) =>{
+    const HandelValue = (e) => {
         setSortSearch(e.target.value.toLowerCase())
     }
-  return (
-    <StyleSearchCustomer>
-              <input type="search" placeholder='أبحث عن اسم المطعم' 
-              onChange={HandelValue}  />
-            <AiOutlineSearch className='icon-search'  />
-    </StyleSearchCustomer>
-  )
+    return (
+        <StyleSearchCustomer>
+            <input type="search" placeholder='أبحث عن اسم المطعم'
+                onChange={HandelValue} />
+            <AiOutlineSearch className='icon-search' />
+        </StyleSearchCustomer>
+    )
 }
 const StyleSearchCustomer = styled.form`
 position: relative;

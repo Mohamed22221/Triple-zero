@@ -89,7 +89,7 @@ export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, 
 
 
 // handleListView
-export const handleListView = createAsyncThunk('managers/handleListView', (status) => {
+export const handleListView = createAsyncThunk('drivers/handleListView', (status) => {
 
   return status
 

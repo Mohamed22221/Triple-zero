@@ -48,9 +48,6 @@ const SideBar = ({showBar,HandelClose }) => {
                 icon: FaShoppingCart,
             
             },
-        
-  
-       
             {
                 id:6 ,
                 name : "السائقين" ,
