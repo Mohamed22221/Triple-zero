@@ -5,64 +5,64 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import Logo3 from "../../photo/slogan/user-avatar.svg"
-import {getClients2 } from './../../store/ClintSlice2'
-import {getDrivers} from "../../store/DriverSlice"
+import { getClients2 } from './../../store/ClintSlice2'
+import { getDrivers } from "../../store/DriverSlice"
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
     const dispatch = useDispatch();
     useEffect(() => {
-    //    getDrivers()
-    dispatch(getClients2())
-    dispatch(getDrivers())
+        //    getDrivers()
+        dispatch(getClients2())
+        // dispatch(getDrivers())
 
     }, [dispatch])
-  return (
-  <MainTabel>
-    <Tabel>
-        <Thead>
-            <TrHead>
-                <th>الشعار</th>
-                <th>ID</th>
-                <th>الأسم</th>
-                <th>التليفون</th>
-                <th>العنوان</th>
-                <th>الايميل</th>
-                <th>الحالة</th>
-                <th>الخيارات</th>
-            </TrHead>
-        </Thead>
-        <Tbody>
-        {UserData.slice(0 , 7 ).map((user , index) =>{
-            return (
-                <TrBody key={index}>
-                    
-                    <td><Link to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /> </Link></td>
-                   
-                    <td>{user.id}</td>
-                    <td>{user.en_name}</td>
-                    <td>{user.mobile}</td>
-                    <td>{user.address}</td>
-                    <td>{user.email}</td>
-                   
-                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط" }</span></td>
-                    <td >
-                     <BiDotsHorizontalRounded className='BiDotsHorizontalRounded'/>
-                     <div className='select-clint'>
-                     <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
-                     <Link to={`/restaurants/${user.id}`}>بيانات العميل</Link>
-                     </div>
-                    </td>
-                </TrBody>
-            )
-        })}
-        </Tbody>
-    </Tabel>
-    <MoreTabel >
-     <h5>250 عميل</h5>
-     <Link to="/Customers">المزيد<BsArrowLeftShort className='BsArrowLeftShort'/></Link>
-    </MoreTabel>
-  </MainTabel> 
-  )
+    return (
+        <MainTabel>
+            <Tabel>
+                <Thead>
+                    <TrHead>
+                        <th>الشعار</th>
+                        <th>ID</th>
+                        <th>الأسم</th>
+                        <th>التليفون</th>
+                        <th>العنوان</th>
+                        <th>الايميل</th>
+                        <th>الحالة</th>
+                        <th>الخيارات</th>
+                    </TrHead>
+                </Thead>
+                <Tbody>
+                    {UserData.slice(0, 7).map((user, index) => {
+                        return (
+                            <TrBody key={index}>
+
+                                <td><Link to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /> </Link></td>
+
+                                <td>{user.id}</td>
+                                <td>{user.en_name}</td>
+                                <td>{user.mobile}</td>
+                                <td>{user.address}</td>
+                                <td>{user.email}</td>
+
+                                <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
+                                <td >
+                                    <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
+                                    <div className='select-clint'>
+                                        <Link to={`/restaurants/${user.id}`}>التفاصيل</Link>
+                                        <Link to={`/restaurants/${user.id}`}>بيانات العميل</Link>
+                                    </div>
+                                </td>
+                            </TrBody>
+                        )
+                    })}
+                </Tbody>
+            </Tabel>
+            <MoreTabel >
+                <h5>250 عميل</h5>
+                <Link to="/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
+            </MoreTabel>
+        </MainTabel>
+    )
 }
 const MainTabel = styled.div`
 overflow-x: auto;
@@ -103,7 +103,7 @@ const Tbody = styled.tbody`
     border-radius: 10px;
     
 `
-const TrBody= styled.tr`
+const TrBody = styled.tr`
 padding: 10px 5px;
 border-top: 10px solid #ebebebe6;
 
