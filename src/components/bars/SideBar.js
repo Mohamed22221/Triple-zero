@@ -22,7 +22,7 @@ const SideBar = ({showBar,HandelClose }) => {
         NavBar : [
             {
                 id:1 ,
-                name : "الرئيسيه" ,
+                name: "الرئيسية" ,
                 link: "/Triple-zero" ,
                 icon: AiOutlineAppstore,
             
