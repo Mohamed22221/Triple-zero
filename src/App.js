@@ -24,8 +24,13 @@ import ManagerDetails from "./components/Managers/ManagerDetails/User"
 import ManagersBlackList from "./components/Managers/BlackList";
 import AddManager from "./components/Managers/AddForm";
 
+// Drivers
+import Drivers from "./pages/Drivers";
+import DriverDetails from "./components/Drivers/DriverDetails/User";
+import DriverBlackList from "./components/Drivers/BlackList";
+import AddDriver from "./components/Drivers/AddForm";
 
-import ClintDrivers from "./components/drivers/Clint";
+
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
 import Setting from "./pages/Setting";
@@ -33,10 +38,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
-import Drivers from "./pages/Drivers";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
-import ActiveDrivers from "./components/drivers/ActiveDrivers";
-import AddDrivers from "./components/drivers/AddDrivers";
 import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
 import OneCurrency from "./components/Currency/OneCurrency";
@@ -77,7 +79,7 @@ function App() {
           {/* public sliders */}
           <AddRestaurant />
           <AddShipping />
-          <AddDrivers />
+          <AddDriver />
           <AddManager />
           <AddCurrency />
           <OverLay HandelClose={HandelClose} showBar={showBar} />
@@ -165,23 +167,38 @@ function App() {
                     setShow={setShow}
                   />} />
                 </Route>
-                {/* End shipping Routes */}
+                {/* End Managers Routes */}
 
 
-
-                {/* <Route path="Managers" element={<Managers HandelShow={HandelShow} />} />
-                <Route path="/Managers/clint" element={<Manager HandelShow={HandelShow}
-                  HandelClose={HandelClose} />} >
-                  <Route path=":clintid" element={<Manager
+                {/* Start Drivers Routes */}
+                <Route path="drivers">
+                  <Route path="" element={<Drivers
                     HandelShow={HandelShow}
-                    HandelClose={HandelClose} />} >
-                  </Route>
-                </Route> */}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                  <Route path=":driverId" element={<DriverDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="black-list" element={<DriverBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                </Route>
+                {/* End Drivers Routes */}
+
+
 
                
 
                 {/*Drivers */}
-                <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />} />
+                {/* <Route path="drivers" element={<Drivers HandelShow={HandelShow} />} />
                 <Route path="Drivers/ActiveDrivers" element={<ActiveDrivers />} />
                 <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}
 
@@ -190,7 +207,9 @@ function App() {
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />} >
                   </Route>
-                </Route>
+                </Route> */}
+
+
                 {/*currencies */}
                 <Route path="Currencies" element={<Currencies HandelShow={HandelShow} />} />
                 <Route path="/Currencies/clint" element={<OneCurrency HandelShow={HandelShow}
