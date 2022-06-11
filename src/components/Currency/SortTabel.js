@@ -1,52 +1,58 @@
-import React from 'react'
-import styled from "styled-components"
-import IconsSort from '../Restaurants/IconsSort'
-import ButtonAdd from './ButtonAdd'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import ButtonAdd from './ButtonAdd';
+import BlackList from './BtnBlackList';
+import { AiOutlineBars } from 'react-icons/ai';
+import { AiOutlineAppstore } from 'react-icons/ai';
+import SearchCustomer from './Search';
+import SortBy from './SortBy';
+import ButtonReturn from '../glopal/ButtonReturn';
+import { useSelector, useDispatch } from 'react-redux';
+import { handleListView } from '../../store/CurrencySlice'
 
 
 
-import SearchCustomer from './SearchCustomer'
-import SortBy from './SortBy'
+
 const SortTabel = (props) => {
-  const { setSortSearch ,searchSort ,setSortedField ,sortData, sortID ,sortName ,sortDuration ,sortpaymentDate } = props
+  const { HandelShowCustomer, setSortSearch, searchSort, setSortedField, sortData, sortID, sortName, sortDuration, sortpaymentDate } = props
+  const location = useLocation();
+  const dispatch = useDispatch()
+  const listView = useSelector(state => state.currency.listView)
+
+
   return (
-    <StyleMainSort>
-        <IconsSort />
-        <SearchCustomer 
+    <div className='style-main-sort'>
+      {
+        location.pathname.includes('black-list') ? null : <BlackList />
+      }
+
+      <div className='style-icons-sort'>
+        <AiOutlineBars className={`sort-icon ${listView ? 'active': '' }`} onClick={() => dispatch(handleListView(true))}  />
+        <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(false))} />
+      </div>
+      <SearchCustomer
         searchSort={searchSort}
-        setSortSearch={setSortSearch} 
-        />
-        <SortBy 
-        setSortedField={setSortedField} 
+        setSortSearch={setSortSearch}
+      />
+      <SortBy
+        setSortedField={setSortedField}
         sortData={sortData}
         sortID={sortID}
-        sortName={sortName} 
-        sortDuration={sortDuration} 
+        sortName={sortName}
+        sortDuration={sortDuration}
         sortpaymentDate={sortpaymentDate}
-        titleName={"الايميل"}
-       
+        titleName={"تاريخ الدفع"}
+        titleDuration={"المده"}
+      />
+      {location.pathname.includes('black-list') ? <ButtonReturn title='/currencies' /> :
+        <ButtonAdd
+          HandelShowCustomer={HandelShowCustomer}
         />
-        <ButtonAdd />
-
-    </StyleMainSort>
+      }
+    </div>
   )
 }
-const StyleMainSort = styled.div`
-display: flex;
-align-items: center;
-flex-wrap: wrap;
-justify-content: space-evenly;
-box-shadow: 1px 8px 19px 4px rgba(141,141,141,0.48);
--webkit-box-shadow: 1px 8px 19px 4px rgba(141,141,141,0.48);
--moz-box-shadow: 1px 8px 19px 4px rgba(141,141,141,0.48);
-@media (max-width: 770px ) {
-box-shadow:0px 0 0 0 ;
--webkit-box-shadow: 0 0 0 0;
--moz-box-shadow: 0 0 0 0;
-}
-border-bottom:0 ;
-padding: 18px 0;
-`
+
 
 
 export default SortTabel

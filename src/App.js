@@ -30,6 +30,13 @@ import DriverDetails from "./components/Drivers/DriverDetails/User";
 import DriverBlackList from "./components/Drivers/BlackList";
 import AddDriver from "./components/Drivers/AddForm";
 
+// Currencies
+import Currencies from "./pages/Currencies";
+import CurrencyDetails from "./components/Currency/CurrencyDetails/User";
+import CurrenciesBlackList from "./components/Currency/BlackList";
+import AddCurrency from "./components/Currency/AddForm";
+
+
 
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
@@ -39,9 +46,6 @@ import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
-import Currencies from "./pages/Currencies";
-import AddCurrency from "./components/Currency/AddCurrency";
-import OneCurrency from "./components/Currency/OneCurrency";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
   const [show, setShow] = useState(false) // added clint massige
@@ -194,31 +198,41 @@ function App() {
                 {/* End Drivers Routes */}
 
 
-
-               
-
-                {/*Drivers */}
-                {/* <Route path="drivers" element={<Drivers HandelShow={HandelShow} />} />
-                <Route path="Drivers/ActiveDrivers" element={<ActiveDrivers />} />
-                <Route path="/Drivers/clint" element={<ClintDrivers HandelShow={HandelShow}
-
-                  HandelClose={HandelClose} />} >
-                  <Route path=":clintid" element={<ClintDrivers
+                {/* Start Currencies Routes */}
+                <Route path="currencies">
+                  <Route path="" element={<Currencies
                     HandelShow={HandelShow}
-                    HandelClose={HandelClose} />} >
-                  </Route>
-                </Route> */}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                  <Route path=":currencyId" element={<CurrencyDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="black-list" element={<CurrenciesBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                </Route>
+                {/* End Currencies Routes */}
+
+
 
 
                 {/*currencies */}
-                <Route path="Currencies" element={<Currencies HandelShow={HandelShow} />} />
+                {/* <Route path="Currencies" element={<Currencies HandelShow={HandelShow} />} />
                 <Route path="/Currencies/clint" element={<OneCurrency HandelShow={HandelShow}
                   HandelClose={HandelClose} />} >
                   <Route path=":clintid" element={<OneCurrency
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />} >
                   </Route>
-                </Route>
+                </Route> */}
                
 
                 {/*Account */}

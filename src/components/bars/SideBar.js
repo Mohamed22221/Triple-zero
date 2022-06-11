@@ -58,7 +58,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:7 ,
                 name : "العملاات" ,
-                link: "/Currencies",
+                link: "/currencies",
                 icon: HiCurrencyDollar,
             
             },

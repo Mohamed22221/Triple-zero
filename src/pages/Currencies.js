@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
-import TabelCurrency from '../components/Currency/TabelCurrency'
-import {MarginPages} from '../styles/MarginPages'
+import TabelCurrency from '../components/Currency/TabelAllUsers'
+import { MarginPages } from '../styles/MarginPages'
 
-const Currencies = ({HandelShow ,HandelShowCustomer }) => {
-  const [searchSort , setSortSearch] = useState("") 
+const Currencies = ({ HandelShow }) => {
+  const [searchSort, setSortSearch] = useState("")
   return (
     <MarginPages>
-    <TopBar title={"العملات"} HandelShow={HandelShow} />
-    <StyleFlex>
+      <TopBar title={"العملات"} HandelShow={HandelShow} />
+      <StyleFlex>
         <TabelCurrency searchSort={searchSort} setSortSearch={setSortSearch} />
-         
-    </StyleFlex>
-  </MarginPages>
+
+      </StyleFlex>
+    </MarginPages>
   )
 }
 const StyleFlex = styled.div`
