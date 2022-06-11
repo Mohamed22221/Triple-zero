@@ -11,6 +11,7 @@ import {  MdDirectionsCar } from 'react-icons/md';
 import {  FaShoppingCart } from 'react-icons/fa';
 import {  BsPersonCircle } from 'react-icons/bs';
 import {  HiCurrencyDollar } from 'react-icons/hi';
+import { RiDoubleQuotesR } from 'react-icons/ri';
 
 
 const SideBar = ({showBar,HandelClose }) => {
@@ -57,9 +58,16 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:7 ,
-                name : "العملاات" ,
+                name : "العملات" ,
                 link: "/currencies",
                 icon: HiCurrencyDollar,
+            
+            },
+            {
+                id:11 ,
+                name : "الاقتباسات" ,
+                link: "/quotes",
+                icon: RiDoubleQuotesR,
             
             },
             {

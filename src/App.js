@@ -36,6 +36,12 @@ import CurrencyDetails from "./components/Currency/CurrencyDetails/User";
 import CurrenciesBlackList from "./components/Currency/BlackList";
 import AddCurrency from "./components/Currency/AddForm";
 
+// Quotes
+import Quotes from "./pages/Quotes";
+import QuotesDetails from "./components/Quotes/QuotesDetails/User";
+import QuotesBlackList from "./components/Quotes/BlackList";
+import AddQuotes from "./components/Quotes/AddForm";
+
 
 
 import Account from "./pages/Account";
@@ -86,6 +92,7 @@ function App() {
           <AddDriver />
           <AddManager />
           <AddCurrency />
+          <AddQuotes />
           <OverLay HandelClose={HandelClose} showBar={showBar} />
 
           <Routes>
@@ -125,7 +132,7 @@ function App() {
                 </Route>
                 {/* End Restaurants Routes */}
 
-                
+
                 {/* Start shipping Routes */}
                 <Route path="shipping-companies">
                   <Route path="" element={<Shipping
@@ -221,19 +228,34 @@ function App() {
                 </Route>
                 {/* End Currencies Routes */}
 
-
-
-
-                {/*currencies */}
-                {/* <Route path="Currencies" element={<Currencies HandelShow={HandelShow} />} />
-                <Route path="/Currencies/clint" element={<OneCurrency HandelShow={HandelShow}
-                  HandelClose={HandelClose} />} >
-                  <Route path=":clintid" element={<OneCurrency
+                {/* Start Quotes Routes */}
+                <Route path="quotes">
+                  <Route path="" element={<Quotes
                     HandelShow={HandelShow}
-                    HandelClose={HandelClose} />} >
-                  </Route>
-                </Route> */}
-               
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                  <Route path=":quotesId" element={<QuotesDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="black-list" element={<QuotesBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                </Route>
+                {/* End Quotes Routes */}
+
+
+
+
+
+
 
                 {/*Account */}
                 <Route path="/Account" element={<Account
