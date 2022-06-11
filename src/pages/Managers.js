@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
-import AddManager from '../components/managers/AddManager'
-import TabelManagers from '../components/managers/TabelManagers'
+// import AddManager from '../components/Managers/AddManager'
+import TabelManagers from '../components/Managers/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
 
-const Managers = ({HandelShow ,HandelShowCustomer }) => {
+const Managers = ({HandelShow }) => {
   const [searchSort , setSortSearch] = useState("") 
   return (
     <MarginPages>
-    <TopBar title={"المديرين"} HandelShow={HandelShow} />
+    <TopBar title={"المشرفين"} HandelShow={HandelShow} />
     <StyleFlex>
         <TabelManagers searchSort={searchSort} setSortSearch={setSortSearch} />
         

@@ -61,7 +61,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:8 ,
                 name : "المديرين" ,
-                link: "/Managers",
+                link: "/managers",
                 icon: BsPerson,
             
             },

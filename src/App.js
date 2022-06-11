@@ -18,6 +18,11 @@ import ShippingDetails from "./components/Shipping/ShippingDetails/User"
 import ShippingBlackList from "./components/Shipping/BlackList";
 import AddShipping from "./components/Shipping/AddForm";
 
+// Managers
+import Managers from "./pages/Managers";
+import ManagerDetails from "./components/Managers/ManagerDetails/User"
+import ManagersBlackList from "./components/Managers/BlackList";
+import AddManager from "./components/Managers/AddForm";
 
 
 import ClintDrivers from "./components/drivers/Clint";
@@ -31,10 +36,7 @@ import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import Drivers from "./pages/Drivers";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import ActiveDrivers from "./components/drivers/ActiveDrivers";
-import Managers from "./pages/Managers";
-import Manager from "./components/managers/Manager"
 import AddDrivers from "./components/drivers/AddDrivers";
-import AddManager from "./components/managers/AddManager";
 import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
 import OneCurrency from "./components/Currency/OneCurrency";
@@ -142,16 +144,41 @@ function App() {
                 {/* End shipping Routes */}
 
 
-               
-                {/* <Route path="shipping-companies" element={<Shipping HandelShow={HandelShow} />} />
-                <Route path="shipping-companies/blackList" element={<DisActiveBlackList />} />
-                <Route path="/shipping-companies" element={<ClintShipping HandelShow={HandelShow}
+                {/* Start Managers Routes */}
+                <Route path="managers">
+                  <Route path="" element={<Managers
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                  <Route path=":managerId" element={<ManagerDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="black-list" element={<ManagersBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                </Route>
+                {/* End shipping Routes */}
+
+
+
+                {/* <Route path="Managers" element={<Managers HandelShow={HandelShow} />} />
+                <Route path="/Managers/clint" element={<Manager HandelShow={HandelShow}
                   HandelClose={HandelClose} />} >
-                  <Route path=":id" element={<ClintShipping
+                  <Route path=":clintid" element={<Manager
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />} >
                   </Route>
                 </Route> */}
+
+               
 
                 {/*Drivers */}
                 <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />} />
@@ -173,15 +200,7 @@ function App() {
                     HandelClose={HandelClose} />} >
                   </Route>
                 </Route>
-                {/*Managers */}
-                <Route path="Managers" element={<Managers HandelShow={HandelShow} />} />
-                <Route path="/Managers/clint" element={<Manager HandelShow={HandelShow}
-                  HandelClose={HandelClose} />} >
-                  <Route path=":clintid" element={<Manager
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />} >
-                  </Route>
-                </Route>
+               
 
                 {/*Account */}
                 <Route path="/Account" element={<Account
