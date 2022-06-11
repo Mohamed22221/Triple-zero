@@ -35,6 +35,13 @@ const SideBar = ({showBar,HandelClose }) => {
             
             },
             {
+                id:8 ,
+                name : "المديرين" ,
+                link: "/managers",
+                icon: BsPerson,
+            
+            },
+            {
                 id:3 ,
                 name : "شركات الشحن" ,
                 link: "/shipping-companies" ,
@@ -56,13 +63,6 @@ const SideBar = ({showBar,HandelClose }) => {
                 name : "العملاات" ,
                 link: "/Currencies",
                 icon: HiCurrencyDollar,
-            
-            },
-            {
-                id:8 ,
-                name : "المديرين" ,
-                link: "/managers",
-                icon: BsPerson,
             
             },
             {

@@ -65,7 +65,7 @@ const TableShipping = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                 <th >الشعار</th>
                 <th >#</th>
                 <th> الأسم بالانجليزي</th>
-                <th>رقم التليفون</th>
+                <th>التليفون</th>
                 <th>الايميل</th>
                 <th>حاله الدفع</th>
                 <th>الخيارات</th>

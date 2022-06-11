@@ -46,8 +46,8 @@ const ImgeHandeler = (e) =>{
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
-                    <StyleLabel>رقم التليفون <span>*</span></StyleLabel>
-                    <input type="number" placeholder='اكتب رقم التليفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
+                    <StyleLabel>التليفون <span>*</span></StyleLabel>
+                    <input type="number" placeholder='اكتب التليفون' value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                     <StyleLabel>رقم اخر <span>*</span></StyleLabel>
                     <input type="number" placeholder='اكتب رقم اخر' value={values.telephone} onChange={(e) =>setValues({...values , telephone:e.target.value}) }/>
 

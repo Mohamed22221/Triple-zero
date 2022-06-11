@@ -101,8 +101,8 @@ const [values, setValues] = useState(initialState)
         </StyleSmaleDiv>
         <StyleSmaleDiv>
             <div className='one-input'>
-                <StyleLabel>رقم التليفون <span>*</span></StyleLabel>
-                <input type="number" required placeholder='اكتب رقم التليفون'  value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
+                <StyleLabel>التليفون <span>*</span></StyleLabel>
+                <input type="number" required placeholder='اكتب التليفون'  value={values.mobile} onChange={(e) =>setValues({...values , mobile:e.target.value}) }/>
                 <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                 <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) =>setValues({...values , email:e.target.value}) }/>
                 <StyleLabel>  العنوان <span>*</span></StyleLabel>

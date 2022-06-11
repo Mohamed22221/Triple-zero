@@ -24,7 +24,7 @@ const TabelUsers = () => {
                 <th>الشعار</th>
                 <th>ID</th>
                 <th>الأسم</th>
-                <th>رقم التليفون</th>
+                <th>التليفون</th>
                 <th>العنوان</th>
                 <th>الايميل</th>
                 <th>الحالة</th>
