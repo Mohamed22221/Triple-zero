@@ -9,6 +9,7 @@ import { getClients2 } from './../../store/ClintSlice2'
 import { getDrivers } from "../../store/DriverSlice"
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2.clients2)
+    const counterCustomer = UserData.length
     const dispatch = useDispatch();
     useEffect(() => {
         //    getDrivers()
@@ -58,7 +59,7 @@ const TabelUsers = () => {
                 </Tbody>
             </Tabel>
             <MoreTabel >
-                <h5>250 عميل</h5>
+                <b>{counterCustomer} مطعم</b>
                 <Link to="/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
             </MoreTabel>
         </MainTabel>
