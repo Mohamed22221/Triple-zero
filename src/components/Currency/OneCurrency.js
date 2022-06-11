@@ -20,7 +20,7 @@ const OneCurrency = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose
     const clientDetails = useSelector(state => state.currency.CurrencyDetails)
   return (
     <MarginPages>
-    <TopBar title={"المدير"} HandelShow={HandelShow} />
+    <TopBar title={"المشرق"} HandelShow={HandelShow} />
     
     <StyleFlex>
      <Currencyinformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />

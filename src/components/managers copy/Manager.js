@@ -20,7 +20,7 @@ const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,Hand
     const clientDetails = useSelector(state => state.managers.ManagersDetails)
   return (
     <MarginPages>
-    <TopBar title={"المدير"} HandelShow={HandelShow} />
+    <TopBar title={"المشرق"} HandelShow={HandelShow} />
     
     <StyleFlex>
      <Managerinformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />

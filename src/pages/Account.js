@@ -42,8 +42,8 @@ const Account = ({HandelShowCustomer}) => {
                         </div>
                     </MainStyleAbout>    
                           <div>
-                            <ButtonComponent text='إضافة مدير ' onClick={AddManagers} Icon={FiPause} type='primary' />                                  
-                            <Link className='btn btn-outline btn-outline-dark' to="/Managers">سجل المديرين  </Link>
+                            <ButtonComponent text='إضافة مشرق ' onClick={AddManagers} Icon={FiPause} type='primary' />                                  
+                            <Link className='btn btn-outline btn-outline-dark' to="/Managers">سجل المشرفين  </Link>
 
                           </div>    
                 </MainRightAbout>

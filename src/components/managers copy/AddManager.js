@@ -13,7 +13,7 @@ const AddManager = (props) => {
     
     <StyleyDeleteClint toogleslider={toogleslider} >
       <div>
-        <SliderClint title="اضافه مدير">
+        <SliderClint title="اضافه مشرق">
           <FormAddManager setDeleted={setDeleted} />
         </SliderClint>
        </div>
