@@ -1,32 +1,32 @@
-import React from 'react'
-import {  HiDocumentDuplicate } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+
+import React, { useState } from 'react'
 import styled from "styled-components"
-const BlackList = () => {
+import { MarginPages } from '../../styles/MarginPages'
+import TopBar from '../bars/TopBar'
+
+import TabelBlackList from './TabelBlackList'
+const BlackList = ({HandelShow ,HandelShowCustomer}) => {
+  const [searchSort, setSortSearch] = useState("")
   return (
-    <StyleBlackList>
-        <HiDocumentDuplicate className='HiDocumentDuplicate' />
-        <Link to="/shipping-companies/blackList"><span>القائمه السوداء</span></Link>
-    </StyleBlackList>
+    
+        
+        <MarginPages>
+        <TopBar title={"القائمه السوداء"}  />
+            <StyleFlex>
+              <TabelBlackList  searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
+            </StyleFlex>
+             
+        </MarginPages>
+
   )
 }
-const StyleBlackList = styled.div`
+const StyleFlex = styled.div`
 display: flex;
-align-items: center;
 justify-content: space-between;
-padding: 8px 10px ;
-border: 1px solid var(--font);
-border-radius: 8px;
-cursor: pointer;
-color: var(--font);
-.HiDocumentDuplicate{
-    font-size: 30px;
-}
-a{
-  color: var(--font);
-}
-p{
-    padding-right: 15px;
+@media (max-width:910px) {
+  flex-direction: column;
 }
 `
+
+
 export default BlackList

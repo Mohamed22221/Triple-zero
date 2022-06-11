@@ -71,6 +71,14 @@ export const SendShipping = createAsyncThunk("shipping/SendShipping" , async (da
   })
 
 
+// handleListView
+export const handleListView = createAsyncThunk('shipping/handleListView', (status) => {
+
+  return status
+
+})
+
+
 
 
   export const ShippingSlice = createSlice({
@@ -79,6 +87,7 @@ export const SendShipping = createAsyncThunk("shipping/SendShipping" , async (da
       shipping: [],
       ShippingDetailsDetails: {},
       error: null ,
+      listView: true,
       
       },
     extraReducers: {
@@ -93,6 +102,9 @@ export const SendShipping = createAsyncThunk("shipping/SendShipping" , async (da
           [getShipping.rejected]: (state, action) => {
             state.error = action;
             console.log('action', action);
+          },
+          [handleListView.fulfilled]: (state, action) => {
+            state.listView = action.payload
           },
 
            //get clint Details

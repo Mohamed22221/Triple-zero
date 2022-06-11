@@ -44,12 +44,10 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
     })
 
 
-    const sortedFieldBlackList = sortedField.filter(statusItem => statusItem.status == 0)
-
     const dataRender = (
         <>
             {
-                sortedFieldBlackList.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
+                sortedField.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -66,7 +64,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                                 </thead>
                                 <tbody>
                                     <>
-                                        {sortedFieldBlackList.filter((item) => {
+                                        {sortedField.filter((item) => {
                                             if (searchSort === "") {
                                                 return item
                                             } else if (item.en_name.includes(searchSort)) {
@@ -110,7 +108,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                             </table>
                             :
                             <div className='row mt-2'>
-                                {sortedFieldBlackList.filter((item) => {
+                                {sortedField.filter((item) => {
                                     if (searchSort === "") {
                                         return item
                                     } else if (item.en_name.includes(searchSort)) {
@@ -136,7 +134,6 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                                                                 <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" className="BiDotsHorizontalRounded" height="30" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
                                                                 <div className='select-clint'>
                                                                     <Link to={`/shipping-companies/${user.id}`}>التفاصيل</Link>
-                                                                    {/* <Link to={`/shipping-companies/${user.user.id}`}>شركة الشحن</Link> */}
                                                                 </div>
                                                             </span>
                                                         </div>

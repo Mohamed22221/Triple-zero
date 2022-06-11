@@ -43,8 +43,8 @@ const ImgeHandeler = (e) =>{
                     <input type="text" placeholder='اكتب اسم العميل' value={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
                 </div>
                 <div className='one-input'> 
-                    <StyleLabel>اسم الشركه <span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب اسم الشركه' value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
+                    <StyleLabel>اسم الشركة <span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب اسم الشركة' value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
                  </div> 
             </StyleSmaleDiv>
             <StyleSmaleDiv>

@@ -5,7 +5,7 @@ import { BsLink } from 'react-icons/bs';
 import { BsCurrencyDollar } from 'react-icons/bs';
 
 const OtherClint = (props) => {
-const {clintemail , isOnline  ,state ,created_at  } = props
+const {clintemail , websitelink  ,currencypaid  } = props
   return (
     <MainStyleOther>
      <div className='item-wedget'>
@@ -17,24 +17,22 @@ const {clintemail , isOnline  ,state ,created_at  } = props
           <h6>{clintemail}</h6>
         </div>
       </div>
-
       <div className='item-wedget'>
         <div className='header-wedget'>
-          <BsCurrencyDollar className='icon-wedget' />
-          <p>حاله الدفع</p>
+          <BsLink className='icon-wedget' />
+          <p>موقع العميل</p>
         </div>
         <div className='type'>
-          <h6>{state === 1 ? "نشط" : "غير نشط"}</h6>
+          <h6><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h6>
         </div>
       </div>
-
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>تاريخ الانشاء</p>
+          <p>العمله المدفوع بها</p>
         </div>
         <div className='type'>
-          <h6>{created_at }</h6>
+          <h6>{currencypaid}</h6>
         </div>
       </div>
     </MainStyleOther>

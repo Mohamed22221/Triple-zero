@@ -31,7 +31,7 @@ const PrecedentClint = () => {
                 <h3>الاسم : <span>{user.name}</span></h3>
               </div>
               <div className='item'>
-                <h3>الشركه : <span>{user.compony}</span></h3>
+                <h3>الشركة : <span>{user.compony}</span></h3>
               </div>
               <div className='item'>
                 <h3>تاريخ الاشتراك : <span>{user.dateSubscription}</span></h3>

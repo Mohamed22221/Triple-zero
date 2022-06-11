@@ -1,24 +1,44 @@
 import React from 'react'
-import styled from "styled-components"
-import OtherClint from './OtherClint'
+import styled from "styled-components";
+import OtherClint from './OtherUser';
 import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const TabelClient = (props) => {
-    const { isOnline , name , idUser ,id, number , telephone , paymentDate ,
-          state , clintemail , websitelink  ,created_at  } = props
+    const {  name , idUser ,id, number , telephone , paymentDate ,
+          state , clintemail , websitelink  ,currencypaid  } = props
     
   return (
       
 <StyleTabel>
-
+    <Tabel>
+        <Thead>
+            <TrHead>
+                <th >User id</th>
+                <th > id</th>
+                <th>الأسم</th>
+                <th>رقم اخر</th>
+                <th>العنوان</th>
+                <th>الحالة</th>
+            </TrHead>
+        </Thead>
+        <Tbody>
+            <TrBody >
+                <CopyToClipboard text={idUser}>
+                <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
+                </CopyToClipboard>
+                <td>{id}</td>
+                <td>{name}</td>         
+                <td>{telephone === null ? "01245456" : telephone}</td>
+                <td>{websitelink}</td>
+                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "نشط" : "غير نشط" }</span></td>
+            </TrBody>
+        </Tbody>
+    </Tabel>
     <OtherClint 
-     clintemail={clintemail}
+    clintemail={clintemail}
      websitelink={websitelink} 
-     state={state}
-     isOnline={isOnline}
-     created_at={created_at}
-     
+     currencypaid={currencypaid}
      />
 </StyleTabel>
   )

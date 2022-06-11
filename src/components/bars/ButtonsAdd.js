@@ -31,7 +31,7 @@ const ButtonsAdd = ({buttons,setbuttons}) => {
     <StyleButtonAdd buttons={buttons}>
 
         <button onClick={AddResturant}><MdPersonAddAlt  /> اضافه  مطعم</button>
-        <button onClick={AddShipping}><MdPersonAddAlt />اضافه  شركه</button>
+        <button onClick={AddShipping}><MdPersonAddAlt />اضافه  شركة</button>
         <button onClick={AddDrivers}><MdPersonAddAlt  />اضافه  سائق</button>
         <button onClick={AddManagers}><MdPersonAddAlt />اضافه  مدير</button>
         <button onClick={AddCurrencys}><MdPersonAddAlt />اضافه  عمله</button>

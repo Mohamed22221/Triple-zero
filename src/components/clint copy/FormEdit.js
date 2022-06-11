@@ -111,8 +111,8 @@ const FormEdit = () => {
               <input type="text" placeholder='عدل اسم العميل' value={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
             </div>
             <div className='input'>
-              <label>اسم الشركه <span>*</span></label>
-              <input type="text" placeholder='عدل اسم الشركه'  value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
+              <label>اسم الشركة <span>*</span></label>
+              <input type="text" placeholder='عدل اسم الشركة'  value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
             </div>
             <div className='input'>
               <label>حاله الدفع <span>*</span></label>

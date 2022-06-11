@@ -12,7 +12,7 @@ const ButtonAdd = ({}) => {
   return (
     <StyleButtonAdd onClick={AddUsers} >
       <MdPersonAddAlt className='MdPersonAddAlt' />
-      <span > إضافة شركه  </span>
+      <span > إضافة شركة  </span>
     </StyleButtonAdd>
   )
 }

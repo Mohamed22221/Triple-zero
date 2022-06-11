@@ -13,7 +13,7 @@ const AddShipping = (props) => {
     
     <StyleyDeleteClint toogleslider={toogleslider} >
       <div>
-        <SliderClint title="اضافه شركه شحن">
+        <SliderClint title="اضافه شركة شحن">
           <FormAddShipping setDeleted={setDeleted} />
         </SliderClint>
        </div>

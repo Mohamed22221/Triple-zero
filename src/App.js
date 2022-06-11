@@ -5,32 +5,38 @@ import React, { Fragment, useState, useEffect } from 'react'
 import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
+
+// Restaurants
 import Restaurants from "./pages/Restaurants";
-import Clint from "./components/Restaurants/RestaurantDetails/User";
+import RestaurantDetails from "./components/Restaurants/RestaurantDetails/User";
+import RestaurantsBlackList from "./components/Restaurants/BlackList";
+import AddRestaurant from "./components/Restaurants/AddForm";
+
+// Shipping
+import Shipping from "./pages/Shipping";
+import ShippingDetails from "./components/Shipping/ShippingDetails/User"
+import ShippingBlackList from "./components/Shipping/BlackList";
+import AddShipping from "./components/Shipping/AddForm";
+
+
+
 import ClintDrivers from "./components/drivers/Clint";
-// import EditUser from "./components/clint/EditUser_R";
 import Account from "./pages/Account";
 import './styles/glopal-style.scss'
-import ClintShipping from "./components/Shipping/Clint"
 import Setting from "./pages/Setting";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
-import Shipping from "./pages/Shipping";
 import Drivers from "./pages/Drivers";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import ActiveDrivers from "./components/drivers/ActiveDrivers";
 import Managers from "./pages/Managers";
 import Manager from "./components/managers/Manager"
-import AddShipping from "./components/Shipping/AddShipping";
 import AddDrivers from "./components/drivers/AddDrivers";
 import AddManager from "./components/managers/AddManager";
 import Currencies from "./pages/Currencies";
 import AddCurrency from "./components/Currency/AddCurrency";
-import ActiveBlackList from "./components/Restaurants/BlackList";
-import DisActiveBlackList from "./components/Shipping/DisActiveBlackList";
-import ClintForm from "./components/Restaurants/AddForm";
 import OneCurrency from "./components/Currency/OneCurrency";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
@@ -67,11 +73,11 @@ function App() {
       <StyleApp>
         <BrowserRouter>
           {/* public sliders */}
+          <AddRestaurant />
           <AddShipping />
           <AddDrivers />
           <AddManager />
           <AddCurrency />
-          <ClintForm />
           <OverLay HandelClose={HandelClose} showBar={showBar} />
 
           <Routes>
@@ -88,7 +94,7 @@ function App() {
 
 
 
-                {/*Restaurants Routes */}
+                {/* Start Restaurants Routes */}
                 <Route path="restaurants">
                   <Route path="" element={<Restaurants
                     HandelShow={HandelShow}
@@ -97,11 +103,11 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                  <Route path=":restaurantId" element={<Clint
+                  <Route path=":restaurantId" element={<RestaurantDetails
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />}
                   />
-                  <Route path="black-list" element={<ActiveBlackList
+                  <Route path="black-list" element={<RestaurantsBlackList
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
@@ -109,13 +115,35 @@ function App() {
                     setShow={setShow}
                   />} />
                 </Route>
+                {/* End Restaurants Routes */}
+
+                
+                {/* Start shipping Routes */}
+                <Route path="shipping-companies">
+                  <Route path="" element={<Shipping
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                  <Route path=":shippingId" element={<ShippingDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="black-list" element={<ShippingBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
+                </Route>
+                {/* End shipping Routes */}
 
 
-                {/* <Route path="/restaurants" element={<Clint HandelShow={HandelShow}
-                  HandelClose={HandelClose} />} > */}
-                {/* </Route> */}
-                {/*shipping-companies */}
-                <Route path="shipping-companies" element={<Shipping HandelShow={HandelShow} />} />
+               
+                {/* <Route path="shipping-companies" element={<Shipping HandelShow={HandelShow} />} />
                 <Route path="shipping-companies/blackList" element={<DisActiveBlackList />} />
                 <Route path="/shipping-companies" element={<ClintShipping HandelShow={HandelShow}
                   HandelClose={HandelClose} />} >
@@ -123,7 +151,7 @@ function App() {
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />} >
                   </Route>
-                </Route>
+                </Route> */}
 
                 {/*Drivers */}
                 <Route path="Drivers" element={<Drivers HandelShow={HandelShow} />} />

@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
-import request from '../../photo/icons/requestswedget.svg'
-import delevery from '../../photo/icons/deleverywedget.svg'
-import { useParams } from 'react-router';
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
-import Logo3 from "../../photo/slogan/user-avatar.svg"
+import request from '../../../photo/icons/requestswedget.svg'
+import delevery from '../../../photo/icons/deleverywedget.svg'
+import Logo3 from "../../../photo/slogan/user-avatar.svg"
 const AboutClint = (props) => {
     const {id,nameAr , nameEn ,logo ,mobile ,telephone ,idUser } = props
 
@@ -17,15 +14,14 @@ const AboutClint = (props) => {
         <img src={Logo3} alt="logo" />
       </div>
       <div className='apout'>
-         <h5>رقم الهوية: {id}  </h5>
+        
         <h5>  الاسم بالانجليزي : {nameEn}</h5>
         <h5>  الاسم بالعربي : {nameAr}</h5>
- 
 
         <p>رقم الموبايل : {mobile}</p>
         
 
-       <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link>
+       {/* <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link> */}
       </div>
       </MainRightAbout>
       <MainLiftAbout>
