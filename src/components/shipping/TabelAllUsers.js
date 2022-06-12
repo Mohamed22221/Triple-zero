@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 import Logo3 from "../../photo/slogan/user-avatar.svg"
 import Logo1 from "../../photo/slogan/logo-rest.png"
 
-const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
-    const UserData = useSelector(state => state.shipping.shipping)
+const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer }) => {
+    // const UserData = useSelector(state => state.shipping.shipping)
     const listView = useSelector(state => state.shipping.listView)
+
+    console.log('UserData shipping', UserData);
 
     const dispatch = useDispatch();
     useEffect(() => {

@@ -15,7 +15,7 @@ import AddRestaurant from "./components/Restaurants/AddForm";
 // Shipping
 import Shipping from "./pages/Shipping";
 import ShippingDetails from "./components/Shipping/ShippingDetails/User"
-import ShippingBlackList from "./components/Shipping/BlackList";
+// import ShippingBlackList from "./components/Shipping/BlackList";
 import AddShipping from "./components/Shipping/AddForm";
 
 // Managers
@@ -146,7 +146,7 @@ function App() {
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />}
                   />
-                  <Route path="black-list" element={<ShippingBlackList
+                  <Route path="black-list" element={<Shipping
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
