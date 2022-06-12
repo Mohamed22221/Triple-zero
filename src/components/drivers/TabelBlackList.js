@@ -48,7 +48,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
     const dataRender = (
         <>
             {
-                sortedFieldBlackList.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد مدرين</h3></div>
+                sortedFieldBlackList.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد سائقين</h3></div>
                     : <>
                         {listView ?
                             <table>

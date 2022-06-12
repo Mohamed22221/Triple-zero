@@ -30,7 +30,7 @@ const [handelStatus, setHandelStatus] = useState(statusVal);
 const handelChangeStatus = () => {
 
 
-    const text = handelStatus ? 'من ايقاف هذا العميل' : 'من اعادة تشغيل هذا العميل'
+    const text = handelStatus ? 'من ايقاف هذا الشركة' : 'من اعادة تشغيل هذا الشركة'
 
     swal({
             title: 'هل أنت واثق؟',
@@ -65,7 +65,7 @@ const handelChangeStatus = () => {
 const handelDelete = () => {
         swal({
                 title: 'هل أنت واثق؟',
-                text: 'من حذف هذا العميل',
+                text: 'من حذف هذا الشركة',
                 icon: "warning",
                 buttons: {
                     cancel: "الغاء",
@@ -113,7 +113,7 @@ const handelDelete = () => {
             }
                 
             </button>
-            <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
+            <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف الشركة</button>
         </MainButtonClint>
         <ButtonReturn title="/shipping-companies" />
         

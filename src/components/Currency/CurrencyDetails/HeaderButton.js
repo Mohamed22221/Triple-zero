@@ -30,7 +30,7 @@ const HeaderButton = ({ id, status }) => {
     const handelChangeStatus = () => {
 
 
-        const text = handelStatus ? 'من ايقاف هذا العميل' : 'من اعادة تشغيل هذا العميل'
+        const text = handelStatus ? 'من ايقاف هذا العملة' : 'من اعادة تشغيل هذا العملة'
 
         swal({
             title: 'هل أنت واثق؟',
@@ -65,7 +65,7 @@ const HeaderButton = ({ id, status }) => {
     const handelDelete = () => {
         swal({
             title: 'هل أنت واثق؟',
-            text: 'من حذف هذا العميل',
+            text: 'من حذف هذا العملة',
             icon: "warning",
             buttons: {
                 cancel: "الغاء",
@@ -113,7 +113,7 @@ const HeaderButton = ({ id, status }) => {
                     }
 
                 </button>
-                <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
+                <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف العملة</button>
             </MainButtonClint>
             <ButtonReturn title="/currencies" />
 

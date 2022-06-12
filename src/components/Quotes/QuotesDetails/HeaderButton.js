@@ -30,7 +30,7 @@ const HeaderButton = ({ id, status }) => {
     const handelChangeStatus = () => {
 
 
-        const text = handelStatus ? 'من ايقاف هذا العميل' : 'من اعادة تشغيل هذا العميل'
+        const text = handelStatus ? 'من ايقاف هذا الاقتباس' : 'من اعادة تشغيل هذا الاقتباس'
 
         swal({
             title: 'هل أنت واثق؟',
@@ -65,7 +65,7 @@ const HeaderButton = ({ id, status }) => {
     const handelDelete = () => {
         swal({
             title: 'هل أنت واثق؟',
-            text: 'من حذف هذا العميل',
+            text: 'من حذف هذا الاقتباس',
             icon: "warning",
             buttons: {
                 cancel: "الغاء",

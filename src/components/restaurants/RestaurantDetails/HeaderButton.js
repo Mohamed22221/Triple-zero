@@ -30,7 +30,7 @@ const [handelStatus, setHandelStatus] = useState(statusVal);
 const handelStatusClient = () => {
 
 
-    const text = handelStatus ? 'من ايقاف هذا العميل' : 'من اعادة تشغيل هذا العميل'
+    const text = handelStatus ? 'من ايقاف هذا المطعم' : 'من اعادة تشغيل هذا المطعم'
 
     swal({
             title: 'هل أنت واثق؟',
@@ -65,7 +65,7 @@ const handelStatusClient = () => {
 const handelDeleteClient = () => {
         swal({
                 title: 'هل أنت واثق؟',
-                text: 'من حذف هذا العميل',
+                text: 'من حذف هذا المطعم',
                 icon: "warning",
                 buttons: {
                     cancel: "الغاء",
@@ -113,7 +113,7 @@ const handelDeleteClient = () => {
             }
                 
             </button>
-            <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف العميل</button>
+            <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف المطعم</button>
         </MainButtonClint>
         <ButtonReturn title="/restaurants" />
         

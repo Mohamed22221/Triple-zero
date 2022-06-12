@@ -19,7 +19,7 @@ const Clint = ({HandelShow }) => {
   const clientDetails = useSelector(state => state.shipping.ShippingDetailsDetails)
   return (
     <MarginPages>
-    <TopBar title={"المطعم"} HandelShow={HandelShow} />
+    <TopBar title={"الشركة"} HandelShow={HandelShow} />
     
     <StyleFlex>
      <ClintInformation clientDetails={clientDetails}  />
