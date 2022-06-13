@@ -5,7 +5,7 @@ const BlackList = () => {
   return (
     <button className='btn btn-outline btn-outline-dark'>
         <HiDocumentDuplicate className='HiDocumentDuplicate' />
-        <Link to="/restaurants/black-list"><span>القائمه السوداء</span></Link>
+        <Link to="black-list"><span>القائمه السوداء</span></Link>
     </button>
   )
 }

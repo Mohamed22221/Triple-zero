@@ -77,9 +77,9 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                                         }).map((user, index) => {
                                             return (
                                                 <tr key={index}>
-                                                    <td><Link className='my-2' to={`/restaurants/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
+                                                    <td><Link className='my-2' to={`${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                                                     <td>
-                                                        <Link className='text-link' to={`/restaurants/${user.id}`}>{user.id}#</Link>
+                                                        <Link className='text-link' to={`${user.id}`}>{user.id}#</Link>
                                                     </td>
                                                     <td>
                                                         <span>{user.en_name}</span>

@@ -1,65 +1,84 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 // import Clint from '../components/RestaurantDetails/Clint';
 // import ClintInformation2 from '../components/clint/ClintInformation2_R_R';
 import WrapperContainer from '../components/Restaurants/RestaurantDetails/Wrapper';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { AiOutlineCopy } from 'react-icons/ai';
-import { FiPause } from 'react-icons/fi';
+import Logo3 from "../photo/slogan/user-avatar.svg"
+// import Logo3 from "../photo"
+// import { CopyToClipboard } from 'react-copy-to-clipboard';
+// import { AiOutlineCopy } from 'react-icons/ai';
+// import { FiPause } from 'react-icons/fi';
 // import OtherClint from './OtherClint'
-import ButtonComponent from '../Shared/Components/Button/Button';
+// import ButtonComponent from '../Shared/Components/Button/Button';
 import TabelAllUsersMyAccount from '../components/MyAccount/TabelAllUsers';
-import ButtonOutLine from '../Shared/Components/ButtonOutLine/ButtonOutLine';
-import { AddManager} from '../store/StateSlice';
-import { useDispatch } from 'react-redux';
+// import ButtonOutLine from '../Shared/Components/ButtonOutLine/ButtonOutLine';
+// import { AddManager } from '../store/StateSlice';
+// import { useDispatch } from 'react-redux';
 
 
-const Account = ({HandelShowCustomer}) => {
-    // <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
-    // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
-    // <ClintInformation2 HandelShowCustomer='true' HandelStopCustomer='true'  />
-    const [searchSort, setSortSearch] = useState("")
-    const dispatch = useDispatch()
-    const AddManagers = () =>{
-      dispatch(AddManager(true))
-      
-  }
-    return (
-        <>
-           <WrapperContainer>
-            <MainRightAbout>
-                    <MainStyleAbout>
-                        <div className='photo-logo'>
-                            <img src='/Triple-zero/static/media/slogan1.89168f3a4d64b5c6f242bf8161fc6ddb.svg' alt='kld' />
-                        </div>
-                        <div className='apout'>
-                            <h3>compony</h3>
-                            <p>name</p>
-                            <p>تاريخ الاشتراك : dateSubscription</p>
-                            <Link to={`/EditUser/`}><button>تعديل العميل</button></Link>
+const Account = ({ HandelShowCustomer }) => {
+  // <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
+  // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
+  // <ClintInformation2 HandelShowCustomer='true' HandelStopCustomer='true'  />
+  const [searchSort, setSortSearch] = useState("")
+  // const dispatch = useDispatch()
+  // const AddManagers = () => {
+  //   dispatch(AddManager(true))
 
-                        </div>
-                    </MainStyleAbout>    
-                          <div>
-                            <ButtonComponent text='إضافة مشرق ' onClick={AddManagers} Icon={FiPause} type='primary' />                                  
-                            <Link className='btn btn-outline btn-outline-dark' to="/Managers">سجل المشرفين  </Link>
+  // }
 
-                          </div>    
-                </MainRightAbout>
-                
-                
-                <TabelAllUsersMyAccount  searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer}   />
-            </WrapperContainer>
-            
-            
-        </>
-    );
+
+  const [dataMyAccount, setDataMyAccount] = useState({
+    photo: '',
+    name: '',
+    id: '',
+    email: ''
+  })
+
+  useEffect(() => {
+    setDataMyAccount(JSON.parse(localStorage.getItem('authData')).user)
+    // console.log('JSON.parse(localStorage.getItem().user', JSON.parse(localStorage.getItem('authData')).user);
+  }, [])
+
+
+  const srcImg = dataMyAccount['photo'] ? dataMyAccount['photo'] : Logo3
+
+
+  return (
+    <>
+      <WrapperContainer>
+        <MainRightAbout>
+          <MainStyleAbout>
+            <div className='photo-logo'>
+              <img src={srcImg} alt={dataMyAccount['name']} />
+            </div>
+            <div className='apout'>
+              <h3>{dataMyAccount.name}</h3>
+              <p>{dataMyAccount.email}</p>
+              <Link to={`edit`}><button>تعديل الحساب</button></Link>
+
+            </div>
+          </MainStyleAbout>
+          {/* <div>
+            <ButtonComponent text='إضافة مشرق ' onClick={AddManagers} Icon={FiPause} type='primary' />
+            <Link className='btn btn-outline btn-outline-dark' to="/managers">سجل المشرفين  </Link>
+
+          </div> */}
+        </MainRightAbout>
+
+
+        <TabelAllUsersMyAccount searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
+      </WrapperContainer>
+
+
+    </>
+  );
 }
 
 
 
-const MainRightAbout = styled.div `
+const MainRightAbout = styled.div`
 // background: red;
 justify-content: space-between;
 border-bottom: 1px solid var(--font-opacity);
@@ -103,7 +122,7 @@ align-items: center;
 }
 `
 
-const MainStyleAbout = styled.div ` 
+const MainStyleAbout = styled.div` 
 display: flex;
 justify-content: space-between;
 padding: 30px;
@@ -113,7 +132,7 @@ padding: 30px;
   }
 `
 
-const StyleTabel = styled.div `
+const StyleTabel = styled.div`
     padding: 33px;
     overflow-x: auto;
      width:100% ;
@@ -126,18 +145,18 @@ const StyleTabel = styled.div `
 
 
 `
-const Tabel = styled.table `
+const Tabel = styled.table`
 width: 100%;
 text-align :center ;
 border-spacing: 0px 20px;
 padding: 10px 0;
 
 `
-const Thead = styled.thead `
+const Thead = styled.thead`
 background-color:var(--secound-color);
 color: white;
 `
-const TrHead = styled.tr `
+const TrHead = styled.tr`
 
 th{
     padding: 10px 30px;
@@ -148,11 +167,11 @@ th{
 }
 
 `
-const Tbody = styled.tbody `
+const Tbody = styled.tbody`
 background-color: white;
 
 `
-const TrBody = styled.tr `
+const TrBody = styled.tr`
 position: relative;
 td:first-child{
     display: flex;
@@ -203,7 +222,7 @@ td{
 
 `
 
-const StyleBlackList = styled.div `
+const StyleBlackList = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;

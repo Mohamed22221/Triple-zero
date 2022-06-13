@@ -6,6 +6,10 @@ import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
 
+// Auth
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 // Restaurants
 import Restaurants from "./pages/Restaurants";
 import RestaurantDetails from "./components/Restaurants/RestaurantDetails/User";
@@ -42,18 +46,18 @@ import QuotesDetails from "./components/Quotes/QuotesDetails/User";
 import QuotesBlackList from "./components/Quotes/BlackList";
 import AddQuotes from "./components/Quotes/AddForm";
 
+// Account
+import MyAccount from "./pages/Account";
+import EditMyAccount from "./components/MyAccount/EditMyAccoutn/EditUser";
 
 
-import Account from "./pages/Account";
+// import EditUser from "./components/clint copy/EditUser";
 import './styles/glopal-style.scss'
 import Setting from "./pages/Setting";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
-import PrecedentClint from "./components/clint copy/PrecedentClint";
-import EditUser from "./components/clint copy/EditUser";
+// import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
   const [show, setShow] = useState(false) // added clint massige
@@ -71,11 +75,11 @@ function App() {
 
 
 
-  const ROLES = {
-    'User': 2001,
-    'Editor': 1984,
-    'Admin': 5150
-  }
+  // const ROLES = {
+  //   'User': 2001,
+  //   'Editor': 1984,
+  //   'Admin': 5150
+  // }
 
   useEffect(() => {
     setTimeout(() => {
@@ -106,10 +110,7 @@ function App() {
                 {/* User routes */}
                 <Route path="/" element={<Home HandelShow={HandelShow} />} />
                 <Route path="Triple-zero" element={<Home HandelShow={HandelShow} />} />
-
                 <Route path="/setting" element={<Setting />} />
-
-
 
                 {/* Start Restaurants Routes */}
                 <Route path="restaurants">
@@ -134,7 +135,6 @@ function App() {
                 </Route>
                 {/* End Restaurants Routes */}
 
-
                 {/* Start shipping Routes */}
                 <Route path="shipping-companies">
                   <Route path="" element={<Shipping
@@ -157,7 +157,6 @@ function App() {
                   />} />
                 </Route>
                 {/* End shipping Routes */}
-
 
                 {/* Start Managers Routes */}
                 <Route path="managers">
@@ -182,7 +181,6 @@ function App() {
                 </Route>
                 {/* End Managers Routes */}
 
-
                 {/* Start Drivers Routes */}
                 <Route path="drivers">
                   <Route path="" element={<Drivers
@@ -205,7 +203,6 @@ function App() {
                   />} />
                 </Route>
                 {/* End Drivers Routes */}
-
 
                 {/* Start Currencies Routes */}
                 <Route path="currencies">
@@ -253,29 +250,18 @@ function App() {
                 </Route>
                 {/* End Quotes Routes */}
 
-
-
-
-
-
-
-                {/*Account */}
-                <Route path="/Account" element={<Account
-                  HandelShow={HandelShow}
-                  HandelClose={HandelClose} />} />
-
-                <Route path="/EditUser" element={<EditUser HandelShow={HandelShow} />} >
-                  <Route path="/EditUser/:userid" element={<EditUser />} />
+                {/* My Account */}
+                <Route path="my-account">
+                  <Route path="" element={<MyAccount
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
                 </Route>
-
               </Route>
 
+
             </Route>
-
-
-
-
-
 
           </Routes>
         </BrowserRouter>

@@ -1,32 +1,32 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import TopBar from '../../bars/TopBar';
-import {MarginPages} from '../../../styles/MarginPages';
+import { MarginPages } from '../../../styles/MarginPages';
 import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import {getQuoteDetails} from '../../../store/QuotesSlice';
+import { getQuoteDetails } from '../../../store/QuotesSlice';
 
 
-const Clint = ({HandelShow }) => {
+const Clint = ({ HandelShow }) => {
   const dispatch = useDispatch()
   let { quotesId } = useParams();
   useEffect(() => {
-      dispatch(getQuoteDetails(quotesId))
+    dispatch(getQuoteDetails(quotesId))
   }, [getQuoteDetails])
 
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.quotes.quoteDetails)
   return (
     <MarginPages>
-    <TopBar title={"المطعم"} HandelShow={HandelShow} />
-    
-    <StyleFlex>
-     <ClintInformation clientDetails={clientDetails}  />
-    </StyleFlex>
-    
+      <TopBar title={"المطعم"} HandelShow={HandelShow} />
+
+      <StyleFlex>
+        <ClintInformation clientDetails={clientDetails} />
+      </StyleFlex>
+
     </MarginPages>
-  
+
   )
 }
 

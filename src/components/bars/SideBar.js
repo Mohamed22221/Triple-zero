@@ -73,7 +73,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:9 ,
                 name : "حسابي" ,
-                link: "/Account" ,
+                link: "/my-account" ,
                 icon: BsPersonCircle,
             
             },
@@ -206,7 +206,7 @@ span img{
         cursor: pointer;
         margin: 6px 0;
         transition: 0.6s;
-        padding: 15px 40px ;
+        padding: 8px 40px ;
         .icon-name{
            font-size:28px;
            transition: 0.6s;
