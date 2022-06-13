@@ -13,6 +13,7 @@ const Shipping = ({ HandelShow }) => {
   const UserDataBlackList = UserData.filter(statusItem => statusItem.status == 0)
 
   const pathname = location.pathname.includes('black-list')
+  console.log('pathname', pathname);
 
   return (
     <MarginPages>

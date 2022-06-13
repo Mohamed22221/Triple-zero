@@ -83,7 +83,7 @@ function App() {
 
   return (
     <Fragment>
-      {loader && <PreLoader />}
+      {/* {loader && <PreLoader />} */}
       <StyleApp>
         <BrowserRouter>
           {/* public sliders */}

@@ -9,10 +9,8 @@ import Logo3 from "../../photo/slogan/user-avatar.svg"
 import Logo1 from "../../photo/slogan/logo-rest.png"
 
 const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer }) => {
-    // const UserData = useSelector(state => state.shipping.shipping)
     const listView = useSelector(state => state.shipping.listView)
 
-    console.log('UserData shipping', UserData);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -21,35 +19,42 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
 
 
 
+    const [resultData, setResultData] = useState([])
+    
+    const inputSearch = (e) => {
 
-    //sort tabel 
-    const [sortedField, setSortedField] = useState([]);
+        if (e.target.value == '') {
+            setResultData(UserData)
+        } else {
+            const searchString = e.target.value.toLowerCase();
+            const filteredFood = UserData.filter((food) => {
+                return food.en_name.toLowerCase().includes(searchString);
+            });
+            setResultData(filteredFood)
+        }
+
+      
+    }
+
+    const handleSort = (e) => {
+        setResultData([...resultData].sort((a, b) => a[e] > b[e] ? 1 : -1))
+        console.log('dataSorting', resultData);
+    }
+
     useEffect(() => {
-        setSortedField(UserData)
-    }, [UserData, setSortedField])
+        setResultData(UserData)
+    }, [UserData])
 
-    const sortID = [...UserData].sort((a, b) => {
-        return a.id < b.id ? 1 : -1;
-    })
-    const sortData = [...UserData].sort((a, b) => {
-        return a.state > b.state ? 1 : -1;
-    })
-    const sortName = [...UserData].sort((a, b) => {
-        return a.en_name < b.en_name ? 1 : -1;
-    })
-    const sortDuration = [...UserData].sort((a, b) => {
-        return a.duration > b.duration ? 1 : -1;
-    })
-    const sortpaymentDate = [...UserData].sort((a, b) => {
-        const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
-        return dateB - dateA
-    })
+
+    // useEffect(() => {
+    //     handleSort('id')
+    // }, [])
 
 
     const dataRender = (
         <>
             {
-                sortedField.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -66,7 +71,7 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
                                 </thead>
                                 <tbody>
                                     <>
-                                        {sortedField.filter((item) => {
+                                        {resultData.filter((item) => {
                                             if (searchSort === "") {
                                                 return item
                                             } else if (item.en_name.includes(searchSort)) {
@@ -110,7 +115,7 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
                             </table>
                             :
                             <div className='row mt-2'>
-                                {sortedField.filter((item) => {
+                                {resultData.filter((item) => {
                                     if (searchSort === "") {
                                         return item
                                     } else if (item.en_name.includes(searchSort)) {
@@ -160,7 +165,12 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
 
     return (
         <div className="main-table">
-            <SortTabel
+            <button onClick={() => handleSort('id')}>id</button>
+            <button onClick={() => handleSort('en_name')}>name</button>
+            <button onClick={() => handleSort('mobile')}>tel</button>
+            <button onClick={() => handleSort('email1ddd')}>email</button>
+            <input type="text" onChange={inputSearch} />
+            {/* <SortTabel
                 setSortSearch={setSortSearch}
                 searchSort={searchSort}
                 HandelShowCustomer={HandelShowCustomer}
@@ -171,7 +181,7 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
                 sortName={sortName}
                 sortDuration={sortDuration}
                 sortpaymentDate={sortpaymentDate}
-            />
+            /> */}
 
             <div className='gird-show'>
                 {dataRender}
