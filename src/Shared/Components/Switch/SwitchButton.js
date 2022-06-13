@@ -15,11 +15,11 @@ const SwitchButton = ({id, value, onChange, label}) => {
                 height={30}
                 width={70}
                 borderRadius={50}
-                activeBoxShadow={false}
+                // activeBoxShadow={false}
                 uncheckedIcon={false}
                 checkedIcon={false}
-                uncheckedHandleIcon={false}
-                checkedHandleIcon={false}
+                // uncheckedHandleIcon={false}
+                // checkedHandleIcon={false}
                 className="react-switch"
                 id={id}
             />
