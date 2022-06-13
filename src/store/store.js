@@ -11,7 +11,7 @@ import CurrencySlice from './CurrencySlice'
 
 export const store = configureStore({
   reducer: {
-
+    auth: auth,
     clint: ClintSlice,
     clients2: ClintSlice2,
     drivers: DriverSlice,
@@ -20,6 +20,5 @@ export const store = configureStore({
     ShowAndHide: StateSlice,
     managers: ManagersSlice,
     quotes: QuotesSlice,
-    auth: auth
   },
 })

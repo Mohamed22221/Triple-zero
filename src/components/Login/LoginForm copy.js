@@ -2,56 +2,41 @@ import { useRef, useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-// import { unwrapResult } from "@reduxjs/toolkit";
+import Axios from 'axios';
 import axios from '../../api/axios';
-import { loginFun } from './../../store/authSlice'
+import {loginM} from './../../store/authSlice'
 const LOGIN_URL = 'admins/login';
 
-
 const LoginFrom = () => {
-    const { setAuth } = useAuth();
+    const { setAuth } = useAuth(); 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/Customers";
 
-    const errorMsg = useSelector(state => state.auth.error)
-
-
+    
     const emailRef = useRef();
     const errRef = useRef();
 
     const [email, setEmail] = useState('superadmin@info.me');
     const [password, setPassword] = useState('12345678');
-    // const [errMsg, setErrMsg] = useState('');
+    const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
         emailRef.current.focus();
     }, [])
 
-    // useEffect(() => {
-    //     setErrMsg('');
-    // }, [email, password])
+    useEffect(() => {
+        setErrMsg('');
+    }, [email, password])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         var formData = new FormData();
         formData.append('email', email);
         formData.append('password', password);
-        dispatch(loginFun(formData))
-            .unwrap()
-            .then(res => {
-                window.location.href = '/Triple-zero'
-            })
 
-        // try {
-
-        // } catch (e) {
-        //     console.error(e);
-        // }
-        // .unwrap()
-        // .then((res) => console.log('res1', res))
-        // .catch(error1 => console.log('error1', error1))
+        // dispatch(loginM(formData))
 
         // console.log(email, password);
 
@@ -67,60 +52,54 @@ const LoginFrom = () => {
         // console.log('no', {email, password});
         // console.log('formData', formData);
 
-        // try {
-        //     const response = await axios.post(LOGIN_URL,
-        //         formData,
-        //         // JSON.stringify({ email, password }),
-        //         {
-        //             headers: {
-        //                 'Content-Type': 'multipart/form-data',
-        //                 'Accept': 'application/json'
-        //             },
-        //         }
-        //     );
-        //     // console.log('res', JSON.stringify(response?.data));
-        //     //console.log(JSON.stringify(response));
-        //     // const token = response?.data?.token;
-        //     // const roles = response?.data?.roles;
-        //     // const roles = ['5150', '1984', '2001'];
-        //     console.log('response.token', response.data.data.token);
-        //     localStorage.setItem("token", response.data.data.token)
-        //     localStorage.setItem("loggingIn", true)
-        //     window.location.href = '/Triple-zero'
-        //     // navigate(from, { replace: true });
-        //     // setAuth({
-        //     //     email,
-        //     //     password,
-        //     //     roles,
-        //     //     token
-        //     // });
-        //     setEmail('');
-        //     setPassword('');
-        // } catch (err) {
-        //     if (!err?.response) {
-        //         console.log('err?.response:', err);
-        //         setErrMsg('email or password is incorrect');
-        //     } else if (err.response?.status === 400) {
-        //         setErrMsg('Missing Username or Password');
-        //     } else if (err.response?.status === 401) {
-        //         setErrMsg('Unauthorized');
-        //     } else {
-        //         setErrMsg('Login Failed');
-        //     }
-        //     errRef.current.focus();
-        // }
+        try {
+            const response = await axios.post(LOGIN_URL,
+            formData,
+            // JSON.stringify({ email, password }),
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                },
+            }
+            );
+            // console.log('res', JSON.stringify(response?.data));
+            //console.log(JSON.stringify(response));
+            // const token = response?.data?.token;
+            // const roles = response?.data?.roles;
+            // const roles = ['5150', '1984', '2001'];
+            console.log('response.token', response.data.data.token);
+            localStorage.setItem("token", response.data.data.token)
+            localStorage.setItem("loggingIn", true)
+            window.location.href = '/Triple-zero'
+            // navigate(from, { replace: true });
+            // setAuth({
+            //     email,
+            //     password,
+            //     roles,
+            //     token
+            // });
+            setEmail('');
+            setPassword('');
+        } catch (err) {
+            if (!err?.response) {
+                console.log('err?.response:', err);
+                setErrMsg('email or password is incorrect');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+        }
     }
 
     return (
 
         <>
-            {/* <p ref={errRef} className={errMsg ? "errmsg mt-3 text-danger" : "offscreen mt-3 text-danger"} aria-live="assertive">{errMsg}</p> */}
-            {/* {
-                errorMsg && */}
-            <p className='mt-3 text-danger'>
-                {errorMsg}
-            </p>
-            {/* } */}
+            <p ref={errRef} className={errMsg ? "errmsg mt-3 text-danger" : "offscreen mt-3 text-danger"} aria-live="assertive">{errMsg}</p>
             <form onSubmit={handleSubmit}>
                 <div className='parent-input'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25.139" height="19.552" viewBox="0 0 25.139 19.552">
@@ -137,7 +116,7 @@ const LoginFrom = () => {
                         required
                         placeholder='ادخل بريدك الالكتروني'
                     />
-
+                    
                 </div>
 
                 <div className='parent-input'>
@@ -154,13 +133,13 @@ const LoginFrom = () => {
                         placeholder='ادخل كلمة السر'
                     />
                 </div>
-                <span className="forget">
+                 <span className="forget">
                     <Link to="#">نسيت كلمة السر؟ اضغط هنا</Link>
                 </span>
                 <button className='btn btn-dark btn-lg w-100'>تسجيل الدخول</button>
             </form>
             <p>
-
+                
                 <span className="line">
                     <Link to="/register">انشئ حساب جديد</Link>
                 </span>

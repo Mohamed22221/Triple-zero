@@ -1,55 +1,73 @@
-// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from '../api/axios';
 // import axios from '../api/axios';
-// const LOGIN_URL = 'admins/login';
-// // import { Link, useNavigate, useLocation } from 'react-router-dom';
-// // const from = location.state?.from?.pathname || "/";
-// export const loginM = createAsyncThunk('auth/login', async(item, thunkAPI) => {
-//     // const navigate = useNavigate();
-//     // const location = useLocation();
-//     const { rejectWithValue } = thunkAPI
-//      try {
-//             const response = await axios.post(LOGIN_URL,
-//             item,
-//             {
-//                 headers: {
-//                     'Content-Type': 'multipart/form-data',
-//                     'Accept': 'application/json'
-//                 },
-//             }
-//             );
+const LOGIN_URL = 'admins/login';
+// import { Link, useNavigate, useLocation } from 'react-router-dom';
+// const from = location.state?.from?.pathname || "/";
+export const loginFun = createAsyncThunk('auth/loginFun', async (item, thunkAPI) => {
+    // const navigate = useNavigate();
+    // const location = useLocation();
+    const { rejectWithValue } = thunkAPI
+    try {
+        const response = await axios.post(LOGIN_URL,
+            item,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                },
+            }
+        )
+            .then((res) => res).catch(error => error)
 
-//             // navigate('/jkldf');
-//             window.location.hostname('/ldjkf')
-//             console.log('truedkljfdfkldfjkl');
-//             return response
-//         } catch (err) {
-//             return rejectWithValue(err.message)
-//         }
-// })
+        // navigate('/jkldf');
+        // window.location.hostname('/ldjkf')
+        // console.log('truedkljfdfkldfjkl');
+
+        return response.data
+    } catch (err) {
+        return rejectWithValue(err)
+    }
+})
 
 
 
-// const dataUser = JSON.parse(localStorage.getItem('authData'))
-// const authSlice = createSlice({
-//     name: 'auth',
-//     // initialState: {dataUser},
-//     initialState: {dataUser},
-//     extraReducers: {
-//         [loginM.pending]: (state, action) => {
-//             state.isLoggedIn = false;
-//         },
-//        [loginM.fulfilled]: (state, action) => {
-//            console.log(action);
-//            state.isLoggedIn = true;
-//            state.user = action.payload;
-//            localStorage.setItem("authData",JSON.stringify(state))
-//        },
-//         [loginM.rejected]: (state, action) => {
-//             state.isLoggedIn = false;
-//         },
-//     },
-// })
+const dataUserStorage = localStorage.getItem('authData')
+const loggedIn = localStorage.getItem('loggedIn')
+const initialStateValue = {
+    loggedIn: false,
+    dataUser: {}
+}
 
-// // export const {logInOut} = authSlice.actions
 
-// export default authSlice.reducer
+const authSlice = createSlice({
+    name: 'auth',
+    // initialState: {dataUser},
+    initialState: {
+        loggedIn: loggedIn ? true : false,
+        dataUser: dataUserStorage ? dataUserStorage : initialStateValue,
+        error: null
+    },
+    extraReducers: {
+        [loginFun.pending]: (state, action) => {
+            state.loggedIn = false;
+        },
+        [loginFun.fulfilled]: (state, action) => {
+            state.loggedIn = true;
+            state.dataUser = action.payload.data;
+            console.log('action.payload', action.payload.data);
+            localStorage.setItem("authData", JSON.stringify(action.payload.data))
+            localStorage.setItem("loggedIn", true)
+            localStorage.setItem("loggingIn", true)
+        },
+        [loginFun.rejected]: (state, action) => {
+            state.loggedIn = false;
+            state.error = 'email or password is invalid';
+            console.log('action', action);
+        },
+    },
+})
+
+// export const {logInOut} = authSlice.actions
+
+export default authSlice.reducer
