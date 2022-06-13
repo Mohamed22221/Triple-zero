@@ -3,6 +3,9 @@ import styled from "styled-components"
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsLink } from 'react-icons/bs';
 import { BsCurrencyDollar } from 'react-icons/bs';
+import { Link } from "react-router-dom";
+
+
 
 const OtherClint = (props) => {
 const {clintemail , websitelink  ,currencypaid  } = props
@@ -23,7 +26,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
           <p>موقع العميل</p>
         </div>
         <div className='type'>
-          <h6><a href={`${websitelink}`} target="_blank" >{websitelink}</a></h6>
+          <h6><Link to={`${websitelink}`} target="_blank" >{websitelink}</Link></h6>
         </div>
       </div>
       <div className='item-wedget'>

@@ -4,13 +4,13 @@ import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 
-const ButtonReturn = ({title}) => {
+const ButtonReturn = ({ title }) => {
   return (
     <Link to={title} >
-    <MainReturnClints>
-     <span>رجوع</span>
-     <a><BiArrowBack className='icon-button' /></a>
-    </MainReturnClints>
+      <MainReturnClints>
+        <span>رجوع</span>
+        <span className='icon-return'><BiArrowBack className='icon-button' /></span>
+      </MainReturnClints>
     </Link>
   )
 }
@@ -24,10 +24,10 @@ span ,.icon-button , a{
     color: var(--font);
     cursor: pointer;
 }
-a{
+span.icon-return{
     display: flex;
     align-items: center;
-    margin: 4px 11px 0 11px;
+    margin: 4px 6px 0 11px;
     
     .icon-button{
         font-size: 24px;
