@@ -52,6 +52,8 @@ import Register from "./pages/Register";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
+import PrecedentClint from "./components/clint copy/PrecedentClint";
+import EditUser from "./components/clint copy/EditUser";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
   const [show, setShow] = useState(false) // added clint massige
@@ -262,9 +264,9 @@ function App() {
                   HandelShow={HandelShow}
                   HandelClose={HandelClose} />} />
 
-                {/* <Route path="/EditUser" element={<EditUser HandelShow={HandelShow} />} >
+                <Route path="/EditUser" element={<EditUser HandelShow={HandelShow} />} >
                   <Route path="/EditUser/:userid" element={<EditUser />} />
-                </Route> */}
+                </Route>
 
               </Route>
 

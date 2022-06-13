@@ -1,24 +1,24 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components"
 import { MarginPages } from '../../styles/MarginPages'
 import TopBar from '../bars/TopBar'
 import FormEdit from './FormEdit'
 import PrecedentClint from './PrecedentClint'
 
-const EditUser = ({HandelShow}) => {
+const EditUser = ({ HandelShow }) => {
 
-  
+
 
   return (
-    
+
     <StyleEdit>
-       <MarginPages>
-           <TopBar title={"تعديل"} HandelShow={HandelShow}/>
-           <PageEdit>
-           <PrecedentClint/> 
-             <FormEdit /> 
-           </PageEdit>
-       </MarginPages>
+      <MarginPages>
+        <TopBar title={"تعديل"} HandelShow={HandelShow} />
+        <PageEdit>
+          <PrecedentClint />
+          <FormEdit />
+        </PageEdit>
+      </MarginPages>
     </StyleEdit>
   )
 }

@@ -16,8 +16,49 @@ const PrecedentClint = () => {
 
   return (
     <MainStylePrecedent>
-      <h2>البيانات القديمه</h2>
-      {clientDetails.filter((item)=>item.en_name === ParamsId).map((user =>{
+      <h2>البيانات dلقديمه</h2>
+          <div className='main-cart' >
+            <div className='header-cart'>
+              <div className='img'>
+                <img src='user.logo' alt="logo" />
+                <p>user.idUser</p>
+              </div>
+            </div>
+            <div className='item-apout'>
+              <div className='item'>
+                <h3>الاسم : <span>user.name</span></h3>
+              </div>
+              <div className='item'>
+                <h3>الشركة : <span>user.compony</span></h3>
+              </div>
+              <div className='item'>
+                <h3>تاريخ الاشتراك : <span>user.dateSubscription</span></h3>
+              </div>
+              <div className='item'>
+                <h3>تاريخ الدفع : <span>user.paymentDate</span></h3>
+              </div>
+              <div className='item'>
+                <h3>اميل العميل : <span>user.clintemail</span></h3>
+              </div>
+              <div className='item'>
+                <h3>موقع العميل : <span>user.websitelink</span></h3>
+              </div>
+              <div className='item'>
+                <h3> الحالة : <span>user.state</span></h3>
+              </div>
+              <div className='item'>
+                <h3> السعر : <span>user.price</span></h3>
+              </div>
+              <div className='item'>
+                <h3> العمله المدفوع بها : <span>user.currencypaid</span></h3>
+              </div>
+              <div className='item'>
+                <h3>   المده : <span>user.duration اشهر</span></h3>
+              </div>
+            </div>
+          </div>
+        
+      {/* {clientDetails.filter((item)=>item.id == ParamsId).map((user =>{
         return (
           <div className='main-cart' key={user.idUser}>
             <div className='header-cart'>
@@ -60,7 +101,7 @@ const PrecedentClint = () => {
             </div>
           </div>
         )
-      }))}
+      }))} */}
 
       
     </MainStylePrecedent>

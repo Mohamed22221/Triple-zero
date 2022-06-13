@@ -1,10 +1,10 @@
-import React ,{useState,useEffect} from 'react'
-import styled  from "styled-components"
-import {  editClint } from '../../store/ClintSlice';
-import {  useDispatch ,useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import styled from "styled-components"
+import { editClint } from '../../store/ClintSlice';
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import {  useToasts } from 'react-toast-notifications';
+import { useToasts } from 'react-toast-notifications';
 import { FaUserEdit } from 'react-icons/fa';
 
 const FormEdit = () => {
@@ -12,141 +12,197 @@ const FormEdit = () => {
 
   const Params = useParams()
   const ParamsId = `${Params.userid}`
-  const id= UserData.filter((item)=>item.name === ParamsId).map((user => user.idUser))
-  const dateSubscription= UserData.filter((item)=>item.name === ParamsId).map((user => user.dateSubscription))
-  const ReasonDelete= UserData.filter((item)=>item.name === ParamsId).map((user => user.ReasonDelete))
-  const DeleteDate= UserData.filter((item)=>item.name === ParamsId).map((user => user.DeleteDate))
-  const compony= UserData.filter((item)=>item.name === ParamsId).map((user => user.compony))
-  const name= UserData.filter((item)=>item.name === ParamsId).map((user => user.name))
-  const price= UserData.filter((item)=>item.name === ParamsId).map((user => user.price))
-  const duration= UserData.filter((item)=>item.name === ParamsId).map((user => user.duration))
-  const clintemail= UserData.filter((item)=>item.name === ParamsId).map((user => user.clintemail))
-  const websitelink= UserData.filter((item)=>item.name === ParamsId).map((user => user.websitelink))
-  const state= UserData.filter((item)=>item.name === ParamsId).map((user => user.state))
-  const currencypaid = UserData.filter((item)=>item.name === ParamsId).map((user => user.currencypaid))
-  const logo = UserData.filter((item)=>item.name === ParamsId).map((user => user.logo))
+  const id = UserData.filter((item) => item.id === ParamsId).map((user => user.idUser))
+  const dateSubscription = UserData.filter((item) => item.id === ParamsId).map((user => user.dateSubscription))
+  const ReasonDelete = UserData.filter((item) => item.id === ParamsId).map((user => user.ReasonDelete))
+  const DeleteDate = UserData.filter((item) => item.id === ParamsId).map((user => user.DeleteDate))
+  const compony = UserData.filter((item) => item.id === ParamsId).map((user => user.compony))
+  const name = UserData.filter((item) => item.id === ParamsId).map((user => user.name))
+  const price = UserData.filter((item) => item.id === ParamsId).map((user => user.price))
+  const duration = UserData.filter((item) => item.id === ParamsId).map((user => user.duration))
+  const clintemail = UserData.filter((item) => item.id === ParamsId).map((user => user.clintemail))
+  const websitelink = UserData.filter((item) => item.id === ParamsId).map((user => user.websitelink))
+  const state = UserData.filter((item) => item.id === ParamsId).map((user => user.state))
+  const currencypaid = UserData.filter((item) => item.id === ParamsId).map((user => user.currencypaid))
+  const logo = UserData.filter((item) => item.id === ParamsId).map((user => user.logo))
 
   const { addToast } = useToasts();
- //redux toolkit
- const dispatch = useDispatch()
+  //redux toolkit
+  const dispatch = useDispatch()
 
- //values input
-   const [values , setValues] = useState({
-     logo:logo[0] , 
-     idUser :id[0],
-     name :name[0],
-     compony:compony[0] ,
-     dateSubscription: dateSubscription[0],
-     price: price[0],
-     duration: duration[0] ,
-     paymentDate: dateSubscription[0],
-     clintemail : clintemail[0],
-     websitelink : websitelink[0] ,
-     state : state[0],
-     currencypaid : currencypaid[0],
-     ReasonDelete:ReasonDelete[0] ,
-     DeleteDate: DeleteDate[0],
- })
+  //values input
+  const [values, setValues] = useState({
+    logo: logo[0],
+    idUser: id[0],
+    name: name[0],
+    compony: compony[0],
+    dateSubscription: dateSubscription[0],
+    price: price[0],
+    duration: duration[0],
+    paymentDate: dateSubscription[0],
+    clintemail: clintemail[0],
+    websitelink: websitelink[0],
+    state: state[0],
+    currencypaid: currencypaid[0],
+    ReasonDelete: ReasonDelete[0],
+    DeleteDate: DeleteDate[0],
+  })
 
- 
- //HandelChange function 
-  const HandelChange = (e) =>{
+
+  //HandelChange function 
+  const HandelChange = (e) => {
     e.preventDefault()
     dispatch(editClint({
-      logo: values.logo ,
-      idUser :values.idUser,
-      name : values.name,
-      compony:values.compony ,
-      dateSubscription:values.dateSubscription,
+      logo: values.logo,
+      idUser: values.idUser,
+      name: values.name,
+      compony: values.compony,
+      dateSubscription: values.dateSubscription,
       price: values.price,
-      duration: values.duration ,
+      duration: values.duration,
       paymentDate: values.dateSubscription,
-      clintemail : values.clintemail ,
-      websitelink : values.websitelink ,
-      state : values.state ,
-      currencypaid : values.currencypaid,
-      ReasonDelete:values.ReasonDelete ,
-      DeleteDate:values.DeleteDate
-         
+      clintemail: values.clintemail,
+      websitelink: values.websitelink,
+      state: values.state,
+      currencypaid: values.currencypaid,
+      ReasonDelete: values.ReasonDelete,
+      DeleteDate: values.DeleteDate
+
     }))
-    addToast(`تم اجراء التعديلات بنجاح` , { appearance: 'success' });
+    addToast(`تم اجراء التعديلات بنجاح`, { appearance: 'success' });
   }
 
- // click add customer
- const ImgeHandeler = (e) =>{
-  const Reader = new FileReader()
-  Reader.onload = () =>{
+  // click add customer
+  const ImgeHandeler = (e) => {
+    const Reader = new FileReader()
+    Reader.onload = () => {
       if (Reader.readyState === 2) {
-          setValues({...values , logo: Reader.result }) 
+        setValues({ ...values, logo: Reader.result })
       }
+    }
+    Reader.readAsDataURL(e.target.files[0])
   }
-  Reader.readAsDataURL(e.target.files[0])
-}
   return (
     <StyleMainInput>
       <h2>تعديل البيانات</h2>
       <StyleForm>
-      {UserData.filter((item)=>item.en_name === ParamsId).map((user =>{
-        return (
-          <div key={user.idUser}>
-        <div className='display-input' >
+
+        <div>
+          <div className='display-input' >
             <div className='input'>
               <label className='disabled'>رقم العميل <span>*</span></label>
-              <input className='disabled' value={values.idUser}    />
+              <input className='disabled' value='{values.idUser}' />
             </div>
             <div className='input'>
               <label className='disabled'>تاريخ الاشتراك <span>*</span></label>
-              <input className='disabled' value={user.dateSubscription} type="date" disabled />
+              <input className='disabled' value='{user.dateSubscription}' type="date" disabled />
             </div>
             <div className='input'>
               <label>شعار العميل <span>*</span></label>
-              <input type="file" onChange={ImgeHandeler}  />
+              <input type="file" onChange={ImgeHandeler} />
             </div>
             <div className='input'>
               <label>مده الاشتراك<span>*</span></label>
-              <input type="number"  value={values.duration}  onChange={(e) =>setValues({...values , duration:e.target.value}) } />
+              <input type="number" value='{values.duration}' onChange={(e) => setValues({ ...values, duration: e.target.value })} />
             </div>
             <div className='input'>
               <label>اسم العميل <span>*</span></label>
-              <input type="text" placeholder='عدل اسم العميل' value={values.name} onChange={(e) =>setValues({...values , name:e.target.value}) } />
+              <input type="text" placeholder='عدل اسم العميل' value='{values.name}' onChange={(e) => setValues({ ...values, name: e.target.value })} />
             </div>
             <div className='input'>
               <label>اسم الشركة <span>*</span></label>
-              <input type="text" placeholder='عدل اسم الشركة'  value={values.compony} onChange={(e) =>setValues({...values , compony:e.target.value}) }/>
+              <input type="text" placeholder='عدل اسم الشركة' value='{values.compony}' onChange={(e) => setValues({ ...values, compony: e.target.value })} />
             </div>
             <div className='input'>
               <label>حاله الدفع <span>*</span></label>
-              <input type="text" placeholder='عدل حاله الدفع' value={values.state} onChange={(e) =>setValues({...values , state:e.target.value}) } />
+              <input type="text" placeholder='عدل حاله الدفع' value='{values.state}' onChange={(e) => setValues({ ...values, state: e.target.value })} />
             </div>
             <div className='input'>
               <label>ايميل العميل <span>*</span></label>
-              <input type="email" placeholder='عدل اميل العميل' value={values.clintemail} onChange={(e) =>setValues({...values , clintemail:e.target.value}) } />
+              <input type="email" placeholder='عدل اميل العميل' value='{values.clintemail}' onChange={(e) => setValues({ ...values, clintemail: e.target.value })} />
             </div>
             <div className='input'>
               <label>رابط الموقع <span>*</span></label>
-              <input type="text" placeholder='عدل رابط الموقع' value={values.websitelink} onChange={(e) =>setValues({...values , websitelink:e.target.value}) }/>
+              <input type="text" placeholder='عدل رابط الموقع' value='{values.websitelink}' onChange={(e) => setValues({ ...values, websitelink: e.target.value })} />
             </div>
             <div className='input'>
               <label> سعر الاشتراك <span>*</span></label>
-              <input type="text" placeholder='عدل سعر الاشتراك' value={values.price} onChange={(e) =>setValues({...values , price:e.target.value}) } />
+              <input type="text" placeholder='عدل سعر الاشتراك' value='{values.price}' onChange={(e) => setValues({ ...values, price: e.target.value })} />
             </div>
             <div className='input'>
               <label>العمله <span>*</span></label>
-              <select className="currency" id="cars" form="carform" value={values.currencypaid} onChange={(e) =>setValues({...values , currencypaid:e.target.value}) } >
-                    <option value="مصري">مصري</option>
-                    <option value="كويتي">كويتي</option>
+              <select className="currency" id="cars" form="carform" value='{values.currencypaid}' onChange={(e) => setValues({ ...values, currencypaid: e.target.value })} >
+                <option value="مصري">مصري</option>
+                <option value="كويتي">كويتي</option>
               </select>
             </div>
+          </div>
+          <div className='edit'>
+            <button onClick={HandelChange} ><Link to={`/Customers/clint/$'{values.name}'`}><FaUserEdit />تعديل</Link></button>
+          </div>
         </div>
-        <div className='edit'>
-        <button onClick={HandelChange} ><Link to={`/Customers/clint/${values.name}`}><FaUserEdit/>تعديل</Link></button>
-        </div>
-         </div>
-          )
-        }))}
 
-        
-        
+        {/* {UserData.filter((item) => item.en_name === ParamsId).map((user => {
+          return (
+            <div key={user.idUser}>
+              <div className='display-input' >
+                <div className='input'>
+                  <label className='disabled'>رقم العميل <span>*</span></label>
+                  <input className='disabled' value={values.idUser} />
+                </div>
+                <div className='input'>
+                  <label className='disabled'>تاريخ الاشتراك <span>*</span></label>
+                  <input className='disabled' value={user.dateSubscription} type="date" disabled />
+                </div>
+                <div className='input'>
+                  <label>شعار العميل <span>*</span></label>
+                  <input type="file" onChange={ImgeHandeler} />
+                </div>
+                <div className='input'>
+                  <label>مده الاشتراك<span>*</span></label>
+                  <input type="number" value={values.duration} onChange={(e) => setValues({ ...values, duration: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label>اسم العميل <span>*</span></label>
+                  <input type="text" placeholder='عدل اسم العميل' value={values.name} onChange={(e) => setValues({ ...values, name: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label>اسم الشركة <span>*</span></label>
+                  <input type="text" placeholder='عدل اسم الشركة' value={values.compony} onChange={(e) => setValues({ ...values, compony: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label>حاله الدفع <span>*</span></label>
+                  <input type="text" placeholder='عدل حاله الدفع' value={values.state} onChange={(e) => setValues({ ...values, state: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label>ايميل العميل <span>*</span></label>
+                  <input type="email" placeholder='عدل اميل العميل' value={values.clintemail} onChange={(e) => setValues({ ...values, clintemail: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label>رابط الموقع <span>*</span></label>
+                  <input type="text" placeholder='عدل رابط الموقع' value={values.websitelink} onChange={(e) => setValues({ ...values, websitelink: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label> سعر الاشتراك <span>*</span></label>
+                  <input type="text" placeholder='عدل سعر الاشتراك' value={values.price} onChange={(e) => setValues({ ...values, price: e.target.value })} />
+                </div>
+                <div className='input'>
+                  <label>العمله <span>*</span></label>
+                  <select className="currency" id="cars" form="carform" value={values.currencypaid} onChange={(e) => setValues({ ...values, currencypaid: e.target.value })} >
+                    <option value="مصري">مصري</option>
+                    <option value="كويتي">كويتي</option>
+                  </select>
+                </div>
+              </div>
+              <div className='edit'>
+                <button onClick={HandelChange} ><Link to={`/Customers/clint/${values.name}`}><FaUserEdit />تعديل</Link></button>
+              </div>
+            </div>
+          )
+        }))} */}
+
+
+
       </StyleForm>
     </StyleMainInput>
 
