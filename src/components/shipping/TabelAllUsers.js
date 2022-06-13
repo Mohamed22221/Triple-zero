@@ -20,7 +20,8 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
 
 
     const [resultData, setResultData] = useState([])
-    
+    const [sortValue, setSortValue] = useState('')
+
     const inputSearch = (e) => {
 
         if (e.target.value == '') {
@@ -33,22 +34,18 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
             setResultData(filteredFood)
         }
 
-      
+
     }
 
     const handleSort = (e) => {
         setResultData([...resultData].sort((a, b) => a[e] > b[e] ? 1 : -1))
-        console.log('dataSorting', resultData);
+        setSortValue(e)
+
     }
 
     useEffect(() => {
         setResultData(UserData)
     }, [UserData])
-
-
-    // useEffect(() => {
-    //     handleSort('id')
-    // }, [])
 
 
     const dataRender = (
@@ -163,12 +160,24 @@ const TableAllUsers = ({ UserData, searchSort, setSortSearch, HandelShowCustomer
         </>
     )
 
+    const sortingitems = [
+        { id: 1, name: 'id', title: '#' },
+        { id: 2, name: 'en_name', title: 'en_name' },
+        { id: 3, name: 'mobile', title: 'mobile' },
+        { id: 4, name: 'email', title: 'email' },
+    ]
+
     return (
         <div className="main-table">
-            <button onClick={() => handleSort('id')}>id</button>
-            <button onClick={() => handleSort('en_name')}>name</button>
-            <button onClick={() => handleSort('mobile')}>tel</button>
-            <button onClick={() => handleSort('email1ddd')}>email</button>
+            {
+                sortingitems.map(item => {
+                    return (
+                        <div key={item.id}>
+                            <button onClick={() => handleSort(item.name)} className={item.name == sortValue ? 'text-danger' : '' }>{item.title}</button>
+                        </div>
+                    )
+                })
+            }
             <input type="text" onChange={inputSearch} />
             {/* <SortTabel
                 setSortSearch={setSortSearch}
