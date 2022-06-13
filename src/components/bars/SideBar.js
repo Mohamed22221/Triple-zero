@@ -131,8 +131,8 @@ const logOut = () => {
             <ul >
             {stateNav.NavBar.map((item ,index) =>{
                 return (
-                    <NavLink key={item.id} to={item.link} onClick={HandelClose} exact activeClassName="active" >
-                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} exact activeClassName="active">
+                    <NavLink key={item.id} to={item.link} onClick={HandelClose}   >
+                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} >
                         <item.icon className='icon-name' />
                         <li>{item.name}</li>
                     </div>
