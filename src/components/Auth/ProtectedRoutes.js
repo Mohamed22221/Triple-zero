@@ -7,8 +7,8 @@ const useAuth = () => {
   // return user && user.loggedIn;
   // const { loginM } = useSelector(state => state.isLoggedIn)
   // console.log('loginM');
-  const loggingIn = localStorage.getItem('loggingIn')
-  return loggingIn;
+  const loggedIn = localStorage.getItem('loggedIn')
+  return loggedIn;
 };
 
 

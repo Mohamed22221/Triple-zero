@@ -68,10 +68,14 @@ const LoginFrom = () => {
             // const token = response?.data?.token;
             // const roles = response?.data?.roles;
             // const roles = ['5150', '1984', '2001'];
-            console.log('response.token', response.data.data.token);
+            console.log('response.token', JSON.stringify(response.data.data));
             localStorage.setItem("token", response.data.data.token)
-            localStorage.setItem("loggingIn", true)
+            localStorage.setItem("authData", JSON.stringify(response.data.data))
+            localStorage.setItem("loggedIn", true)
             window.location.href = '/Triple-zero'
+
+
+
             // navigate(from, { replace: true });
             // setAuth({
             //     email,
