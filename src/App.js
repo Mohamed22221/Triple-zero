@@ -64,7 +64,8 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   const HandelShow = () => {
-    setShowBar(!showBar)
+    // setShowBar(!showBar)
+    setShowBar(false)
   }
 
   const HandelClose = () => {

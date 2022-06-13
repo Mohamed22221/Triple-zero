@@ -12,10 +12,10 @@ const OverLay = ({setShowBar ,showBar }) => {
 
   const HandelCloseOverLay = () =>{
     dispatch(HideSlider())
-    setShowBar(false)
+    // setShowBar(false)
   }
   return (
-    <StyleOverLay id='overLay' onClick={HandelCloseOverLay} showBar={showBar} toogleslider={toogleslider}></StyleOverLay>
+    <StyleOverLay id='overLay' onClick={HandelCloseOverLay} showBar={showBar} toogleslider={toogleslider ? "true" : 'false'}></StyleOverLay>
   )
 }
 const StyleOverLay = styled.div`
@@ -26,7 +26,7 @@ left: 0;
 right: 0;
 bottom: 0;
 opacity: 0.3;
-display: ${props =>  props.showBar  ?  "block" : props.toogleslider ? "block" : "none"};
+display: ${props =>  props.showBar  ?  "block" : JSON.parse(props.toogleslider) ? "block" : "none"};
 z-index: 99;
 cursor: pointer;
 

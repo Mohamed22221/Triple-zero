@@ -60,9 +60,9 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
   }
   return (
     // // TODO: ALERT 
-    // <StyleForm showCustomer={showCustomer} toogleslider={toogleslider}>
+    // <StyleForm showCustomer={showCustomer} toogleslider={toogleslider ? "true" : 'false'}>
     //   {show === true ? <AddedClint HandelClose={HandelClose} name={values.name} /> :
-    //   <div className='style-form' toogleslider={toogleslider}>
+    //   <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
     //     <SliderClint title="اضافه عميل"   >
     //     <InputCustomer values={values} setValues={setValues}  /> 
     //     </SliderClint>
@@ -77,8 +77,8 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
     //   </div>
     //   }
     //   </StyleForm>
-    <StyleForm showCustomer={showCustomer} toogleslider={toogleslider}>
-      <div className='style-form' toogleslider={toogleslider}>
+    <StyleForm showCustomer={showCustomer} >
+      <div className='style-form' >
         <SliderClint title="اضافه مطعم"   >
         <InputCustomer values={values} setValues={setValues}  /> 
         </SliderClint>
@@ -117,7 +117,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 `
 

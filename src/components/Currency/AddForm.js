@@ -48,8 +48,8 @@ const ClintForm = ({ setShow }) => {
     setShow(true)
   }
   return (
-    <StyleForm toogleslider={toogleslider}>
-      <div className='style-form' toogleslider={toogleslider}>
+    <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
+      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
         <SliderClint title="اضافه عملة"   >
           <InputCustomer values={values} setValues={setValues} />
         </SliderClint>
@@ -88,7 +88,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 `
 

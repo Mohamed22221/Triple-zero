@@ -11,7 +11,7 @@ const AddShipping = (props) => {
  const toogleslider= useSelector((state) => state.ShowAndHide.value.Shipping)
   return (
     
-    <StyleyDeleteClint toogleslider={toogleslider} >
+    <StyleyDeleteClint toogleslider={toogleslider ? "true" : 'false'} >
       <div>
         <SliderClint title="اضافه شركة شحن">
           <FormAddShipping setDeleted={setDeleted} />
@@ -36,7 +36,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.toogleslider ? 'translateX(0px)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0px)  ' : '  translateX(590px)  '};
 
 
 `

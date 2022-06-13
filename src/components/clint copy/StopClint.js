@@ -11,7 +11,7 @@ const StopClint = ({showStopClint }) => {
   const [stoped , setStoped] = useState(true)
 
   return (
-    <StyleyStopClint toogleslider={toogleslider}   >
+    <StyleyStopClint toogleslider={toogleslider ? "true" : 'false'}   >
         { stoped == true ?
       <div>
      <SliderClint title="ايقاف العميل">
@@ -37,7 +37,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.toogleslider ? 'translateX(550px)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(550px)  ' : '  translateX(590px)  '};
 
 
 `

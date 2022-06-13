@@ -10,7 +10,7 @@ const DeleteClint = () => {
  const toogleslider= useSelector((state) => state.ShowAndHide.value.delete)
   return (
     
-    <StyleyDeleteClint toogleslider={toogleslider} >
+    <StyleyDeleteClint toogleslider={toogleslider ? "true" : 'false'} >
       { deleted == true ?
       <div>
         <SliderClint title="حذف العميل">
@@ -38,7 +38,7 @@ transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 
 `
