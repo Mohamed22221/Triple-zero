@@ -93,8 +93,8 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                                         <th>الأسم بالانجليزي</th>
                                         <th>التليفون</th>
                                         <th>الايميل</th>
-                                        <th>حاله الدفع</th>
-                                        <th>حاله الاتصال</th>
+                                        <th>الحالة</th>
+                                        <th>حالة الاتصال</th>
                                         <th>الخيارات</th>
                                     </tr>
                                 </thead>

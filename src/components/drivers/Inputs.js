@@ -105,12 +105,12 @@ const FormAddDeivers = ({ setDeleted, values, setValues }) => {
                         <input type="email" placeholder='اكتب اميل السائق' value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value })} />
                         <StyleLabel>  العنوان <span>*</span></StyleLabel>
                         <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) => setValues({ ...values, address: e.target.value })} />
-                        <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) => setValues({ ...values, status1: e.target.value })} />
-                        <StyleLabel>حاله الاتصال<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب حاله الاتصال' value={values.isOnline} onChange={(e) => setValues({ ...values, isOnline: e.target.value })} />
+                        <StyleLabel>الحالة<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب الحالة' value={values.status} onChange={(e) => setValues({ ...values, status1: e.target.value })} />
+                        <StyleLabel>حالة الاتصال<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب حالة الاتصال' value={values.isOnline} onChange={(e) => setValues({ ...values, isOnline: e.target.value })} />
                         <StyleLabel>كلمة السر<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب حاله الدفع' value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
+                        <input type="text" placeholder='اكتب الحالة' value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
 
                     </div>
                 </StyleSmaleDiv>

@@ -114,8 +114,8 @@ const FormEdit = () => {
               <input type="text" placeholder='عدل اسم الشركة' value='{values.compony}' onChange={(e) => setValues({ ...values, compony: e.target.value })} />
             </div>
             <div className='input'>
-              <label>حاله الدفع <span>*</span></label>
-              <input type="text" placeholder='عدل حاله الدفع' value='{values.state}' onChange={(e) => setValues({ ...values, state: e.target.value })} />
+              <label>الحالة <span>*</span></label>
+              <input type="text" placeholder='عدل الحالة' value='{values.state}' onChange={(e) => setValues({ ...values, state: e.target.value })} />
             </div>
             <div className='input'>
               <label>ايميل العميل <span>*</span></label>
@@ -171,8 +171,8 @@ const FormEdit = () => {
                   <input type="text" placeholder='عدل اسم الشركة' value={values.compony} onChange={(e) => setValues({ ...values, compony: e.target.value })} />
                 </div>
                 <div className='input'>
-                  <label>حاله الدفع <span>*</span></label>
-                  <input type="text" placeholder='عدل حاله الدفع' value={values.state} onChange={(e) => setValues({ ...values, state: e.target.value })} />
+                  <label>الحالة <span>*</span></label>
+                  <input type="text" placeholder='عدل الحالة' value={values.state} onChange={(e) => setValues({ ...values, state: e.target.value })} />
                 </div>
                 <div className='input'>
                   <label>ايميل العميل <span>*</span></label>

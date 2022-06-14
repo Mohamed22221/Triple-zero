@@ -90,7 +90,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th> الأسم بالانجليزي</th>
                                         <th>التليفون</th>
                                         <th>الايميل</th>
-                                        <th>حاله الدفع</th>
+                                        <th>الحالة</th>
                                         <th>الخيارات</th>
                                     </tr>
                                 </thead>

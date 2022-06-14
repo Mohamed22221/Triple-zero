@@ -55,8 +55,8 @@ const ImgeHandeler = (e) =>{
                     <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) =>setValues({...values , email:e.target.value}) }/>
                     <StyleLabel>  العنوان <span>*</span></StyleLabel>
                     <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) =>setValues({...values , address:e.target.value}) } />
-                    <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                    <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) =>setValues({...values , status1:e.target.value}) }  />
+                    <StyleLabel>الحالة<span>*</span></StyleLabel>
+                    <input type="text" placeholder='اكتب الحالة' value={values.status} onChange={(e) =>setValues({...values , status1:e.target.value}) }  />
                     
                     <StyleLabel>الرقم السري<span>*</span></StyleLabel>
                     <input type="text" placeholder='اكتب الرقم السري' value={values.password} onChange={(e) =>setValues({...values , password:e.target.value}) }  />

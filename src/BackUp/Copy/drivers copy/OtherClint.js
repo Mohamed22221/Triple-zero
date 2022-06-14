@@ -21,7 +21,7 @@ const {clintemail , isOnline  ,state ,created_at  } = props
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>حاله الدفع</p>
+          <p>الحالة</p>
         </div>
         <div className='type'>
           <h6>{state === 1 ? "نشط" : "غير نشط"}</h6>
@@ -30,7 +30,7 @@ const {clintemail , isOnline  ,state ,created_at  } = props
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>حاله الاتصال</p>
+          <p>حالة الاتصال</p>
         </div>
         <div className='type'>
           <h6>{isOnline === 0 ? "متصل" : "غير متصل"}</h6>

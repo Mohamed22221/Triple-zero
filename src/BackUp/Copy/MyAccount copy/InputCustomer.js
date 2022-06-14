@@ -49,7 +49,7 @@ const ImgeHandeler = (e) =>{
             </StyleSmaleDiv>
             <StyleSmaleDiv>
                 <div className='one-input'>
-                    <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
+                    <StyleLabel>الحالة<span>*</span></StyleLabel>
                     <input type="text" placeholder='اكتب نوع التجاره' value={values.state} onChange={(e) =>setValues({...values , state:e.target.value}) }  />
                     <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                     <input type="email" placeholder='اكتب اميل العميل' value={values.clintemail} onChange={(e) =>setValues({...values , clintemail:e.target.value}) }/>

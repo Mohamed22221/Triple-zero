@@ -36,7 +36,7 @@ const TabelBlackList = ({ }) => {
                 <th>الايميل</th>
                 
 
-                <th>حاله الدفع</th>
+                <th>الحالة</th>
                
                 <th>الخيارات</th>
             </TrHead>

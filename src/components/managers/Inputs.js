@@ -92,10 +92,10 @@ const FormAddManager = ({ setDeleted, values ,setValues }) => {
                         <StyleLabel>ايميل العميل <span>*</span></StyleLabel>
                         <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value })} />
 
-                        <StyleLabel>حاله الدفع<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب حاله الدفع' value={values.status} onChange={(e) => setValues({ ...values, status: e.target.value })} />
+                        <StyleLabel>الحالة<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب الحالة' value={values.status} onChange={(e) => setValues({ ...values, status: e.target.value })} />
                         <StyleLabel>كلمه مرور<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب حاله الدفع' value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
+                        <input type="text" placeholder='اكتب الحالة' value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
 
                     </div>
                 </StyleSmaleDiv>
