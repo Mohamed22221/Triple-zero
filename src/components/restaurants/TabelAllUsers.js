@@ -96,8 +96,25 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                                                     </td>
 
                                                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
-                                                    <td>
-                                                        <span>{user.user.ar_name}</span>
+                                                    <td className='position-relative'>
+                                                        <Link className='text-primary' to={`/shipping-companies/${user.user.id}`}>{user.user.ar_name}</Link>
+                                                        <div className="box-slide">
+                                                            <span className="mark">?</span>
+                                                            <div className="title">
+                                                                <Link to={`/shipping-companies/${user.user.id}`}><img src={Logo3} alt="logo" /></Link>
+                                                            </div>
+                                                            <div className="content mt-2">
+                                                                <Link className='text-primary' to={`/shipping-companies/${user.user.id}`}><h6>{user.user.ar_name}</h6></Link>
+                                                                <div>
+                                                                    <a className='text-primary' href={`tel:+${user.user.mobile}`} >{user.user.mobile}</a>
+                                                                </div>
+                                                                <small>
+                                                                    {user.user.address}
+                                                                </small>
+
+                                                            </div>
+                                                        </div>
+
                                                     </td>
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
