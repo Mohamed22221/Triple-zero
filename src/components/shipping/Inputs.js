@@ -107,6 +107,23 @@ const FormAddShipping = ({ values, setValues }) => {
                         </label>
                     </div>
                 </div>
+
+                <div className="col-12" id="mapDetails">
+                    <div className="form-group">
+                        <label htmlFor="fulladdressText">Full address</label>
+                        <div className="input-group">
+                            <input type="text" className="form-control" id="fulladdressText" placeholder="Enter full address" />
+                            <span className="input-group-btn">
+                                <button className="btn btn-secondary" id="geolocateButton" type="button" data-toggle="tooltip" data-placement="top" title="Use your current location" data-title-clear="Clear address field" data-title-geolocate="Use your current location" data-title-loading="Please wait, finding your loaction..."><i className="fa fa-location-arrow" aria-hidden="true" /></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div id="map-container">
+                        <div id="map-container-inner">
+                            <div id="map" />
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
