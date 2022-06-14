@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
-import { SendShipping } from '../../store/ShippingSlice';
-import { MdPersonAddAlt } from 'react-icons/md';
-import { HideSlider } from '../../store/StateSlice';
-import swal from 'sweetalert';
-
+// import SwitchButton from '../../Shared/Components/Switch/SwitchButton'
+// import { SendShipping } from '../../store/ShippingSlice';
+// import { MdPersonAddAlt } from 'react-icons/md';
+// import { HideSlider } from '../../store/StateSlice';
+// import swal from 'sweetalert';
+import Switch from "react-switch";
 
 const FormAddShipping = ({ setDeleted, values, setValues }) => {
     const ImgeHandeler = (e) => {
@@ -22,41 +23,43 @@ const FormAddShipping = ({ setDeleted, values, setValues }) => {
         // console.log('e.target.files[0]', e.target.files[0]);
         Reader.readAsDataURL(e.target.files[0])
     }
-    //get date today
-    const today = new Date();
-    const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
-    //redux toolkit
-    const dispatch = useDispatch()
-    //uniqe id
-    const uid = new ShortUniqueId({ length: 6 });
-    //values input
 
-    const initialState = {
-        photo: null,
-        user_id: 2,
-        en_name: "",
-        ar_name: "",
-        mobile: "",
-        address: "",
-        email: "",
-        status: 1,
-        lon: -5650,
-        lat: 2365,
-        password: ''
 
+    const staustSwittch = (e) => {
+        if (values.status == 1) {
+            setValues({ ...values, status: 0 })
+        } else {
+            setValues({ ...values, status: 1 })
+
+        }
+        // setValues({ ...values, status: !values.status })
+        console.log('values', values.status, typeof (values.status));
     }
-    
+
+    const valueSwitch = values.status == 1 ? true : false
+
+    // //get date today
+    // const today = new Date();
+    // const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
+    // //redux toolkit
+    // const dispatch = useDispatch()
+    // //uniqe id
+    // const uid = new ShortUniqueId({ length: 6 });
+    // //values input
+
+
+
     return (
         <StyleMainInput>
             <StyleForm>
-                <StyleSmaleDiv>
+                {/* <StyleSmaleDiv>
                     <div className='one-input  '>
                         <StyleLabel>رقم العميل</StyleLabel>
                         <input type="text" placeholder='#As578' value={values.user_id} disabled />
                     </div>
 
 
-                </StyleSmaleDiv>
+                </StyleSmaleDiv> */}
                 <StyleSmaleDiv>
                     <div className='one-input'>
                         <StyleLabel>اضف شعار للعميل</StyleLabel>
@@ -83,8 +86,34 @@ const FormAddShipping = ({ setDeleted, values, setValues }) => {
                         <input type="email" placeholder='اكتب اميل العميل' value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value })} />
                         <StyleLabel>  العنوان <span>*</span></StyleLabel>
                         <input type="text" placeholder='اكتب العنوان ' value={values.address} onChange={(e) => setValues({ ...values, address: e.target.value })} />
-                        <StyleLabel>الحالة<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب الحالة' value={values.status} onChange={(e) => setValues({ ...values, status1: e.target.value })} />
+                        {/* <input type="text" placeholder='اكتب الحالة' value={values.status} onChange={(e) => setValues({ ...values, status: e.target.value })} /> */}
+                        {/* <SwitchButton */}
+                        {/* <SwitchButton id='all'
+                            // value={checked['all']}
+                             label='تحديد الكل:'
+                            /> */}
+
+                        <StyleLabel htmlFor='switch-add-shipping'>الحالة<span>*</span></StyleLabel>
+                        <label className="switch-item mb-3" htmlFor='switch-add-shipping'>
+                            <Switch
+                                checked={valueSwitch}
+                                onChange={staustSwittch}
+                                id='switch-add-shipping'
+                                handleDiameter={28}
+                                offColor="#dfdcdc"
+                                onColor="#f7d294"
+                                offHandleColor="#707070"
+                                onHandleColor="#FB9E00"
+                                height={30}
+                                width={70}
+                                borderRadius={50}
+                                uncheckedIcon={false}
+                                checkedIcon={false}
+                                className="react-switch"
+                            />
+                        </label>
+
+
                         <StyleLabel>كلة السر<span>*</span></StyleLabel>
                         <input type="text" placeholder='اكتب كلة السر' value={values.password} onChange={(e) => setValues({ ...values, password: e.target.value })} />
                     </div>
@@ -107,9 +136,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 
-::-webkit-scrollbar {
-  width: 0px;
-}
+
 `
 const StyleForm = styled.form`
 

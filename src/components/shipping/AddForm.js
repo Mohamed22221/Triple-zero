@@ -26,7 +26,7 @@ const ClintForm = ({setShow}) => {
       telephone: '',
       address: "",
       email : "" ,
-      status : 1,
+      status : 0,
       password: '',
       lon:-5650,
       lat:2365,
@@ -52,7 +52,7 @@ const ClintForm = ({setShow}) => {
 
     })
 
-    setShow(true)
+    // setShow(true)
   }
   return (
     <StyleForm  toogleslider={toogleslider ? "true" : 'false'}>
@@ -81,9 +81,19 @@ justify-content: space-between;
 height: 100%;
 padding: 10px 0;
 overflow: auto;
+&::-webkit-scrollbar{
+        width: 4px;
+}
+&::-webkit-scrollbar-thumb {
+        background-color: var(--secound-color);
+        border-radius: 10px;
+}
+&::-webkit-scrollbar-track {
+	background: var(--primary-color);
+}
 
 }
-padding: 35px;
+// padding: 35px;
 position: fixed;
 top: 0;
 bottom: 0;
