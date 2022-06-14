@@ -26,7 +26,7 @@ const ClintInformation = ({ clientDetails }) => {
           mobile={clientDetails.mobile}
           telephone={clientDetails.telephone}
         />
-        <TabelClient dataDrivers={clientDetails.drivers}/>
+        <TabelClient dataDrivers={clientDetails.drivers} />
 
         {/* <TabelClient
           logo={clientDetails.photo}
