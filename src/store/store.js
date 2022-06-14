@@ -11,7 +11,6 @@ import CurrencySlice from './CurrencySlice'
 
 export const store = configureStore({
   reducer: {
-
     clint: ClintSlice,
     clients2: ClintSlice2,
     drivers: DriverSlice,
