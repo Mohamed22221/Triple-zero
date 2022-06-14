@@ -1,73 +1,73 @@
-import React ,{useState ,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import InputCustomer from './Inputs'
 import { SendShipping } from '../../store/ShippingSlice';
-import {  useDispatch ,useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 
-const ClintForm = ({setShow}) => {
+const ClintForm = ({ setShow }) => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.Shipping)
 
   //get date today
   const today = new Date();
-  const date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+  const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
   //redux toolkit
   const dispatch = useDispatch()
 
   const initialState = {
-      photo: null,
-      user_id: 2,
-      en_name: "",
-      ar_name: "" ,
-      mobile: '' ,
-      telephone: '',
-      address: "",
-      email : "" ,
-      status : 0,
-      password: '',
-      lon:-5650,
-      lat:2365,
-      
+    photo: null,
+    user_id: 2,
+    en_name: "",
+    ar_name: "",
+    mobile: '',
+    telephone: '',
+    address: "",
+    email: "",
+    status: 0,
+    password: '',
+    lon: -5650,
+    lat: 2365,
+
   }
 
   const [values, setValues] = useState(initialState)
-  const AddUser = () =>{
+  const AddUser = () => {
     dispatch(SendShipping(values))
-    .unwrap()
-    .then(() => {
-      setValues(initialState)
-      dispatch(HideSlider())
-      swal("تم تنفيذ الامر بنجاح", {
-        icon: "success",
-        button: 'موافق',
-      });
-    }).catch(() => {
-      swal("عفوا لم يتم تنفيذ الامر", {
-        icon: "error",
-        button: 'موافق'
-      });
+      .unwrap()
+      .then(() => {
+        setValues(initialState)
+        dispatch(HideSlider())
+        swal("تم تنفيذ الامر بنجاح", {
+          icon: "success",
+          button: 'موافق',
+        });
+      }).catch(() => {
+        swal("عفوا لم يتم تنفيذ الامر", {
+          icon: "error",
+          button: 'موافق'
+        });
 
-    })
+      })
 
     // setShow(true)
   }
   return (
-    <StyleForm  toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="اضافه شركة شحن"   >
-          <InputCustomer values={values} setValues={setValues}  /> 
+    <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
+      <div className='style-form p-3' toogleslider={toogleslider ? "true" : 'false'}>
+        <SliderClint title="إضافة شركة شحن"   >
+          <InputCustomer values={values} setValues={setValues} />
         </SliderClint>
-      <StyleFotter>
-        <button onClick={AddUser} className="btn btn-main">
-          <MdPersonAddAlt className='MdPersonAddAlt' />
-          <span>اضافه شركة شحن</span>
-        </button>
+        <StyleFotter>
+          <button onClick={AddUser} className="btn btn-main">
+            <MdPersonAddAlt className='MdPersonAddAlt' />
+            <span>إضافة شركة شحن</span>
+          </button>
 
-        <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
-      </StyleFotter> 
+          {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}
+        </StyleFotter>
       </div>
     </StyleForm>
   )
@@ -109,7 +109,7 @@ transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  
 
 `
 
-const StyleFotter= styled.div`
+const StyleFotter = styled.div`
 display: flex;
 justify-content: center;
 flex-direction: column;

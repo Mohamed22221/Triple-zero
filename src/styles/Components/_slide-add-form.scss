@@ -1,9 +1,32 @@
-.dlk{
+.main-input {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 20px 0;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    // margin-top: 30px;
+
+    label {
+        font-weight: bold;
+
+        span {
+            color: var(--danger-color);
+        }
+    }
+
+    input {
+        font-size: 14px;
+        border: 1px solid var(--font-opacity);
+        border-radius: 20px;
+
+        &.form-control:focus {
+            border-color: #FBA30D;
+            box-shadow: 0 0 0 0.25rem #faa30d40;
+        }
+    }
+
+    input[type=file] {
+        background-color: var(--secound-color);
+        color: white;
+        opacity: 0.9;
+    }
+
 }
