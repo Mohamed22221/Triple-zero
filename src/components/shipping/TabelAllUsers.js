@@ -44,7 +44,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const [sortValue, setSortValue] = useState('')
 
 
-    const sortingitems = [
+    const sortingItems = [
         { id: 1, name: 'id', title: '#' },
         { id: 2, name: 'en_name', title: 'الأسم' },
         { id: 3, name: 'mobile', title: 'التليفون' },
@@ -195,7 +195,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 <div className='sort-by'>
 
                     <p> ترتيب حسب : </p>
-                    {sortingitems.map(item => {
+                    {sortingItems.map(item => {
                         return (
                             <div className='main-sort' key={item.id}>
                                 <span className={item.name == sortValue ? 'active' : ''} onClick={() => handleSort(item.name)}>{item.title}</span>
