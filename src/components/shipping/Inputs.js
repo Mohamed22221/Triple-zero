@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
-import SwitchButton from '../../Shared/Components/Switch/SwitchButton'
+// import SwitchButton from '../../Shared/Components/Switch/SwitchButton'
 // import { SendShipping } from '../../store/ShippingSlice';
 // import { MdPersonAddAlt } from 'react-icons/md';
 // import { HideSlider } from '../../store/StateSlice';
@@ -26,15 +26,17 @@ const FormAddShipping = ({ setDeleted, values, setValues }) => {
 
 
     const staustSwittch = (e) => {
-        // if (values.status == 1) {
-        //     setValues({ ...values, status: 0 })
-        // } else {
-        //     setValues({ ...values, status: 1 })
+        if (values.status == 1) {
+            setValues({ ...values, status: 0 })
+        } else {
+            setValues({ ...values, status: 1 })
 
-        // }
-        setValues({ ...values, status: !values.status })
+        }
+        // setValues({ ...values, status: !values.status })
         console.log('values', values.status, typeof (values.status));
     }
+
+    const valueSwitch = values.status == 1 ? true : false
 
     // //get date today
     // const today = new Date();
@@ -50,14 +52,14 @@ const FormAddShipping = ({ setDeleted, values, setValues }) => {
     return (
         <StyleMainInput>
             <StyleForm>
-                <StyleSmaleDiv>
+                {/* <StyleSmaleDiv>
                     <div className='one-input  '>
                         <StyleLabel>رقم العميل</StyleLabel>
                         <input type="text" placeholder='#As578' value={values.user_id} disabled />
                     </div>
 
 
-                </StyleSmaleDiv>
+                </StyleSmaleDiv> */}
                 <StyleSmaleDiv>
                     <div className='one-input'>
                         <StyleLabel>اضف شعار للعميل</StyleLabel>
@@ -91,12 +93,12 @@ const FormAddShipping = ({ setDeleted, values, setValues }) => {
                              label='تحديد الكل:'
                             /> */}
 
-                        <StyleLabel htmlFor='id'>الحالة<span>*</span></StyleLabel>
-                        <label className="switch-item mb-3" htmlFor='id'>
+                        <StyleLabel htmlFor='switch-add-shipping'>الحالة<span>*</span></StyleLabel>
+                        <label className="switch-item mb-3" htmlFor='switch-add-shipping'>
                             <Switch
-                                // checked={values.status}
-                                // onChange={staustSwittch}
-                                id='id'
+                                checked={valueSwitch}
+                                onChange={staustSwittch}
+                                id='switch-add-shipping'
                                 handleDiameter={28}
                                 offColor="#dfdcdc"
                                 onColor="#f7d294"

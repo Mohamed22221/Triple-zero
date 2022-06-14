@@ -26,7 +26,7 @@ const ClintForm = ({setShow}) => {
       telephone: '',
       address: "",
       email : "" ,
-      status : true,
+      status : 0,
       password: '',
       lon:-5650,
       lat:2365,
@@ -52,7 +52,7 @@ const ClintForm = ({setShow}) => {
 
     })
 
-    setShow(true)
+    // setShow(true)
   }
   return (
     <StyleForm  toogleslider={toogleslider ? "true" : 'false'}>
