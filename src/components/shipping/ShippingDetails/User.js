@@ -1,32 +1,32 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import TopBar from '../../bars/TopBar';
-import {MarginPages} from '../../../styles/MarginPages';
+import { MarginPages } from '../../../styles/MarginPages';
 import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
-import {getShippingDetails} from '../../../store/ShippingSlice';
+import { getShippingDetails } from '../../../store/ShippingSlice';
 import { useParams } from 'react-router';
 
 
-const Clint = ({HandelShow }) => {
+const Clint = ({ HandelShow }) => {
   const dispatch = useDispatch()
   let { shippingId } = useParams();
   useEffect(() => {
-      dispatch(getShippingDetails(shippingId))
+    dispatch(getShippingDetails(shippingId))
   }, [getShippingDetails])
 
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.shipping.ShippingDetailsDetails)
   return (
     <MarginPages>
-    <TopBar title={"الشركة"} HandelShow={HandelShow} />
-    
-    <StyleFlex>
-     <ClintInformation clientDetails={clientDetails}  />
-    </StyleFlex>
-    
+      <TopBar title={"الشركة"} HandelShow={HandelShow} />
+
+      <StyleFlex>
+        <ClintInformation clientDetails={clientDetails} />
+      </StyleFlex>
+
     </MarginPages>
-  
+
   )
 }
 

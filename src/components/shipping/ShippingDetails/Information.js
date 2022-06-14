@@ -3,8 +3,9 @@ import styled from "styled-components";
 import AboutClint from './About';
 import HeaderButton from './HeaderButton';
 import TabelClient from './TabelUser';
+// import TabelClient from './../../Drivers/TabelAllUsers';
 
-const ClintInformation = ({  clientDetails }) => {
+const ClintInformation = ({ clientDetails }) => {
 
   return (
     <MainStyleClint>
@@ -25,7 +26,9 @@ const ClintInformation = ({  clientDetails }) => {
           mobile={clientDetails.mobile}
           telephone={clientDetails.telephone}
         />
-        <TabelClient
+        <TabelClient dataDrivers={clientDetails.drivers}/>
+
+        {/* <TabelClient
           logo={clientDetails.photo}
           id={clientDetails.id}
           name={clientDetails.en_name}
@@ -37,7 +40,7 @@ const ClintInformation = ({  clientDetails }) => {
           websitelink={clientDetails.address}
           tradetype={clientDetails.email}
           currencypaid={clientDetails.status}
-        />
+        /> */}
 
 
 
