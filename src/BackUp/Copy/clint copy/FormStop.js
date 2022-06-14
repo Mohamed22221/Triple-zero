@@ -22,7 +22,7 @@ const FormStop= ({setStoped}) => {
         DeleteDate:"",
         ToDeleteData:""
        })
-       console.log(values)
+       // console.log(values)
   // sent data blacklist 
     const HandelDataStop = (user,e) =>{
         dispatch(addClintBlackList({
@@ -56,7 +56,7 @@ const FormStop= ({setStoped}) => {
         }
         setValues({...values , id:e.target.value}) 
     }
-    console.log(values)
+    // console.log(values)
   return (
     <MainFormDelete>
 

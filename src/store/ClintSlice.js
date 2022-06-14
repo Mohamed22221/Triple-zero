@@ -305,9 +305,9 @@ export const getClients = createAsyncThunk('clients/getClients', async(_, thunkA
      try {
       // const token = localStorage.getItem('token');
       await get('users').then(response => {
-        console.log('response11:' , response.data);
+        // console.log('response11:' , response.data);
     }).error(err => {
-        console.log('error:' , err);
+        // console.log('error:' , err);
     })
   } catch (err) {
       return rejectWithValue(err.message)
@@ -315,7 +315,7 @@ export const getClients = createAsyncThunk('clients/getClients', async(_, thunkA
     // try {
     //     const res = await fetch('http://localhost:3005/books');
     //     const data = await res.json();
-    //     // // console.log(data);
+    //     // // // console.log(data);
     //     return data
     // } catch (err) {
     //     return rejectWithValue(err.message)
@@ -344,19 +344,19 @@ export const ClintSlice = createSlice({
         [getClients.pending]: (state, action) => {
           // state.isLoading = true;
           state.error = null;
-          // console.log(action);
+          // // console.log(action);
         },
         [getClients.fulfilled]: (state, action) => {
           // state.isLoading = false;
           state.books = action.payload;
-          console.log('action form fulfilled', action);
-          // console.log('action form fulfilled 2', state);
-          // console.log('action form fulfilled 2', state.books);
+          // console.log('action form fulfilled', action);
+          // // console.log('action form fulfilled 2', state);
+          // // console.log('action form fulfilled 2', state.books);
         },
         [getClients.rejected]: (state, action) => {
           // state.isLoading = false;
           state.error = action.payload;
-          // console.log(action);
+          // // console.log(action);
         },
   }
   // reducers: {

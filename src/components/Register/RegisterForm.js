@@ -47,7 +47,7 @@ const RegisterFrom = () => {
             }
             )
           
-            console.log('response', response);
+            // console.log('response', response);
             navigate(from, { replace: true });
             setName('');
             setEmail('');
@@ -55,7 +55,7 @@ const RegisterFrom = () => {
             setPassword_confirmation('');
         } catch (err) {
             if (!err?.response) {
-                console.log('err?.response:', err);
+                // console.log('err?.response:', err);
                 setErrMsg('No Server Response');
             } else if (err.response?.status === 400) {
                 setErrMsg('Missing Username or Password');

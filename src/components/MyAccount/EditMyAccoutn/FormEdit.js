@@ -39,7 +39,7 @@ const FormEdit = ({ dataMyAccount }) => {
     }
 
 
-    console.log('valuesData', valuesData);
+    // console.log('valuesData', valuesData);
     postFromData('admins/profile/update', valuesData)
       .then((res) => {
         const userData = JSON.stringify({ user: res.data })
@@ -52,7 +52,7 @@ const FormEdit = ({ dataMyAccount }) => {
 
   const tesW = (e) => {
     e.preventDefault()
-    console.log('djklf');
+    // console.log('djklf');
   }
 
 

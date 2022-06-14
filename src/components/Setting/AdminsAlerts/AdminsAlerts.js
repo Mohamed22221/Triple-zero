@@ -44,7 +44,7 @@ const AdminsPermissions = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('checked', checked);
+      // console.log('checked', checked);
     }
 
     const defaultMode = () => {

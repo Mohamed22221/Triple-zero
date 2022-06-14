@@ -20,7 +20,7 @@
 
 //             // navigate('/jkldf');
 //             window.location.hostname('/ldjkf')
-//             console.log('truedkljfdfkldfjkl');
+//             // console.log('truedkljfdfkldfjkl');
 //             return response
 //         } catch (err) {
 //             return rejectWithValue(err.message)
@@ -39,7 +39,7 @@
 //             state.isLoggedIn = false;
 //         },
 //        [loginM.fulfilled]: (state, action) => {
-//            console.log(action);
+//            // console.log(action);
 //            state.isLoggedIn = true;
 //            state.user = action.payload;
 //            localStorage.setItem("authData",JSON.stringify(state))

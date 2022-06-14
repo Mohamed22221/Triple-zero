@@ -10,7 +10,7 @@ export const getCurrency = createAsyncThunk('currency/getCurrency', async (_, th
     const res = await get('currency')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -22,7 +22,7 @@ export const getActiveDrivers = createAsyncThunk('currency/getActiveDrivers', as
     const res = await get('admins/Currency/active')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -36,7 +36,7 @@ export const getCurrencyDetails = createAsyncThunk('currency/getCurrencyDetails'
     const res = await get(`currency/show/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -48,11 +48,11 @@ export const SendCurrency = createAsyncThunk("currency/SendCurrency", async (dat
   try {
     const response = await postFromData("currency/store", dataClint);
     // const data = res
-    console.log('data added to store', response.data);
+    // console.log('data added to store', response.data);
     return response.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    console.log('rejectWithValue(err.message)', dataClint);
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', dataClint);
 
     return rejectWithValue(err.message)
   }
@@ -68,7 +68,7 @@ export const changeStatusCurrency = createAsyncThunk('currency/changeStatusCurre
     const res = await get(`currency/status/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -83,7 +83,7 @@ export const deleteCurrency = createAsyncThunk('currency/deleteCurrency', async 
     const res = await get(`currency/destroy/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -118,7 +118,7 @@ export const CurrencySlice = createSlice({
     },
     [getCurrency.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
@@ -135,7 +135,7 @@ export const CurrencySlice = createSlice({
     },
     [getCurrencyDetails.rejected]: (state, action) => {
       state.error = action;
-      console.log(action);
+      // console.log(action);
     },
     //getActiveCurrency
     [getActiveDrivers.pending]: (state, action) => {
@@ -146,7 +146,7 @@ export const CurrencySlice = createSlice({
     },
     [getActiveDrivers.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     // SendCurrency
     [SendCurrency.pending]: (state, action) => {
@@ -157,21 +157,21 @@ export const CurrencySlice = createSlice({
     },
     [SendCurrency.rejected]: (state, action) => {
       state.error = action.payload;
-      console.log(action);
+      // console.log(action);
     },
     [deleteCurrency.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.clientDrivers.filter(drivers => drivers.id != action.meta.arg.id);
       state.clientDrivers = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
     [changeStatusCurrency.fulfilled]: (state, action) => {
       // state.isLoading = false;
       // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
       // state.clients2 = filter
-      // console.log('filter', filter);
-      // console.log('action form fulfilled', action.meta.arg);
+      // // console.log('filter', filter);
+      // // console.log('action form fulfilled', action.meta.arg);
     },
 
 

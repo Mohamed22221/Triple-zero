@@ -10,7 +10,7 @@ import Logo3 from "../../photo/slogan/user-avatar.svg"
 
 const TableAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
      const UserData = useSelector(state => state.clients2.clients2)
-     console.log('UserData', UserData);
+     // console.log('UserData', UserData);
  
     const dispatch = useDispatch();
     useEffect(() => {

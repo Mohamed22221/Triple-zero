@@ -7,7 +7,7 @@ import TabelClient from './TabelUser';
 const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetails }) => {
 
 
-  console.log('clientDetails', clientDetails.id);
+  // console.log('clientDetails', clientDetails.id);
 
 
   return (

@@ -30,7 +30,7 @@ const FormDelete = ({setDeleted}) => {
         }
        setValues({...values , id:e.target.value}) 
     }
-    console.log(Disapeld ,values) 
+    // console.log(Disapeld ,values) 
 
 
   return (

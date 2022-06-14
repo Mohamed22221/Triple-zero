@@ -28,7 +28,7 @@ const FormAddCurrency = ({ setDeleted, values, setValues }) => {
 
 
     // const [values, setValues] = useState(initialState)
-    // console.log(values)
+    // // console.log(values)
     // click add Manager
     // const AddUser = () => {
     //     dispatch(SendCurrency(values))

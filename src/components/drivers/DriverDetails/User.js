@@ -18,7 +18,7 @@ const Clint = ({HandelShow }) => {
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.drivers.driverDetails)
   
-  console.log('clientDetails____1', clientDetails);
+  // console.log('clientDetails____1', clientDetails);
   return (
     <MarginPages>
     <TopBar title={"السائق"} HandelShow={HandelShow} />

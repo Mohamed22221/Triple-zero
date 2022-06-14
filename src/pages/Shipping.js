@@ -1,17 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
-// import AddShipping from '../components/Shipping/AddShipping'
 import TabelShipping from '../components/Shipping/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
 const Shipping = ({HandelShow }) => {
-  const [searchSort , setSortSearch] = useState("") 
   return (
     <MarginPages>
         <TopBar title={" الشحن"} HandelShow={HandelShow} />
         <StyleFlex>
-            <TabelShipping searchSort={searchSort} setSortSearch={setSortSearch} />
-            
+            <TabelShipping />
         </StyleFlex>
     </MarginPages>
   )

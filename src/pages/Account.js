@@ -38,7 +38,7 @@ const Account = ({ HandelShowCustomer }) => {
 
   useEffect(() => {
     setDataMyAccount(JSON.parse(localStorage.getItem('authData')).user)
-    // console.log('JSON.parse(localStorage.getItem().user', JSON.parse(localStorage.getItem('authData')).user);
+    // // console.log('JSON.parse(localStorage.getItem().user', JSON.parse(localStorage.getItem('authData')).user);
   }, [])
 
 

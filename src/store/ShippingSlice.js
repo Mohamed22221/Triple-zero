@@ -9,7 +9,7 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async (_, th
     const res = await get('users')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -21,7 +21,7 @@ export const getShippingDetails = createAsyncThunk('shipping/getShippingDetails'
     const res = await get(`users/show/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -33,11 +33,11 @@ export const SendShipping = createAsyncThunk("shipping/SendShipping", async (dat
   try {
     const response = await postFromData("users/store", dataClint);
     // const data = res
-    console.log('data added to store', response.data);
+    // console.log('data added to store', response.data);
     return response.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    console.log('rejectWithValue(err.message)', dataClint);
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', dataClint);
 
     return rejectWithValue(err.message)
   }
@@ -52,7 +52,7 @@ export const changeStatusShipping = createAsyncThunk('shipping/changeStatusShipp
     const res = await get(`users/status/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -65,7 +65,7 @@ export const deleteShipping = createAsyncThunk('shipping/deleteShipping', async 
     const res = await get(`users/destroy/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -101,7 +101,7 @@ export const ShippingSlice = createSlice({
     },
     [getShipping.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
@@ -116,7 +116,7 @@ export const ShippingSlice = createSlice({
     },
     [getShippingDetails.rejected]: (state, action) => {
       state.error = action;
-      console.log(action);
+      // console.log(action);
     },
     //send data clint  
     [SendShipping.pending]: (state, action) => {
@@ -138,15 +138,15 @@ export const ShippingSlice = createSlice({
       // state.isLoading = false;
       const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
       state.shipping = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
     [deleteShipping.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
       state.shipping = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
 
 

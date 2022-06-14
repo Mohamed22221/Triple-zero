@@ -10,7 +10,7 @@ export const getManagers = createAsyncThunk('managers/getManagers', async (_, th
     const res = await get('admins')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -22,7 +22,7 @@ export const getManagerDetails = createAsyncThunk('managers/getManagerDetails', 
     const res = await get(`admins/show/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -34,11 +34,11 @@ export const SendManager = createAsyncThunk("managers/SendManager", async (dataC
   try {
     const response = await postFromData("admins/store", dataClint);
     // const data = res
-    console.log('data added to store', response.data);
+    // console.log('data added to store', response.data);
     return response.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    console.log('rejectWithValue(err.message)', dataClint);
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', dataClint);
 
     return rejectWithValue(err.message)
   }
@@ -53,7 +53,7 @@ export const changeStatusManager = createAsyncThunk('managers/changeStatusManage
     const res = await get(`admins/status/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -66,7 +66,7 @@ export const deleteManager = createAsyncThunk('managers/deleteManager', async (i
     const res = await get(`admins/destroy/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -100,7 +100,7 @@ export const ManagersSlice = createSlice({
     },
     [getManagers.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
@@ -115,7 +115,7 @@ export const ManagersSlice = createSlice({
     },
     [getManagerDetails.rejected]: (state, action) => {
       state.error = action;
-      console.log(action);
+      // console.log(action);
     },
     //send data clint  
     [SendManager.pending]: (state, action) => {
@@ -137,16 +137,16 @@ export const ManagersSlice = createSlice({
       // state.isLoading = false;
       const filter = state.managers.filter(managers => managers.id != action.meta.arg.id);
       state.managers = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
 
     [deleteManager.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.managers.filter(managers => managers.id != action.meta.arg.id);
       state.managers = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
 
 

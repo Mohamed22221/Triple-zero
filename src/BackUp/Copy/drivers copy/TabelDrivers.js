@@ -35,7 +35,7 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     // useEffect(() => {
     //     setSortedField(sortName)
     // }, [setSortedField ,UserData])
-    console.log(sortedField)
+    // console.log(sortedField)
     const sortID = [...UserData].sort((a , b)=>{
         return a.id < b.id ? 1 : -1;
     })
@@ -53,7 +53,7 @@ const TabelDrivers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
         return dateB - dateA
     })
 
-     console.log('sortedField', sortedField);
+     // console.log('sortedField', sortedField);
     
 
   return (

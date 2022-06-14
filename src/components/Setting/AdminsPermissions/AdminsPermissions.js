@@ -45,7 +45,7 @@ const AdminsAlerts = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('submit', checked);
+      // console.log('submit', checked);
     }
 
     const defaultMode = () => {

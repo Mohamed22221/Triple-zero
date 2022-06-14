@@ -9,7 +9,7 @@ export const getDrivers = createAsyncThunk('drivers/getDrivers', async (_, thunk
     const res = await get('admins/drivers')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -21,7 +21,7 @@ export const getActiveDrivers = createAsyncThunk('drivers/getActiveDrivers', asy
     const res = await get('admins/drivers/active')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -35,7 +35,7 @@ export const getDriverDetails = createAsyncThunk('drivers/getDriverDetails', asy
     const res = await get(`admins/drivers/show/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -47,11 +47,11 @@ export const SendDirver = createAsyncThunk("drivers/SendDirver", async (dataClin
   try {
     const response = await postFromData("admins/drivers/store", dataClint);
     // const data = res
-    console.log('data added to store', response.data);
+    // console.log('data added to store', response.data);
     return response.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    console.log('rejectWithValue(err.message)', dataClint);
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', dataClint);
 
     return rejectWithValue(err.message)
   }
@@ -67,7 +67,7 @@ export const changeStatusDriver = createAsyncThunk('drivers/changeStatusDriver',
     const res = await get(`admins/drivers/status/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -82,7 +82,7 @@ export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, 
     const res = await post(`admins/drivers/destroy/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -116,7 +116,7 @@ export const DriverSlice = createSlice({
     },
     [getDrivers.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
@@ -133,7 +133,7 @@ export const DriverSlice = createSlice({
     },
     [getDriverDetails.rejected]: (state, action) => {
       state.error = action;
-      console.log(action);
+      // console.log(action);
     },
     //getActiveDrivers
     [getActiveDrivers.pending]: (state, action) => {
@@ -144,7 +144,7 @@ export const DriverSlice = createSlice({
     },
     [getActiveDrivers.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     // SendDirver  
     [SendDirver.pending]: (state, action) => {
@@ -155,21 +155,21 @@ export const DriverSlice = createSlice({
     },
     [SendDirver.rejected]: (state, action) => {
       state.error = action.payload;
-      console.log(action);
+      // console.log(action);
     },
     [deleteDriver.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.drivers.filter(drivers => drivers.id != action.meta.arg.id);
       state.drivers = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
     [changeStatusDriver.fulfilled]: (state, action) => {
       // state.isLoading = false;
       // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
       // state.clients2 = filter
-      // console.log('filter', filter);
-      // console.log('action form fulfilled', action.meta.arg);
+      // // console.log('filter', filter);
+      // // console.log('action form fulfilled', action.meta.arg);
     },
 
 

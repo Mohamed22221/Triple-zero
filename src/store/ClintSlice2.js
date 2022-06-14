@@ -16,7 +16,7 @@ export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thu
      const res =  await get('restaurants')
      return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
       return rejectWithValue(err.message)
   }
 })
@@ -32,7 +32,7 @@ export const getClientDetails = createAsyncThunk('clients2/getClientDetails', as
      const res = await get(`restaurants/show/${id}`)
      return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
       return rejectWithValue(err.message)
   }
 })
@@ -44,11 +44,11 @@ export const SendClint = createAsyncThunk("clients2/SendClint" , async (dataClin
   try {
     const response = await postFromData("restaurants/store", dataClint);
     // const data = res
-    console.log('data added to store', response.data);
+    // console.log('data added to store', response.data);
     return response.data
  }catch (err) {
-  console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-  console.log('rejectWithValue(err.message)', dataClint);
+  // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+  // console.log('rejectWithValue(err.message)', dataClint);
 
   return rejectWithValue(err.message)
  }
@@ -62,7 +62,7 @@ export const changeStatusClient = createAsyncThunk('clients2/changeStatusClient'
      const res = await get(`restaurants/status/${id}`)
      return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
       return rejectWithValue(err.message)
   }
 })
@@ -75,7 +75,7 @@ export const deleteClient = createAsyncThunk('clients2/deleteClient', async (id,
      const res = await get(`restaurants/destroy/${id}`)
      return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
       return rejectWithValue(err.message)
   }
 })
@@ -118,7 +118,7 @@ export const ClintSlice = createSlice({
         },
         [getClients2.rejected]: (state, action) => {
           state.error = action;
-          console.log('action', action);
+          // console.log('action', action);
         },
         [handleListView.fulfilled]: (state, action) => {
           state.listView = action.payload
@@ -134,7 +134,7 @@ export const ClintSlice = createSlice({
         },
         [getClientDetails.rejected]: (state, action) => {
           state.error = action;
-          console.log(action);
+          // console.log(action);
         },
       
       //send data clint  
@@ -146,7 +146,7 @@ export const ClintSlice = createSlice({
       },
       [SendClint.rejected]: (state, action) => {
         state.error = action.payload;
-        console.log(action);
+        // console.log(action);
       },
 
      
@@ -155,15 +155,15 @@ export const ClintSlice = createSlice({
         // state.isLoading = false;
         const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
         state.clients2 = filter
-        console.log('filter', filter);
-        console.log('action form fulfilled', action.meta.arg);
+        // console.log('filter', filter);
+        // console.log('action form fulfilled', action.meta.arg);
       },
       [changeStatusClient.fulfilled]: (state, action) => {
         // state.isLoading = false;
         const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
         state.clients2 = filter
-        console.log('filter', filter);
-        console.log('action form fulfilled', action.meta.arg);
+        // console.log('filter', filter);
+        // console.log('action form fulfilled', action.meta.arg);
       },
       
     
@@ -171,7 +171,7 @@ export const ClintSlice = createSlice({
 //   reducer :{
 //     handleListView: (state ,action) => {
 //       state.listView = !state.listView
-//       console.log('state.listView', state.listView);
+//       // console.log('state.listView', state.listView);
          
 //   }
 // }

@@ -9,7 +9,7 @@ export const getQuotes = createAsyncThunk('quotes/getQuotes', async (_, thunkAPI
     const res = await get('quotes')
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -21,7 +21,7 @@ export const getQuoteDetails = createAsyncThunk('quotes/getQuoteDetails', async 
     const res = await get(`quotes/show/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -33,11 +33,11 @@ export const SendQuote = createAsyncThunk("quotes/SendQuote", async (dataClint, 
   try {
     const response = await postFromData("quotes/store", dataClint);
     // const data = res
-    console.log('data added to store', response.data);
+    // console.log('data added to store', response.data);
     return response.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    console.log('rejectWithValue(err.message)', dataClint);
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', dataClint);
 
     return rejectWithValue(err.message)
   }
@@ -52,7 +52,7 @@ export const changeStatusQuotes = createAsyncThunk('quotes/changeStatusQuotes', 
     const res = await get(`quotes/status/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -65,7 +65,7 @@ export const deleteQuote = createAsyncThunk('quotes/deleteQuote', async (id, thu
     const res = await get(`quotes/destroy/${id}`)
     return res.data
   } catch (err) {
-    console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
   }
 })
@@ -101,7 +101,7 @@ export const QuotesSlice = createSlice({
     },
     [getQuotes.rejected]: (state, action) => {
       state.error = action;
-      console.log('action', action);
+      // console.log('action', action);
     },
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
@@ -116,7 +116,7 @@ export const QuotesSlice = createSlice({
     },
     [getQuoteDetails.rejected]: (state, action) => {
       state.error = action;
-      console.log(action);
+      // console.log(action);
     },
     //send data clint  
     [SendQuote.pending]: (state, action) => {
@@ -138,15 +138,15 @@ export const QuotesSlice = createSlice({
       // state.isLoading = false;
       const filter = state.quotes.filter(quotes => quotes.id != action.meta.arg.id);
       state.quotes = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
     [deleteQuote.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.quotes.filter(quotes => quotes.id != action.meta.arg.id);
       state.quotes = filter
-      console.log('filter', filter);
-      console.log('action form fulfilled', action.meta.arg);
+      // console.log('filter', filter);
+      // console.log('action form fulfilled', action.meta.arg);
     },
 
 

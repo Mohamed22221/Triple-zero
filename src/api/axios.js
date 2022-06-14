@@ -66,8 +66,8 @@ export async function post(url, data, config = {
 //   for (let item in dataList) {
 //     formData.append(item, dataList[item])
 //   }
-//   console.log('dataList', dataList);
-//   console.log('formData', formData);
+//   // console.log('dataList', dataList);
+//   // console.log('formData', formData);
 //   axiosApi({
 //     url: url,
 //     method: 'POST',
@@ -97,8 +97,7 @@ export async function del(url, config = {}) {
   return await axiosApi
     .delete(url)
     .then(response => {
-      console.log('response.data', response.data)
-      console.log('url', url)
+      // console.log('response.data', response.data)
       return response.data
     })
 }

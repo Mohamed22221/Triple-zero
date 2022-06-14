@@ -28,7 +28,7 @@ const HeaderButton = ({HandelShowCustomer, id, status }) => {
     const statusVal = clientDetails.status == 1 ? true : false;
     
     const [handelStatus, setHandelStatus] = useState(statusVal);
-    console.log('statusVal', statusVal);
+    // console.log('statusVal', statusVal);
 
     const handelStatusClient = () => {
 

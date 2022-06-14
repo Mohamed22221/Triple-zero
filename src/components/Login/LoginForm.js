@@ -38,19 +38,19 @@ const LoginFrom = () => {
 
         // dispatch(loginM(formData))
 
-        // console.log(email, password);
+        // // console.log(email, password);
 
 
-        // console.log('formData', formData);
+        // // console.log('formData', formData);
 
         // await Axios.post('http://tracking.000itkw.com/api/admins/login', formData, {
         //     headers: {
         //     'Content-Type': 'multipart/form-data'
         //     }
         // })
-        // console.log('JSON.stringify', JSON.stringify({ email, password }));
-        // console.log('no', {email, password});
-        // console.log('formData', formData);
+        // // console.log('JSON.stringify', JSON.stringify({ email, password }));
+        // // console.log('no', {email, password});
+        // // console.log('formData', formData);
 
         try {
             const response = await axios.post(LOGIN_URL,
@@ -63,12 +63,12 @@ const LoginFrom = () => {
                 },
             }
             );
-            // console.log('res', JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
+            // // console.log('res', JSON.stringify(response?.data));
+            //// console.log(JSON.stringify(response));
             // const token = response?.data?.token;
             // const roles = response?.data?.roles;
             // const roles = ['5150', '1984', '2001'];
-            console.log('response.token', JSON.stringify(response.data.data));
+            // console.log('response.token', JSON.stringify(response.data.data));
             localStorage.setItem("token", response.data.data.token)
             localStorage.setItem("authData", JSON.stringify(response.data.data))
             localStorage.setItem("loggedIn", true)
@@ -87,7 +87,7 @@ const LoginFrom = () => {
             setPassword('');
         } catch (err) {
             if (!err?.response) {
-                console.log('err?.response:', err);
+                // console.log('err?.response:', err);
                 setErrMsg('email or password is incorrect');
             } else if (err.response?.status === 400) {
                 setErrMsg('Missing Username or Password');
