@@ -12,9 +12,13 @@ import {  FaShoppingCart } from 'react-icons/fa';
 import {  BsPersonCircle } from 'react-icons/bs';
 import {  HiCurrencyDollar } from 'react-icons/hi';
 import { RiDoubleQuotesR } from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import { HideSlider } from '../../store/StateSlice';
 
 
 const SideBar = ({showBar,HandelClose }) => {
+    const toogleslider = useSelector((state) => state.ShowAndHide.value.nav)
+    const dispatch = useDispatch()
     let location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/login";
@@ -99,7 +103,10 @@ const SideBar = ({showBar,HandelClose }) => {
       {...stateNav ,activeSort:stateNav.NavBar[index] }
     )
     // //start Active Class and state sort
-    
+
+        dispatch(HideSlider())
+ 
+  
     
   }
   const HandelClassName= (index) =>{
@@ -122,7 +129,7 @@ const logOut = () => {
 
   return (
      
-    <StyleSideBar showBar={showBar}    >
+    <StyleSideBar toogleslider={toogleslider}    >
         <StyleTop >
         <div className='img-logo'>
             <NavLink to="/Triple-zero"><img src={logo} /></NavLink>
@@ -131,7 +138,7 @@ const logOut = () => {
             <ul >
             {stateNav.NavBar.map((item ,index) =>{
                 return (
-                    <NavLink key={item.id} to={item.link} onClick={HandelClose}   >
+                    <NavLink key={item.id} to={item.link}   >
                     <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} >
                         <item.icon className='icon-name' />
                         <li>{item.name}</li>
@@ -173,7 +180,7 @@ overflow: hidden;
 -moz-box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
 box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
 @media (max-width:1180px ) {
-transform: ${({showBar}) => showBar ? 'translateX(0)' : 'translateX(290px)'};
+    transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(290px)  '};
 }
 
 

@@ -63,8 +63,8 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   const HandelShow = () => {
-    // setShowBar(!showBar)
-    setShowBar(false)
+     setShowBar(!showBar)
+   
   }
 
   const HandelClose = () => {
@@ -100,13 +100,15 @@ function App() {
           <AddCurrency />
           <AddQuotes />
           <OverLay HandelClose={HandelClose} showBar={showBar} />
+          <SideBar HandelClose={HandelClose} showBar={showBar} />
+
 
           <Routes>
             {/* public routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route element={<ProtectedRoutesAdmin />}>
-              <Route element={<SidebarLayout />}>
+              <Route element={<SidebarLayout HandelShow={HandelShow} show={show} />}>
                 {/* User routes */}
                 <Route path="/" element={<Home HandelShow={HandelShow} />} />
                 <Route path="Triple-zero" element={<Home HandelShow={HandelShow} />} />
