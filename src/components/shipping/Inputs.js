@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react'
 // import { HideSlider } from '../../store/StateSlice';
 // import swal from 'sweetalert';
 import Switch from "react-switch";
+import LocationSearchInput from './Location';
 
 const FormAddShipping = ({ values, setValues }) => {
     const ImgeHandeler = (e) => {
@@ -77,17 +78,17 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                {/* <div className='col-lg-6'>
                     <div className="mb-3">
                         <label htmlFor="address" className="form-label"> العنوان<span>*</span> </label>
                         <input type="text" className="form-control" id="address" placeholder="اكتب  العنوان" value={values.address} required onChange={(e) => setValues({ ...values, address: e.target.value })} />
                     </div>
-                </div>
+                </div> */}
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
                         <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
-                        <label className="switch-item mb-3" htmlFor='switch-add-shipping'>
+                        <label className="switch-item" htmlFor='switch-add-shipping'>
                             <Switch
                                 checked={valueSwitch}
                                 onChange={staustSwittch}
@@ -105,6 +106,13 @@ const FormAddShipping = ({ values, setValues }) => {
                                 className="react-switch"
                             />
                         </label>
+                    </div>
+                </div>
+
+                <div className='col-12'>
+                    <div className="mb-3">
+                        <LocationSearchInput values={values} setValues={setValues} />
+
                     </div>
                 </div>
             </div>

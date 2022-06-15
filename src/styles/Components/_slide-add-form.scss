@@ -30,3 +30,15 @@
     }
 
 }
+
+.autocomplete-dropdown-container>div {
+    border-bottom: 1px solid #FBA30D;
+    border-right: 1px solid #FBA30D;
+    border-left: 1px solid #FBA30D;
+    padding: 4px 10px;
+
+    &:first-of-type {
+        border-top: 1px solid #FBA30D;
+        // margin-top: 10px;
+    }
+}
