@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "gh-pages": "^3.2.3",
+    "google-map-react": "^2.1.10",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.1.0",

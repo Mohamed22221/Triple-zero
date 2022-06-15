@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react'
 // import swal from 'sweetalert';
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
+import TestSvg from './Map';
 
 const FormAddShipping = ({ values, setValues }) => {
     const ImgeHandeler = (e) => {
@@ -115,6 +116,8 @@ const FormAddShipping = ({ values, setValues }) => {
 
                     </div>
                 </div>
+
+                <TestSvg />
             </div>
 
         </div>
