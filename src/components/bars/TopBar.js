@@ -5,15 +5,23 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
 import { BsTextParagraph } from 'react-icons/bs';
-import { useSelector } from 'react-redux'
+import {  useDispatch ,useSelector } from 'react-redux'
 
 import { Link } from "react-router-dom";
 import ButtonsAdd from './ButtonsAdd';
+import { ShowNav } from '../../store/StateSlice';
 
 
-const TopBar = ({title ,HandelShow}) => {
+const TopBar = ({title}) => {
+    //show navBar 
+    const dispatch = useDispatch()
+    
     // adds button
     const [buttons , setbuttons] = useState(false)
+    const HandelToggleBar =() =>{
+        dispatch(ShowNav())
+    }
+  
     const HandelButton = () => {
         setbuttons(!buttons)
     }
@@ -65,7 +73,7 @@ const TopBar = ({title ,HandelShow}) => {
         </StyleRightTopBar>
         <StyleLeftTopBar>
             <LoginManager />
-            <BsTextParagraph className='icon-topbar' onClick={HandelShow} />
+            <BsTextParagraph className='icon-topbar' onClick={HandelToggleBar} />
         </StyleLeftTopBar>
         
     </StyleTopBar>

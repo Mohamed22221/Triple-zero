@@ -8,7 +8,7 @@ import SearchCustomer from './Search';
 import SortBy from './SortBy';
 import ButtonReturn from '../glopal/ButtonReturn';
 import { useSelector, useDispatch } from 'react-redux';
-import { handleListView } from './../../store/ClintSlice2'
+import { handleListView } from '../../store/ClintSlice2'
 
 
 
