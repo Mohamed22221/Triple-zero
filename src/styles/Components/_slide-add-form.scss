@@ -31,6 +31,11 @@
 
 }
 
+.autocomplete-dropdown-container{
+    position: absolute;
+    z-index: 78788778;
+    width: 100%;
+}
 .autocomplete-dropdown-container>div {
     border-bottom: 1px solid #FBA30D;
     border-right: 1px solid #FBA30D;

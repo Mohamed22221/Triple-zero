@@ -111,7 +111,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 </div>
 
                 <div className='col-12'>
-                    <div className="mb-3">
+                    <div className="mb-3 position-relative">
                         <LocationSearchInput values={values} setValues={setValues} />
 
                     </div>
