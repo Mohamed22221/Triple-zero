@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
-import { addShipping ,AddManager, ShowAdd ,AddDriver ,AddCurrency} from '../../store/StateSlice';
+import { addShipping ,AddManager, ShowAdd ,AddDriver ,AddCurrency, AddQuotes} from '../../store/StateSlice';
 import { useDispatch, useSelector } from 'react-redux';
 const ButtonsAdd = ({buttons,setbuttons}) => {
 
@@ -26,6 +26,10 @@ const ButtonsAdd = ({buttons,setbuttons}) => {
         dispatch(AddCurrency(true))
         setbuttons(false)
     }
+    const AddQuote = () =>{
+        dispatch(AddQuotes(true))
+        setbuttons(false)
+    }
    
   return (
     <StyleButtonAdd buttons={buttons}>
@@ -35,6 +39,7 @@ const ButtonsAdd = ({buttons,setbuttons}) => {
         <button onClick={AddDrivers}><MdPersonAddAlt  />اضافه  سائق</button>
         <button onClick={AddManagers}><MdPersonAddAlt />اضافه  مشرق</button>
         <button onClick={AddCurrencys}><MdPersonAddAlt />اضافه  عمله</button>
+        <button onClick={AddQuote}><MdPersonAddAlt />اضافه  اقتباس</button>
 
 
        
@@ -47,10 +52,10 @@ position: absolute;
 top: 50px;
 z-index: 50;
 width: 250px;
-height: 250px;
+height: 220px;
 left: -25px;
 background-color: white;
-padding: 20px;
+padding: 5px;
 flex-direction: column;
 align-items: center;
 border-radius: 5px;
@@ -73,11 +78,11 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px;
+    padding: 7px 15px;
     background-color: var(--primary-color);
     width: 160px;
     color: white;
-    margin: 10px 0;
+    margin: 7px 0;
     border-radius: 10px;
     transition: 0.5s;
     &:hover{
