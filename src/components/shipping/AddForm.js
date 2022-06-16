@@ -18,7 +18,7 @@ const ClintForm = ({ setShow }) => {
   const dispatch = useDispatch()
 
   const initialState = {
-    photo: null,
+    photo: [],
     user_id: 2,
     en_name: "",
     ar_name: "",
