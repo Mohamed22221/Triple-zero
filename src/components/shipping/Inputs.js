@@ -117,7 +117,7 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
 
-                <TestSvg />
+                <TestSvg values={values} />
             </div>
 
         </div>
