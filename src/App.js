@@ -63,8 +63,8 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   const HandelShow = () => {
-    setShowBar(!showBar)
-
+     setShowBar(!showBar)
+   
   }
 
   const HandelClose = () => {
@@ -154,11 +154,11 @@ function App() {
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
-                  />} />
-                  <Route path=":shippingId" element={<ShippingDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
+                    />} />
+                    <Route path=":shippingId" element={<ShippingDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
                 </Route>
                 {/* End shipping Routes */}
 

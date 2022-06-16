@@ -31,11 +31,12 @@
 
 }
 
-.autocomplete-dropdown-container{
+.autocomplete-dropdown-container {
     position: absolute;
     z-index: 78788778;
     width: 100%;
 }
+
 .autocomplete-dropdown-container>div {
     border-bottom: 1px solid #FBA30D;
     border-right: 1px solid #FBA30D;
@@ -45,5 +46,26 @@
     &:first-of-type {
         border-top: 1px solid #FBA30D;
         // margin-top: 10px;
+    }
+}
+
+.dropzone {
+    min-height: 130px;
+    border: 2px dashed #79859c;
+    background: #fff;
+    padding-bottom: 13px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .dz-message {
+        font-size: 24px;
+        width: 100%;
+    }
+
+    .needsclick {
+        text-align: center;
     }
 }

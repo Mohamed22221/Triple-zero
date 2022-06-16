@@ -1,26 +1,45 @@
+import React, { useState, useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import ShortUniqueId from 'short-unique-id'
-import React, { useState, useEffect } from 'react'
+import Dropzone from "react-dropzone";
+import { Link } from 'react-router-dom';
 // import SwitchButton from '../../Shared/Components/Switch/SwitchButton'
 // import { SendShipping } from '../../store/ShippingSlice';
 // import { MdPersonAddAlt } from 'react-icons/md';
 // import { HideSlider } from '../../store/StateSlice';
 // import swal from 'sweetalert';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
 
 const FormAddShipping = ({ values, setValues }) => {
-    const ImgeHandeler = (e) => {
-        const Reader = new FileReader()
-        Reader.onload = () => {
-            if (Reader.readyState === 2) {
-                setValues({ ...values, photo: e.target.files[0] })
-            }
-        }
-        Reader.readAsDataURL(e.target.files[0])
+    const [selectedFiles, setselectedFiles] = useState([]);
+    const handleAcceptedFiles = (files) => {
+        // const Reader = new FileReader()
+        // Reader.onload = () => {
+        //     if (Reader.readyState === 2) {
+        //         setValues({ ...values, photo: e.target.files[0] })
+        //     }
+        // }
+        // Reader.readAsDataURL(e.target.files[0])
+
+        files.map(file =>
+            Object.assign(file, {
+                preview: URL.createObjectURL(file),
+                formattedSize: formatBytes(file.size)
+            })
+        );
+
+        // console.log(files[0]);
+        setselectedFiles(files)
+
+        // setSelectedFiles(files)
+        setValues({ ...values, photo: files[0] })
     }
+
+    
 
     const staustSwittch = (e) => {
         if (values.status == 1) {
@@ -31,16 +50,91 @@ const FormAddShipping = ({ values, setValues }) => {
         console.log('values', values.status, typeof (values.status));
     }
 
+    const formatBytes = (bytes, decimals = 2) => {
+        if (bytes === 0) return "0 Bytes";
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    };
+
     const valueSwitch = values.status == 1 ? true : false
 
     return (
         <div className='main-input px-2'>
             <div className='row'>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-12'>
                     <div className="mb-3">
-                        <label htmlFor="logo" className="form-label">اضف شعار<span>*</span> </label>
-                        <input type="file" className="form-control" id="logo" required onChange={ImgeHandeler} />
+                        <div className='row'>
+                            <div className='col-8'>
+                                <label htmlFor="logo" className="form-label">اضف شعار<span>*</span> </label>
+                                {/* <input type="file" className="form-control" id="logo" required onChange={ImgeHandeler} /> */}
+                                <Dropzone
+                                    onDrop={acceptedFiles =>
+                                        handleAcceptedFiles(acceptedFiles)
+                                    }
+                                >
+                                    {({ getRootProps, getInputProps }) => (
+                                        <div className="dropzone">
+                                            <div
+                                                className="dz-message needsclick"
+                                                {...getRootProps()}
+                                            >
+                                                <input {...getInputProps()} />
+                                                    <AiOutlineCloudUpload className='icon-wedget' />
+                                                    {/* <i className="display-4 text-muted ri-upload-cloud-2-line"></i> */}
+                                                <h6>قم بسحب الملفات هنا أو انقر للتحميل..</h6>
+                                            </div>
+                                        </div>
+                                    )}
+                                </Dropzone>
+
+                            </div>
+                            <div className='col-4'>
+                                <div
+                                    className="dropzone-previews mt-3"
+                                    id="file-previews"
+                                >
+                                    {selectedFiles.map((f, i) => {
+                                        return (
+                                            <div
+                                                className="mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete"
+                                                key={i + "-file"}
+                                            >
+                                                <div className="p-2">
+                                                    <div className="row align-items-center flex-center text-center">
+                                                        <div className="col col-auto">
+                                                            <img
+                                                                data-dz-thumbnail=""
+                                                                height="80"
+                                                                className="avatar-sm rounded bg-light w-100"
+                                                                alt={f.name}
+                                                                src={f.preview}
+                                                            />
+                                                        </div>
+                                                        <div className='col'>
+                                                            <Link
+                                                                to={`blob:http://localhost:3000/6339225f-9f41-4f5f-8feb-e936722422db`}
+                                                                className="text-muted fw-bold"
+                                                            >
+                                                                {f.name}
+                                                            </Link>
+                                                            <p className="mb-0">
+                                                                <sapn>{f.formattedSize}</sapn>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 {/* Block Item */}
