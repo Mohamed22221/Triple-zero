@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="51" viewBox="0 0 51 51">
+  <defs>
+    <filter id="Oval" x="3" y="2" width="46" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-2" x="7" y="6" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-2"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-3" x="0" y="0" width="51" height="51" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-3"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-4" x="9" y="8" width="33" height="33" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-4"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_672" data-name="Group 672" transform="translate(-1157.915 -578)">
+    <g id="Group_17" data-name="Group 17" transform="translate(979.915 178)">
+      <g id="Group_16" data-name="Group 16">
+        <g transform="matrix(1, 0, 0, 1, 178, 400)" filter="url(#Oval)">
+          <circle id="Oval-5" data-name="Oval" cx="17" cy="17" r="17" transform="translate(9 6)" fill="#fba30d" opacity="0.25"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 178, 400)" filter="url(#Oval-2)">
+          <circle id="Oval-6" data-name="Oval" cx="13" cy="13" r="13" transform="translate(13 10)" fill="#fba30d" opacity="0.36"/>
+        </g>
+        <g id="Group_671" data-name="Group 671">
+          <g transform="matrix(1, 0, 0, 1, 178, 400)" filter="url(#Oval-3)">
+            <circle id="Oval-7" data-name="Oval" cx="19.5" cy="19.5" r="19.5" transform="translate(6 4)" fill="#fba30d" opacity="0.11"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, 178, 400)" filter="url(#Oval-4)">
+            <circle id="Oval-8" data-name="Oval" cx="10.5" cy="10.5" r="10.5" transform="translate(15 12)" fill="#fba30d"/>
+          </g>
+        </g>
+      </g>
+      <g id="B" transform="translate(198.753 416.827)">
+        <path id="Oval_Copy" data-name="Oval Copy" d="M4.747,12.346c.482,0,2.775-2.88,3.341-3.8a6.479,6.479,0,0,0,1.406-3.8A4.747,4.747,0,1,0,0,4.747a6.418,6.418,0,0,0,1.364,3.8C1.968,9.529,4.265,12.346,4.747,12.346Z" transform="translate(0 0)" fill="#fff"/>
+        <circle id="Path_Copy" data-name="Path Copy" cx="2.373" cy="2.373" r="2.373" transform="translate(2.37 2.37)" fill="#fba30d"/>
+      </g>
+    </g>
+  </g>
+</svg>
