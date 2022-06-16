@@ -63,8 +63,8 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   const HandelShow = () => {
-     setShowBar(!showBar)
-   
+    setShowBar(!showBar)
+
   }
 
   const HandelClose = () => {
@@ -99,9 +99,11 @@ function App() {
           <AddManager />
           <AddCurrency />
           <AddQuotes />
-          <OverLay HandelClose={HandelClose} showBar={showBar} />
-          <SideBar HandelClose={HandelClose} showBar={showBar} />
 
+          {/* TODO: why is that */}
+          {/* <OverLay HandelClose={HandelClose} showBar={showBar} />
+          <SideBar HandelClose={HandelClose} showBar={showBar} /> */}
+          {/* TODO: why is that */}
 
           <Routes>
             {/* public routes */}
@@ -152,11 +154,11 @@ function App() {
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
-                    />} />
-                    <Route path=":shippingId" element={<ShippingDetails
-                      HandelShow={HandelShow}
-                      HandelClose={HandelClose} />}
-                    />
+                  />} />
+                  <Route path=":shippingId" element={<ShippingDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
                 </Route>
                 {/* End shipping Routes */}
 

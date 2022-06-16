@@ -24,12 +24,12 @@ const ClintForm = ({ setShow }) => {
     ar_name: "",
     mobile: '',
     telephone: '',
-    address: "lkdfjdlfkldjfdfkldfjk",
+    address: "",
     email: "",
     status: 0,
     password: '',
-    lon: 0,
-    lat: 0,
+    lon: 0.000000,
+    lat: 0.000000,
 
   }
 
