@@ -116,12 +116,13 @@ const FormAddShipping = ({ values, setValues }) => {
                                                             />
                                                         </div>
                                                         <div className='col'>
-                                                            <Link
-                                                                to={`blob:http://localhost:3000/6339225f-9f41-4f5f-8feb-e936722422db`}
+                                                            <a
+                                                            target='_blank'
+                                                                href={f.preview}
                                                                 className="text-muted fw-bold"
                                                             >
                                                                 {f.name}
-                                                            </Link>
+                                                            </a>
                                                             <p className="mb-0">
                                                                 <sapn>{f.formattedSize}</sapn>
                                                             </p>
