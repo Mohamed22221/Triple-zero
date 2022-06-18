@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react'
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
+import Example from './example';
 
 const FormAddShipping = ({ values, setValues }) => {
     const ImgeHandeler = (e) => {
@@ -112,12 +113,14 @@ const FormAddShipping = ({ values, setValues }) => {
 
                 <div className='col-12'>
                     <div className="mb-3">
-                        <LocationSearchInput values={values} setValues={setValues} />
+                        {/* <LocationSearchInput values={values} setValues={setValues} /> */}
 
                     </div>
                 </div>
 
-                <TestSvg values={values} />
+                {/* <TestSvg values={values} /> */}
+
+                <Example />
             </div>
 
         </div>
