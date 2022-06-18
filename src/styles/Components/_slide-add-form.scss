@@ -42,3 +42,19 @@
         // margin-top: 10px;
     }
 }
+
+/* Dropzone */
+.dropzone {
+    min-height: 130px;
+    border: 2px dashed #79859c;
+    background: #fff;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .dz-message {
+        font-size: 24px;
+        width: 100%;
+    }
+}
