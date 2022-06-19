@@ -7,12 +7,12 @@ const mapContainerStyle = {
   width: "800px"
 };
 
-const center = {
-  // lat: 38.685,
-  // lng: -115.234
-  lat: 30.78650859999999,
-  lng: 31.0003757
-};
+// const center = {
+//   // lat: 38.685,
+//   // lng: -115.234
+//   lat: 30.78650859999999,
+//   lng: 31.0003757
+// };
 
 const options = {
   drawingControl: true,
@@ -31,27 +31,38 @@ const options = {
   }
 };
 
-const Example = () => {
-  const [pos, setPos] = useState(center);
+const Example = ({ values, setValues }) => {
+  console.log('values props', values);
+  const center = {
+    lat: values.lat,
+    lng: values.lon
+  };
+  const [pos, setPos] = useState({
+    lat: values.lat,
+    lng: values.lon
+  });
+
+  console.log('pos', pos);
 
   const onLoad = drawingManager => {
     console.log(drawingManager);
   };
 
   const onMarkerComplete = marker => {
-    setPos({ lat: marker.position.lat(), lng: marker.position.lng() });
+    setPos({ ...center, lat: marker.position.lat(), lng: marker.position.lng() });
     marker.setMap(null);
-    console.log(marker);
+    setValues({ ...values, lat: marker.position.lat(), lng: marker.position.lng() })
+    console.log('values onMarkerComplete', values);
   };
 
   const onPolygonComplete = polygon => {
-    console.log(polygon);
+    console.log('polygon', polygon);
   };
-  
+
 
   return (
     <>
-    {/* kljdf */}
+      {/* kljdf */}
       <LoadScript
         id="script-loader"
         // googleMapsApiKey="AIzaSyC0QH9aiCXuuRjJe4k5lzAM2bYl-MUhiPk"
@@ -65,7 +76,8 @@ const Example = () => {
           id="drawing-manager-example"
           mapContainerStyle={mapContainerStyle}
           zoom={14}
-          center={center}
+          // center={center}
+          center={pos}
         >
           <DrawingManager
             onLoad={onLoad}

@@ -19,13 +19,13 @@ const LocationSearchInput = ({ values, setValues }) => {
       .then(results => {
         setSddress(results[0].formatted_address);
         // setValues({ ...values, address: address })
-        console.log('values', values);
+        // console.log('values', values);
         return getLatLng(results[0])
       })
       .then(latLng => {
+        setValues({ ...values, lon: latLng.lng, lat: latLng.lat, address })
         console.log('Success', latLng)
 
-        setValues({ ...values, lon: latLng.lng, lat: latLng.lat, address })
       })
       .catch(error => console.error('Error', error));
   };
