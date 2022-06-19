@@ -16,7 +16,7 @@ const PrecedentClint = ({ dataMyAccount }) => {
 
   return (
     <MainStylePrecedent>
-      <h2>البيانات لقديمة</h2>
+      <h2>البيانات القديمة</h2>
       <div className='main-cart' >
         <div className='header-cart'>
           <div className='img'>

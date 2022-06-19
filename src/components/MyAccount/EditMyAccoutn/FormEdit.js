@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from "styled-components"
 import { FaUserEdit } from 'react-icons/fa';
 import { postFromData } from './../../../api/axios'
-
+import swal from 'sweetalert';
 
 const FormEdit = ({ dataMyAccount }) => {
 
@@ -44,8 +44,18 @@ const FormEdit = ({ dataMyAccount }) => {
       .then((res) => {
         const userData = JSON.stringify({ user: res.data })
         localStorage.setItem('authData', userData)
+        swal("تم تنفيذ الامر بنجاح", {
+          icon: "success",
+          button: 'موافق',
+        });
       })
-      .catch(err => console.log('err', err))
+      .catch(err => {
+        console.log('err', err)
+        swal("عفوا لم يتم تنفيذ الامر", {
+          icon: "error",
+          button: 'موافق'
+        });
+      })
 
 
   }
