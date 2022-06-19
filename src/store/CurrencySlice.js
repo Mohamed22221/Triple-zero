@@ -3,12 +3,12 @@ import { get, post, postFromData } from '../api/axios'
 
 
 // get data Currency
-export const getCurrency = createAsyncThunk('currency/getCurrency', async (_, thunkAPI) => {
+export const getCurrency = createAsyncThunk('currency/getCurrency', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get('currency')
-    return res.data
+    const res = await get(`currency?page=${pageId}`)
+    return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
@@ -106,6 +106,7 @@ export const CurrencySlice = createSlice({
     CurrencyDetails: {},
     error: null,
     listView: true,
+    total: 0
   },
   extraReducers: {
 
@@ -114,7 +115,8 @@ export const CurrencySlice = createSlice({
       state.error = null;
     },
     [getCurrency.fulfilled]: (state, action) => {
-      state.currencies = action.payload;
+      state.currencies = action.payload.data;
+      state.total = action.payload.meta.total;
     },
     [getCurrency.rejected]: (state, action) => {
       state.error = action;
@@ -154,6 +156,7 @@ export const CurrencySlice = createSlice({
     },
     [SendCurrency.fulfilled]: (state, action) => {
       state.currencies.push(action.payload);
+      state.total = state.total + 1;
     },
     [SendCurrency.rejected]: (state, action) => {
       state.error = action.payload;
@@ -163,6 +166,7 @@ export const CurrencySlice = createSlice({
       // state.isLoading = false;
       const filter = state.clientDrivers.filter(drivers => drivers.id != action.meta.arg.id);
       state.clientDrivers = filter
+      state.total = state.total - 1; 
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },

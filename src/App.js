@@ -36,7 +36,7 @@ import AddDriver from "./components/Drivers/AddForm";
 // Currencies
 import Currencies from "./pages/Currencies";
 import CurrencyDetails from "./components/Currency/CurrencyDetails/User";
-import CurrenciesBlackList from "./components/Currency/BlackList";
+// import CurrenciesBlackList from "./components/Currency/BlackList";
 import AddCurrency from "./components/Currency/AddForm";
 
 // Quotes
@@ -219,17 +219,17 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                  <Route path=":currencyId" element={<CurrencyDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="black-list" element={<CurrenciesBlackList
+                  <Route path="black-list" element={<Currencies
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
                   />} />
+                  <Route path=":currencyId" element={<CurrencyDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
                 </Route>
                 {/* End Currencies Routes */}
 

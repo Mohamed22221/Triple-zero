@@ -164,11 +164,11 @@ export const DriverSlice = createSlice({
       // state.isLoading = false;
       const filter = state.drivers.filter(drivers => drivers.id != action.meta.arg.id);
       state.drivers = filter
+      state.total = state.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },
-    [changeStatusDriver.fulfilled]: (state, action) => {
-      state.total = state.total - 1;
+    [changeStatusDriver.fulfilled]: (state, action) => {      
       // state.isLoading = false;
       // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
       // state.clients2 = filter

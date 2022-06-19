@@ -158,14 +158,14 @@ export const ClintSlice = createSlice({
         // state.isLoading = false;
         const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
         state.clients2 = filter
+        state.total = state.total - 1;
         // console.log('filter', filter);
         // console.log('action form fulfilled', action.meta.arg);
       },
       [changeStatusClient.fulfilled]: (state, action) => {
         // state.isLoading = false;
         const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
-        state.clients2 = filter
-        state.total = state.total - 1;
+        state.clients2 = filter        
         // console.log('filter', filter);
         // console.log('action form fulfilled', action.meta.arg);
       },
