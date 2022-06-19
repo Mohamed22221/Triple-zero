@@ -10,10 +10,10 @@ import { useSelector, useDispatch } from 'react-redux'
 
 
 const Widgets = () => {
-    const UserData = useSelector((state) => state.clients2.clients2)
-    const UserDataDrivers = useSelector(state => state.drivers.drivers)
-    const counterCustomer = UserData.length
-    const counterDrivers = UserDataDrivers.length
+    const UserData = useSelector((state) => state.clients2)
+    const UserDataDrivers = useSelector(state => state.drivers)
+    const counterCustomer = UserData.meta.total 
+    const counterDrivers = UserDataDrivers.meta.total 
 
   return (
     <StyleWedget>

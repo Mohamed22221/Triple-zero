@@ -12,9 +12,8 @@ const TabelUsers = () => {
     const counterCustomer = UserData.length
     const dispatch = useDispatch();
     useEffect(() => {
-        //    getDrivers()
         dispatch(getClients2())
-        // dispatch(getDrivers())
+        dispatch(getDrivers())
 
     }, [dispatch])
     return (
