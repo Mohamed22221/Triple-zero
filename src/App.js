@@ -13,7 +13,7 @@ import Register from "./pages/Register";
 // Restaurants
 import Restaurants from "./pages/Restaurants";
 import RestaurantDetails from "./components/Restaurants/RestaurantDetails/User";
-import RestaurantsBlackList from "./components/Restaurants/BlackList";
+// import RestaurantsBlackList from "./components/Restaurants/BlackList";
 import AddRestaurant from "./components/Restaurants/AddForm";
 
 // Shipping
