@@ -1,100 +1,53 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
-import { Link, useLocation } from "react-router-dom";
-import BlackList from './BtnBlackList';
+import SortTabel from './SortTabel';
+import { Link } from "react-router-dom";
+import { getDrivers } from '../../store/DriverSlice';
+
 import Logo3 from "../../photo/slogan/user-avatar.svg"
 import Logo1 from "../../photo/slogan/logo-rest.png"
-import { AiOutlineBars } from 'react-icons/ai';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { AiOutlineAppstore } from 'react-icons/ai';
-import { getDrivers, handleListView } from '../../store/DriverSlice';
-import ButtonReturn from '../glopal/ButtonReturn';
-import ButtonAdd from './ButtonAdd';
-import ReactPaginate from "react-paginate";
-import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
-const TableAllUsers = ({ HandelShowCustomer }) => {
-    const location = useLocation();
-    const dispatch = useDispatch()
-    const statusBlackList = location.pathname.includes('black-list')
 
-    const UserDataSelector = useSelector(state => state.drivers)
+const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
+    const UserData = useSelector(state => state.drivers.drivers)
     const listView = useSelector(state => state.drivers.listView)
 
-
-    const [UserData, setUserData] = useState([])
-
+    const dispatch = useDispatch();
     useEffect(() => {
-        if (statusBlackList) {
-            const BlackList = UserDataSelector.drivers.filter(statusItem => statusItem.status == 0)
-            setUserData(BlackList)
-            setSortValue('')
-        } else {
-            setUserData(UserDataSelector.drivers)
-            setSortValue('')
-        }
-    }, [UserDataSelector.drivers, statusBlackList])
-
-
-    useEffect(() => {
-        dispatch(getDrivers(1))
+        dispatch(getDrivers())
     }, [dispatch])
 
-    const handlePageClick = (data) => {
-        console.log('handlePageClick', data.selected);
-        dispatch(getDrivers(data.selected + 1))
-    }
 
 
 
-    const [resultData, setResultData] = useState([])
-    const [sortValue, setSortValue] = useState('')
-
-    // perPage: 10,
-    //     currentPage: 0
-
-
-
-
-
-    const sortingItems = [
-        { id: 1, name: 'id', title: '#' },
-        { id: 2, name: 'en_name', title: 'الأسم' },
-        { id: 3, name: 'mobile', title: 'التليفون' },
-        { id: 4, name: 'email', title: 'الايميل' },
-        { id: 5, name: 'status', title: 'الحالة' },
-    ]
-
-    const inputSearch = (e) => {
-
-        if (e.target.value == '') {
-            setResultData(UserData)
-        } else {
-            const searchString = e.target.value.toLowerCase();
-            const filteredFood = UserData.filter((food) => {
-                return food.en_name.toLowerCase().includes(searchString);
-            });
-            setResultData(filteredFood)
-        }
-
-
-    }
-
-    const handleSort = (e) => {
-        setResultData([...resultData].sort((a, b) => a[e] < b[e] ? 1 : -1))
-        setSortValue(e)
-    }
-
+    //sort tabel 
+    const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
-        setResultData(UserData)
-    }, [UserData])
+        setSortedField(UserData)
+    }, [UserData, setSortedField])
+
+    const sortID = [...UserData].sort((a, b) => {
+        return a.id < b.id ? 1 : -1;
+    })
+    const sortData = [...UserData].sort((a, b) => {
+        return a.state > b.state ? 1 : -1;
+    })
+    const sortName = [...UserData].sort((a, b) => {
+        return a.en_name < b.en_name ? 1 : -1;
+    })
+    const sortDuration = [...UserData].sort((a, b) => {
+        return a.duration > b.duration ? 1 : -1;
+    })
+    const sortpaymentDate = [...UserData].sort((a, b) => {
+        const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
+        return dateB - dateA
+    })
+
 
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
+                sortedField.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد سائقين</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -107,12 +60,19 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th>الايميل</th>
                                         <th>الحالة</th>
                                         <th>حالة الاتصال</th>
+
                                         <th>الخيارات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <>
-                                        {resultData.map((user, index) => {
+                                        {sortedField.filter((item) => {
+                                            if (searchSort === "") {
+                                                return item
+                                            } else if (item.en_name.includes(searchSort)) {
+                                                return item
+                                            }
+                                        }).map((user, index) => {
                                             return (
                                                 <tr key={index}>
                                                     <td><Link className='my-2' to={`/drivers/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
@@ -132,7 +92,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
                                                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status == 1 ? "نشط" : "غير نشط"}</span></td>
-                                                    <td ><span className={user.isOnline === 1 ? "green" : "red"}>{user.isOnline === 1 ? "متصل" : "غير متصل"}</span></td>
+                                                    <td ><span className={user.isOnline === 0 ? "green" : "red"}>{user.status === 0 ? "متصل" : "غير متصل"}</span></td>
 
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
@@ -144,12 +104,19 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                 </tr>
                                             )
                                         })}
+
                                     </>
                                 </tbody>
                             </table>
                             :
                             <div className='row mt-2'>
-                                {resultData.map((user, index) => {
+                                {sortedField.filter((item) => {
+                                    if (searchSort === "") {
+                                        return item
+                                    } else if (item.en_name.includes(searchSort)) {
+                                        return item
+                                    }
+                                }).map((user, index) => {
                                     return (
                                         <div className='col-lg-3 mt-3'>
                                             <div className="card">
@@ -193,44 +160,21 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
     return (
         <div className="main-table">
-
-            <div className='style-main-sort'>
-                {statusBlackList ? null : <BlackList />}
-
-                <div className='style-icons-sort'>
-                    <AiOutlineBars className={`sort-icon ${listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(true))} />
-                    <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(false))} />
-                </div>
-
-                <form className='form-search'>
-                    <input type="search" placeholder='أبحث عن اسم الشركة'
-                        onChange={inputSearch} />
-                    <AiOutlineSearch className='icon-search' />
-                </form>
-
-                <div className='sort-by'>
-
-                    <p> ترتيب حسب : </p>
-                    {sortingItems.map(item => {
-                        return (
-                            <div className='main-sort' key={item.id}>
-                                <span className={item.name == sortValue ? 'active' : ''} onClick={() => handleSort(item.name)}>{item.title}</span>
-                            </div>
-                        )
-                    })}
-                </div>
-
-
-                {statusBlackList ? <ButtonReturn title='/shipping-companies' />
-                    : <ButtonAdd HandelShowCustomer={HandelShowCustomer} />}
-
-            </div>
+            <SortTabel
+                setSortSearch={setSortSearch}
+                searchSort={searchSort}
+                HandelShowCustomer={HandelShowCustomer}
+                UserData={UserData}
+                setSortedField={setSortedField}
+                sortData={sortData}
+                sortID={sortID}
+                sortName={sortName}
+                sortDuration={sortDuration}
+                sortpaymentDate={sortpaymentDate}
+            />
 
             <div className='gird-show'>
                 {dataRender}
-
-                <PaginateComponent pageCount={UserDataSelector.total} handlePageClick={handlePageClick} />
-
             </div>
 
         </div>

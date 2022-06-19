@@ -30,7 +30,7 @@ import AddManager from "./components/Managers/AddForm";
 // Drivers
 import Drivers from "./pages/Drivers";
 import DriverDetails from "./components/Drivers/DriverDetails/User";
-import DriverBlackList from "./components/Drivers/BlackList";
+// import DriverBlackList from "./components/Drivers/BlackList";
 import AddDriver from "./components/Drivers/AddForm";
 
 // Currencies
@@ -196,17 +196,17 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                  <Route path=":driverId" element={<DriverDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="black-list" element={<DriverBlackList
+                  <Route path="black-list" element={<Drivers
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
                   />} />
+                  <Route path=":driverId" element={<DriverDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
                 </Route>
                 {/* End Drivers Routes */}
 

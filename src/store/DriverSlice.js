@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../api/axios'
 import swal from 'sweetalert';
 // get data clints drivers
-export const getDrivers = createAsyncThunk('drivers/getDrivers', async (_, thunkAPI) => {
+export const getDrivers = createAsyncThunk('drivers/getDrivers', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get('admins/drivers')
-    return res.data
+    const res = await get(`admins/drivers?page=${pageId}`) 
+    return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
@@ -104,6 +104,7 @@ export const DriverSlice = createSlice({
     driverDetails: {},
     error: null,
     listView: true,
+    total: 0
   },
   extraReducers: {
 
@@ -112,7 +113,8 @@ export const DriverSlice = createSlice({
       state.error = null;
     },
     [getDrivers.fulfilled]: (state, action) => {
-      state.drivers = action.payload;
+      state.drivers = action.payload.data;
+      state.total = action.payload.meta.total;
     },
     [getDrivers.rejected]: (state, action) => {
       state.error = action;
@@ -152,6 +154,7 @@ export const DriverSlice = createSlice({
     },
     [SendDirver.fulfilled]: (state, action) => {
       state.drivers.push(action.payload);
+      state.total = state.total + 1;
     },
     [SendDirver.rejected]: (state, action) => {
       state.error = action.payload;
@@ -165,6 +168,7 @@ export const DriverSlice = createSlice({
       // console.log('action form fulfilled', action.meta.arg);
     },
     [changeStatusDriver.fulfilled]: (state, action) => {
+      state.total = state.total - 1;
       // state.isLoading = false;
       // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
       // state.clients2 = filter

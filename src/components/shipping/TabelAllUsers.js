@@ -230,21 +230,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <PaginateComponent pageCount={UserDataSelector.total} handlePageClick={handlePageClick} />
 
-                {/* <ReactPaginate
-                    pageCount={UserDataSelector.meta.last_page}
-                    previousLabel={<IoIosArrowForward />}
-                    nextLabel={<IoIosArrowBack />}
-                    breakLabel={<BiDotsHorizontalRounded />}
-                    breakClassName={"break-me"}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    pageClassName={"page-item"}
-                    pageLinkClassName={"page-link"}
-                    activePageLinkClassName={"active"}
-                    activeClassName={"active"}
-                /> */}
             </div>
 
         </div>
