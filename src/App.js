@@ -42,7 +42,7 @@ import AddCurrency from "./components/Currency/AddForm";
 // Quotes
 import Quotes from "./pages/Quotes";
 import QuotesDetails from "./components/Quotes/QuotesDetails/User";
-import QuotesBlackList from "./components/Quotes/BlackList";
+// import QuotesBlackList from "./components/Quotes/BlackList";
 import AddQuotes from "./components/Quotes/AddForm";
 
 // Account
@@ -242,17 +242,17 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                  <Route path=":quotesId" element={<QuotesDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="black-list" element={<QuotesBlackList
+                  <Route path="black-list" element={<Quotes
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
                   />} />
+                  <Route path=":quotesId" element={<QuotesDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
                 </Route>
                 {/* End Quotes Routes */}
 

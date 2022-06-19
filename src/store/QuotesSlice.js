@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../api/axios'
 import swal from 'sweetalert';
 // get data clints Quotes
-export const getQuotes = createAsyncThunk('quotes/getQuotes', async (_, thunkAPI) => {
+export const getQuotes = createAsyncThunk('quotes/getQuotes', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get('quotes')
-    return res.data
+    const res = await get(`quotes?page=${pageId}`)
+    return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
@@ -88,7 +88,7 @@ export const QuotesSlice = createSlice({
     quoteDetails: {},
     error: null,
     listView: true,
-
+    total: 0
   },
   extraReducers: {
 
@@ -97,7 +97,8 @@ export const QuotesSlice = createSlice({
       state.error = null;
     },
     [getQuotes.fulfilled]: (state, action) => {
-      state.quotes = action.payload;
+      state.quotes = action.payload.data;
+      state.total = action.payload.meta.total;
     },
     [getQuotes.rejected]: (state, action) => {
       state.error = action;
@@ -124,11 +125,12 @@ export const QuotesSlice = createSlice({
     },
     [SendQuote.fulfilled]: (state, action) => {
       state.quotes.push(action.payload);
+      state.total = state.total + 1;
       // TODO: ALERT 
-      swal("تم تنفيذ الامر بنجاح", {
-        icon: "success",
-        button: 'موافق'
-      });
+      // swal("تم تنفيذ الامر بنجاح", {
+      //   icon: "success",
+      //   button: 'موافق'
+      // });
 
 
 
@@ -145,6 +147,7 @@ export const QuotesSlice = createSlice({
       // state.isLoading = false;
       const filter = state.quotes.filter(quotes => quotes.id != action.meta.arg.id);
       state.quotes = filter
+      state.total = state.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },
