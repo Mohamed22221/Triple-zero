@@ -3,12 +3,12 @@ import { get, post, postFromData } from '../api/axios'
 import swal from 'sweetalert';
 
 // get data Managers 
-export const getManagers = createAsyncThunk('managers/getManagers', async (_, thunkAPI) => {
+export const getManagers = createAsyncThunk('managers/getManagers', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get('admins')
-    return res.data
+    const res = await get(`admins?page=${pageId}`)
+    return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
@@ -88,6 +88,7 @@ export const ManagersSlice = createSlice({
     ManagerDetails: {},
     error: null,
     listView: true,
+    total: 0
   },
   extraReducers: {
 
@@ -96,7 +97,8 @@ export const ManagersSlice = createSlice({
       state.error = null;
     },
     [getManagers.fulfilled]: (state, action) => {
-      state.managers = action.payload;
+      state.managers = action.payload.data;
+      state.total = action.payload.meta.total;
     },
     [getManagers.rejected]: (state, action) => {
       state.error = action;
@@ -123,11 +125,12 @@ export const ManagersSlice = createSlice({
     },
     [SendManager.fulfilled]: (state, action) => {
       state.managers.push(action.payload);
+      state.total = state.total + 1;
       // TODO: ALERT 
-      swal("تم تنفيذ الامر بنجاح", {
-        icon: "success",
-        button: 'موافق'
-      });
+      // swal("تم تنفيذ الامر بنجاح", {
+      //   icon: "success",
+      //   button: 'موافق'
+      // });
 
 
 
@@ -145,6 +148,7 @@ export const ManagersSlice = createSlice({
       // state.isLoading = false;
       const filter = state.managers.filter(managers => managers.id != action.meta.arg.id);
       state.managers = filter
+      state.total = state.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },

@@ -24,7 +24,7 @@ import AddShipping from "./components/Shipping/AddForm";
 // Managers
 import Managers from "./pages/Managers";
 import ManagerDetails from "./components/Managers/ManagerDetails/User"
-import ManagersBlackList from "./components/Managers/BlackList";
+// import ManagersBlackList from "./components/Managers/BlackList";
 import AddManager from "./components/Managers/AddForm";
 
 // Drivers
@@ -63,8 +63,8 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   const HandelShow = () => {
-     setShowBar(!showBar)
-   
+    setShowBar(!showBar)
+
   }
 
   const HandelClose = () => {
@@ -156,11 +156,11 @@ function App() {
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
-                    />} />
-                    <Route path=":shippingId" element={<ShippingDetails
-                      HandelShow={HandelShow}
-                      HandelClose={HandelClose} />}
-                    />
+                  />} />
+                  <Route path=":shippingId" element={<ShippingDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
                 </Route>
                 {/* End shipping Routes */}
 
@@ -173,17 +173,17 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                  <Route path=":managerId" element={<ManagerDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="black-list" element={<ManagersBlackList
+                  <Route path="black-list" element={<Managers
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
                   />} />
+                  <Route path=":managerId" element={<ManagerDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
                 </Route>
                 {/* End Managers Routes */}
 
