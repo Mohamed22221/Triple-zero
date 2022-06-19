@@ -244,7 +244,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 </div>
 
 
-                {statusBlackList ? <ButtonReturn title='/shipping-companies' />
+                {statusBlackList ? <ButtonReturn title='/restaurants' />
                     : <ButtonAdd HandelShowCustomer={HandelShowCustomer} />}
 
             </div>
