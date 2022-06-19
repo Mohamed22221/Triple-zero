@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
 import { Link, useLocation } from "react-router-dom";
 import BlackList from './BtnBlackList';
 import Logo3 from "../../photo/slogan/user-avatar.svg"
@@ -11,37 +13,50 @@ import { AiOutlineAppstore } from 'react-icons/ai';
 import { getShipping, handleListView } from '../../store/ShippingSlice';
 import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
-
+import ReactPaginate from "react-paginate";
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
 
-    const UserDataSelector = useSelector(state => state.shipping.shipping)
+    const UserDataSelector = useSelector(state => state.shipping)
     const listView = useSelector(state => state.shipping.listView)
+
+    console.log('length', UserDataSelector.shipping.length);
 
     const [UserData, setUserData] = useState([])
 
     useEffect(() => {
         if (statusBlackList) {
-            const BlackList = UserDataSelector.filter(statusItem => statusItem.status == 0)
+            const BlackList = UserDataSelector.shipping.filter(statusItem => statusItem.status == 0)
             setUserData(BlackList)
             setSortValue('')
         } else {
-            setUserData(UserDataSelector)
+            setUserData(UserDataSelector.shipping)
             setSortValue('')
         }
-    }, [UserDataSelector, statusBlackList])
+    }, [UserDataSelector.shipping, statusBlackList])
 
 
     useEffect(() => {
-        dispatch(getShipping())
+        dispatch(getShipping(1))
     }, [dispatch])
+    
+    const handlePageClick = (data) => {
+        console.log('handlePageClick', data.selected);
+        dispatch(getShipping(data.selected + 1))
+    }
 
 
 
     const [resultData, setResultData] = useState([])
     const [sortValue, setSortValue] = useState('')
+
+    // perPage: 10,
+    //     currentPage: 0
+
+
+
 
 
     const sortingItems = [
@@ -212,6 +227,22 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
             <div className='gird-show'>
                 {dataRender}
+
+                <ReactPaginate
+                    pageCount={UserDataSelector.meta.last_page}
+                    previousLabel={<IoIosArrowForward />}
+                    nextLabel={<IoIosArrowBack />}
+                    breakLabel={<BiDotsHorizontalRounded />}
+                    breakClassName={"break-me"}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    pageClassName={"page-item"}
+                    pageLinkClassName={"page-link"}
+                    activePageLinkClassName={"active"}
+                    activeClassName={"active"}
+                />
             </div>
 
         </div>

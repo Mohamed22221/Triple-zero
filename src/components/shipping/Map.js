@@ -29,7 +29,7 @@ const TestSvg = ({ values }) => {
     useEffect(() => {
         setstate({ lat: values.lat, lng: values.lon })
         setZomm(17)
-        console.log('state', state);
+        // console.log('state', state);
     }, [values])
 
     return (
