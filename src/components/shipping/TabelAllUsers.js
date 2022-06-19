@@ -14,6 +14,7 @@ import { getShipping, handleListView } from '../../store/ShippingSlice';
 import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
+import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
@@ -22,7 +23,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const UserDataSelector = useSelector(state => state.shipping)
     const listView = useSelector(state => state.shipping.listView)
 
-    console.log('length', UserDataSelector.shipping.length);
 
     const [UserData, setUserData] = useState([])
 
@@ -228,7 +228,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
             <div className='gird-show'>
                 {dataRender}
 
-                <ReactPaginate
+                <PaginateComponent pageCount={UserDataSelector.meta.last_page} handlePageClick={handlePageClick} />
+
+                {/* <ReactPaginate
                     pageCount={UserDataSelector.meta.last_page}
                     previousLabel={<IoIosArrowForward />}
                     nextLabel={<IoIosArrowBack />}
@@ -242,7 +244,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                     pageLinkClassName={"page-link"}
                     activePageLinkClassName={"active"}
                     activeClassName={"active"}
-                />
+                /> */}
             </div>
 
         </div>
