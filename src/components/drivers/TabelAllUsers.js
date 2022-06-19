@@ -94,7 +94,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد سائقين</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -203,7 +203,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 </div>
 
                 <form className='form-search'>
-                    <input type="search" placeholder='أبحث عن اسم الشركة'
+                    <input type="search" placeholder='أبحث عن اسم السائق'
                         onChange={inputSearch} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
