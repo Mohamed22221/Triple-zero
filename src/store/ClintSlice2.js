@@ -9,12 +9,12 @@ import swal from 'sweetalert';
 
 
 // get data clints resturant
-export const getClients2 = createAsyncThunk('clients2/getClients2', async(_, thunkAPI) => {
+export const getClients2 = createAsyncThunk('clients2/getClients2', async (pageId, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
 
      try {
-     const res =  await get('restaurants')
-     return res.data
+       const res = await get(`restaurants?page=${pageId}`)
+     return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
       return rejectWithValue(err.message)
@@ -103,9 +103,10 @@ export const ClintSlice = createSlice({
     clientDetails: {},
     error: null ,
     listView: true,
-    blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
+    total: 0
+    // blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 
-    ]
+    // ]
     
     },
   extraReducers: {
@@ -114,7 +115,8 @@ export const ClintSlice = createSlice({
           state.error = null;
         },
         [getClients2.fulfilled]: (state, action) => {
-          state.clients2 = action.payload;
+          state.clients2 = action.payload.data;
+          state.total = action.payload.meta.total;
         },
         [getClients2.rejected]: (state, action) => {
           state.error = action;
@@ -142,7 +144,8 @@ export const ClintSlice = createSlice({
         state.error = null;
       },
       [SendClint.fulfilled]: (state, action) => {
-        state.clients2.push(action.payload);               
+        state.clients2.push(action.payload);     
+        state.total = state.total + 1;
       },
       [SendClint.rejected]: (state, action) => {
         state.error = action.payload;
@@ -162,6 +165,7 @@ export const ClintSlice = createSlice({
         // state.isLoading = false;
         const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
         state.clients2 = filter
+        state.total = state.total - 1;
         // console.log('filter', filter);
         // console.log('action form fulfilled', action.meta.arg);
       },

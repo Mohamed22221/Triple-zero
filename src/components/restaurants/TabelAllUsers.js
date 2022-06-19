@@ -1,66 +1,112 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import SortTabel from './SortTabel';
-import { getClients2 } from '../../store/ClintSlice2'
-import { Link } from "react-router-dom";
-
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
+import { Link, useLocation } from "react-router-dom";
+import BlackList from './BtnBlackList';
 import Logo3 from "../../photo/slogan/user-avatar.svg"
 import Logo1 from "../../photo/slogan/logo-rest.png"
+import { AiOutlineBars } from 'react-icons/ai';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineAppstore } from 'react-icons/ai';
+import { getClients2, handleListView } from '../../store/ClintSlice2';
+// import { getClients2 } from '../../store/ClintSlice2'
+import ButtonReturn from '../glopal/ButtonReturn';
+import ButtonAdd from './ButtonAdd';
+import ReactPaginate from "react-paginate";
+import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
+const TableAllUsers = ({ HandelShowCustomer }) => {
+    const location = useLocation();
+    const dispatch = useDispatch()
+    const statusBlackList = location.pathname.includes('black-list')
 
-const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
-    const UserData = useSelector(state => state.clients2.clients2)
+    const UserDataSelector = useSelector(state => state.clients2)
     const listView = useSelector(state => state.clients2.listView)
 
-    const dispatch = useDispatch();
+
+    const [UserData, setUserData] = useState([])
+
     useEffect(() => {
-        dispatch(getClients2())
+        if (statusBlackList) {
+            const BlackList = UserDataSelector.clients2.filter(statusItem => statusItem.status == 0)
+            setUserData(BlackList)
+            setSortValue('')
+        } else {
+            setUserData(UserDataSelector.clients2)
+            setSortValue('')
+        }
+    }, [UserDataSelector.clients2, statusBlackList])
+
+
+    useEffect(() => {
+        dispatch(getClients2(1))
     }, [dispatch])
 
+    const handlePageClick = (data) => {
+        console.log('handlePageClick', data.selected);
+        dispatch(getClients2(data.selected + 1))
+    }
 
 
 
-    //sort tabel 
-    const [sortedField, setSortedField] = useState([]);
+    const [resultData, setResultData] = useState([])
+    const [sortValue, setSortValue] = useState('')
+
+    // perPage: 10,
+    //     currentPage: 0
+
+
+
+
+
+    const sortingItems = [
+        { id: 1, name: 'id', title: '#' },
+        { id: 2, name: 'en_name', title: 'الأسم' },
+        { id: 3, name: 'mobile', title: 'التليفون' },
+        { id: 4, name: 'email', title: 'الايميل' },
+        { id: 5, name: 'status', title: 'الحالة' },
+    ]
+
+    const inputSearch = (e) => {
+
+        if (e.target.value == '') {
+            setResultData(UserData)
+        } else {
+            const searchString = e.target.value.toLowerCase();
+            const filteredFood = UserData.filter((food) => {
+                return food.en_name.toLowerCase().includes(searchString);
+            });
+            setResultData(filteredFood)
+        }
+
+
+    }
+
+    const handleSort = (e) => {
+        setResultData([...resultData].sort((a, b) => a[e] < b[e] ? 1 : -1))
+        setSortValue(e)
+    }
+
     useEffect(() => {
-        setSortedField(UserData)
-    }, [UserData, setSortedField])
-
-    const sortID = [...UserData].sort((a, b) => {
-        return a.id < b.id ? 1 : -1;
-    })
-    const sortData = [...UserData].sort((a, b) => {
-        return a.state > b.state ? 1 : -1;
-    })
-    const sortName = [...UserData].sort((a, b) => {
-        return a.en_name < b.en_name ? 1 : -1;
-    })
-    const sortDuration = [...UserData].sort((a, b) => {
-        return a.duration > b.duration ? 1 : -1;
-    })
-    const sortpaymentDate = [...UserData].sort((a, b) => {
-        const dateA = new Date(a.paymentDate), dateB = new Date(b.paymentDate)
-        return dateB - dateA
-    })
-
+        setResultData(UserData)
+    }, [UserData])
 
     const dataRender = (
         <>
             {
-                sortedField.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد مطاعم</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
                     : <>
                         {listView ?
                             <table>
                                 <thead>
                                     <tr>
-                                        <th >الشعار</th>
-                                        <th >#</th>
-                                        <th> الأسم بالانجليزي</th>
+                                        <th>الشعار</th>
+                                        <th>#</th>
+                                        <th>الأسم بالانجليزي</th>
                                         <th>التليفون</th>
                                         <th>الايميل</th>
                                         <th>العنوان</th>
-
-
                                         <th>الحالة</th>
                                         <th>شركة الشحن</th>
                                         <th>الخيارات</th>
@@ -68,13 +114,7 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                                 </thead>
                                 <tbody>
                                     <>
-                                        {sortedField.filter((item) => {
-                                            if (searchSort === "") {
-                                                return item
-                                            } else if (item.en_name.includes(searchSort)) {
-                                                return item
-                                            }
-                                        }).map((user, index) => {
+                                        {resultData.map((user, index) => {
                                             return (
                                                 <tr key={index}>
                                                     <td><Link className='my-2' to={`${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
@@ -126,19 +166,12 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
                                                 </tr>
                                             )
                                         })}
-
                                     </>
                                 </tbody>
                             </table>
                             :
                             <div className='row mt-2'>
-                                {sortedField.filter((item) => {
-                                    if (searchSort === "") {
-                                        return item
-                                    } else if (item.en_name.includes(searchSort)) {
-                                        return item
-                                    }
-                                }).map((user, index) => {
+                                {resultData.map((user, index) => {
                                     return (
                                         <div className='col-lg-3 mt-3'>
                                             <div className="card">
@@ -183,21 +216,59 @@ const TableAllUsers = ({ searchSort, setSortSearch, HandelShowCustomer }) => {
 
     return (
         <div className="main-table">
-            <SortTabel
-                setSortSearch={setSortSearch}
-                searchSort={searchSort}
-                HandelShowCustomer={HandelShowCustomer}
-                UserData={UserData}
-                setSortedField={setSortedField}
-                sortData={sortData}
-                sortID={sortID}
-                sortName={sortName}
-                sortDuration={sortDuration}
-                sortpaymentDate={sortpaymentDate}
-            />
+
+            <div className='style-main-sort'>
+                {statusBlackList ? null : <BlackList />}
+
+                <div className='style-icons-sort'>
+                    <AiOutlineBars className={`sort-icon ${listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(true))} />
+                    <AiOutlineAppstore className={`sort-icon ${!listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(false))} />
+                </div>
+
+                <form className='form-search'>
+                    <input type="search" placeholder='أبحث عن اسم الشركة'
+                        onChange={inputSearch} />
+                    <AiOutlineSearch className='icon-search' />
+                </form>
+
+                <div className='sort-by'>
+
+                    <p> ترتيب حسب : </p>
+                    {sortingItems.map(item => {
+                        return (
+                            <div className='main-sort' key={item.id}>
+                                <span className={item.name == sortValue ? 'active' : ''} onClick={() => handleSort(item.name)}>{item.title}</span>
+                            </div>
+                        )
+                    })}
+                </div>
+
+
+                {statusBlackList ? <ButtonReturn title='/shipping-companies' />
+                    : <ButtonAdd HandelShowCustomer={HandelShowCustomer} />}
+
+            </div>
 
             <div className='gird-show'>
                 {dataRender}
+
+                <PaginateComponent pageCount={UserDataSelector.total} handlePageClick={handlePageClick} />
+
+                {/* <ReactPaginate
+                    pageCount={UserDataSelector.meta.last_page}
+                    previousLabel={<IoIosArrowForward />}
+                    nextLabel={<IoIosArrowBack />}
+                    breakLabel={<BiDotsHorizontalRounded />}
+                    breakClassName={"break-me"}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    pageClassName={"page-item"}
+                    pageLinkClassName={"page-link"}
+                    activePageLinkClassName={"active"}
+                    activeClassName={"active"}
+                /> */}
             </div>
 
         </div>

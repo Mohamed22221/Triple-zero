@@ -13,7 +13,7 @@ import Register from "./pages/Register";
 // Restaurants
 import Restaurants from "./pages/Restaurants";
 import RestaurantDetails from "./components/Restaurants/RestaurantDetails/User";
-import RestaurantsBlackList from "./components/Restaurants/BlackList";
+// import RestaurantsBlackList from "./components/Restaurants/BlackList";
 import AddRestaurant from "./components/Restaurants/AddForm";
 
 // Shipping
@@ -100,11 +100,6 @@ function App() {
           <AddCurrency />
           <AddQuotes />
 
-          {/* TODO: why is that */}
-          {/* <OverLay HandelClose={HandelClose} showBar={showBar} />
-          <SideBar HandelClose={HandelClose} showBar={showBar} /> */}
-          {/* TODO: why is that */}
-
           <Routes>
             {/* public routes */}
             <Route path="/login" element={<Login />} />
@@ -125,17 +120,24 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                  <Route path=":restaurantId" element={<RestaurantDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="black-list" element={<RestaurantsBlackList
+                  <Route path="black-list" element={<Restaurants
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
                     show={show}
                     setShow={setShow}
                   />} />
+                  <Route path=":restaurantId" element={<RestaurantDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  {/* <Route path="black-list" element={<RestaurantsBlackList
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} /> */}
                 </Route>
                 {/* End Restaurants Routes */}
 
