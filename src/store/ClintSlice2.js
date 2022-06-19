@@ -103,7 +103,7 @@ export const ClintSlice = createSlice({
     clientDetails: {},
     error: null ,
     listView: true,
-    total: {}
+    total: 0
     // blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 
     // ]

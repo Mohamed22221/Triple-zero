@@ -89,7 +89,7 @@ export const ShippingSlice = createSlice({
     ShippingDetailsDetails: {},
     error: null,
     listView: true,
-    meta: {}
+    total: 0
   },
   extraReducers: {
 
@@ -99,7 +99,7 @@ export const ShippingSlice = createSlice({
     },
     [getShipping.fulfilled]: (state, action) => {
       state.shipping = action.payload.data;
-      state.meta = action.payload.meta;
+      state.total = action.payload.meta.total;
     },
     [getShipping.rejected]: (state, action) => {
       state.error = action;
@@ -126,11 +126,12 @@ export const ShippingSlice = createSlice({
     },
     [SendShipping.fulfilled]: (state, action) => {
       state.shipping.push(action.payload);
+      state.total = state.total + 1;
       // TODO: ALERT 
-      swal("تم تنفيذ الامر بنجاح", {
-        icon: "success",
-        button: 'موافق'
-      });
+      // swal("تم تنفيذ الامر بنجاح", {
+      //   icon: "success",
+      //   button: 'موافق'
+      // });
 
 
 
@@ -147,6 +148,7 @@ export const ShippingSlice = createSlice({
       // state.isLoading = false;
       const filter = state.shipping.filter(shipping => shipping.id != action.meta.arg.id);
       state.shipping = filter
+      state.total = state.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },
