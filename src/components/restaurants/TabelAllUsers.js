@@ -252,7 +252,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
             <div className='gird-show'>
                 {dataRender}
 
-                <PaginateComponent pageCount={UserDataSelector.total} handlePageClick={handlePageClick} />
+                <PaginateComponent pageCount={UserDataSelector.meta.total} handlePageClick={handlePageClick} />
 
                 {/* <ReactPaginate
                     pageCount={UserDataSelector.meta.last_page}

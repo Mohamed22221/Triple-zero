@@ -104,7 +104,7 @@ export const DriverSlice = createSlice({
     driverDetails: {},
     error: null,
     listView: true,
-    total: 0
+    meta: 0
   },
   extraReducers: {
 
@@ -114,7 +114,7 @@ export const DriverSlice = createSlice({
     },
     [getDrivers.fulfilled]: (state, action) => {
       state.drivers = action.payload.data;
-      state.total = action.payload.meta.total;
+      state.meta= action.payload.meta;
     },
     [getDrivers.rejected]: (state, action) => {
       state.error = action;

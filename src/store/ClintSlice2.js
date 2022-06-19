@@ -103,7 +103,7 @@ export const ClintSlice = createSlice({
     clientDetails: {},
     error: null ,
     listView: true,
-    total: 0
+    meta: 0
     // blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
 
     // ]
@@ -116,7 +116,7 @@ export const ClintSlice = createSlice({
         },
         [getClients2.fulfilled]: (state, action) => {
           state.clients2 = action.payload.data;
-          state.total = action.payload.meta.total;
+          state.meta= action.payload.meta;
         },
         [getClients2.rejected]: (state, action) => {
           state.error = action;

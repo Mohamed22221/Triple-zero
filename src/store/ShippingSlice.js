@@ -89,7 +89,7 @@ export const ShippingSlice = createSlice({
     ShippingDetailsDetails: {},
     error: null,
     listView: true,
-    total: 0
+    meta: 0
   },
   extraReducers: {
 
@@ -99,7 +99,7 @@ export const ShippingSlice = createSlice({
     },
     [getShipping.fulfilled]: (state, action) => {
       state.shipping = action.payload.data;
-      state.total = action.payload.meta.total;
+      state.meta= action.payload.meta;
     },
     [getShipping.rejected]: (state, action) => {
       state.error = action;

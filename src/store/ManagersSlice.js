@@ -88,7 +88,7 @@ export const ManagersSlice = createSlice({
     ManagerDetails: {},
     error: null,
     listView: true,
-    total: 0
+    meta: 0
   },
   extraReducers: {
 
@@ -98,7 +98,7 @@ export const ManagersSlice = createSlice({
     },
     [getManagers.fulfilled]: (state, action) => {
       state.managers = action.payload.data;
-      state.total = action.payload.meta.total;
+      state.meta= action.payload.meta;
     },
     [getManagers.rejected]: (state, action) => {
       state.error = action;

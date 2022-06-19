@@ -88,7 +88,7 @@ export const QuotesSlice = createSlice({
     quoteDetails: {},
     error: null,
     listView: true,
-    total: 0
+    meta: 0
   },
   extraReducers: {
 
@@ -98,7 +98,7 @@ export const QuotesSlice = createSlice({
     },
     [getQuotes.fulfilled]: (state, action) => {
       state.quotes = action.payload.data;
-      state.total = action.payload.meta.total;
+      state.meta= action.payload.meta;
     },
     [getQuotes.rejected]: (state, action) => {
       state.error = action;

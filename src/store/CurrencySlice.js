@@ -106,7 +106,7 @@ export const CurrencySlice = createSlice({
     CurrencyDetails: {},
     error: null,
     listView: true,
-    total: 0
+    meta: 0
   },
   extraReducers: {
 
@@ -116,7 +116,7 @@ export const CurrencySlice = createSlice({
     },
     [getCurrency.fulfilled]: (state, action) => {
       state.currencies = action.payload.data;
-      state.total = action.payload.meta.total;
+      state.meta= action.payload.meta;
     },
     [getCurrency.rejected]: (state, action) => {
       state.error = action;
