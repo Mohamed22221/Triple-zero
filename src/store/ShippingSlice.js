@@ -2,12 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../api/axios'
 import swal from 'sweetalert';
 // get data clints Shipping
-export const getShipping = createAsyncThunk('shipping/getShipping', async (_, thunkAPI) => {
+export const getShipping = createAsyncThunk('shipping/getShipping', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get('users')
-    return res.data
+    const res = await get(`users?page=${pageId}`)
+    console.log('res.data', res.data.length);
+    return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     return rejectWithValue(err.message)
@@ -88,7 +89,7 @@ export const ShippingSlice = createSlice({
     ShippingDetailsDetails: {},
     error: null,
     listView: true,
-
+    meta: {}
   },
   extraReducers: {
 
@@ -97,7 +98,8 @@ export const ShippingSlice = createSlice({
       state.error = null;
     },
     [getShipping.fulfilled]: (state, action) => {
-      state.shipping = action.payload;
+      state.shipping = action.payload.data;
+      state.meta = action.payload.meta;
     },
     [getShipping.rejected]: (state, action) => {
       state.error = action;

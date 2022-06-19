@@ -47,7 +47,7 @@ const FormAddShipping = ({ values, setValues }) => {
         } else {
             setValues({ ...values, status: 1 })
         }
-        console.log('values', values.status, typeof (values.status));
+        // console.log('values', values.status, typeof (values.status));
     }
 
     const formatBytes = (bytes, decimals = 2) => {
