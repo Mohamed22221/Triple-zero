@@ -13,33 +13,22 @@ import { AiOutlineCloudUpload } from 'react-icons/ai';
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
+import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 
 const FormAddShipping = ({ values, setValues }) => {
     const [selectedFiles, setselectedFiles] = useState([]);
     const handleAcceptedFiles = (files) => {
-        // const Reader = new FileReader()
-        // Reader.onload = () => {
-        //     if (Reader.readyState === 2) {
-        //         setValues({ ...values, photo: e.target.files[0] })
-        //     }
-        // }
-        // Reader.readAsDataURL(e.target.files[0])
-
         files.map(file =>
             Object.assign(file, {
                 preview: URL.createObjectURL(file),
                 formattedSize: formatBytes(file.size)
             })
         );
-
-        // console.log(files[0]);
         setselectedFiles(files)
-
-        // setSelectedFiles(files)
         setValues({ ...values, photo: files[0] })
     }
 
-    
+
 
     const staustSwittch = (e) => {
         if (values.status == 1) {
@@ -47,7 +36,6 @@ const FormAddShipping = ({ values, setValues }) => {
         } else {
             setValues({ ...values, status: 1 })
         }
-        // console.log('values', values.status, typeof (values.status));
     }
 
     const formatBytes = (bytes, decimals = 2) => {
@@ -68,10 +56,11 @@ const FormAddShipping = ({ values, setValues }) => {
                 {/* Block Item */}
                 <div className='col-lg-12'>
                     <div className="mb-3">
-                        <div className='row'>
+
+                        <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
+                        {/* <div className='row'>
                             <div className='col-8'>
                                 <label htmlFor="logo" className="form-label">اضف شعار<span>*</span> </label>
-                                {/* <input type="file" className="form-control" id="logo" required onChange={ImgeHandeler} /> */}
                                 <Dropzone
                                     onDrop={acceptedFiles =>
                                         handleAcceptedFiles(acceptedFiles)
@@ -85,7 +74,6 @@ const FormAddShipping = ({ values, setValues }) => {
                                             >
                                                 <input {...getInputProps()} />
                                                     <AiOutlineCloudUpload className='icon-wedget' />
-                                                    {/* <i className="display-4 text-muted ri-upload-cloud-2-line"></i> */}
                                                 <h6>قم بسحب الملفات هنا أو انقر للتحميل..</h6>
                                             </div>
                                         </div>
@@ -134,7 +122,7 @@ const FormAddShipping = ({ values, setValues }) => {
                                     })}
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>
