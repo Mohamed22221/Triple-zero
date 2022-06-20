@@ -226,7 +226,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 </div>
 
                 <form className='form-search'>
-                    <input type="search" placeholder='أبحث عن اسم المعطم'
+                    <input type="search" placeholder='أبحث عن اسم المطعم'
                         onChange={inputSearch} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
