@@ -13,7 +13,7 @@ const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,Hand
   let { restaurantId } = useParams();
   useEffect(() => {
       dispatch(getClientDetails(restaurantId))
-  }, [getClientDetails])
+  }, [getClientDetails, restaurantId])
 
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.clients2.clientDetails)

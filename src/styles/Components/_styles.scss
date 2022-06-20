@@ -1379,3 +1379,16 @@ input[type=number] {
 button:disabled{
   cursor: no-drop;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--secound-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-color);
+}

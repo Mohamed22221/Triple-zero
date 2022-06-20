@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from "styled-components"
 import LoginManager from "./loginManager"
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -18,9 +18,17 @@ const TopBar = ({ title }) => {
     //show navBar 
     const dispatch = useDispatch()
 
+    // const inputSearch = useRef('')
+
+    // if (inputSearch.foucs) {
+    //     // setShowSearch(false)
+    //     console.log('ljkdfdklfjdfjkdfklj blue');
+    // }
+
     // adds button
     const [buttons, setbuttons] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [inputValue, setInputValue] = useState('')
     const HandelToggleBar = () => {
         dispatch(ShowNav())
     }
@@ -31,18 +39,37 @@ const TopBar = ({ title }) => {
     const UserData = useSelector((state) => state.clients2.clients2)
     //filter search 
     const [filterSearch, setfilterSearch] = useState([])
+    const [showSearch, setShowSearch] = useState(false);
+    const [textResultSearch, setTextResultSearch] = useState('ادخل اسم العميل');
     const handelChange = (e) => {
         const valueInput = e.target.value
-        const NewData = UserData.filter((item) => {
-            return (
-                item.en_name.includes(valueInput)
-            )
-        })
-        if (valueInput === "") {
+        setShowSearch(true)
+        setInputValue(valueInput)
+        if (valueInput == '') {
             setfilterSearch([])
+            setTextResultSearch('لا يوجد نتائج بحث')
         } else {
-            setfilterSearch(NewData)
+            const searchString = valueInput.toLowerCase();
+            const filteredFood = UserData.filter((food) => {
+                return food.en_name.toLowerCase().includes(searchString);
+            });
+            setfilterSearch(filteredFood)
+            if (filteredFood.length == 0) {
+                setTextResultSearch('لا يوجد نتائج بحث')
+            }
         }
+
+
+        // const NewData = UserData.filter((item) => {
+        //     return (
+        //         item.en_name.includes(valueInput) 
+        //     )
+        // })
+        // if (valueInput === "") {
+        //     setfilterSearch([])
+        // } else {
+        //     setfilterSearch(NewData)
+        // }
     }
     const handelLink = () => {
         setfilterSearch([])
@@ -67,24 +94,48 @@ const TopBar = ({ title }) => {
             })
     }
 
+    const handelFocus = () => {
+        setShowSearch(true)
+        dispatch(getClients2(1))
+    }
+    const handelBlue = () => {
+        setTimeout(() => {
+            setShowSearch(false)
+            setInputValue('')
+        }, 500)
+    }
+
     return (
         <StyleTopBar>
             <StyleRightTopBar>
                 <div className='title-page'><h2>{title}</h2></div>
-                <form className='search'>
-                    <input type="search" placeholder='أبحث عن اسم العميل' onChange={handelChange} />
+                <div className='search'>
+                    <input type="search" placeholder='أبحث عن اسم العميل' onFocus={handelFocus} onBlur={handelBlue} value={inputValue} onChange={handelChange} />
                     <AiOutlineSearch className='icon-search' />
-                    <div className='filter-Search'>
-                        {filterSearch.map((item, index) => {
-                            return (
-                                <div className='click-Search' key={index}>
-                                    <Link to={`/restaurants/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
-                                </div>
+                    {/* <div className='filter-Search'> */}
+                    {showSearch ?
+                        <div className='filter-Search'>
+                            {
+                                filterSearch.length != 0 ? <>
+                                    {
+                                        filterSearch.map((item, index) => {
+                                            return (
+                                                <div className='click-Search' key={index}>
+                                                    <Link to={`/restaurants/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
+                                                </div>
 
-                            )
-                        })}
-                    </div>
-                </form>
+                                            )
+                                        })}
+
+                                </>
+                                    : <h6 className='text-center py-2'>
+                                        {textResultSearch}
+                                    </h6>
+                            }
+                        </div>
+                        : null}
+                    {/* </div> */}
+                </div>
 
                 <div className='icons-topbar'>
                     <button onClick={refrechRestaurants} disabled={loading ? true : false}>
@@ -205,12 +256,14 @@ margin-left: 20px;
     box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.46);
     -webkit-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.40);
     -moz-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.30);
-
+    max-height: 270px;
+    overflow: auto;
+    padding: 4px 0;
     .click-Search{
-        padding: 8px 20px;
+        padding: 2px 20px;
         transition: 0.2s;
         :hover{
-                background-color: var(--font-opacity);
+                background-color: var(--background-color);
                 
             }
         a{
