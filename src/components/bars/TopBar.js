@@ -1,36 +1,39 @@
-import React ,{useState} from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import LoginManager from "./loginManager"
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { FaSpinner } from 'react-icons/fa';
 import { BsTextParagraph } from 'react-icons/bs';
-import {  useDispatch ,useSelector } from 'react-redux'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getClients2 } from '../../store/ClintSlice2';
 import { Link } from "react-router-dom";
 import ButtonsAdd from './ButtonsAdd';
 import { ShowNav } from '../../store/StateSlice';
+import swal from 'sweetalert';
 
-
-const TopBar = ({title}) => {
+const TopBar = ({ title }) => {
     //show navBar 
     const dispatch = useDispatch()
-    
+
     // adds button
-    const [buttons , setbuttons] = useState(false)
-    const HandelToggleBar =() =>{
+    const [buttons, setbuttons] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const HandelToggleBar = () => {
         dispatch(ShowNav())
     }
-  
+
     const HandelButton = () => {
         setbuttons(!buttons)
     }
     const UserData = useSelector((state) => state.clients2.clients2)
-     //filter search 
-    const [filterSearch , setfilterSearch] = useState([])
+    //filter search 
+    const [filterSearch, setfilterSearch] = useState([])
     const handelChange = (e) => {
-        const valueInput = e.target.value 
-        const NewData =UserData.filter((item) =>{
+        const valueInput = e.target.value
+        const NewData = UserData.filter((item) => {
             return (
                 item.en_name.includes(valueInput)
             )
@@ -41,43 +44,69 @@ const TopBar = ({title}) => {
             setfilterSearch(NewData)
         }
     }
-    const handelLink = () =>{
+    const handelLink = () => {
         setfilterSearch([])
     }
-   
-  return (
-    <StyleTopBar>
-        <StyleRightTopBar>
-        <div className='title-page'><h2>{title}</h2></div>
-        <form className='search'>
-            <input type="search" placeholder='أبحث عن اسم العميل' onChange={handelChange} />
-            <AiOutlineSearch className='icon-search' />
-            <div className='filter-Search'>
-            {filterSearch.map((item , index) =>{
-                return (
-                    <div className='click-Search' key={index}>
-                        <Link to={`/restaurants/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
+
+    const refrechRestaurants = () => {
+        setLoading(true)
+        dispatch(getClients2(1))
+            .unwrap()
+            .then(() => {
+                swal("تم تنفيذ الامر بنجاح", {
+                    icon: "success",
+                    button: 'موافق',
+                });
+                setLoading(false)
+            }).catch(() => {
+                swal("عفوا لم يتم تنفيذ الامر", {
+                    icon: "error",
+                    button: 'موافق'
+                });
+                setLoading(false)
+            })
+    }
+
+    return (
+        <StyleTopBar>
+            <StyleRightTopBar>
+                <div className='title-page'><h2>{title}</h2></div>
+                <form className='search'>
+                    <input type="search" placeholder='أبحث عن اسم العميل' onChange={handelChange} />
+                    <AiOutlineSearch className='icon-search' />
+                    <div className='filter-Search'>
+                        {filterSearch.map((item, index) => {
+                            return (
+                                <div className='click-Search' key={index}>
+                                    <Link to={`/restaurants/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
+                                </div>
+
+                            )
+                        })}
                     </div>
+                </form>
 
-                )
-            })}
-            </div>
-        </form>
+                <div className='icons-topbar'>
+                    <button onClick={refrechRestaurants} disabled={loading ? true : false}>
+                        {
+                            !loading ? <BsArrowClockwise className='icon-topbar' /> : <i className="fa fa-spinner fa-spin" style={{ fontSize: 24, width: 40, display: 'inline-block' }} />
+                        }
 
-        <div className='icons-topbar'>
-        <BsArrowClockwise className='icon-topbar' />
-        <MdAddBox className='icon-topbar' onClick={HandelButton} />
-        <ButtonsAdd buttons={buttons} setbuttons={setbuttons} />
-        </div>
-       
-        </StyleRightTopBar>
-        <StyleLeftTopBar>
-            <LoginManager />
-            <BsTextParagraph className='icon-topbar' onClick={HandelToggleBar} />
-        </StyleLeftTopBar>
-        
-    </StyleTopBar>
-  )
+
+
+                    </button>
+                    <MdAddBox className='icon-topbar' onClick={HandelButton} />
+                    <ButtonsAdd buttons={buttons} setbuttons={setbuttons} />
+                </div>
+
+            </StyleRightTopBar>
+            <StyleLeftTopBar>
+                <LoginManager />
+                <BsTextParagraph className='icon-topbar' onClick={HandelToggleBar} />
+            </StyleLeftTopBar>
+
+        </StyleTopBar>
+    )
 }
 const StyleTopBar = styled.div`
 display: flex;

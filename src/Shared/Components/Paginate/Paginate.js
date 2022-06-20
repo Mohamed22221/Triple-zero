@@ -5,11 +5,10 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const PaginateComponent = ({ pageCount, handlePageClick }) => {
-    console.log('pageCount.length', pageCount / 10 );
     return (
         <>
             {
-                pageCount  <= 10 ? null
+                pageCount <= 10 ? null
                     : <>
                         <ReactPaginate
                             pageCount={pageCount / 10}
